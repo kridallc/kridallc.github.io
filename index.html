@@ -71,15 +71,28 @@
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .nav-logo-text {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 1.3rem;
       color: var(--text);
-      text-decoration: none;
       letter-spacing: -0.02em;
     }
 
-    .nav-logo span { color: var(--accent); }
+    .nav-logo-text span { color: var(--accent); }
 
     nav ul {
       list-style: none;
@@ -121,6 +134,16 @@
       left: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 22px;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 40px rgba(79,142,247,0.35);
+      border: 1px solid rgba(79,142,247,0.25);
     }
 
     .hero-badge {
@@ -594,7 +617,10 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Krida<span>.</span></a>
+    <a href="#" class="nav-logo">
+      <img src="logo_square.jpg" alt="Krida" />
+      <span class="nav-logo-text">Krida<span>.</span></span>
+    </a>
     <ul>
       <li><a href="#apps">Apps</a></li>
       <li><a href="#about">About</a></li>
@@ -605,6 +631,7 @@
   <!-- HERO -->
   <div class="hero">
     <div class="hero-glow"></div>
+    <img src="logo_square.jpg" alt="Krida" class="hero-logo fade-in" />
     <div class="hero-badge">Spatial Computing · Science · Consumer Tech</div>
     <h1 class="fade-in">
       Building Apps<br><span class="line2">That Matter</span>
