@@ -287,7 +287,7 @@
       gap: 1.5rem;
     }
 
-    /* FEATURED APP - CrystalRoom */
+    /* FEATURED APP */
     .app-card-featured {
       background: var(--card);
       border: 1px solid var(--border);
@@ -427,9 +427,315 @@
       box-shadow: 0 6px 20px rgba(79,142,247,0.3);
     }
 
-    .app-store-btn svg {
-      width: 16px;
-      height: 16px;
+    .app-store-btn svg { width: 16px; height: 16px; }
+
+    /* ======================== */
+    /*   TIMELINE / JOURNEY     */
+    /* ======================== */
+    .timeline-section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-header { margin-bottom: 4rem; }
+
+    .timeline-container {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    /* Glowing vertical line */
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(79,142,247,0.5) 6%,
+        rgba(79,142,247,0.5) 94%,
+        transparent 100%
+      );
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 3.5rem 3rem;
+      opacity: 0;
+      transform: translateX(-16px);
+      animation: slideInLeft 0.6s ease forwards;
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.22s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.34s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.46s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.58s; }
+    .timeline-item:nth-child(6) { animation-delay: 0.70s; }
+    .timeline-item:nth-child(7) { animation-delay: 0.82s; }
+
+    @keyframes slideInLeft {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    /* Horizontal connector tick */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 13px;
+      width: 1.4rem;
+      height: 1px;
+      background: rgba(79,142,247,0.25);
+    }
+
+    /* Dot */
+    .timeline-dot {
+      position: absolute;
+      left: -2.35rem;
+      top: 7px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 10px rgba(79,142,247,0.5), 0 0 24px rgba(79,142,247,0.15);
+      transition: all 0.3s;
+      z-index: 2;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(79,142,247,0.9), 0 0 36px rgba(79,142,247,0.4);
+      transform: scale(1.25);
+    }
+
+    /* Active / current dot with pulse ring */
+    .timeline-dot.active {
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(79,142,247,1), 0 0 36px rgba(79,142,247,0.5);
+    }
+
+    .timeline-dot.active::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(79,142,247,0.45);
+      animation: ripple 2.2s ease-out infinite;
+    }
+
+    @keyframes ripple {
+      0%   { transform: scale(1);   opacity: 0.9; }
+      100% { transform: scale(2.4); opacity: 0;   }
+    }
+
+    /* Future / upcoming dot */
+    .timeline-dot.future {
+      border-color: rgba(79,142,247,0.3);
+      box-shadow: none;
+    }
+
+    /* Year label */
+    .timeline-year {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+
+    .timeline-year.dim { color: var(--muted); }
+
+    /* Title */
+    .timeline-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+
+    .timeline-title.dim { color: var(--muted); }
+
+    /* Body copy */
+    .timeline-desc {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* Pill tags */
+    .timeline-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.8rem;
+      border-radius: 100px;
+      margin-top: 0.9rem;
+    }
+
+    .tl-founded {
+      background: rgba(126,184,255,0.08);
+      border: 1px solid rgba(126,184,255,0.2);
+      color: #9ecfff;
+    }
+
+    .tl-rd {
+      background: rgba(79,142,247,0.08);
+      border: 1px solid rgba(79,142,247,0.2);
+      color: var(--accent2);
+    }
+
+    .tl-live {
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.35);
+      color: var(--accent2);
+    }
+
+    .tl-grant {
+      background: rgba(100,200,140,0.09);
+      border: 1px solid rgba(100,200,140,0.25);
+      color: #7ddba8;
+    }
+
+    /* COMMUNITY STRIP */
+    .community-section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+
+    .community-feed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .community-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+    }
+
+    .community-card::after {
+      content: '↗';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted2);
+      transition: all 0.2s;
+    }
+
+    .community-card:hover::after {
+      color: var(--accent2);
+      transform: translate(2px, -2px);
+    }
+
+    .community-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(79,142,247,0.3), transparent);
+    }
+
+    .community-card:hover {
+      border-color: rgba(79,142,247,0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .community-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .community-platform {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      background: rgba(79,142,247,0.08);
+      border: 1px solid rgba(79,142,247,0.2);
+      padding: 0.2rem 0.65rem;
+      border-radius: 100px;
+    }
+
+    .community-date {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .community-app {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .community-stats {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .community-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .community-stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .community-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2rem;
+      font-style: italic;
     }
 
     /* ABOUT */
@@ -452,10 +758,7 @@
       font-weight: 500;
     }
 
-    .about-highlights {
-      display: grid;
-      gap: 1rem;
-    }
+    .about-highlights { display: grid; gap: 1rem; }
 
     .highlight {
       background: var(--card);
@@ -491,11 +794,7 @@
     }
 
     .contact-section .section-title { margin-bottom: 1rem; }
-
-    .contact-section .section-sub {
-      margin: 0 auto 2.5rem;
-      text-align: center;
-    }
+    .contact-section .section-sub { margin: 0 auto 2.5rem; text-align: center; }
 
     .contact-email {
       display: inline-flex;
@@ -539,13 +838,9 @@
     }
 
     .footer-logo span { color: var(--accent); }
+    footer p { color: var(--muted); font-size: 0.85rem; }
 
-    footer p {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    /* ANIMATIONS */
+    /* FADE-IN */
     .fade-in {
       opacity: 0;
       transform: translateY(24px);
@@ -563,15 +858,14 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .app-card-featured,
-      .app-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+      .community-feed { grid-template-columns: 1fr; }
+      .app-card-featured, .app-card { grid-template-columns: 1fr; text-align: center; }
       .app-icon-featured, .app-icon { margin: 0 auto; }
       .app-action { text-align: center; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav ul { display: none; }
+      .timeline-container { padding-left: 1.5rem; }
+      .timeline-item { padding-left: 2.2rem; }
     }
   </style>
 </head>
@@ -585,7 +879,8 @@
     </a>
     <ul>
       <li><a href="#apps">Apps</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -594,7 +889,7 @@
   <div class="hero">
     <div class="hero-glow"></div>
     <img src="logo_square.jpg" alt="Krida" class="hero-logo fade-in" />
-    <div class="hero-badge">Spatial Computing · Science · Consumer Tech</div>
+    <div class="hero-badge">Spatial Computing · Science · Gaming · Consumer Tech</div>
     <h1 class="fade-in">
       Building Apps<br><span class="line2">That Matter</span>
     </h1>
@@ -611,17 +906,37 @@
   <section id="apps">
     <div class="section-label">Our Portfolio</div>
     <h2 class="section-title">Apps We've Built</h2>
-    <p class="section-sub">From spatial computing on Apple Vision Pro to cross-platform marketplaces — each app solves a real problem.</p>
+    <p class="section-sub">From spatial computing on Apple Vision Pro to cross-platform games and marketplaces — each app solves a real problem.</p>
 
     <div class="apps-grid">
 
-      <!-- CrystalRoom -->
+      <!-- Swarm Dodge — FEATURED (most recent, top) -->
       <div class="app-card-featured">
-        <img src="icon_CR.png" alt="CrystalRoom" class="app-icon-featured" />
+        <img src="icon_SD.png" alt="Swarm Dodge" class="app-icon-featured" />
+        <div class="app-info">
+          <div class="app-tag vision">✦ New Release · iOS · Android</div>
+          <div class="app-name-featured">Swarm Dodge</div>
+          <p class="app-desc-featured">A minimalist survival game where homing enemies hunt you down — and your only weapon is movement. Drag to move. Survive as long as you can. The arena fills with spinning blades, electric fields, and crushing walls. Every 20 seconds the rules change. 100 progressively challenging levels, daily leaderboard challenges, and collectible animal skins. Simple to learn. Nearly impossible to master.</p>
+        </div>
+        <div class="app-action" style="display:flex;flex-direction:column;gap:0.6rem;">
+          <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="app-store-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge&hl=en_US" target="_blank" class="app-store-btn" style="background:#1a1a2e;color:#fff;border:1px solid rgba(255,255,255,0.2);">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.99.2l12.6-7.27-2.72-2.72-10.87 9.79zM.5 1.5C.19 1.83 0 2.32 0 2.95v18.1c0 .63.19 1.12.51 1.45l.08.07 10.14-10.14v-.24L.58 1.43.5 1.5zm20.16 10.1l-2.89-1.67-3.04 3.04 3.04 3.04 2.9-1.68c.83-.48.83-1.26-.01-1.73zM4.17.24L16.77 7.5l-2.72 2.72L3.18.44C3.52.0 3.87-.07 4.17.24z"/></svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+
+      <!-- CrystalRoom -->
+      <div class="app-card">
+        <img src="icon_CR.png" alt="CrystalRoom" class="app-icon" />
         <div class="app-info">
           <div class="app-tag vision">✦ visionOS · Apple Vision Pro</div>
-          <div class="app-name-featured">CrystalRoom</div>
-          <p class="app-desc-featured">Visualize atomic crystal structures in immersive 3D space. Explore bonding geometry, measure distances and angles, expand supercells, and import your own CIF files. Built for researchers, students, and educators in chemistry, materials science, and crystallography.</p>
+          <div class="app-name">CrystalRoom</div>
+          <p class="app-desc">Visualize atomic crystal structures in immersive 3D space. Explore bonding geometry, measure distances and angles, expand supercells, and import your own CIF files. Built for researchers, students, and educators in chemistry, materials science, and crystallography.</p>
         </div>
         <div class="app-action">
           <a href="https://apps.apple.com/app/id6759402819" target="_blank" class="app-store-btn">
@@ -670,15 +985,167 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- IN THE COMMUNITY -->
+  <div class="community-section">
+    <div class="section-label">In the Community</div>
+    <h2 class="section-title">Out in the Wild</h2>
+    <div class="community-feed">
+
+      <a href="https://www.reddit.com/r/materials/comments/1rl7oqg/comment/o8rfa4m/" target="_blank" class="community-card" style="text-decoration:none;color:inherit;">
+        <div class="community-card-top">
+          <span class="community-platform">r/materials</span>
+          <span class="community-date">Mar 2026</span>
+        </div>
+        <div class="community-app">CrystalRoom — Launch Post</div>
+        <div class="community-stats">
+          <div>
+            <div class="community-stat-num">4.2K</div>
+            <div class="community-stat-label">Views</div>
+          </div>
+          <div>
+            <div class="community-stat-num">51</div>
+            <div class="community-stat-label">Upvotes</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.reddit.com/r/chemistry/comments/1rl68iy/tired_of_explaining_crystal_unit_cells_with_flat/" target="_blank" class="community-card" style="text-decoration:none;color:inherit;">
+        <div class="community-card-top">
+          <span class="community-platform">r/chemistry</span>
+          <span class="community-date">Mar 2026</span>
+        </div>
+        <div class="community-app">CrystalRoom — Launch Post</div>
+        <div class="community-stats">
+          <div>
+            <div class="community-stat-num">8.5K</div>
+            <div class="community-stat-label">Views</div>
+          </div>
+          <div>
+            <div class="community-stat-num">22</div>
+            <div class="community-stat-label">Upvotes</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.reddit.com/r/VisionPro/comments/1rl5yt7/i_built_a_crystal_structure_visualizer_for_apple/" target="_blank" class="community-card" style="text-decoration:none;color:inherit;">
+        <div class="community-card-top">
+          <span class="community-platform">r/visionPro</span>
+          <span class="community-date">Mar 2026</span>
+        </div>
+        <div class="community-app">CrystalRoom — Launch Post</div>
+        <div class="community-stats">
+          <div>
+            <div class="community-stat-num">2.5K</div>
+            <div class="community-stat-label">Views</div>
+          </div>
+          <div>
+            <div class="community-stat-num">16</div>
+            <div class="community-stat-label">Upvotes</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <p class="community-note">Stats recorded March 2026, two days post-launch.</p>
+  </div>
+
+  <!-- TIMELINE -->
+  <section id="journey" class="timeline-section">
+    <div class="timeline-header">
+      <div class="section-label">The Journey</div>
+      <h2 class="section-title">Four Years in the Making</h2>
+      <p class="section-sub">Built steadily, deliberately, and from scratch — every product rooted in scientific depth and engineered to last.</p>
+    </div>
+
+    <div class="timeline-container">
+
+      <!-- Founded -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">January 2022</div>
+        <div class="timeline-title">Krida LLC Founded</div>
+        <p class="timeline-desc">After nearly a decade in academic research — postdoctoral fellowships at Penn State, Sandia National Laboratories, the University of Michigan, and Colorado School of Mines — Krida LLC is established with a mission to build software that bridges rigorous science with real-world utility.</p>
+        <span class="timeline-tag tl-founded">● Founded · Golden, Colorado</span>
+      </div>
+
+      <!-- R&D Years -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022 — 2024</div>
+        <div class="timeline-title">Foundation Years — Mastering the Craft</div>
+        <p class="timeline-desc">Two and a half years of deliberate, full-stack development. Mastering Swift, SwiftUI, Flutter, Firebase, and the complete App Store submission process — building the technical foundation that every subsequent product would stand on.</p>
+        <span class="timeline-tag tl-rd">◈ R&amp;D · Swift · Flutter · Firebase</span>
+      </div>
+
+      <!-- Maths Dash -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025</div>
+        <div class="timeline-title">Maths Dash — First App Ships</div>
+        <p class="timeline-desc">The first Krida product reaches the App Store. A gamified mental math learning app for iOS built entirely in Swift and SwiftUI — a milestone not just as a product, but as proof that the company could take an idea from concept to a polished, published release.</p>
+        <span class="timeline-tag tl-live">✓ Live on App Store · iOS</span>
+      </div>
+
+      <!-- BeachBaskit -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">January 2026</div>
+        <div class="timeline-title">BeachBaskit — Cross-Platform Launch</div>
+        <p class="timeline-desc">Krida's first cross-platform consumer marketplace launches simultaneously on iOS and Android. A sustainable peer-to-peer beach gear exchange built with Flutter and Firebase — demonstrating capability well beyond a single-platform developer.</p>
+        <span class="timeline-tag tl-live">✓ Live on App Store &amp; Google Play · iOS · Android</span>
+      </div>
+
+      <!-- CrystalRoom -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">February 2026</div>
+        <div class="timeline-title">CrystalRoom — Spatial Computing Debut</div>
+        <p class="timeline-desc">CrystalRoom launches on the App Store as one of the first native visionOS apps in its category — bringing immersive 3D visualization of atomic crystal structures to Apple Vision Pro. Researchers and educators can explore bonding geometry, measure bond distances and angles, expand supercells up to 5×5×5, and import their own CIF files. A direct bridge between Krida's materials science roots and the frontier of spatial computing.</p>
+        <span class="timeline-tag tl-live">✓ Live on App Store · visionOS · Apple Vision Pro</span>
+      </div>
+
+      <!-- Swarm Dodge -->
+      <div class="timeline-item">
+        <div class="timeline-dot active"></div>
+        <div class="timeline-year">March 2026</div>
+        <div class="timeline-title">Swarm Dodge — Cross-Platform Arcade Launch</div>
+        <p class="timeline-desc">Swarm Dodge launches on both iOS and Android — a minimalist real-time survival game where homing enemies hunt you down and your only weapon is movement. 100 procedurally challenging levels, daily leaderboard competitions, roguelite rule modifiers every 20 seconds, and collectible animal skins. Built with Flutter and Flame. Free to play with a single one-time purchase to remove ads permanently.</p>
+        <span class="timeline-tag tl-live">✓ Live on App Store &amp; Google Play · iOS · Android</span>
+      </div>
+
+      <!-- VR / Enterprise simulation -->
+      <div class="timeline-item">
+        <div class="timeline-dot future"></div>
+        <div class="timeline-year dim">2026 — In Development</div>
+        <div class="timeline-title dim">Spatial Computing for Enterprise &amp; Research</div>
+        <p class="timeline-desc">Krida is developing a specialized VR simulation for high-stakes technical training, built on Apple Vision Pro. Currently working with academic and industry partners in Colorado to validate and shape the product.</p>
+        <span class="timeline-tag tl-grant">◆ In Development · visionOS · Apple Vision Pro</span>
+      </div>
+
+      <!-- Maths Dash update -->
+      <div class="timeline-item">
+        <div class="timeline-dot future"></div>
+        <div class="timeline-year dim">2026 — Coming Soon</div>
+        <div class="timeline-title dim">Maths Dash — Growing</div>
+        <p class="timeline-desc">An updated version of Maths Dash is in development, with a broader platform reach and improvements to the core experience.</p>
+        <span class="timeline-tag tl-grant">◆ Coming Soon · Maths Dash</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
   <section id="about" style="border-top: 1px solid var(--border);">
     <div class="about-grid">
       <div class="about-text">
         <div class="section-label">About Krida LLC</div>
         <h2 class="section-title">Science Meets<br>Software</h2>
-        <p>Krida LLC was founded in 2022 with a mission to build applications that combine <strong>technical depth with practical, engaging design</strong>.</p>
-        <p>Led by a founder with a research background spanning <strong>Penn State, Sandia National Laboratories, University of Michigan, and Colorado School of Mines</strong>, Krida brings scientific rigor to every product.</p>
-        <p>Our work spans spatial computing on Apple Vision Pro, cross-platform consumer apps, and science education tools — each built to solve a real problem.</p>
+        <p>Research trains you to ask hard questions and follow them wherever they lead. That same instinct led to Krida — a conviction that the depth and rigor of academic work could be channeled into building technology products from scratch.</p>
+        <p>Founded by a <strong>computational physicist</strong> with a decade of research spanning Penn State, Sandia National Laboratories, University of Michigan, and Colorado School of Mines — with 14 peer-reviewed publications and 1,200+ citations.</p>
+        <a href="about.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;">
+          Full Story &amp; Research Background
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
       <div class="about-highlights">
         <div class="highlight">
@@ -687,11 +1154,11 @@
         </div>
         <div class="highlight">
           <div class="highlight-title">Research Background</div>
-          <div class="highlight-desc">Founded by a materials scientist with postdoctoral experience at top US research institutions.</div>
+          <div class="highlight-desc">PhD in Physics, IIT Bombay Silver Medal, postdoctoral research at top US national laboratories and universities.</div>
         </div>
         <div class="highlight">
           <div class="highlight-title">Multi-Platform</div>
-          <div class="highlight-desc">Building across visionOS, iOS, and cross-platform with Swift, Flutter, Firebase, and RealityKit.</div>
+          <div class="highlight-desc">Building across visionOS, iOS, and Android with Swift, Flutter, Firebase, and RealityKit.</div>
         </div>
         <div class="highlight">
           <div class="highlight-title">Full Product Lifecycle</div>
