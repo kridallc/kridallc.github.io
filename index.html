@@ -246,43 +246,6 @@
       transform: translateY(-2px);
     }
 
-    /* STATS */
-    .stats {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      gap: 4rem;
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: rgba(13,18,32,0.5);
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-
-    .stat-num span { color: var(--accent); }
-
-    .stat-label {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
     /* SECTION */
     section {
       position: relative;
@@ -609,7 +572,6 @@
       .app-action { text-align: center; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav ul { display: none; }
-      .stats { gap: 2rem; }
     }
   </style>
 </head>
@@ -642,26 +604,6 @@
     <div class="hero-cta fade-in">
       <a href="#apps" class="btn-primary">Explore Our Apps</a>
       <a href="#contact" class="btn-secondary">Get in Touch</a>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-num">3<span>+</span></div>
-      <div class="stat-label">Apps Published</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">3<span>+</span></div>
-      <div class="stat-label">Platforms</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">2026</div>
-      <div class="stat-label">Latest Launch</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">1<span>st</span></div>
-      <div class="stat-label">visionOS App</div>
     </div>
   </div>
 
