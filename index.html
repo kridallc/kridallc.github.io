@@ -422,7 +422,57 @@
       font-size: 1rem;
       line-height: 1.7;
       max-width: 560px;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
+
+    /* HAMBURGER NAV */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--accent2); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--accent2); }
+
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 65px;
+      left: 0; right: 0;
+      background: rgba(8,12,20,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      padding: 1.2rem 2rem 1.5rem;
+      flex-direction: column;
+      gap: 0;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(79,142,247,0.08);
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--text); }
 
     .app-action { flex-shrink: 0; }
 
@@ -884,8 +934,11 @@
       .app-action { text-align: center; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       nav ul { display: none; }
+      .nav-hamburger { display: flex; }
       .timeline-container { padding-left: 1.5rem; }
       .timeline-item { padding-left: 2.2rem; }
+      .app-desc-featured { max-width: 100%; font-size: 0.92rem; }
+      .app-desc { max-width: 100%; }
     }
   </style>
   <!-- Google Analytics -->
@@ -911,7 +964,31 @@
       <li><a href="about.html">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE NAV MENU -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#apps" onclick="closeMobileMenu()">Apps</a>
+    <a href="#journey" onclick="closeMobileMenu()">Journey</a>
+    <a href="about.html">About</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+  </script>
 
   <!-- HERO -->
   <div class="hero">
@@ -1034,11 +1111,11 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num">5.9K</div>
+            <div class="community-stat-num">6.8K</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
-            <div class="community-stat-num">59</div>
+            <div class="community-stat-num">60</div>
             <div class="community-stat-label">Upvotes</div>
           </div>
         </div>
@@ -1052,7 +1129,7 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num">11K</div>
+            <div class="community-stat-num">12K</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
@@ -1070,7 +1147,7 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num">3.2K</div>
+            <div class="community-stat-num">3.4K</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
@@ -1081,7 +1158,7 @@
       </a>
 
     </div>
-    <p class="community-note">Stats recorded March 11, 2026.</p>
+    <p class="community-note">Stats recorded April 2, 2026.</p>
   </div>
 
   <!-- TIMELINE -->
@@ -1199,10 +1276,24 @@
   <div class="contact-section" id="contact">
     <div class="section-label">Get In Touch</div>
     <h2 class="section-title">Let's Work Together</h2>
-    <p class="section-sub">Interested in a research collaboration, building something together, or just want to get in touch?</p>
-    <a href="/cdn-cgi/l/email-protection#c4afb6ada0a5a8a8a784a3a9a5ada8eaa7aba9" class="contact-email">
+    <p class="section-sub">Research collaborations · App development · Licensing &amp; partnerships</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+      <div style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:190px;max-width:220px;">
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">Research</div>
+        <div style="font-size:0.85rem;color:var(--muted);line-height:1.5;">Computational physics · materials science · quantum systems</div>
+      </div>
+      <div style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:190px;max-width:220px;">
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">Development</div>
+        <div style="font-size:0.85rem;color:var(--muted);line-height:1.5;">iOS · Android · visionOS · spatial computing</div>
+      </div>
+      <div style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:190px;max-width:220px;">
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">Licensing</div>
+        <div style="font-size:0.85rem;color:var(--muted);line-height:1.5;">Technology transfer · partnerships · custom builds</div>
+      </div>
+    </div>
+    <a href="mailto:kridallc@gmail.com" class="contact-email">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-      <span class="__cf_email__" data-cfemail="a6cdd4cfc2c7cacac5e6c1cbc7cfca88c5c9cb">[email&#160;protected]</span>
+      kridallc@gmail.com
     </a>
   </div>
 
