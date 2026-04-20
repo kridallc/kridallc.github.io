@@ -648,4 +648,21 @@
 
     <!-- FOOTER -->
     <div class="footer">
-      <a h
+      <a href="https://kridallc.com">kridallc.com</a>
+      <p>© 2026 Krida LLC</p>
+    </div>
+
+  </div>
+
+  <script>
+    // On iOS, rewrite App Store links to itms-apps:// so they open the App Store app directly
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      document.querySelectorAll('a.store-btn-ios').forEach(function(a) {
+        a.href = a.href.replace('https://apps.apple.com', 'itms-apps://itunes.apple.com');
+        a.removeAttribute('target');
+      });
+    }
+  </script>
+
+</body>
+</html>
