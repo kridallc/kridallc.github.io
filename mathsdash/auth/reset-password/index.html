@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset Password — Maths Dash</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--primary:#8F4FEC;--primary-dark:#7340d4;--primary-light:rgba(143,79,236,0.08);--accent:#FED604;--text:#1a1a2e;--muted:#6b7280;--muted2:#9ca3af;--border:rgba(143,79,236,0.18);--error:#dc2626;--success:#16a34a;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:#f3f0ff;color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;}
+
+    .card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(143,79,236,0.12);animation:fadeUp 0.5s ease forwards;}
+
+    /* BRAND HEADER */
+    .brand-header{display:flex;flex-direction:column;align-items:center;margin-bottom:2rem;}
+    .brand-icon{width:56px;height:56px;border-radius:16px;background:var(--primary);display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;box-shadow:0 4px 20px rgba(143,79,236,0.35);}
+    .brand-icon svg{width:28px;height:28px;color:#fff;}
+    .brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);letter-spacing:-0.02em;}
+    .brand-name span{color:var(--primary);}
+
+    h1{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-0.03em;text-align:center;margin-bottom:0.4rem;color:var(--text);}
+    .subtitle{font-size:0.85rem;color:var(--muted);text-align:center;margin-bottom:1.75rem;line-height:1.6;}
+
+    label{display:block;font-size:0.78rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;letter-spacing:0.01em;}
+    .field{margin-bottom:1rem;}
+    input[type="email"],input[type="password"]{width:100%;background:#fafafa;border:1.5px solid #e5e7eb;border-radius:10px;padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+    input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(143,79,236,0.08);}
+    input::placeholder{color:var(--muted2);}
+
+    .btn{width:100%;background:var(--primary);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.92rem;border:none;border-radius:10px;padding:0.85rem;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;letter-spacing:0.01em;}
+    .btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(143,79,236,0.3);}
+    .btn:disabled{opacity:0.55;cursor:not-allowed;transform:none;box-shadow:none;}
+
+    .message{display:none;padding:0.85rem 1rem;border-radius:10px;font-size:0.85rem;margin-top:1rem;line-height:1.5;text-align:center;}
+    .message.error{background:#fef2f2;border:1px solid #fecaca;color:var(--error);}
+    .message.success{background:#f0fdf4;border:1px solid #bbf7d0;color:var(--success);}
+
+    /* SUCCESS STATE */
+    .success-state{display:none;text-align:center;}
+    .success-icon{font-size:3rem;margin-bottom:1rem;display:block;}
+    .success-state h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:0.5rem;color:var(--text);}
+    .success-state p{font-size:0.88rem;color:var(--muted);line-height:1.6;}
+    .accent-pill{display:inline-block;background:var(--accent);color:var(--text);font-weight:700;font-size:0.78rem;padding:0.2rem 0.75rem;border-radius:100px;margin-top:0.75rem;}
+
+    .divider{display:flex;align-items:center;gap:0.75rem;margin:1.25rem 0;}
+    .divider-line{flex:1;height:1px;background:#e5e7eb;}
+    .divider span{font-size:0.75rem;color:var(--muted2);}
+
+    .back{display:block;text-align:center;margin-top:1.25rem;font-size:0.82rem;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+    .back:hover{color:var(--primary);}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="brand-header">
+      <div class="brand-icon">
+        <!-- Lock icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <div class="brand-name">Maths<span>Dash</span></div>
+    </div>
+
+    <!-- FORM STATE -->
+    <div id="form-state">
+      <h1>Reset Password</h1>
+      <p class="subtitle">Enter your email and a new password to reset your Maths Dash account.</p>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email" />
+      </div>
+
+      <div class="divider"><div class="divider-line"></div><span>NEW PASSWORD</span><div class="divider-line"></div></div>
+
+      <div class="field">
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" placeholder="Minimum 8 characters" autocomplete="new-password" />
+      </div>
+      <div class="field">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Repeat your new password" autocomplete="new-password" />
+      </div>
+
+      <button class="btn" id="submit-btn" onclick="handleReset()">Set New Password</button>
+      <div class="message" id="error-msg"></div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-state" id="success-state">
+      <span class="success-icon">✅</span>
+      <h2>Password Updated!</h2>
+      <p>Your password has been successfully reset. Return to the Maths Dash app and sign in with your new password.</p>
+      <div class="accent-pill">Open Maths Dash to continue</div>
+    </div>
+
+    <a href="/mathsdash/" class="back">← Back to Maths Dash</a>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+    import { getAuth, verifyPasswordResetCode, confirmPasswordReset } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBXig5xaA4d5jojKfSwHkvT8XCLJVQp2mo",
+      authDomain: "mathsdash-29f85.firebaseapp.com",
+      projectId: "mathsdash-29f85",
+      storageBucket: "mathsdash-29f85.appspot.com",
+      messagingSenderId: "1093007334795",
+      appId: "1:1093007334795:ios:b5f13ba92f7d2c1116e38e"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const params = new URLSearchParams(window.location.search);
+    const oobCode = params.get('oobCode');
+
+    function showError(msg) {
+      const el = document.getElementById('error-msg');
+      el.textContent = msg;
+      el.className = 'message error';
+      el.style.display = 'block';
+    }
+
+    // No oobCode — show error immediately
+    if (!oobCode) {
+      document.getElementById('form-state').innerHTML = `
+        <div style="text-align:center;padding:1rem 0;">
+          <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">⚠️</span>
+          <h1 style="margin-bottom:0.5rem;">Invalid Link</h1>
+          <p style="font-size:0.88rem;color:#6b7280;line-height:1.6;">This password reset link is invalid or has expired.<br />Please request a new one from within the app.</p>
+        </div>
+      `;
+    } else {
+      // Pre-validate the code to fill in email if possible
+      verifyPasswordResetCode(auth, oobCode)
+        .then(email => {
+          document.getElementById('email').value = email;
+          document.getElementById('email').readOnly = true;
+        })
+        .catch(() => {
+          // Code invalid or expired — show error
+          document.getElementById('form-state').innerHTML = `
+            <div style="text-align:center;padding:1rem 0;">
+              <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">⏱️</span>
+              <h1 style="margin-bottom:0.5rem;">Link Expired</h1>
+              <p style="font-size:0.88rem;color:#6b7280;line-height:1.6;">This reset link has expired or already been used.<br />Please request a new password reset from the app.</p>
+            </div>
+          `;
+        });
+    }
+
+    window.handleReset = async function() {
+      const newPw = document.getElementById('new-password').value;
+      const confirmPw = document.getElementById('confirm-password').value;
+      const btn = document.getElementById('submit-btn');
+
+      if (!newPw || newPw.length < 8) { showError('Password must be at least 8 characters.'); return; }
+      if (newPw !== confirmPw) { showError('Passwords do not match.'); return; }
+
+      btn.disabled = true;
+      btn.textContent = 'Updating…';
+
+      try {
+        await confirmPasswordReset(auth, oobCode, newPw);
+        document.getElementById('form-state').style.display = 'none';
+        document.getElementById('success-state').style.display = 'block';
+      } catch (err) {
+        showError('Something went wrong. The link may have expired — please request a new one from the app.');
+        btn.disabled = false;
+        btn.textContent = 'Set New Password';
+      }
+    };
+  </script>
+
+</body>
+</html>
