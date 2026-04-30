@@ -637,6 +637,12 @@
       color: #7ddba8;
     }
 
+    .tl-award {
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.4);
+      color: var(--accent2);
+    }
+
     /* COMMUNITY STRIP */
     .community-section {
       position: relative;
@@ -1009,7 +1015,7 @@
   <div class="hero">
     <div class="hero-glow"></div>
     <img src="logo_square.jpg" alt="Krida" class="hero-logo fade-in" />
-    <div class="hero-badge">Spatial Computing · Science · Gaming · Consumer Tech</div>
+    <div class="hero-badge">Spatial Computing · Quantum & AI · Science · Gaming · Consumer Tech</div>
     <h1 class="fade-in">
       Building Apps<br><span class="line2">That Matter</span>
     </h1>
@@ -1022,6 +1028,21 @@
     </div>
   </div>
 
+  <!-- GRANT ANNOUNCEMENT STRIP -->
+  <div style="position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(13,18,32,0.6);backdrop-filter:blur(12px);padding:1.1rem 2rem;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-shrink:0;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;background:rgba(79,142,247,0.15);border:1px solid rgba(79,142,247,0.3);font-size:0.85rem;">⚛</span>
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--accent2);">Research Recognition</span>
+      </div>
+      <p style="font-size:0.88rem;color:var(--muted);line-height:1.5;flex:1;min-width:200px;">Krida LLC selected as recipient of the <strong style="color:var(--text);">2026 OEDIT Translational Quantum Research Seed Grant</strong>, administered by the CUbit Quantum Initiative at CU Boulder — advancing work at the intersection of Quantum and AI.</p>
+      <a href="https://www.colorado.edu/initiative/cubit/2026/04/29/colorado-advances-quantum-innovation-third-round-translational-seed-grant-awards" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:700;color:var(--accent2);text-decoration:none;white-space:nowrap;flex-shrink:0;padding:0.35rem 0.85rem;border:1px solid rgba(79,142,247,0.3);border-radius:7px;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)';this.style.background='rgba(79,142,247,0.08)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.3)';this.style.background='transparent'">
+        Read Announcement
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
+    </div>
+  </div>
+
   <!-- APPS -->
   <section id="apps">
     <div class="section-label">Our Portfolio</div>
@@ -1031,30 +1052,33 @@
     <div class="apps-grid">
 
       <!-- CrystalRoom - FEATURED (leads) -->
-      <div class="app-card-featured">
+      <a href="https://apps.apple.com/app/id6759402819" target="_blank" style="text-decoration:none;color:inherit;display:contents;">
+      <div class="app-card-featured" style="cursor:pointer;">
         <img src="icon_CR.png" alt="CrystalRoom" class="app-icon-featured" />
         <div class="app-info">
           <div class="app-tag vision">✦ New Release · visionOS · Apple Vision Pro</div>
           <div class="app-name-featured">CrystalRoom</div>
           <p class="app-desc-featured">Visualize atomic crystal structures in immersive 3D space. Explore bonding geometry, measure distances and angles, expand supercells, and import your own CIF files. Built for researchers, students, and educators in chemistry, materials science, and crystallography.</p>
         </div>
-        <div class="app-action">
+        <div class="app-action" onclick="event.stopPropagation()">
           <a href="https://apps.apple.com/app/id6759402819" target="_blank" class="app-store-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             App Store
           </a>
         </div>
       </div>
+      </a>
 
       <!-- Swarm Dodge - FEATURED -->
-      <div class="app-card-featured">
+      <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" style="text-decoration:none;color:inherit;display:contents;">
+      <div class="app-card-featured" style="cursor:pointer;">
         <img src="icon_SD.png" alt="Swarm Dodge" class="app-icon-featured" />
         <div class="app-info">
           <div class="app-tag vision">✦ New Release · iOS · Android</div>
           <div class="app-name-featured">Swarm Dodge</div>
           <p class="app-desc-featured">A minimalist survival game where homing enemies hunt you down — and your only weapon is movement. Drag to move. Survive as long as you can. The arena fills with spinning blades, electric fields, and crushing walls. Every 20 seconds the rules change. 100 progressively challenging levels, daily leaderboard challenges, and collectible animal skins. Simple to learn. Nearly impossible to master.</p>
         </div>
-        <div class="app-action" style="display:flex;flex-direction:column;gap:0.6rem;">
+        <div class="app-action" style="display:flex;flex-direction:column;gap:0.6rem;" onclick="event.stopPropagation()">
           <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="app-store-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             App Store
@@ -1065,6 +1089,7 @@
           </a>
         </div>
       </div>
+      </a>
 
       <!-- EARLIER RELEASES DIVIDER -->
       <div style="display:flex;align-items:center;gap:1rem;padding:0.5rem 0;">
@@ -1074,14 +1099,15 @@
       </div>
 
       <!-- BeachBaskit -->
-      <div class="app-card">
+      <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" style="text-decoration:none;color:inherit;display:contents;">
+      <div class="app-card" style="cursor:pointer;">
         <img src="icon_BB.png" alt="BeachBaskit" class="app-icon" style="background:#000;padding:4px;" />
         <div class="app-info">
           <div class="app-tag">iOS · Android · 2025</div>
           <div class="app-name">BeachBaskit</div>
           <p class="app-desc">A sustainable beach gear marketplace connecting beachgoers to buy, use, and resell locally. Skip traditional rentals by exchanging directly with people nearby. Built with Flutter and Firebase.</p>
         </div>
-        <div class="app-action" style="display:flex;flex-direction:column;gap:0.6rem;">
+        <div class="app-action" style="display:flex;flex-direction:column;gap:0.6rem;" onclick="event.stopPropagation()">
           <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="app-store-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             App Store
@@ -1092,22 +1118,25 @@
           </a>
         </div>
       </div>
+      </a>
 
       <!-- Maths Dash -->
-      <div class="app-card">
+      <a href="/mathsdash/" style="text-decoration:none;color:inherit;display:contents;">
+      <div class="app-card" style="cursor:pointer;">
         <img src="icon_MD.jpeg" alt="Maths Dash" class="app-icon" />
         <div class="app-info">
           <div class="app-tag">iOS · 2024</div>
           <div class="app-name">Maths Dash</div>
           <p class="app-desc">Sharpen your mind with fast-paced mental math challenges. Gamified learning that builds calculation speed and problem-solving skills through interactive, timed exercises. Built with Swift and SwiftUI.</p>
         </div>
-        <div class="app-action">
+        <div class="app-action" onclick="event.stopPropagation()">
           <a href="https://apps.apple.com/us/app/maths-dash/id6698856562" target="_blank" class="app-store-btn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             App Store
           </a>
         </div>
       </div>
+      </a>
 
     </div>
   </section>
@@ -1236,9 +1265,9 @@
       <div class="timeline-item">
         <div class="timeline-dot future"></div>
         <div class="timeline-year dim">2026 — In Development</div>
-        <div class="timeline-title dim">Spatial Computing for Enterprise &amp; Research</div>
-        <p class="timeline-desc">Krida is developing a specialized VR simulation for high-stakes technical training, built on Apple Vision Pro. Currently working with academic and industry partners in Colorado to validate and shape the product.</p>
-        <span class="timeline-tag tl-grant">◆ In Development · visionOS · Apple Vision Pro</span>
+        <div class="timeline-title dim">Quantum, AI &amp; Spatial Computing</div>
+        <p class="timeline-desc">Krida LLC has been selected as a recipient of the <strong style="color:var(--text);">2026 OEDIT Translational Quantum Research Seed Grant</strong>, administered by the CUbit Quantum Initiative at the University of Colorado Boulder on behalf of the Colorado Office of Economic Development and International Trade. Operating at the intersection of Quantum and AI, the project is being developed in collaboration with academic partners at Colorado School of Mines — bridging cutting-edge research and real-world commercialization on Apple Vision Pro.</p>
+        <span class="timeline-tag tl-award">⚛ 2026 OEDIT Grant Recipient · CUbit · CU Boulder</span>
       </div>
 
       <!-- Maths Dash update -->
