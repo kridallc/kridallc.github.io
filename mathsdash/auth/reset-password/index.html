@@ -9,7 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--primary:#8F4FEC;--primary-dark:#7340d4;--primary-light:rgba(143,79,236,0.08);--accent:#FED604;--text:#1a1a2e;--muted:#6b7280;--muted2:#9ca3af;--border:rgba(143,79,236,0.18);--error:#dc2626;--success:#16a34a;}
+    :root{
+      --primary:#8F4FEC;--primary-dark:#7340d4;--primary-light:rgba(143,79,236,0.08);
+      --accent:#FED604;--text:#1a1a2e;--muted:#6b7280;--muted2:#9ca3af;
+      --border:rgba(143,79,236,0.18);--error:#dc2626;--success:#16a34a;
+    }
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:#f3f0ff;color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;}
 
@@ -27,9 +31,30 @@
 
     label{display:block;font-size:0.78rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;letter-spacing:0.01em;}
     .field{margin-bottom:1rem;}
-    input[type="email"],input[type="password"]{width:100%;background:#fafafa;border:1.5px solid #e5e7eb;border-radius:10px;padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+
+    /* Input + eye wrapper */
+    .pw-field-wrap{position:relative;}
+    .pw-field-wrap input{padding-right:2.75rem;}
+    .eye-btn{position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);padding:0;display:flex;align-items:center;}
+    .eye-btn:hover{color:var(--primary);}
+    .eye-btn svg{width:18px;height:18px;}
+
+    input[type="email"],input[type="password"],input[type="text"]{
+      width:100%;background:#fafafa;border:1.5px solid #e5e7eb;border-radius:10px;
+      padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;
+      font-size:0.9rem;outline:none;transition:border-color 0.2s;
+    }
     input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(143,79,236,0.08);}
+    input[readonly]{background:#f5f3ff;color:var(--muted);cursor:default;}
     input::placeholder{color:var(--muted2);}
+
+    /* Password requirements */
+    .requirements{background:#f8f5ff;border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;}
+    .requirements p{font-size:0.75rem;font-weight:700;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.01em;}
+    .req{display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--muted2);padding:0.2rem 0;transition:color 0.2s;}
+    .req svg{width:14px;height:14px;flex-shrink:0;transition:all 0.2s;}
+    .req.met{color:var(--success);}
+    .req.unmet{color:var(--error);}
 
     .btn{width:100%;background:var(--primary);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.92rem;border:none;border-radius:10px;padding:0.85rem;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;letter-spacing:0.01em;}
     .btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(143,79,236,0.3);}
@@ -61,7 +86,6 @@
   <div class="card">
     <div class="brand-header">
       <div class="brand-icon">
-        <!-- Lock icon -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
@@ -73,22 +97,58 @@
     <!-- FORM STATE -->
     <div id="form-state">
       <h1>Reset Password</h1>
-      <p class="subtitle">Enter your email and a new password to reset your Maths Dash account.</p>
+      <p class="subtitle">Enter a new password for your Maths Dash account.</p>
 
       <div class="field">
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="you@example.com" autocomplete="email" />
+        <input type="email" id="email" placeholder="Loading…" autocomplete="email" readonly />
       </div>
 
       <div class="divider"><div class="divider-line"></div><span>NEW PASSWORD</span><div class="divider-line"></div></div>
 
       <div class="field">
         <label for="new-password">New Password</label>
-        <input type="password" id="new-password" placeholder="Minimum 8 characters" autocomplete="new-password" />
+        <div class="pw-field-wrap">
+          <input type="password" id="new-password" placeholder="Minimum 8 characters" autocomplete="new-password" oninput="checkRequirements()" />
+          <button class="eye-btn" type="button" onclick="toggleEye('new-password','eye1')" aria-label="Toggle password visibility">
+            <svg id="eye1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
       </div>
+
+      <!-- Live password requirements -->
+      <div class="requirements">
+        <p>Password must contain:</p>
+        <div class="req" id="req-length">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+          At least 8 characters
+        </div>
+        <div class="req" id="req-upper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+          One uppercase letter (A–Z)
+        </div>
+        <div class="req" id="req-number">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+          One number (0–9)
+        </div>
+        <div class="req" id="req-special">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+          One special character (!@#$%...)
+        </div>
+      </div>
+
       <div class="field">
         <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" placeholder="Repeat your new password" autocomplete="new-password" />
+        <div class="pw-field-wrap">
+          <input type="password" id="confirm-password" placeholder="Repeat your new password" autocomplete="new-password" />
+          <button class="eye-btn" type="button" onclick="toggleEye('confirm-password','eye2')" aria-label="Toggle confirm password visibility">
+            <svg id="eye2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
       </div>
 
       <button class="btn" id="submit-btn" onclick="handleReset()">Set New Password</button>
@@ -100,7 +160,7 @@
       <span class="success-icon">✅</span>
       <h2>Password Updated!</h2>
       <p>Your password has been successfully reset. Return to the Maths Dash app and sign in with your new password.</p>
-      <div class="accent-pill">Open Maths Dash to continue</div>
+      <div class="accent-pill">Open Maths Dash to continue ↗</div>
     </div>
 
     <a href="/mathsdash/" class="back">← Back to Maths Dash</a>
@@ -125,59 +185,111 @@
     const params = new URLSearchParams(window.location.search);
     const oobCode = params.get('oobCode');
 
+    // ── SVG icon strings ───────────────────────────────────────────────────────
+    const eyeOpen   = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
+    const eyeClosed = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>`;
+    const checkSvg  = `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>`;
+    const crossSvg  = `<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>`;
+    const circleSvg = `<circle cx="12" cy="12" r="10"/>`;
+
+    // ── Eye toggle ─────────────────────────────────────────────────────────────
+    window.toggleEye = function(inputId, svgId) {
+      const input = document.getElementById(inputId);
+      const svg   = document.getElementById(svgId);
+      const isHidden = input.type === 'password';
+      input.type   = isHidden ? 'text' : 'password';
+      svg.innerHTML = isHidden ? eyeClosed : eyeOpen;
+    };
+
+    // ── Live requirements ──────────────────────────────────────────────────────
+    window.checkRequirements = function() {
+      const pw = document.getElementById('new-password').value;
+      const rules = [
+        { id: 'req-length',  met: pw.length >= 8 },
+        { id: 'req-upper',   met: /[A-Z]/.test(pw) },
+        { id: 'req-number',  met: /[0-9]/.test(pw) },
+        { id: 'req-special', met: /[!@#$%^&*(),.?":{}|<>]/.test(pw) },
+      ];
+      rules.forEach(({ id, met }) => {
+        const el  = document.getElementById(id);
+        const svg = el.querySelector('svg');
+        if (pw.length === 0) {
+          el.className  = 'req';
+          svg.innerHTML = circleSvg;
+        } else if (met) {
+          el.className  = 'req met';
+          svg.innerHTML = checkSvg;
+        } else {
+          el.className  = 'req unmet';
+          svg.innerHTML = crossSvg;
+        }
+      });
+    };
+
+    // ── Password validation ────────────────────────────────────────────────────
+    function passwordValid(pw) {
+      return pw.length >= 8
+        && /[A-Z]/.test(pw)
+        && /[0-9]/.test(pw)
+        && /[!@#$%^&*(),.?":{}|<>]/.test(pw);
+    }
+
+    // ── Error display ──────────────────────────────────────────────────────────
     function showError(msg) {
       const el = document.getElementById('error-msg');
       el.textContent = msg;
-      el.className = 'message error';
+      el.className   = 'message error';
       el.style.display = 'block';
     }
 
-    // No oobCode — show error immediately
-    if (!oobCode) {
+    // ── Invalid / missing oobCode ──────────────────────────────────────────────
+    function showInvalidLink(emoji, title, body) {
       document.getElementById('form-state').innerHTML = `
         <div style="text-align:center;padding:1rem 0;">
-          <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">⚠️</span>
-          <h1 style="margin-bottom:0.5rem;">Invalid Link</h1>
-          <p style="font-size:0.88rem;color:#6b7280;line-height:1.6;">This password reset link is invalid or has expired.<br />Please request a new one from within the app.</p>
-        </div>
-      `;
+          <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">${emoji}</span>
+          <h1 style="margin-bottom:0.5rem;">${title}</h1>
+          <p style="font-size:0.88rem;color:#6b7280;line-height:1.6;">${body}</p>
+        </div>`;
+    }
+
+    if (!oobCode) {
+      showInvalidLink('⚠️', 'Invalid Link',
+        'This password reset link is invalid or has expired.<br/>Please request a new one from within the app.');
     } else {
-      // Pre-validate the code to fill in email if possible
+      // Pre-fill + validate the code
       verifyPasswordResetCode(auth, oobCode)
         .then(email => {
           document.getElementById('email').value = email;
-          document.getElementById('email').readOnly = true;
         })
         .catch(() => {
-          // Code invalid or expired — show error
-          document.getElementById('form-state').innerHTML = `
-            <div style="text-align:center;padding:1rem 0;">
-              <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">⏱️</span>
-              <h1 style="margin-bottom:0.5rem;">Link Expired</h1>
-              <p style="font-size:0.88rem;color:#6b7280;line-height:1.6;">This reset link has expired or already been used.<br />Please request a new password reset from the app.</p>
-            </div>
-          `;
+          showInvalidLink('⏱️', 'Link Expired',
+            'This reset link has expired or already been used.<br/>Please request a new password reset from the app.');
         });
     }
 
+    // ── Submit ─────────────────────────────────────────────────────────────────
     window.handleReset = async function() {
-      const newPw = document.getElementById('new-password').value;
+      const newPw     = document.getElementById('new-password').value;
       const confirmPw = document.getElementById('confirm-password').value;
-      const btn = document.getElementById('submit-btn');
+      const btn       = document.getElementById('submit-btn');
 
-      if (!newPw || newPw.length < 8) { showError('Password must be at least 8 characters.'); return; }
-      if (newPw !== confirmPw) { showError('Passwords do not match.'); return; }
+      if (!passwordValid(newPw)) {
+        showError('Password does not meet all requirements above.'); return;
+      }
+      if (newPw !== confirmPw) {
+        showError('Passwords do not match.'); return;
+      }
 
-      btn.disabled = true;
+      btn.disabled    = true;
       btn.textContent = 'Updating…';
 
       try {
         await confirmPasswordReset(auth, oobCode, newPw);
-        document.getElementById('form-state').style.display = 'none';
+        document.getElementById('form-state').style.display   = 'none';
         document.getElementById('success-state').style.display = 'block';
-      } catch (err) {
+      } catch {
         showError('Something went wrong. The link may have expired — please request a new one from the app.');
-        btn.disabled = false;
+        btn.disabled    = false;
         btn.textContent = 'Set New Password';
       }
     };
