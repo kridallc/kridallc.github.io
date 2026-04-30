@@ -29,16 +29,25 @@
     .page-hero{margin-bottom:2rem;opacity:0;animation:fadeUp 0.6s ease 0.05s forwards;}
     .page-hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:0.4rem;}
     .page-hero h1 span{color:var(--primary);}
-    .page-hero .meta{font-size:0.78rem;color:var(--muted2);}
+    .page-hero .meta{font-size:0.78rem;color:var(--muted2);margin-top:0.25rem;}
+    .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;opacity:0;animation:fadeUp 0.6s ease 0.1s forwards;}
+    .toc-title{font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--primary);margin-bottom:0.75rem;}
+    .toc ol{padding-left:1.25rem;}
+    .toc li{font-size:0.83rem;color:var(--muted);margin-bottom:0.25rem;}
+    .toc a{color:var(--primary);text-decoration:none;}
+    .toc a:hover{text-decoration:underline;}
     .prose{opacity:0;animation:fadeUp 0.6s ease 0.15s forwards;}
-    .prose h2{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin:2rem 0 0.55rem;letter-spacing:-0.01em;padding-top:1.5rem;border-top:1px solid var(--border);}
+    .prose h2{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text);margin:2.5rem 0 0.6rem;padding-top:1.75rem;border-top:1px solid var(--border);scroll-margin-top:80px;}
     .prose h2:first-child{border-top:none;padding-top:0;margin-top:0;}
+    .prose h3{font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--primary);margin:1.25rem 0 0.4rem;}
     .prose p{color:var(--muted);margin-bottom:0.85rem;font-size:0.93rem;}
-    .prose ul{color:var(--muted);font-size:0.93rem;padding-left:1.5rem;margin-bottom:0.85rem;}
-    .prose li{margin-bottom:0.35rem;}
+    .prose ul,.prose ol{color:var(--muted);font-size:0.93rem;padding-left:1.5rem;margin-bottom:0.85rem;}
+    .prose li{margin-bottom:0.4rem;}
     .prose strong{color:var(--text);font-weight:600;}
     .prose a{color:var(--primary);text-decoration:none;border-bottom:1px solid rgba(143,79,236,0.3);}
     .prose a:hover{border-color:var(--primary);}
+    .highlight-box{background:var(--card-bg);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:1rem 1.25rem;margin:1rem 0;}
+    .highlight-box p{margin:0;font-size:0.88rem;}
     footer{background:var(--text);padding:2.5rem 2rem;}
     .footer-inner{max-width:820px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;}
     .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;}
@@ -73,37 +82,162 @@
   <main>
     <div class="page-hero">
       <h1><span>Privacy</span> Policy</h1>
-      <p class="meta">Maths Dash · Krida LLC · Effective 2026</p>
+      <p class="meta">Maths Dash · Krida LLC · Last updated: April 2026</p>
     </div>
+
+    <div class="toc">
+      <div class="toc-title">Table of Contents</div>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#collect">Information We Collect</a></li>
+        <li><a href="#third-party">Third-Party Services</a></li>
+        <li><a href="#use">How We Use Information</a></li>
+        <li><a href="#sharing">Data Sharing and Disclosure</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#rights">Your Rights</a></li>
+        <li><a href="#ccpa">California Privacy Rights (CCPA)</a></li>
+        <li><a href="#gdpr">European Users (GDPR)</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#breach">Data Breach Notification</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </div>
+
     <div class="prose">
-      <h2>Interpretation and Definitions</h2>
-      <p>Words with initial capital letters have meanings defined under the following conditions and apply equally whether terms appear in singular or plural.</p>
+
+      <h2 id="overview">1. Overview</h2>
+      <p>Maths Dash ("the App") is developed and operated by Krida LLC, an independent app studio based in Golden, Colorado, USA ("we," "us," or "our"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and any related web pages.</p>
+      <p>By downloading and using Maths Dash, you agree to the collection and use of information in accordance with this policy. If you do not agree with any part of this policy, please discontinue use of the App.</p>
+      <div class="highlight-box"><p><strong>Summary:</strong> Maths Dash collects minimal data. We use Firebase for authentication and anonymous analytics. We do not sell your personal data. We do not store sensitive personal information on our own servers. All payments are processed by Apple.</p></div>
+
+      <h2 id="collect">2. Information We Collect</h2>
+
+      <h3>Authentication Data</h3>
+      <p>When you sign in using Apple Sign-In or Google Sign-In, we receive an authentication token from the respective provider. This token is used solely to verify your identity and maintain your session within the App. We do not receive or store your full name, email address, profile photo, or other profile information from these providers unless you explicitly choose to share it during sign-in.</p>
+
+      <h3>Usage and Analytics Data</h3>
+      <p>We use Google Analytics for Firebase to collect anonymous, aggregated usage data, including:</p>
       <ul>
-        <li><strong>Account:</strong> A unique account created for accessing our Service.</li>
-        <li><strong>Application:</strong> The software program provided by Maths Dash, available for download on electronic devices.</li>
-        <li><strong>Company:</strong> Referred to as "We," "Us," or "Our." Maths Dash is based in Colorado, U.S.A., and owned by Krida LLC.</li>
-        <li><strong>Data Controller:</strong> For GDPR purposes, Krida LLC is the Data Controller.</li>
-        <li><strong>Device:</strong> Any device that accesses the Service, such as a computer, smartphone, or tablet.</li>
-        <li><strong>Personal Data:</strong> Information that identifies an individual, as defined by the GDPR.</li>
-        <li><strong>Service:</strong> Refers to the Application.</li>
-        <li><strong>You:</strong> The individual accessing or using the Service.</li>
+        <li>App screens viewed and features used</li>
+        <li>Session duration and frequency of use</li>
+        <li>Device type, operating system version, and app version</li>
+        <li>General geographic region (country or region level only — not precise location)</li>
+        <li>Crash reports and performance diagnostics</li>
       </ul>
-      <h2>Collecting and Using Your Personal Data</h2>
-      <p>Maths Dash only uses Apple Sign-In and Google Sign-In for secure authentication. Personal Data is stored solely on your device and is never transmitted to external servers managed by Krida LLC. The app does not collect or process Personal Data beyond authentication.</p>
-      <h2>Use of Your Personal Data</h2>
-      <p>Personal Data collected through Apple and Google Sign-In is used exclusively for authentication and managing access to parts of the Service. Although Google Sign-In may display a message indicating the sharing of profile information, our app does not store or utilize any user profile data beyond the ID token required for authentication purposes. We do not access or retain information such as name, email address, language preference, or profile picture through Google Sign-In.</p>
-      <h2>Retention of Your Personal Data</h2>
-      <p>We retain Personal Data on your device only as necessary for the purposes outlined here. No Personal Data is stored on external servers managed by Krida LLC.</p>
-      <h2>Security of Your Personal Data</h2>
-      <p>The security of your Personal Data is important to us. Data is stored securely on your device.</p>
-      <h2>Your Rights under the GDPR</h2>
-      <p>If you are within the EU, you have rights to access, update, or delete Personal Data as per GDPR. Since Maths Dash does not process or transmit Personal Data to external servers, you may manage these preferences directly through Apple and Google settings.</p>
-      <h2>Children's Privacy</h2>
-      <p>Our Service does not knowingly collect data from anyone under 13. If we become aware of any data collected from a child under 13, we will delete it immediately.</p>
-      <h2>Changes to This Privacy Policy</h2>
-      <p>We may update our Privacy Policy periodically. We advise checking this page for any changes. Updates are effective when posted here.</p>
-      <h2>Contact Us</h2>
-      <p>For questions regarding this Privacy Policy, please <a href="/mathsdash/support/">contact us here</a>.</p>
+      <p>This data is aggregated and anonymized. It cannot be used to personally identify you and is used solely to improve the App's performance and user experience.</p>
+
+      <h3>Subscription and Purchase Data</h3>
+      <p>All in-app purchases and subscription management are handled entirely by Apple through the App Store. Krida LLC does not collect, process, or store your payment card information, billing address, or Apple ID credentials. We receive only an anonymized confirmation of your subscription status (active, expired, or cancelled) to grant or revoke access to premium features.</p>
+
+      <h3>Device and Technical Data</h3>
+      <p>Our third-party service providers may automatically collect certain technical information when you use the App, including your IP address (used for general location inference and security), device identifiers, and log data. This is governed by those providers' own privacy policies.</p>
+
+      <h3>Information You Voluntarily Provide</h3>
+      <p>If you contact us for support via email, we collect the information you include in that communication — such as your name, email address, and the content of your message. This is used solely to respond to your inquiry and is not shared with third parties.</p>
+
+      <h2 id="third-party">3. Third-Party Services</h2>
+      <p>Maths Dash integrates the following third-party services. Each has its own privacy policy governing data collected through their platforms:</p>
+
+      <h3>Firebase (Google LLC)</h3>
+      <p>We use Firebase Authentication to manage user sign-in, Firebase Analytics for anonymous usage insights, and Firebase Crashlytics for crash detection and diagnostics. Data collected through Firebase is subject to Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+
+      <h3>Apple Sign-In (Apple Inc.)</h3>
+      <p>Apple Sign-In is available as an authentication option. Apple may provide us with a unique user identifier and, at your option, a private relay email address. This data is used only for authentication purposes. Apple's Privacy Policy applies: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>
+
+      <h3>Google Sign-In (Google LLC)</h3>
+      <p>Google Sign-In is available as an alternative authentication option. We receive only the authentication token and a unique user identifier. We do not access, store, or use your Google profile information, email address, or contacts. Google's Privacy Policy applies: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+
+      <h3>Apple App Store (Apple Inc.)</h3>
+      <p>All subscriptions and in-app purchases are processed by Apple. Krida LLC never handles your payment details. Apple's payment and privacy policies govern all financial transactions made through the App Store.</p>
+
+      <h2 id="use">4. How We Use Information</h2>
+      <p>We use the information we collect for the following purposes only:</p>
+      <ul>
+        <li><strong>Authentication:</strong> To verify your identity and maintain your signed-in session.</li>
+        <li><strong>App Improvement:</strong> To understand how users interact with the App, identify bugs, and improve features and performance.</li>
+        <li><strong>Subscription Management:</strong> To verify your subscription status and provide appropriate access to premium content.</li>
+        <li><strong>Customer Support:</strong> To respond to your questions, feedback, and support requests.</li>
+        <li><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and lawful legal processes.</li>
+        <li><strong>Security and Fraud Prevention:</strong> To detect, prevent, and address technical issues, fraud, and abuse of the App.</li>
+      </ul>
+      <p>We do not use your information for advertising, behavioral profiling, or any purpose not listed above. We do not share data with advertising networks.</p>
+
+      <h2 id="sharing">5. Data Sharing and Disclosure</h2>
+      <p>Krida LLC does not sell, trade, rent, or otherwise transfer your personal information to third parties for commercial purposes. We may share information only in the following limited circumstances:</p>
+      <ul>
+        <li><strong>Service Providers:</strong> We share data with Google (Firebase) as described above, solely to operate the App. These providers are contractually bound to protect your data and may not use it for their own commercial purposes beyond the services they provide to us.</li>
+        <li><strong>Legal Requirements:</strong> We may disclose information if required by law, court order, governmental authority, or to protect the rights, property, or safety of Krida LLC, our users, or the public.</li>
+        <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, bankruptcy, or sale of Krida LLC's assets, user information may be transferred as part of that transaction. We will provide advance notice via the App or email before your data becomes subject to a materially different privacy policy.</li>
+        <li><strong>With Your Consent:</strong> We may share your information for any other purpose with your explicit prior consent.</li>
+      </ul>
+
+      <h2 id="retention">6. Data Retention</h2>
+      <p>We retain data only as long as necessary for the purposes outlined in this policy:</p>
+      <ul>
+        <li><strong>Authentication tokens:</strong> Stored on your device only. Cleared upon sign-out or App deletion.</li>
+        <li><strong>Firebase Analytics data:</strong> Retained by Google in accordance with their retention policies, typically up to 14 months for event-level data.</li>
+        <li><strong>Support communications:</strong> Retained for up to 2 years to track ongoing issues, then permanently deleted.</li>
+      </ul>
+      <p>You may request deletion of any data associated with your use of the App at any time by contacting us at the address in Section 14.</p>
+
+      <h2 id="security">7. Security</h2>
+      <p>We implement industry-standard security measures to protect your information, including encrypted data transmission (TLS/HTTPS for all network communications), authentication handled entirely by established providers (Apple and Google) rather than storing passwords ourselves, and Firebase's enterprise-grade security infrastructure.</p>
+      <p>No method of internet transmission or electronic storage is 100% secure. While we use commercially reasonable means to protect your information, we cannot guarantee absolute security against all threats.</p>
+
+      <h2 id="rights">8. Your Rights</h2>
+      <p>Regardless of your location, you have the following rights with respect to your personal data:</p>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
+        <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information.</li>
+        <li><strong>Deletion:</strong> Request deletion of your personal data. Since most data is held on your device or by Apple/Google, deletion is typically achieved by deleting the App, revoking Apple or Google app permissions in your device settings, or contacting us directly.</li>
+        <li><strong>Opt-out of Analytics:</strong> You may limit analytics collection by enabling "Limit Ad Tracking" in your device settings or by opting out of Firebase Analytics through your device's privacy settings.</li>
+        <li><strong>Portability:</strong> Request your data in a portable format where technically feasible.</li>
+      </ul>
+      <p>To exercise any of these rights, contact us via the <a href="/mathsdash/support/">Support page</a>. We will respond within 30 days.</p>
+
+      <h2 id="ccpa">9. California Privacy Rights (CCPA)</h2>
+      <p>If you are a California resident, the California Consumer Privacy Act (CCPA) grants you additional rights:</p>
+      <ul>
+        <li><strong>Right to Know:</strong> You have the right to request disclosure of the categories and specific pieces of personal information we collect, use, and disclose.</li>
+        <li><strong>Right to Delete:</strong> You have the right to request deletion of personal information we have collected from you, subject to certain exceptions.</li>
+        <li><strong>Right to Opt-Out of Sale:</strong> You have the right to opt out of the sale of your personal information. <strong>Krida LLC does not sell personal information.</strong></li>
+        <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising any of your CCPA rights.</li>
+      </ul>
+      <p>To submit a verifiable CCPA request, contact us using the information in Section 14. We will respond within 45 days as required by law, with a possible 45-day extension where reasonably necessary.</p>
+
+      <h2 id="gdpr">10. European Users (GDPR)</h2>
+      <p>If you are located in the European Economic Area (EEA), the United Kingdom, or Switzerland, you have rights under the General Data Protection Regulation (GDPR) or equivalent applicable law:</p>
+      <ul>
+        <li>The right to access, rectify, or erase your personal data</li>
+        <li>The right to restrict or object to processing</li>
+        <li>The right to data portability</li>
+        <li>The right to withdraw consent at any time where processing is based on consent, without affecting the lawfulness of prior processing</li>
+        <li>The right to lodge a complaint with your national supervisory authority</li>
+      </ul>
+      <p><strong>Legal basis for processing:</strong> We process your data on the basis of (a) contractual necessity — to provide the App's services; (b) legitimate interests — to improve the App and prevent abuse; and (c) compliance with legal obligations where applicable.</p>
+      <p>Krida LLC acts as the Data Controller. As we are a US-based entity, transfers of data to the US by our third-party providers (Google/Firebase) are made under standard contractual clauses or equivalent safeguards as maintained by those providers.</p>
+
+      <h2 id="children">11. Children's Privacy</h2>
+      <p>Maths Dash is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13 years of age. If you are a parent or guardian and believe your child has provided personal information to us without your consent, please contact us immediately at the address in Section 14. If we determine that we have inadvertently collected personal information from a child under 13, we will take prompt steps to delete that information from our systems.</p>
+      <p>For users in the EEA, the minimum age may be higher under local law (up to 16 years). We rely on Apple's age-gating mechanisms within the App Store to restrict access where applicable.</p>
+
+      <h2 id="breach">12. Data Breach Notification</h2>
+      <p>In the event of a data security breach that poses a risk to your rights and freedoms, Krida LLC will notify affected users without undue delay. Where required by applicable law (including GDPR Article 33), we will notify the relevant supervisory authority within 72 hours of becoming aware of the breach. User notification will be provided via email where we have your address, or via a prominent notice in the App or on our website.</p>
+
+      <h2 id="changes">13. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last updated" date at the top of this page. For significant changes, we will provide additional notice through the App or via email where required by law. Continued use of the App following the posting of changes constitutes your acceptance of the revised policy. We encourage you to review this policy periodically.</p>
+
+      <h2 id="contact">14. Contact Us</h2>
+      <p>For questions, concerns, or requests related to this Privacy Policy or your personal data, please contact:</p>
+      <ul>
+        <li><strong>Company:</strong> Krida LLC</li>
+        <li><strong>Location:</strong> Golden, Colorado, USA</li>
+        <li><strong>Contact:</strong> <a href="/mathsdash/support/">mathsdash support page</a></li>
+      </ul>
+      <p>We aim to respond to all privacy-related inquiries within 30 days. For CCPA requests, the response window is 45 days as required by law.</p>
+
     </div>
   </main>
 
