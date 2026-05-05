@@ -82,7 +82,7 @@
   <main>
     <div class="page-hero">
       <h1><span>Privacy</span> Policy</h1>
-      <p class="meta">Maths Dash · Krida LLC · Last updated: April 2026</p>
+      <p class="meta">Maths Dash · Krida LLC · Last updated: May 2026</p>
     </div>
 
     <div class="toc">
@@ -110,12 +110,22 @@
       <h2 id="overview">1. Overview</h2>
       <p>Maths Dash ("the App") is developed and operated by Krida LLC, an independent app studio based in Golden, Colorado, USA ("we," "us," or "our"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and any related web pages.</p>
       <p>By downloading and using Maths Dash, you agree to the collection and use of information in accordance with this policy. If you do not agree with any part of this policy, please discontinue use of the App.</p>
-      <div class="highlight-box"><p><strong>Summary:</strong> Maths Dash collects minimal data. We use Firebase for authentication and anonymous analytics. We do not sell your personal data. We do not store sensitive personal information on our own servers. All payments are processed by Apple.</p></div>
+      <div class="highlight-box"><p><strong>Summary:</strong> Maths Dash collects minimal data. We use Firebase for authentication, secure data storage, and anonymous analytics. We do not sell your personal data. All payments are processed by Apple.</p></div>
 
       <h2 id="collect">2. Information We Collect</h2>
 
-      <h3>Authentication Data</h3>
-      <p>When you sign in using Apple Sign-In or Google Sign-In, we receive an authentication token from the respective provider. This token is used solely to verify your identity and maintain your session within the App. We do not receive or store your full name, email address, profile photo, or other profile information from these providers unless you explicitly choose to share it during sign-in.</p>
+      <h3>Authentication and Account Data</h3>
+      <p>When you create an account or sign in using Apple Sign-In, Google Sign-In, or email and password, we collect and store the following information in our secure database (Firebase Firestore) solely to operate your account and personalise your experience:</p>
+      <ul>
+        <li><strong>Display name:</strong> The name shown within the App (defaults to "Learner" unless you provide one).</li>
+        <li><strong>Email address:</strong> Used to identify your account and enable password recovery.</li>
+        <li><strong>Account creation date and last sign-in date:</strong> Used for account management.</li>
+        <li><strong>Coin balance, streak count, and learning progress:</strong> Your in-app progress data, stored to sync your experience across sessions and devices.</li>
+      </ul>
+      <p>We do not receive or store your profile photo, contacts, or any other personal information from Apple or Google beyond what is listed above.</p>
+
+      <h3>Account Deletion</h3>
+      <p>You may delete your account and all associated data at any time from within the App via <strong>Settings → Delete Account</strong>. This permanently removes your authentication record, Firestore profile, learning progress, coin balance, and all other data associated with your account from our systems. Deletion is irreversible.</p>
 
       <h3>Usage and Analytics Data</h3>
       <p>We use Google Analytics for Firebase to collect anonymous, aggregated usage data, including:</p>
@@ -124,7 +134,7 @@
         <li>Session duration and frequency of use</li>
         <li>Device type, operating system version, and app version</li>
         <li>General geographic region (country or region level only — not precise location)</li>
-        <li>Crash reports and performance diagnostics</li>
+        <li>Crash reports and performance diagnostics via Firebase Crashlytics</li>
       </ul>
       <p>This data is aggregated and anonymized. It cannot be used to personally identify you and is used solely to improve the App's performance and user experience.</p>
 
@@ -141,13 +151,13 @@
       <p>Maths Dash integrates the following third-party services. Each has its own privacy policy governing data collected through their platforms:</p>
 
       <h3>Firebase (Google LLC)</h3>
-      <p>We use Firebase Authentication to manage user sign-in, Firebase Analytics for anonymous usage insights, and Firebase Crashlytics for crash detection and diagnostics. Data collected through Firebase is subject to Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+      <p>We use Firebase Authentication to manage user sign-in, Firebase Firestore to securely store user profiles and learning progress, Firebase Analytics for anonymous usage insights, and Firebase Crashlytics for crash detection and diagnostics. Data collected through Firebase is subject to Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
 
       <h3>Apple Sign-In (Apple Inc.)</h3>
       <p>Apple Sign-In is available as an authentication option. Apple may provide us with a unique user identifier and, at your option, a private relay email address. This data is used only for authentication purposes. Apple's Privacy Policy applies: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></p>
 
       <h3>Google Sign-In (Google LLC)</h3>
-      <p>Google Sign-In is available as an alternative authentication option. We receive only the authentication token and a unique user identifier. We do not access, store, or use your Google profile information, email address, or contacts. Google's Privacy Policy applies: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+      <p>Google Sign-In is available as an alternative authentication option. We receive only the authentication token, a unique user identifier, and your email address for account identification. We do not access, store, or use your Google contacts, calendar, or other profile information. Google's Privacy Policy applies: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
 
       <h3>Apple App Store (Apple Inc.)</h3>
       <p>All subscriptions and in-app purchases are processed by Apple. Krida LLC never handles your payment details. Apple's payment and privacy policies govern all financial transactions made through the App Store.</p>
@@ -156,6 +166,7 @@
       <p>We use the information we collect for the following purposes only:</p>
       <ul>
         <li><strong>Authentication:</strong> To verify your identity and maintain your signed-in session.</li>
+        <li><strong>Personalisation:</strong> To save and restore your learning progress, coin balance, streaks, and preferences across sessions.</li>
         <li><strong>App Improvement:</strong> To understand how users interact with the App, identify bugs, and improve features and performance.</li>
         <li><strong>Subscription Management:</strong> To verify your subscription status and provide appropriate access to premium content.</li>
         <li><strong>Customer Support:</strong> To respond to your questions, feedback, and support requests.</li>
@@ -176,14 +187,16 @@
       <h2 id="retention">6. Data Retention</h2>
       <p>We retain data only as long as necessary for the purposes outlined in this policy:</p>
       <ul>
+        <li><strong>Account and profile data:</strong> Retained until you delete your account via Settings → Delete Account, or contact us to request deletion.</li>
         <li><strong>Authentication tokens:</strong> Stored on your device only. Cleared upon sign-out or App deletion.</li>
         <li><strong>Firebase Analytics data:</strong> Retained by Google in accordance with their retention policies, typically up to 14 months for event-level data.</li>
+        <li><strong>Firebase Crashlytics data:</strong> Crash reports are retained for 90 days by Google, after which they are automatically deleted.</li>
         <li><strong>Support communications:</strong> Retained for up to 2 years to track ongoing issues, then permanently deleted.</li>
       </ul>
-      <p>You may request deletion of any data associated with your use of the App at any time by contacting us at the address in Section 14.</p>
+      <p>You may request deletion of any data associated with your use of the App at any time using the in-app delete option or by contacting us at the address in Section 14.</p>
 
       <h2 id="security">7. Security</h2>
-      <p>We implement industry-standard security measures to protect your information, including encrypted data transmission (TLS/HTTPS for all network communications), authentication handled entirely by established providers (Apple and Google) rather than storing passwords ourselves, and Firebase's enterprise-grade security infrastructure.</p>
+      <p>We implement industry-standard security measures to protect your information, including encrypted data transmission (TLS/HTTPS for all network communications), authentication handled entirely by established providers (Apple and Google) rather than storing passwords ourselves, Firebase's enterprise-grade security infrastructure with Firestore security rules, and Firebase Crashlytics for rapid identification and resolution of security-impacting bugs.</p>
       <p>No method of internet transmission or electronic storage is 100% secure. While we use commercially reasonable means to protect your information, we cannot guarantee absolute security against all threats.</p>
 
       <h2 id="rights">8. Your Rights</h2>
@@ -191,7 +204,7 @@
       <ul>
         <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
         <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information.</li>
-        <li><strong>Deletion:</strong> Request deletion of your personal data. Since most data is held on your device or by Apple/Google, deletion is typically achieved by deleting the App, revoking Apple or Google app permissions in your device settings, or contacting us directly.</li>
+        <li><strong>Deletion:</strong> Delete your account and all associated data directly within the App via Settings → Delete Account. You may also contact us to request deletion of any remaining data.</li>
         <li><strong>Opt-out of Analytics:</strong> You may limit analytics collection by enabling "Limit Ad Tracking" in your device settings or by opting out of Firebase Analytics through your device's privacy settings.</li>
         <li><strong>Portability:</strong> Request your data in a portable format where technically feasible.</li>
       </ul>
@@ -201,7 +214,7 @@
       <p>If you are a California resident, the California Consumer Privacy Act (CCPA) grants you additional rights:</p>
       <ul>
         <li><strong>Right to Know:</strong> You have the right to request disclosure of the categories and specific pieces of personal information we collect, use, and disclose.</li>
-        <li><strong>Right to Delete:</strong> You have the right to request deletion of personal information we have collected from you, subject to certain exceptions.</li>
+        <li><strong>Right to Delete:</strong> You have the right to request deletion of personal information we have collected from you, subject to certain exceptions. You may also exercise this right directly in the App via Settings → Delete Account.</li>
         <li><strong>Right to Opt-Out of Sale:</strong> You have the right to opt out of the sale of your personal information. <strong>Krida LLC does not sell personal information.</strong></li>
         <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising any of your CCPA rights.</li>
       </ul>
