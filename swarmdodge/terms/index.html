@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://kridallc.com/swarmdodge/terms/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Swarm Dodge</title>
+  <meta name="description" content="Terms of Service for Swarm Dodge by Krida LLC. Effective February 27, 2026." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta property="og:url" content="https://kridallc.com/swarmdodge/terms/" />
+  <meta property="og:title" content="Terms of Service — Swarm Dodge" />
+  <meta property="og:image" content="https://kridallc.com/icon_SD.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07080f; --bg2: #0d0f1a; --card: #111420;
+      --primary: #f97316; --primary-dark: #ea6c0a; --primary-light: rgba(249,115,22,0.1);
+      --cyan: #22d3ee;
+      --text: #f0f2f8; --muted: #8892a4; --muted2: #4a5568;
+      --border: rgba(249,115,22,0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; line-height: 1.75; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(7,8,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+    .nav-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
+    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
+
+    main { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .page-hero { margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards; }
+    .page-hero .eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
+    .page-hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+    .page-hero .meta { font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem; }
+
+    .content { opacity: 0; animation: fadeUp 0.5s ease 0.12s forwards; }
+    .content h2 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--text); margin: 2.5rem 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(249,115,22,0.12); }
+    .content p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .content ul { margin: 0.5rem 0 0.8rem 1.25rem; }
+    .content ul li { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .content a { color: var(--cyan); text-decoration: none; }
+    .content a:hover { text-decoration: underline; }
+    .content .caps { font-size: 0.88rem; }
+
+    footer { background: #040508; border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); text-align: center; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(7,8,15,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      main { padding: 3rem 1.25rem 5rem; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+</head>
+<body>
+
+  <nav>
+    <a href="/swarmdodge/" class="nav-left">
+      <img src="/icon_SD.png" alt="Swarm Dodge" class="nav-logo" />
+      <span class="nav-brand">Swarm<span>Dodge</span></span>
+    </a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/swarmdodge/">Home</a></li>
+      <li><a href="/swarmdodge/support/">Support</a></li>
+      <li><a href="/swarmdodge/privacy/">Privacy</a></li>
+      <li><a href="/swarmdodge/terms/" class="active">Terms</a></li>
+      <li><a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="nav-cta">Download</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <div class="eyebrow">Legal</div>
+      <h1>Terms of Service</h1>
+      <p class="meta">Swarm Dodge · Developed by Krida LLC · Effective Date: February 27, 2026</p>
+    </div>
+
+    <div class="content">
+      <h2>1. Acceptance of Terms</h2>
+      <p>By downloading, installing, or using Swarm Dodge (the "App"), you agree to be bound by these Terms of Service ("Terms"). These Terms constitute a legally binding agreement between you and Krida LLC ("we", "us", or "our"). If you do not agree to these Terms, do not use the App.</p>
+      <p>We reserve the right to modify these Terms at any time. Continued use of the App after any modification constitutes your acceptance of the updated Terms. We will indicate the effective date of the most recent update at the top of this document.</p>
+
+      <h2>2. License to Use</h2>
+      <p>Subject to your compliance with these Terms, Krida LLC grants you a limited, non-exclusive, non-transferable, revocable license to download and use the App on a device you own or control, solely for your personal, non-commercial entertainment purposes.</p>
+      <p>This license does not include the right to:</p>
+      <ul>
+        <li>Copy, modify, or distribute the App or any portion thereof</li>
+        <li>Reverse engineer, decompile, or disassemble the App</li>
+        <li>Rent, lease, loan, sell, or sublicense the App to any third party</li>
+        <li>Remove or alter any proprietary notices or labels on the App</li>
+        <li>Use the App for any commercial purpose without our prior written consent</li>
+      </ul>
+
+      <h2>3. Intellectual Property</h2>
+      <p>The App and all of its contents, features, and functionality — including but not limited to the game design, graphics, artwork, sounds, music, code, and text — are owned by Krida LLC and are protected by applicable intellectual property laws. "Swarm Dodge" and the Swarm Dodge logo are trademarks of Krida LLC.</p>
+
+      <h2>4. In-App Purchases</h2>
+      <p>Swarm Dodge offers a one-time in-app purchase to permanently remove advertisements from the App ("Remove Ads"). By making a purchase, you agree to the following:</p>
+      <ul>
+        <li>All purchases are processed by Apple Inc. (App Store) or Google LLC (Google Play) and are subject to their respective terms of service</li>
+        <li>Purchases are non-refundable except as required by applicable law or as provided by the platform's refund policy</li>
+        <li>The "Remove Ads" purchase is tied to your Apple ID or Google account and can be restored on devices using the same account</li>
+        <li>We reserve the right to modify, discontinue, or remove in-app purchase offerings at any time</li>
+      </ul>
+      <p>For refund requests, please contact Apple Support or Google Play Support directly, as all billing is managed by the respective platform.</p>
+
+      <h2>5. Virtual Currency and In-Game Items</h2>
+      <p>Swarm Dodge includes a virtual coin system and cosmetic items (skins) that can be earned through gameplay. These virtual items have no real-world monetary value and cannot be exchanged for real currency. You acknowledge that:</p>
+      <ul>
+        <li>Virtual coins and skins are licensed to you, not sold, and remain the property of Krida LLC</li>
+        <li>We may modify, manage, or eliminate virtual items at any time at our sole discretion</li>
+        <li>Virtual items are not transferable between accounts or devices, except where restored via platform purchase history</li>
+        <li>We are not responsible for the loss of virtual items due to device failure, App deletion, or account issues</li>
+      </ul>
+
+      <h2>6. Acceptable Use</h2>
+      <p>You agree to use the App only for lawful purposes and in a manner consistent with these Terms. You agree not to:</p>
+      <ul>
+        <li>Use any cheats, exploits, automation software, bots, or unauthorized third-party software that modifies or interferes with the App</li>
+        <li>Attempt to gain unauthorized access to any part of the App or its infrastructure</li>
+        <li>Use the App in any way that could damage, disable, or impair our services</li>
+        <li>Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the App</li>
+      </ul>
+
+      <h2>7. Leaderboards</h2>
+      <p>On iOS, Swarm Dodge integrates with Apple Game Center for leaderboard functionality. By participating in leaderboards, you agree to Apple's Game Center terms of service. We reserve the right to remove any scores that we reasonably believe were achieved through cheating, exploits, or other illegitimate means.</p>
+
+      <h2>8. Advertisements</h2>
+      <p>The free version of Swarm Dodge displays advertisements served by Google AdMob. By using the free version, you consent to the display of such advertisements. We are not responsible for the content of third-party advertisements. You may purchase the "Remove Ads" option to permanently disable advertisements.</p>
+
+      <h2>9. Disclaimer of Warranties</h2>
+      <p class="caps">THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
+
+      <h2>10. Limitation of Liability</h2>
+      <p class="caps">TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, KRIDA LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE APP. IN NO EVENT SHALL KRIDA LLC'S TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATED TO THE APP EXCEED THE AMOUNT YOU PAID TO US IN THE TWELVE MONTHS PRECEDING THE CLAIM, OR $10 USD IF YOU HAVE NOT MADE ANY PAYMENTS.</p>
+
+      <h2>11. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless Krida LLC and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or related to your use of the App or violation of these Terms.</p>
+
+      <h2>12. Termination</h2>
+      <p>We reserve the right to terminate or suspend your access to the App at any time, without notice, for any reason, including if we reasonably believe you have violated these Terms. Upon termination, your license to use the App will immediately cease. You may stop using the App at any time by uninstalling it from your device.</p>
+
+      <h2>13. Apple App Store and Google Play Additional Terms</h2>
+      <p>If you downloaded the App from the Apple App Store, you acknowledge that: (a) these Terms are between you and Krida LLC, not Apple Inc.; (b) Apple has no obligation to provide maintenance or support for the App; (c) Apple is not responsible for the App or its content; and (d) Apple is a third-party beneficiary of these Terms and may enforce them against you.</p>
+      <p>If you downloaded the App from Google Play, you acknowledge that Google LLC is not a party to these Terms and has no obligation or liability with respect to the App.</p>
+
+      <h2>14. Governing Law and Dispute Resolution</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the State of Colorado, United States, without regard to its conflict of law provisions.</p>
+      <p>Any dispute arising out of or relating to these Terms or the App shall first be attempted to be resolved through good-faith negotiation. If negotiation fails, disputes shall be submitted to binding arbitration in Denver, Colorado, under the rules of the American Arbitration Association, except that either party may seek injunctive or other equitable relief in a court of competent jurisdiction.</p>
+      <p>You agree to resolve disputes with us on an individual basis and waive any right to bring or participate in a class action lawsuit or class-wide arbitration.</p>
+
+      <h2>15. Severability</h2>
+      <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be modified to the minimum extent necessary to make it enforceable, and the remaining provisions will continue in full force and effect.</p>
+
+      <h2>16. Entire Agreement</h2>
+      <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Krida LLC with respect to the App and supersede all prior agreements, understandings, and representations relating to the App.</p>
+
+      <h2>17. Contact Us</h2>
+      <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:support@kridallc.com">support@kridallc.com</a>.</p>
+      <p style="margin-top:2rem; font-size:0.82rem; color: var(--muted2);">Last updated: February 27, 2026 · © 2026 Krida LLC</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/swarmdodge/">Home</a>
+        <a href="/swarmdodge/support/">Support</a>
+        <a href="/swarmdodge/privacy/">Privacy</a>
+        <a href="/swarmdodge/terms/">Terms of Service</a>
+        <a href="/">Krida LLC</a>
+      </div>
+      <p>© 2026 Krida LLC · All rights reserved · Apple® and the Apple logo® are trademarks of Apple Inc. · Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

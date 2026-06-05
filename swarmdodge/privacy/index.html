@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://kridallc.com/swarmdodge/privacy/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Swarm Dodge</title>
+  <meta name="description" content="Privacy Policy for Swarm Dodge by Krida LLC. Effective February 27, 2026." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta property="og:url" content="https://kridallc.com/swarmdodge/privacy/" />
+  <meta property="og:title" content="Privacy Policy — Swarm Dodge" />
+  <meta property="og:image" content="https://kridallc.com/icon_SD.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07080f; --bg2: #0d0f1a; --card: #111420;
+      --primary: #f97316; --primary-dark: #ea6c0a; --primary-light: rgba(249,115,22,0.1);
+      --cyan: #22d3ee;
+      --text: #f0f2f8; --muted: #8892a4; --muted2: #4a5568;
+      --border: rgba(249,115,22,0.15); --border-hover: rgba(249,115,22,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; line-height: 1.75; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(7,8,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+    .nav-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
+    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
+
+    main { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .page-hero { margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards; }
+    .page-hero .eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
+    .page-hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+    .page-hero .meta { font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem; }
+
+    .content { opacity: 0; animation: fadeUp 0.5s ease 0.12s forwards; }
+    .content h2 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--text); margin: 2.5rem 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(249,115,22,0.12); }
+    .content h3 { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--text); margin: 1.5rem 0 0.4rem; }
+    .content p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .content ul { margin: 0.5rem 0 0.8rem 1.25rem; }
+    .content ul li { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .content a { color: var(--cyan); text-decoration: none; }
+    .content a:hover { text-decoration: underline; }
+
+    .summary-card {
+      background: linear-gradient(135deg, #1a0800, #0d0f1a);
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 14px; padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .summary-card h2 { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 800; color: var(--primary); margin-bottom: 0.75rem; border: none; padding: 0; }
+    .summary-card ul { margin: 0 0 0 1.1rem; }
+    .summary-card ul li { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.3rem; }
+
+    footer { background: #040508; border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); text-align: center; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(7,8,15,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      main { padding: 3rem 1.25rem 5rem; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+</head>
+<body>
+
+  <nav>
+    <a href="/swarmdodge/" class="nav-left">
+      <img src="/icon_SD.png" alt="Swarm Dodge" class="nav-logo" />
+      <span class="nav-brand">Swarm<span>Dodge</span></span>
+    </a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/swarmdodge/">Home</a></li>
+      <li><a href="/swarmdodge/support/">Support</a></li>
+      <li><a href="/swarmdodge/privacy/" class="active">Privacy</a></li>
+      <li><a href="/swarmdodge/terms/">Terms</a></li>
+      <li><a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="nav-cta">Download</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Swarm Dodge · Developed by Krida LLC · Effective Date: February 27, 2026</p>
+    </div>
+
+    <div class="summary-card">
+      <h2>TL;DR — The Short Version</h2>
+      <ul>
+        <li>We don't collect your personal information directly.</li>
+        <li>Ads are served by Google AdMob, which may collect device and ad interaction data.</li>
+        <li>Game progress is stored locally on your device only — never on our servers.</li>
+        <li>iOS leaderboards use Apple Game Center, governed by Apple's privacy policy.</li>
+        <li>One purchase removes ads and ends AdMob data collection for your session.</li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h2>1. Introduction</h2>
+      <p>This Privacy Policy describes how Krida LLC ("we", "us", or "our") handles information in connection with the Swarm Dodge mobile game application ("App"), available on iOS and Android platforms. We are committed to protecting your privacy and being transparent about our data practices.</p>
+      <p>By downloading or using Swarm Dodge, you agree to the practices described in this Privacy Policy.</p>
+
+      <h2>2. Information We Collect</h2>
+      <p>Swarm Dodge does not collect, store, or transmit any personally identifiable information directly. We do not require account creation, login, or any personal details to use the App. The following data may be collected automatically through third-party services integrated into the App.</p>
+
+      <h3>2.1 Advertising Data (Google AdMob)</h3>
+      <p>Swarm Dodge uses Google AdMob to display advertisements. AdMob may collect the following data to serve relevant ads:</p>
+      <ul>
+        <li>Device Advertising ID (IDFA on iOS, GAID on Android)</li>
+        <li>Device type, model, and operating system version</li>
+        <li>IP address (used to estimate general geographic location)</li>
+        <li>Ad interaction data (impressions, clicks)</li>
+        <li>App usage data related to ad performance</li>
+      </ul>
+      <p>This data is collected and processed by Google LLC. We do not have direct access to this data. You can opt out of personalized advertising through your device settings:</p>
+      <ul>
+        <li>iOS: Settings &gt; Privacy &amp; Security &gt; Tracking &gt; disable "Allow Apps to Request to Track"</li>
+        <li>Android: Settings &gt; Google &gt; Ads &gt; "Opt out of Ads Personalization"</li>
+      </ul>
+
+      <h3>2.2 Game Progress Data</h3>
+      <p>Swarm Dodge stores the following data locally on your device only, using standard device storage (SharedPreferences). This data never leaves your device and is not transmitted to our servers:</p>
+      <ul>
+        <li>Level progress and completed levels</li>
+        <li>Best scores per level</li>
+        <li>Coin balance and owned in-game cosmetic items (skins)</li>
+        <li>Active skin selection</li>
+      </ul>
+
+      <h3>2.3 Leaderboard Data (iOS Only)</h3>
+      <p>On iOS, Swarm Dodge integrates with Apple Game Center to provide leaderboard functionality. If you are signed into Game Center, your scores may be submitted to Apple's leaderboard service. This data is governed by Apple's Privacy Policy. We do not store or process your Game Center data independently.</p>
+
+      <h2>3. How We Use Information</h2>
+      <p>We use data solely for the following purposes:</p>
+      <ul>
+        <li>To display advertisements through Google AdMob (to support the free version of the app)</li>
+        <li>To maintain your local game progress and preferences on your device</li>
+        <li>To submit scores to Apple Game Center leaderboards (iOS only, if opted in)</li>
+      </ul>
+      <p>We do not sell, rent, trade, or share your personal information with third parties for their marketing purposes.</p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>The App integrates the following third-party services, each governed by their own privacy policies:</p>
+      <ul>
+        <li>Google AdMob: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></li>
+        <li>Apple Game Center (iOS only): <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a></li>
+      </ul>
+
+      <h2>5. In-App Purchases</h2>
+      <p>Swarm Dodge offers a one-time in-app purchase to remove advertisements ("Remove Ads"). All purchase transactions are processed securely by Apple (App Store) or Google (Google Play). We do not collect, store, or have access to your payment information.</p>
+
+      <h2>6. Children's Privacy</h2>
+      <p>Swarm Dodge is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us at <a href="mailto:support@kridallc.com">support@kridallc.com</a> and we will take steps to delete such information.</p>
+
+      <h2>7. Data Retention</h2>
+      <p>Game progress data is stored locally on your device and is retained until you uninstall the App or clear the App's data through your device settings. We do not retain any personal data on our servers, as we do not operate any servers that collect user data. Data collected by Google AdMob is retained according to Google's data retention policies.</p>
+
+      <h2>8. Data Security</h2>
+      <p>We take reasonable precautions to protect the information processed through the App. Local game data is stored using standard platform security mechanisms. Advertising data is transmitted securely by Google AdMob using industry-standard encryption.</p>
+
+      <h2>9. Your Rights and Choices</h2>
+      <p>Depending on your location, you may have the following rights regarding your data:</p>
+      <ul>
+        <li>Opt out of personalized advertising through your device settings</li>
+        <li>Delete local game data by uninstalling the App or clearing App data in device settings</li>
+        <li>Request deletion of any data held by Google AdMob directly through <a href="https://myaccount.google.com/data-and-privacy" target="_blank">Google's privacy tools</a></li>
+      </ul>
+
+      <h2>10. California Privacy Rights (CCPA)</h2>
+      <p>California residents have the right to know what personal information is collected about them and to request deletion of their personal information. As described in this policy, we do not directly collect personal information. The Advertising ID collected by AdMob may be considered personal information under CCPA. To exercise your rights regarding this data, you may opt out of ad personalization through your device settings or contact Google directly.</p>
+
+      <h2>11. International Users</h2>
+      <p>Swarm Dodge is operated from the United States. If you are accessing the App from outside the United States, please be aware that data processed by our third-party services (Google AdMob) may be transferred to and processed in the United States and other countries where Google operates.</p>
+
+      <h2>12. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by updating the "Effective Date" at the top of this document. Your continued use of the App after any changes constitutes your acceptance of the updated Privacy Policy.</p>
+
+      <h2>13. Contact Us</h2>
+      <p>For questions regarding this Privacy Policy, please contact us at <a href="mailto:support@kridallc.com">support@kridallc.com</a>.</p>
+      <p style="margin-top:2rem; font-size:0.82rem; color: var(--muted2);">Last updated: February 27, 2026 · © 2026 Krida LLC</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/swarmdodge/">Home</a>
+        <a href="/swarmdodge/support/">Support</a>
+        <a href="/swarmdodge/privacy/">Privacy</a>
+        <a href="/swarmdodge/terms/">Terms of Service</a>
+        <a href="/">Krida LLC</a>
+      </div>
+      <p>© 2026 Krida LLC · All rights reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://kridallc.com/swarmdodge/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swarm Dodge — Survive the Swarm</title>
+  <meta name="description" content="You are the prey. Survive homing enemies, spinning blades, electric fields, and crushing walls. 100 levels. Daily challenges. Global leaderboards." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kridallc.com/swarmdodge/" />
+  <meta property="og:title" content="Swarm Dodge — Survive the Swarm" />
+  <meta property="og:description" content="You are the prey. Drag your finger to move. Survive as long as you can." />
+  <meta property="og:image" content="https://kridallc.com/icon_SD.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #07080f;
+      --bg2: #0d0f1a;
+      --card: #111420;
+      --card2: #161926;
+      --primary: #f97316;
+      --primary-dark: #ea6c0a;
+      --primary-light: rgba(249,115,22,0.1);
+      --primary-glow: rgba(249,115,22,0.25);
+      --cyan: #22d3ee;
+      --cyan-light: rgba(34,211,238,0.12);
+      --text: #f0f2f8;
+      --muted: #8892a4;
+      --muted2: #4a5568;
+      --border: rgba(249,115,22,0.15);
+      --border-hover: rgba(249,115,22,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7,8,15,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem; height: 58px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+    .nav-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
+    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: all 0.18s !important; }
+    .nav-cta:hover { background: var(--primary-dark) !important; transform: translateY(-1px); box-shadow: 0 4px 16px var(--primary-glow) !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
+
+    /* HERO */
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 5.5rem 2rem 4rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+    }
+
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--primary);
+      background: var(--primary-light);
+      border: 1px solid rgba(249,115,22,0.25);
+      padding: 0.25rem 0.75rem; border-radius: 100px;
+      margin-bottom: 1.25rem;
+      opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.0;
+      margin-bottom: 1.25rem; color: var(--text);
+      opacity: 0; animation: fadeUp 0.5s ease 0.12s forwards;
+    }
+    .hero h1 .prey { color: var(--primary); display: block; }
+    .hero h1 .sub { font-size: 0.55em; color: var(--muted); font-weight: 400; display: block; margin-top: 0.4rem; letter-spacing: -0.02em; }
+
+    .hero-sub {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 460px; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.5s ease 0.2s forwards;
+    }
+
+    .hero-btns {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.5s ease 0.28s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--primary); color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 0.9rem;
+      padding: 0.8rem 1.5rem; border-radius: 10px;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
+    .btn-primary svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .btn-android {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--card2); color: var(--text);
+      border: 1.5px solid var(--border);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 0.9rem;
+      padding: 0.8rem 1.4rem; border-radius: 10px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-android:hover { border-color: var(--border-hover); transform: translateY(-2px); background: var(--card); }
+    .btn-android svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
+      position: relative;
+    }
+    .icon-glow-ring {
+      position: absolute;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%);
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .app-icon-hero {
+      width: 200px; height: 200px; border-radius: 44px;
+      object-fit: cover; position: relative; z-index: 1;
+      box-shadow: 0 20px 60px rgba(249,115,22,0.3), 0 4px 20px rgba(0,0,0,0.5);
+      border: 1px solid rgba(249,115,22,0.2);
+    }
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.1); opacity: 1; } }
+
+    /* ALERT STRIP */
+    .alert-strip {
+      background: linear-gradient(90deg, #1a0800, #2a0e00, #1a0800);
+      border-top: 1px solid rgba(249,115,22,0.2);
+      border-bottom: 1px solid rgba(249,115,22,0.2);
+      padding: 0.9rem 2rem;
+      text-align: center;
+    }
+    .alert-strip p {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 0.88rem;
+      color: var(--primary); letter-spacing: 0.01em;
+    }
+    .alert-strip span { color: var(--muted); font-weight: 400; }
+
+    /* HOW TO PLAY */
+    .how-section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+    }
+    .section-eyebrow {
+      font-size: 0.68rem; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--primary);
+      font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+    .section-sub { font-size: 0.95rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 520px; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+    .how-card { background: var(--card); padding: 2rem 1.75rem; }
+    .how-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: rgba(249,115,22,0.15); line-height: 1; margin-bottom: 0.75rem; }
+    .how-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+    .how-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* FEATURES */
+    .features-section { background: var(--bg2); padding: 5rem 2rem; }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem;
+      transition: all 0.22s;
+      opacity: 0; animation: fadeUp 0.5s ease forwards;
+    }
+    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(249,115,22,0.1); }
+    .feature-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--primary-light);
+      border: 1px solid rgba(249,115,22,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; font-size: 1.2rem;
+    }
+    .feature-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+    .feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* SKINS SECTION */
+    .skins-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .skins-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .skin-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem 1rem;
+      text-align: center; transition: all 0.2s;
+    }
+    .skin-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .skin-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
+    .skin-name { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .skin-trail { font-size: 0.78rem; color: var(--muted); }
+
+    /* REVIEWS */
+    .reviews-section { background: var(--bg2); padding: 5rem 2rem; }
+    .reviews-inner { max-width: 1100px; margin: 0 auto; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem;
+    }
+    .review-stars { color: var(--primary); font-size: 0.85rem; margin-bottom: 0.75rem; letter-spacing: 0.1em; }
+    .review-card blockquote { font-size: 0.9rem; color: var(--text); line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+    .review-author { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+
+    /* CTA */
+    .cta-section { padding: 6rem 2rem; text-align: center; }
+    .cta-inner { max-width: 560px; margin: 0 auto; }
+    .cta-inner h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 1rem; }
+    .cta-inner h2 span { color: var(--primary); }
+    .cta-inner p { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-cyan {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--cyan); color: #07080f;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 0.9rem;
+      padding: 0.9rem 1.75rem; border-radius: 10px;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(34,211,238,0.25);
+    }
+    .btn-cyan:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(34,211,238,0.35); }
+    .btn-cyan svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .btn-outline-cyan {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: transparent; color: var(--cyan);
+      border: 1.5px solid rgba(34,211,238,0.35);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 0.9rem;
+      padding: 0.9rem 1.5rem; border-radius: 10px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-outline-cyan:hover { border-color: var(--cyan); background: var(--cyan-light); transform: translateY(-2px); }
+    .btn-outline-cyan svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* FOOTER */
+    footer {
+      background: #040508;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 2.5rem 2rem;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); text-align: center; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(7,8,15,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 0.6rem 0.75rem; font-size: 0.9rem; }
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem 2rem; gap: 2rem; }
+      .hero-visual { order: -1; }
+      .app-icon-hero { width: 140px; height: 140px; border-radius: 32px; }
+      .icon-glow-ring { width: 190px; height: 190px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .skins-grid { grid-template-columns: repeat(2,1fr); }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .how-section, .skins-section { padding: 3.5rem 1.25rem; }
+      .features-section, .reviews-section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+</head>
+<body>
+
+  <nav>
+    <a href="/swarmdodge/" class="nav-left">
+      <img src="/icon_SD.png" alt="Swarm Dodge" class="nav-logo" />
+      <span class="nav-brand">Swarm<span>Dodge</span></span>
+    </a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/swarmdodge/" class="active">Home</a></li>
+      <li><a href="/swarmdodge/support/">Support</a></li>
+      <li><a href="/swarmdodge/privacy/">Privacy</a></li>
+      <li><a href="/swarmdodge/terms/">Terms</a></li>
+      <li><a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="nav-cta">Download</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <div class="hero-label">🔥 iOS &amp; Android · Free to Play</div>
+      <h1>
+        <span class="prey">YOU ARE THE PREY.</span>
+        <span class="sub">Survive the swarm. How long can you last?</span>
+      </h1>
+      <p class="hero-sub">Drag your finger to move. Homing enemies close in from every direction. Spinning blades, electric fields, crushing walls, and pits fill the arena. Simple to learn. Nearly impossible to master.</p>
+      <div class="hero-btns">
+        <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge" target="_blank" class="btn-android">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
+          Google Play
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="icon-glow-ring"></div>
+      <img src="/icon_SD.png" alt="Swarm Dodge App Icon" class="app-icon-hero" />
+    </div>
+  </section>
+
+  <div class="alert-strip">
+    <p>🎯 100 levels &nbsp;·&nbsp; <span>Daily challenge</span> &nbsp;·&nbsp; Global leaderboards &nbsp;·&nbsp; <span>Remove ads — one purchase, forever</span></p>
+  </div>
+
+  <section class="how-section">
+    <div class="section-eyebrow">How to Play</div>
+    <div class="section-title">One rule. Zero mercy.</div>
+    <p class="section-sub">The entire control scheme fits in a single sentence. What happens after you start — that's a different story.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h3>Drag to Move</h3>
+        <p>Place your finger anywhere and drag. Your player follows. That's the only control you'll ever need.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h3>Don't Get Hit</h3>
+        <p>Homing enemies track your position constantly. Spinning blades, electric fields, crushing walls, and deadly pits fill the arena. All at once.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h3>Adapt or Die</h3>
+        <p>Every 20 seconds the rules change. Three new modifiers shift the game — fog descends, blades accelerate, enemies clump, your speed doubles. Every run is different.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="features-inner">
+      <div class="section-eyebrow">Features</div>
+      <div class="section-title">Built for obsession.</div>
+      <div class="features-grid">
+        <div class="feature-card" style="animation-delay:0.05s">
+          <div class="feature-icon">🎯</div>
+          <h3>100 Levels</h3>
+          <p>Work through 100 progressively challenging levels, each with unique hazard combinations. Early levels teach the arena. Later levels will break you.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.1s">
+          <div class="feature-icon">📅</div>
+          <h3>Daily Challenge</h3>
+          <p>A new challenge every day, identical for every player worldwide. Compete for the top of the daily leaderboard, then come back tomorrow.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.15s">
+          <div class="feature-icon">🏆</div>
+          <h3>Global Leaderboards</h3>
+          <p>Submit your best scores via Game Center on iOS. Prove you're the last one standing — against the whole world.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.2s">
+          <div class="feature-icon">🔄</div>
+          <h3>Dynamic Rule Changes</h3>
+          <p>Every 20 seconds, choose from three modifiers that fundamentally shift how the game plays. No two runs feel the same.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.25s">
+          <div class="feature-icon">🛡️</div>
+          <h3>Deflector Shield</h3>
+          <p>Can't see enemies hiding behind your finger? Enable the Deflector Shield in Settings to push them away. A quality-of-life feature that actually matters.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.3s">
+          <div class="feature-icon">🚫</div>
+          <h3>Remove Ads Forever</h3>
+          <p>One single purchase. No subscriptions, no energy systems, no pay-to-win. Just the game — exactly how it should be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skins-section">
+    <div class="section-eyebrow">Collect &amp; Customize</div>
+    <div class="section-title">Earn coins. Unlock skins.</div>
+    <p class="section-sub">Survive longer to earn more coins. Each animal skin comes with its own unique trail effect.</p>
+    <div class="skins-grid">
+      <div class="skin-card">
+        <span class="skin-emoji">🐇</span>
+        <div class="skin-name">Rabbit</div>
+        <div class="skin-trail">Leaves dust puffs</div>
+      </div>
+      <div class="skin-card">
+        <span class="skin-emoji">🐟</span>
+        <div class="skin-name">Fish</div>
+        <div class="skin-trail">Blows bubbles</div>
+      </div>
+      <div class="skin-card">
+        <span class="skin-emoji">🐝</span>
+        <div class="skin-name">Bee</div>
+        <div class="skin-trail">Sparks yellow</div>
+      </div>
+      <div class="skin-card">
+        <span class="skin-emoji">🐭</span>
+        <div class="skin-name">Mouse</div>
+        <div class="skin-trail">Silent footprints</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <div class="reviews-inner">
+      <div class="section-eyebrow">Reviews</div>
+      <div class="section-title">5.0 on the App Store.</div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <blockquote>"Really liked the fact that it's a simple skill and strategy game. Running from swarm and using environment to protect yourself."</blockquote>
+          <div class="review-author">MSciQ26 · App Store</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <blockquote>"Luring enemies into hazards adds a clever layer of gameplay. Every run feels different."</blockquote>
+          <div class="review-author">Molly.MG · App Store</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <blockquote>"The visuals are sleek, and the mechanics are intuitive. A great arcade experience."</blockquote>
+          <div class="review-author">MathPro2 · App Store</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready to be <span>hunted?</span></h2>
+      <p>Free to download. Available on iOS and Android. One optional purchase removes ads forever.</p>
+      <div class="cta-btns">
+        <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="btn-cyan">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge" target="_blank" class="btn-outline-cyan">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
+          Google Play
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/swarmdodge/">Home</a>
+        <a href="/swarmdodge/support/">Support</a>
+        <a href="/swarmdodge/privacy/">Privacy</a>
+        <a href="/swarmdodge/terms/">Terms of Service</a>
+        <a href="/">Krida LLC</a>
+      </div>
+      <p>© 2026 Krida LLC · All rights reserved · Apple® and the Apple logo® are trademarks of Apple Inc. · Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
