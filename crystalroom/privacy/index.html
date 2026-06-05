@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://kridallc.com/crystalroom/privacy/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — CrystalRoom</title>
+  <meta name="description" content="Privacy Policy for CrystalRoom by Krida LLC. CrystalRoom collects no personal data." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta property="og:url" content="https://kridallc.com/crystalroom/privacy/" />
+  <meta property="og:title" content="Privacy Policy — CrystalRoom" />
+  <meta property="og:image" content="https://kridallc.com/icon_CR.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #050818; --bg2: #080d20; --card: #0c1228;
+      --primary: #38bdf8; --primary-dark: #0ea5e9; --primary-light: rgba(56,189,248,0.08);
+      --violet: #818cf8;
+      --text: #e8f0fe; --muted: #7a90b8; --muted2: #3a4a6a;
+      --border: rgba(56,189,248,0.14); --border-hover: rgba(56,189,248,0.38);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; line-height: 1.75; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(5,8,24,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+    .nav-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
+    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: var(--bg) !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
+
+    main { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .page-hero { margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards; }
+    .page-hero .eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
+    .page-hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+    .page-hero .meta { font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem; }
+
+    .summary-card {
+      background: linear-gradient(135deg, #060d24, #080d20);
+      border: 1px solid rgba(56,189,248,0.22);
+      border-radius: 14px; padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .summary-card h2 { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 800; color: var(--primary); margin-bottom: 0.75rem; }
+    .summary-card ul { margin: 0 0 0 1.1rem; }
+    .summary-card ul li { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.3rem; }
+
+    .content { opacity: 0; animation: fadeUp 0.5s ease 0.12s forwards; }
+    .content h2 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--text); margin: 2.5rem 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(56,189,248,0.1); }
+    .content h3 { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--text); margin: 1.5rem 0 0.4rem; }
+    .content p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .content ul { margin: 0.5rem 0 0.8rem 1.25rem; }
+    .content ul li { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .content a { color: var(--primary); text-decoration: none; }
+    .content a:hover { text-decoration: underline; }
+
+    footer { background: #020510; border-top: 1px solid rgba(255,255,255,0.04); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.18); text-align: center; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(5,8,24,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      main { padding: 3rem 1.25rem 5rem; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+</head>
+<body>
+
+  <nav>
+    <a href="/crystalroom/" class="nav-left">
+      <img src="/icon_CR.png" alt="CrystalRoom" class="nav-logo" />
+      <span class="nav-brand">Crystal<span>Room</span></span>
+    </a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/crystalroom/">Home</a></li>
+      <li><a href="/crystalroom/support/">Support</a></li>
+      <li><a href="/crystalroom/privacy/" class="active">Privacy</a></li>
+      <li><a href="/crystalroom/terms/">Terms</a></li>
+      <li><a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" class="nav-cta">Get on Vision Pro</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">CrystalRoom · Developed by Krida LLC · Effective Date: March 1, 2026</p>
+    </div>
+
+    <div class="summary-card">
+      <h2>TL;DR — The Short Version</h2>
+      <ul>
+        <li>CrystalRoom collects <strong>no personal data</strong> whatsoever.</li>
+        <li>No account creation or login is required.</li>
+        <li>All crystal structure data is bundled with the app or loaded locally from files you provide.</li>
+        <li>In-app purchases are processed entirely by Apple — we never see your payment details.</li>
+        <li>This is one of the most privacy-respecting apps you'll ever use.</li>
+      </ul>
+    </div>
+
+    <div class="content">
+
+      <h2>Interpretation and Definitions</h2>
+      <p>Words with initial capital letters have meanings defined under the following conditions and apply equally whether terms appear in singular or plural.</p>
+      <ul>
+        <li><strong>Application:</strong> The CrystalRoom software program, available for Apple Vision Pro.</li>
+        <li><strong>Company:</strong> Referred to as "we," "us," or "our" — Krida LLC, based in Colorado, U.S.A.</li>
+        <li><strong>Data Controller:</strong> For GDPR purposes, Krida LLC is the Data Controller.</li>
+        <li><strong>Device:</strong> Any Apple Vision Pro device that accesses the Application.</li>
+        <li><strong>Personal Data:</strong> Any information that identifies or can be used to identify an individual.</li>
+        <li><strong>Service:</strong> Refers to the Application.</li>
+        <li><strong>You:</strong> The individual accessing or using the Service.</li>
+      </ul>
+
+      <h2>Collecting and Using Your Personal Data</h2>
+      <p>CrystalRoom does not collect, store, or transmit any Personal Data. No account creation or authentication is required to use the app. All crystal structure data is either bundled with the app or loaded locally from files you provide on your own device.</p>
+      <p>We do not operate any servers that receive data from the app. There are no analytics SDKs, advertising SDKs, or tracking frameworks integrated into CrystalRoom.</p>
+
+      <h2>In-App Purchases</h2>
+      <p>CrystalRoom offers a one-time in-app purchase (CIF Import Unlock, $4.99) to enable importing custom CIF files. All payment transactions are processed securely by Apple through the App Store. Krida LLC does not collect, store, or have access to any payment information. Purchase restoration is handled through your Apple ID by Apple's systems.</p>
+
+      <h2>Locally Stored Data</h2>
+      <p>CrystalRoom may store your preferences (such as display settings and the last-opened structure) locally on your device using standard visionOS storage mechanisms. This data never leaves your device and is not transmitted anywhere. It is deleted when you uninstall the app.</p>
+
+      <h2>Retention of Your Personal Data</h2>
+      <p>Since CrystalRoom does not collect Personal Data, no data retention policy applies on our end. Local preferences are retained on your device until you delete the app.</p>
+
+      <h2>Security</h2>
+      <p>Because no Personal Data is collected or transmitted, there is no associated data security risk from our application. Your crystal structure files (CIF files) are processed entirely on your device and are never sent to our servers.</p>
+
+      <h2>Your Rights under the GDPR</h2>
+      <p>Since CrystalRoom does not process or transmit Personal Data, no GDPR data management actions are required on our part. For users in the European Economic Area or United Kingdom, your privacy is fully respected — we simply have no data to manage.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>CrystalRoom does not knowingly collect data from anyone under the age of 13. The app collects no data from any user regardless of age. CrystalRoom is rated 4+ on the App Store and is suitable for all audiences.</p>
+
+      <h2>Third-Party Services</h2>
+      <p>CrystalRoom does not integrate any third-party analytics, advertising, or tracking services. The only external interaction is with Apple's App Store for the CIF Import in-app purchase, which is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</p>
+
+      <h2>Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy periodically. Changes are effective when posted at this URL. We encourage you to check this page occasionally. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>Contact Us</h2>
+      <p>For questions regarding this Privacy Policy, please contact us at <a href="mailto:support@kridallc.com">support@kridallc.com</a>.</p>
+      <p style="margin-top:2rem; font-size:0.82rem; color: var(--muted2);">Last updated: March 1, 2026 · © 2026 Krida LLC</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/crystalroom/">Home</a>
+        <a href="/crystalroom/support/">Support</a>
+        <a href="/crystalroom/privacy/">Privacy</a>
+        <a href="/crystalroom/terms/">Terms of Service</a>
+        <a href="/">Krida LLC</a>
+      </div>
+      <p>© 2026 Krida LLC · All rights reserved · Apple® and Apple Vision Pro® are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
