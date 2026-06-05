@@ -234,23 +234,13 @@
     }
     .gallery-track::-webkit-scrollbar { display: none; }
     .gallery-slide {
-      flex: 0 0 auto;
-      width: min(780px, 88vw);
-      scroll-snap-align: center;
-      border-radius: 18px; overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--card);
+      flex: 0 0 auto; width: min(780px, 88vw);
+      scroll-snap-align: center; border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border); background: var(--card);
     }
-    .gallery-slide img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover; }
+    .gallery-slide img { width: 100%; height: auto; display: block; object-fit: cover; }
     .gallery-slide .slide-caption { padding: 0.9rem 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
     .gallery-slide .slide-caption strong { color: var(--text); font-weight: 600; }
-    .gallery-slide.placeholder { background: var(--card2); border: 1px dashed rgba(56,189,248,0.2); }
-    .gallery-slide.placeholder .slide-ph {
-      aspect-ratio: 16/10;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
-    }
-    .gallery-slide.placeholder .ph-label { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; color: rgba(56,189,248,0.35); text-transform: uppercase; letter-spacing: 0.12em; }
-    .gallery-slide.placeholder .ph-name { font-size: 0.72rem; color: var(--muted2); }
     .gallery-nav { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; }
     .gallery-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted2); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
     .gallery-dot.active { background: var(--primary); width: 20px; border-radius: 3px; }
@@ -485,41 +475,24 @@
       <p class="section-sub" style="margin-bottom:0;">CrystalRoom running on Apple Vision Pro — rotate, explore, and step inside crystal structures in true 3D space.</p>
       <div class="gallery-track-wrap">
         <div class="gallery-track" id="galleryTrack">
-
-          <div class="gallery-slide placeholder">
-            <div class="slide-ph">
-              <div class="ph-label">Screenshot 1</div>
-              <div class="ph-name">/crystalroom/screenshot_1.png</div>
-            </div>
-            <div class="slide-caption"><strong>Main View</strong> — Replace with your App Store screenshot. Store images in the <code>crystalroom/</code> subfolder and update <code>src</code> values below.</div>
+          <div class="gallery-slide">
+            <img src="/crystalroom/Screenshot_1.png" alt="CrystalRoom screenshot 1" />
+            <div class="slide-caption"><strong>Main View</strong> — Explore six built-in crystal structures in full 3D. Rotate, zoom, and inspect from any angle.</div>
           </div>
-
-          <div class="gallery-slide placeholder">
-            <div class="slide-ph">
-              <div class="ph-label">Screenshot 2</div>
-              <div class="ph-name">/crystalroom/screenshot_2.png</div>
-            </div>
-            <div class="slide-caption"><strong>Immersive Space</strong> — Crystal structure placed in your room via visionOS Immersive Space mode.</div>
+          <div class="gallery-slide">
+            <img src="/crystalroom/Screenshot_2.png" alt="CrystalRoom screenshot 2" />
+            <div class="slide-caption"><strong>Immersive Space</strong> — Place your crystal structure in your room via visionOS Immersive Space mode.</div>
           </div>
-
-          <div class="gallery-slide placeholder">
-            <div class="slide-ph">
-              <div class="ph-label">Screenshot 3</div>
-              <div class="ph-name">/crystalroom/screenshot_3.png</div>
-            </div>
+          <div class="gallery-slide">
+            <img src="/crystalroom/Screenshot_3.png" alt="CrystalRoom screenshot 3" />
             <div class="slide-caption"><strong>Bond Measurement</strong> — Tap atoms to measure bond distances and angles in real time.</div>
           </div>
-
-          <div class="gallery-slide placeholder">
-            <div class="slide-ph">
-              <div class="ph-label">Screenshot 4</div>
-              <div class="ph-name">/crystalroom/screenshot_4.png</div>
-            </div>
+          <div class="gallery-slide">
+            <img src="/crystalroom/Screenshot_4.png" alt="CrystalRoom screenshot 4" />
             <div class="slide-caption"><strong>Supercell Expansion</strong> — Expand any structure up to 5×5×5 to visualize the full periodic lattice.</div>
           </div>
-
         </div>
-        <div class="gallery-nav" id="galleryNav">
+        <div class="gallery-nav">
           <button class="gallery-arr" onclick="slideGallery(-1)" aria-label="Previous">&#8592;</button>
           <button class="gallery-dot active" onclick="goToSlide(0)"></button>
           <button class="gallery-dot" onclick="goToSlide(1)"></button>
@@ -530,35 +503,27 @@
       </div>
     </div>
   </section>
-
   <script>
     const track = document.getElementById('galleryTrack');
     const dots = document.querySelectorAll('.gallery-dot');
     let current = 0;
-    function updateDots(idx) {
-      dots.forEach((d,i) => d.classList.toggle('active', i === idx));
-      current = idx;
-    }
+    function updateDots(idx) { dots.forEach((d,i) => d.classList.toggle('active', i===idx)); current=idx; }
     function goToSlide(idx) {
       const slides = track.querySelectorAll('.gallery-slide');
       if (!slides[idx]) return;
-      track.scrollTo({ left: slides[idx].offsetLeft - (track.clientWidth - slides[idx].offsetWidth) / 2, behavior: 'smooth' });
+      track.scrollTo({ left: slides[idx].offsetLeft - (track.clientWidth - slides[idx].offsetWidth)/2, behavior:'smooth' });
       updateDots(idx);
     }
     function slideGallery(dir) {
       const slides = track.querySelectorAll('.gallery-slide');
-      const next = Math.max(0, Math.min(slides.length - 1, current + dir));
-      goToSlide(next);
+      goToSlide(Math.max(0, Math.min(slides.length-1, current+dir)));
     }
     track.addEventListener('scroll', () => {
       const slides = track.querySelectorAll('.gallery-slide');
-      let closest = 0, minDist = Infinity;
-      slides.forEach((s, i) => {
-        const dist = Math.abs(s.getBoundingClientRect().left - track.getBoundingClientRect().left);
-        if (dist < minDist) { minDist = dist; closest = i; }
-      });
+      let closest=0, minDist=Infinity;
+      slides.forEach((s,i) => { const d=Math.abs(s.getBoundingClientRect().left - track.getBoundingClientRect().left); if(d<minDist){minDist=d;closest=i;} });
       updateDots(closest);
-    }, { passive: true });
+    }, {passive:true});
   </script>
 
   <!-- CIF IMPORT -->
