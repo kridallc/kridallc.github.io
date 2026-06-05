@@ -221,37 +221,55 @@
     .audience-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
     .audience-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
 
+    /* SCREENSHOT GALLERY */
+    .gallery-section { padding: 5rem 2rem; overflow: hidden; }
+    .gallery-inner { max-width: 1100px; margin: 0 auto; }
+    .gallery-track-wrap { position: relative; margin-top: 2.5rem; }
+    .gallery-track {
+      display: flex; gap: 1.25rem;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; padding-bottom: 0.5rem;
+      scroll-behavior: smooth;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-slide {
+      flex: 0 0 auto;
+      width: min(780px, 88vw);
+      scroll-snap-align: center;
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .gallery-slide img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover; }
+    .gallery-slide .slide-caption { padding: 0.9rem 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .gallery-slide .slide-caption strong { color: var(--text); font-weight: 600; }
+    .gallery-slide.placeholder { background: var(--card2); border: 1px dashed rgba(56,189,248,0.2); }
+    .gallery-slide.placeholder .slide-ph {
+      aspect-ratio: 16/10;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .gallery-slide.placeholder .ph-label { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; color: rgba(56,189,248,0.35); text-transform: uppercase; letter-spacing: 0.12em; }
+    .gallery-slide.placeholder .ph-name { font-size: 0.72rem; color: var(--muted2); }
+    .gallery-nav { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; }
+    .gallery-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted2); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+    .gallery-dot.active { background: var(--primary); width: 20px; border-radius: 3px; }
+    .gallery-arr { background: var(--card); border: 1px solid var(--border); color: var(--muted); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.18s; font-size: 1rem; flex-shrink: 0; margin: 0 0.25rem; }
+    .gallery-arr:hover { border-color: var(--border-hover); color: var(--primary); }
+
     /* CIF SECTION */
-    .cif-section {
-      background: var(--bg2);
-      padding: 5rem 2rem;
-    }
-    .cif-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
+    .cif-section { background: var(--bg2); padding: 5rem 2rem; }
+    .cif-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .cif-inner h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); margin-bottom: 1rem; }
     .cif-inner h2 span { color: var(--primary); }
     .cif-inner p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
-    .cif-price-pill {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--primary-light); border: 1px solid rgba(56,189,248,0.25);
-      border-radius: 100px; padding: 0.35rem 1rem;
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.88rem; color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
+    .cif-free-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-light); border: 1px solid rgba(56,189,248,0.25); border-radius: 100px; padding: 0.35rem 1rem; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.88rem; color: var(--primary); margin-bottom: 1.5rem; }
     .cif-points { list-style: none; }
     .cif-points li { font-size: 0.88rem; color: var(--muted); padding: 0.3rem 0; padding-left: 1.2rem; position: relative; }
     .cif-points li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-size: 0.75rem; top: 0.38rem; }
     .cif-visual { display: flex; justify-content: center; align-items: center; }
-    .cif-badge {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px; padding: 2.5rem;
-      text-align: center;
-      box-shadow: 0 0 60px rgba(56,189,248,0.06);
-    }
-    .cif-badge .price { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; color: var(--primary); line-height: 1; }
+    .cif-badge { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; text-align: center; box-shadow: 0 0 60px rgba(56,189,248,0.06); }
+    .cif-badge .free-label { font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800; color: var(--primary); line-height: 1; }
     .cif-badge .price-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; margin-bottom: 1rem; }
     .cif-badge .one-time { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--violet); }
     .cif-badge .family { font-size: 0.75rem; color: var(--muted); margin-top: 0.4rem; }
@@ -347,7 +365,7 @@
   </section>
 
   <div class="vision-strip">
-    <p>✦ Exclusively on Apple Vision Pro &nbsp;·&nbsp; <span>Free to download · CIF Import unlock $4.99 · Family Sharing enabled</span></p>
+    <p>✦ Exclusively on Apple Vision Pro &nbsp;·&nbsp; <span>Free to download · 6 built-in crystal structures · CIF Import included · Family Sharing enabled</span></p>
   </div>
 
   <!-- BUILT-IN CRYSTALS -->
@@ -459,28 +477,112 @@
     </div>
   </section>
 
+  <!-- SCREENSHOT GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery-inner">
+      <div class="section-eyebrow">Screenshots</div>
+      <div class="section-title">See it in spatial computing.</div>
+      <p class="section-sub" style="margin-bottom:0;">CrystalRoom running on Apple Vision Pro — rotate, explore, and step inside crystal structures in true 3D space.</p>
+      <div class="gallery-track-wrap">
+        <div class="gallery-track" id="galleryTrack">
+
+          <div class="gallery-slide placeholder">
+            <div class="slide-ph">
+              <div class="ph-label">Screenshot 1</div>
+              <div class="ph-name">/crystalroom/screenshot_1.png</div>
+            </div>
+            <div class="slide-caption"><strong>Main View</strong> — Replace with your App Store screenshot. Store images in the <code>crystalroom/</code> subfolder and update <code>src</code> values below.</div>
+          </div>
+
+          <div class="gallery-slide placeholder">
+            <div class="slide-ph">
+              <div class="ph-label">Screenshot 2</div>
+              <div class="ph-name">/crystalroom/screenshot_2.png</div>
+            </div>
+            <div class="slide-caption"><strong>Immersive Space</strong> — Crystal structure placed in your room via visionOS Immersive Space mode.</div>
+          </div>
+
+          <div class="gallery-slide placeholder">
+            <div class="slide-ph">
+              <div class="ph-label">Screenshot 3</div>
+              <div class="ph-name">/crystalroom/screenshot_3.png</div>
+            </div>
+            <div class="slide-caption"><strong>Bond Measurement</strong> — Tap atoms to measure bond distances and angles in real time.</div>
+          </div>
+
+          <div class="gallery-slide placeholder">
+            <div class="slide-ph">
+              <div class="ph-label">Screenshot 4</div>
+              <div class="ph-name">/crystalroom/screenshot_4.png</div>
+            </div>
+            <div class="slide-caption"><strong>Supercell Expansion</strong> — Expand any structure up to 5×5×5 to visualize the full periodic lattice.</div>
+          </div>
+
+        </div>
+        <div class="gallery-nav" id="galleryNav">
+          <button class="gallery-arr" onclick="slideGallery(-1)" aria-label="Previous">&#8592;</button>
+          <button class="gallery-dot active" onclick="goToSlide(0)"></button>
+          <button class="gallery-dot" onclick="goToSlide(1)"></button>
+          <button class="gallery-dot" onclick="goToSlide(2)"></button>
+          <button class="gallery-dot" onclick="goToSlide(3)"></button>
+          <button class="gallery-arr" onclick="slideGallery(1)" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const track = document.getElementById('galleryTrack');
+    const dots = document.querySelectorAll('.gallery-dot');
+    let current = 0;
+    function updateDots(idx) {
+      dots.forEach((d,i) => d.classList.toggle('active', i === idx));
+      current = idx;
+    }
+    function goToSlide(idx) {
+      const slides = track.querySelectorAll('.gallery-slide');
+      if (!slides[idx]) return;
+      track.scrollTo({ left: slides[idx].offsetLeft - (track.clientWidth - slides[idx].offsetWidth) / 2, behavior: 'smooth' });
+      updateDots(idx);
+    }
+    function slideGallery(dir) {
+      const slides = track.querySelectorAll('.gallery-slide');
+      const next = Math.max(0, Math.min(slides.length - 1, current + dir));
+      goToSlide(next);
+    }
+    track.addEventListener('scroll', () => {
+      const slides = track.querySelectorAll('.gallery-slide');
+      let closest = 0, minDist = Infinity;
+      slides.forEach((s, i) => {
+        const dist = Math.abs(s.getBoundingClientRect().left - track.getBoundingClientRect().left);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      updateDots(closest);
+    }, { passive: true });
+  </script>
+
   <!-- CIF IMPORT -->
   <section class="cif-section">
     <div class="cif-inner">
       <div>
         <div class="section-eyebrow">CIF Import</div>
         <h2>Bring your own <span>structures.</span></h2>
-        <div class="cif-price-pill">✦ One-time unlock · $4.99</div>
-        <p>CIF (Crystallographic Information File) is the universal standard for crystal structure data. With CIF Import unlocked, you can load any structure from databases like the ICSD, COD, or your own research files.</p>
-        <p>The unlock is a one-time purchase — no subscription, no expiry. Family Sharing enabled.</p>
+        <div class="cif-free-pill">✦ Included · No purchase required</div>
+        <p>CIF (Crystallographic Information File) is the universal standard for crystal structure data. CIF Import is fully included with CrystalRoom — load any structure from databases like the ICSD, COD, or your own research files, with no additional unlock required.</p>
+        <p>The full app experience is available to all users. Import, explore, measure, and expand any valid CIF structure alongside the six built-in crystals.</p>
         <ul class="cif-points">
           <li>Load any valid CIF file from Files, email, or external sources</li>
           <li>Same full 3D interaction, supercell expansion, and measurement tools</li>
           <li>Works with structures from ICSD, COD, Cambridge Structural Database, and more</li>
-          <li>Restore purchase on any device with the same Apple ID</li>
+          <li>Available on every device with your Apple ID — no restore needed</li>
         </ul>
       </div>
       <div class="cif-visual">
         <div class="cif-badge">
-          <div class="price">$4.99</div>
-          <div class="price-label">CIF Import Unlock</div>
-          <div class="one-time">One-time purchase</div>
-          <div class="family">Family Sharing · No subscription</div>
+          <div class="free-label">Free</div>
+          <div class="price-label">CIF Import — included</div>
+          <div class="one-time">No purchase · No unlock</div>
+          <div class="family">Full app · All features included</div>
         </div>
       </div>
     </div>
@@ -490,7 +592,7 @@
   <section class="cta-section">
     <div class="cta-inner">
       <h2>See matter <span>differently.</span></h2>
-      <p>CrystalRoom is free to download on Apple Vision Pro. Unlock CIF Import for $4.99 to explore your own structures.</p>
+      <p>CrystalRoom is free to download on Apple Vision Pro. All features — including CIF Import — are fully included.</p>
       <div class="cta-btns">
         <a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" class="btn-primary">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
