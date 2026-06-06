@@ -309,7 +309,7 @@
       .features-section, .reviews-section { padding: 3.5rem 1.25rem; }
     }
     /* SCREENSHOT + VIDEO GALLERY */
-    .gallery-section { background: var(--bg2); padding: 5rem 2rem; overflow: hidden; }
+    .gallery-section { background: var(--bg); padding: 4rem 2rem 5rem; overflow: hidden; }
     .gallery-inner { max-width: 1100px; margin: 0 auto; }
     .gallery-track-wrap { position: relative; margin-top: 2.5rem; }
     .gallery-track {
@@ -325,7 +325,7 @@
       scroll-snap-align: center; border-radius: 18px; overflow: hidden;
       border: 1px solid var(--border); background: var(--card);
     }
-    .gallery-slide img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .gallery-slide img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; object-position: top; }
     .gallery-slide video { width: 100%; display: block; aspect-ratio: 16/9; background: #000; }
     .gallery-slide .slide-caption { padding: 0.9rem 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
     .gallery-slide .slide-caption strong { color: var(--text); font-weight: 600; }
@@ -398,68 +398,6 @@
   <div class="alert-strip">
     <p>🎯 100 levels &nbsp;·&nbsp; <span>Daily challenge</span> &nbsp;·&nbsp; Global leaderboards &nbsp;·&nbsp; <span>Remove ads — one purchase, forever</span></p>
   </div>
-
-  <section class="how-section">
-    <div class="section-eyebrow">How to Play</div>
-    <div class="section-title">One rule. Zero mercy.</div>
-    <p class="section-sub">The entire control scheme fits in a single sentence. What happens after you start — that's a different story.</p>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-num">01</div>
-        <h3>Drag to Move</h3>
-        <p>Place your finger anywhere and drag. Your player follows. That's the only control you'll ever need.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">02</div>
-        <h3>Don't Get Hit</h3>
-        <p>Homing enemies track your position constantly. Spinning blades, electric fields, crushing walls, and deadly pits fill the arena. All at once.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">03</div>
-        <h3>Adapt or Die</h3>
-        <p>Every 20 seconds the rules change. Three new modifiers shift the game — fog descends, blades accelerate, enemies clump, your speed doubles. Every run is different.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="features-section">
-    <div class="features-inner">
-      <div class="section-eyebrow">Features</div>
-      <div class="section-title">Built for obsession.</div>
-      <div class="features-grid">
-        <div class="feature-card" style="animation-delay:0.05s">
-          <div class="feature-icon">🎯</div>
-          <h3>100 Levels</h3>
-          <p>Work through 100 progressively challenging levels, each with unique hazard combinations. Early levels teach the arena. Later levels will break you.</p>
-        </div>
-        <div class="feature-card" style="animation-delay:0.1s">
-          <div class="feature-icon">📅</div>
-          <h3>Daily Challenge</h3>
-          <p>A new challenge every day, identical for every player worldwide. Compete for the top of the daily leaderboard, then come back tomorrow.</p>
-        </div>
-        <div class="feature-card" style="animation-delay:0.15s">
-          <div class="feature-icon">🏆</div>
-          <h3>Global Leaderboards</h3>
-          <p>Submit your best scores via Game Center on iOS. Prove you're the last one standing — against the whole world.</p>
-        </div>
-        <div class="feature-card" style="animation-delay:0.2s">
-          <div class="feature-icon">🔄</div>
-          <h3>Dynamic Rule Changes</h3>
-          <p>Every 20 seconds, choose from three modifiers that fundamentally shift how the game plays. No two runs feel the same.</p>
-        </div>
-        <div class="feature-card" style="animation-delay:0.25s">
-          <div class="feature-icon">🛡️</div>
-          <h3>Deflector Shield</h3>
-          <p>Can't see enemies hiding behind your finger? Enable the Deflector Shield in Settings to push them away. A quality-of-life feature that actually matters.</p>
-        </div>
-        <div class="feature-card" style="animation-delay:0.3s">
-          <div class="feature-icon">🚫</div>
-          <h3>Remove Ads Forever</h3>
-          <p>One single purchase. No subscriptions, no energy systems, no pay-to-win. Just the game — exactly how it should be.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- GALLERY: VIDEO + SCREENSHOTS -->
   <section class="gallery-section">
@@ -567,6 +505,68 @@
       vid.addEventListener('pause', () => { if(!vid.ended) document.getElementById('videoOverlay').classList.remove('hidden'); });
     }
   </script>
+
+  <section class="how-section">
+    <div class="section-eyebrow">How to Play</div>
+    <div class="section-title">One rule. Zero mercy.</div>
+    <p class="section-sub">The entire control scheme fits in a single sentence. What happens after you start — that's a different story.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h3>Drag to Move</h3>
+        <p>Place your finger anywhere and drag. Your player follows. That's the only control you'll ever need.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h3>Don't Get Hit</h3>
+        <p>Homing enemies track your position constantly. Spinning blades, electric fields, crushing walls, and deadly pits fill the arena. All at once.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h3>Adapt or Die</h3>
+        <p>Every 20 seconds the rules change. Three new modifiers shift the game — fog descends, blades accelerate, enemies clump, your speed doubles. Every run is different.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="features-inner">
+      <div class="section-eyebrow">Features</div>
+      <div class="section-title">Built for obsession.</div>
+      <div class="features-grid">
+        <div class="feature-card" style="animation-delay:0.05s">
+          <div class="feature-icon">🎯</div>
+          <h3>100 Levels</h3>
+          <p>Work through 100 progressively challenging levels, each with unique hazard combinations. Early levels teach the arena. Later levels will break you.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.1s">
+          <div class="feature-icon">📅</div>
+          <h3>Daily Challenge</h3>
+          <p>A new challenge every day, identical for every player worldwide. Compete for the top of the daily leaderboard, then come back tomorrow.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.15s">
+          <div class="feature-icon">🏆</div>
+          <h3>Global Leaderboards</h3>
+          <p>Submit your best scores via Game Center on iOS. Prove you're the last one standing — against the whole world.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.2s">
+          <div class="feature-icon">🔄</div>
+          <h3>Dynamic Rule Changes</h3>
+          <p>Every 20 seconds, choose from three modifiers that fundamentally shift how the game plays. No two runs feel the same.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.25s">
+          <div class="feature-icon">🛡️</div>
+          <h3>Deflector Shield</h3>
+          <p>Can't see enemies hiding behind your finger? Enable the Deflector Shield in Settings to push them away. A quality-of-life feature that actually matters.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.3s">
+          <div class="feature-icon">🚫</div>
+          <h3>Remove Ads Forever</h3>
+          <p>One single purchase. No subscriptions, no energy systems, no pay-to-win. Just the game — exactly how it should be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="skins-section">
     <div class="section-eyebrow">Collect &amp; Customize</div>
