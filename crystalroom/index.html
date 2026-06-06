@@ -246,6 +246,18 @@
     .gallery-dot.active { background: var(--primary); width: 20px; border-radius: 3px; }
     .gallery-arr { background: var(--card); border: 1px solid var(--border); color: var(--muted); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.18s; font-size: 1rem; flex-shrink: 0; margin: 0 0.25rem; }
     .gallery-arr:hover { border-color: var(--border-hover); color: var(--primary); }
+    .gallery-slide video { width: 100%; display: block; aspect-ratio: 16/9; background: #000; }
+    .slide-video-wrap { position: relative; }
+    .slide-video-wrap .video-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(5,8,24,0.35); cursor: pointer; transition: opacity 0.2s;
+    }
+    .slide-video-wrap .video-overlay.hidden { opacity: 0; pointer-events: none; }
+    .play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(56,189,248,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; }
+    .play-btn:hover { transform: scale(1.08); background: var(--primary); }
+    .play-btn svg { width: 24px; height: 24px; fill: #050818; margin-left: 3px; }
+    .sound-btn { position: absolute; bottom: 12px; right: 12px; background: rgba(5,8,24,0.7); border: 1px solid rgba(56,189,248,0.3); color: var(--primary); border-radius: 8px; padding: 0.3rem 0.6rem; font-size: 0.72rem; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.18s; z-index: 2; }
+    .sound-btn:hover { background: rgba(56,189,248,0.15); }
 
     /* CIF SECTION */
     .cif-section { background: var(--bg2); padding: 5rem 2rem; }
@@ -470,11 +482,27 @@
   <!-- SCREENSHOT GALLERY -->
   <section class="gallery-section">
     <div class="gallery-inner">
-      <div class="section-eyebrow">Screenshots</div>
-      <div class="section-title">See it in spatial computing.</div>
-      <p class="section-sub" style="margin-bottom:0;">CrystalRoom running on Apple Vision Pro — rotate, explore, and step inside crystal structures in true 3D space.</p>
+      <div class="section-eyebrow">See It In Action</div>
+      <div class="section-title">Experience spatial crystallography.</div>
+      <p class="section-sub" style="margin-bottom:0;">Watch the promo or swipe through screenshots — CrystalRoom running on Apple Vision Pro.</p>
       <div class="gallery-track-wrap">
         <div class="gallery-track" id="galleryTrack">
+          <!-- Slide 1: Promo Video -->
+          <div class="gallery-slide">
+            <div class="slide-video-wrap">
+              <video id="promoVideo" src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/CrystalRoom_PromoVideo.mp4"
+                playsinline muted preload="metadata" loop></video>
+              <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
+                <button class="play-btn" aria-label="Play video">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+              <button class="sound-btn" id="soundBtn" onclick="toggleSound(event)">🔇 Sound off</button>
+            </div>
+            <div class="slide-caption"><strong>Promo Video</strong> — See CrystalRoom in action on Apple Vision Pro.</div>
+          </div>
+
+          <!-- Slides 2–5: Screenshots -->
           <div class="gallery-slide">
             <img src="/crystalroom/Screenshot_1.png" alt="CrystalRoom screenshot 1" />
             <div class="slide-caption"><strong>Main View</strong> — Explore six built-in crystal structures in full 3D. Rotate, zoom, and inspect from any angle.</div>
@@ -498,6 +526,7 @@
           <button class="gallery-dot" onclick="goToSlide(1)"></button>
           <button class="gallery-dot" onclick="goToSlide(2)"></button>
           <button class="gallery-dot" onclick="goToSlide(3)"></button>
+          <button class="gallery-dot" onclick="goToSlide(4)"></button>
           <button class="gallery-arr" onclick="slideGallery(1)" aria-label="Next">&#8594;</button>
         </div>
       </div>
@@ -521,9 +550,29 @@
     track.addEventListener('scroll', () => {
       const slides = track.querySelectorAll('.gallery-slide');
       let closest=0, minDist=Infinity;
-      slides.forEach((s,i) => { const d=Math.abs(s.getBoundingClientRect().left - track.getBoundingClientRect().left); if(d<minDist){minDist=d;closest=i;} });
+      slides.forEach((s,i) => { const d=Math.abs(s.getBoundingClientRect().left-track.getBoundingClientRect().left); if(d<minDist){minDist=d;closest=i;} });
+      if (closest !== 0) { const v=document.getElementById('promoVideo'); if(v){v.pause();} document.getElementById('videoOverlay').classList.remove('hidden'); }
       updateDots(closest);
     }, {passive:true});
+
+    // Video controls
+    function playVideo() {
+      const vid = document.getElementById('promoVideo');
+      vid.play();
+      document.getElementById('videoOverlay').classList.add('hidden');
+    }
+    function toggleSound(e) {
+      e.stopPropagation();
+      const vid = document.getElementById('promoVideo');
+      const btn = document.getElementById('soundBtn');
+      vid.muted = !vid.muted;
+      btn.textContent = vid.muted ? '🔇 Sound off' : '🔊 Sound on';
+    }
+    const vid = document.getElementById('promoVideo');
+    if (vid) {
+      vid.addEventListener('ended', () => { document.getElementById('videoOverlay').classList.remove('hidden'); });
+      vid.addEventListener('pause', () => { if(!vid.ended) document.getElementById('videoOverlay').classList.remove('hidden'); });
+    }
   </script>
 
   <!-- CIF IMPORT -->
