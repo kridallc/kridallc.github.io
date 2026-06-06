@@ -308,6 +308,44 @@
       .how-section, .skins-section { padding: 3.5rem 1.25rem; }
       .features-section, .reviews-section { padding: 3.5rem 1.25rem; }
     }
+    /* SCREENSHOT + VIDEO GALLERY */
+    .gallery-section { background: var(--bg2); padding: 5rem 2rem; overflow: hidden; }
+    .gallery-inner { max-width: 1100px; margin: 0 auto; }
+    .gallery-track-wrap { position: relative; margin-top: 2.5rem; }
+    .gallery-track {
+      display: flex; gap: 1.25rem;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; padding-bottom: 0.5rem;
+      scroll-behavior: smooth;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-slide {
+      flex: 0 0 auto; width: min(820px, 90vw);
+      scroll-snap-align: center; border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border); background: var(--card);
+    }
+    .gallery-slide img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .gallery-slide video { width: 100%; display: block; aspect-ratio: 16/9; background: #000; }
+    .gallery-slide .slide-caption { padding: 0.9rem 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .gallery-slide .slide-caption strong { color: var(--text); font-weight: 600; }
+    .slide-video-wrap { position: relative; }
+    .slide-video-wrap .video-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(7,8,15,0.4); cursor: pointer; transition: opacity 0.2s;
+    }
+    .slide-video-wrap .video-overlay.hidden { opacity: 0; pointer-events: none; }
+    .play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(249,115,22,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; }
+    .play-btn:hover { transform: scale(1.08); background: var(--primary); }
+    .play-btn svg { width: 24px; height: 24px; fill: #07080f; margin-left: 3px; }
+    .sound-btn { position: absolute; bottom: 12px; right: 12px; background: rgba(7,8,15,0.7); border: 1px solid rgba(249,115,22,0.3); color: var(--primary); border-radius: 8px; padding: 0.3rem 0.6rem; font-size: 0.72rem; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.18s; z-index: 2; }
+    .sound-btn:hover { background: rgba(249,115,22,0.15); }
+    .gallery-nav { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; }
+    .gallery-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted2); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+    .gallery-dot.active { background: var(--primary); width: 20px; border-radius: 3px; }
+    .gallery-arr { background: var(--card); border: 1px solid var(--border); color: var(--muted); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.18s; font-size: 1rem; flex-shrink: 0; margin: 0 0.25rem; }
+    .gallery-arr:hover { border-color: var(--border-hover); color: var(--primary); }
+
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
@@ -422,6 +460,113 @@
       </div>
     </div>
   </section>
+
+  <!-- GALLERY: VIDEO + SCREENSHOTS -->
+  <section class="gallery-section">
+    <div class="gallery-inner">
+      <div class="section-eyebrow">See It In Action</div>
+      <div class="section-title">The chaos, captured.</div>
+      <p class="section-sub" style="margin-bottom:0;">Watch the promo or swipe through gameplay screenshots.</p>
+      <div class="gallery-track-wrap">
+        <div class="gallery-track" id="galleryTrack">
+
+          <!-- Slide 1: Promo Video -->
+          <div class="gallery-slide">
+            <div class="slide-video-wrap">
+              <video id="promoVideo" src="https://pub-83e37ae1a7e3496f81916ddaabc06fa6.r2.dev/SwarmDodge.mp4"
+                playsinline muted preload="metadata" loop></video>
+              <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
+                <button class="play-btn" aria-label="Play video">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+              <button class="sound-btn" id="soundBtn" onclick="toggleSound(event)">🔇 Sound off</button>
+            </div>
+            <div class="slide-caption"><strong>Promo Video</strong> — See Swarm Dodge in action.</div>
+          </div>
+
+          <!-- Slides 2–7: Screenshots -->
+          <div class="gallery-slide">
+            <img src="/swarmdodge/Screenshot_1.png" alt="Swarm Dodge screenshot 1" />
+            <div class="slide-caption"><strong>Survive the Swarm</strong> — Homing enemies close in from every direction.</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="/swarmdodge/Screenshot_2.png" alt="Swarm Dodge screenshot 2" />
+            <div class="slide-caption"><strong>Hazard-Filled Arena</strong> — Spinning blades, electric fields, crushing walls, and deadly pits.</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="/swarmdodge/Screenshot_3.png" alt="Swarm Dodge screenshot 3" />
+            <div class="slide-caption"><strong>Dynamic Modifiers</strong> — Every 20 seconds, choose from three rule changes that shift the game entirely.</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="/swarmdodge/Screenshot_4.png" alt="Swarm Dodge screenshot 4" />
+            <div class="slide-caption"><strong>100 Levels</strong> — Progressively harder challenges with unique hazard combinations.</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="/swarmdodge/Screenshot_5.png" alt="Swarm Dodge screenshot 5" />
+            <div class="slide-caption"><strong>Daily Challenge</strong> — A new challenge every day. Same run for every player worldwide.</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="/swarmdodge/Screenshot_6.png" alt="Swarm Dodge screenshot 6" />
+            <div class="slide-caption"><strong>Collect Skins</strong> — Earn coins to unlock animal skins, each with a unique trail effect.</div>
+          </div>
+
+        </div>
+        <div class="gallery-nav">
+          <button class="gallery-arr" onclick="slideGallery(-1)" aria-label="Previous">&#8592;</button>
+          <button class="gallery-dot active" onclick="goToSlide(0)"></button>
+          <button class="gallery-dot" onclick="goToSlide(1)"></button>
+          <button class="gallery-dot" onclick="goToSlide(2)"></button>
+          <button class="gallery-dot" onclick="goToSlide(3)"></button>
+          <button class="gallery-dot" onclick="goToSlide(4)"></button>
+          <button class="gallery-dot" onclick="goToSlide(5)"></button>
+          <button class="gallery-dot" onclick="goToSlide(6)"></button>
+          <button class="gallery-arr" onclick="slideGallery(1)" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const track = document.getElementById('galleryTrack');
+    const dots = document.querySelectorAll('.gallery-dot');
+    let current = 0;
+    function updateDots(idx) { dots.forEach((d,i) => d.classList.toggle('active', i===idx)); current=idx; }
+    function goToSlide(idx) {
+      const slides = track.querySelectorAll('.gallery-slide');
+      if (!slides[idx]) return;
+      track.scrollTo({ left: slides[idx].offsetLeft - (track.clientWidth - slides[idx].offsetWidth)/2, behavior:'smooth' });
+      updateDots(idx);
+    }
+    function slideGallery(dir) {
+      const slides = track.querySelectorAll('.gallery-slide');
+      goToSlide(Math.max(0, Math.min(slides.length-1, current+dir)));
+    }
+    track.addEventListener('scroll', () => {
+      const slides = track.querySelectorAll('.gallery-slide');
+      let closest=0, minDist=Infinity;
+      slides.forEach((s,i) => { const d=Math.abs(s.getBoundingClientRect().left-track.getBoundingClientRect().left); if(d<minDist){minDist=d;closest=i;} });
+      if (closest !== 0) { const v=document.getElementById('promoVideo'); if(v){v.pause();} document.getElementById('videoOverlay').classList.remove('hidden'); }
+      updateDots(closest);
+    }, {passive:true});
+    function playVideo() {
+      const vid = document.getElementById('promoVideo');
+      vid.play();
+      document.getElementById('videoOverlay').classList.add('hidden');
+    }
+    function toggleSound(e) {
+      e.stopPropagation();
+      const vid = document.getElementById('promoVideo');
+      const btn = document.getElementById('soundBtn');
+      vid.muted = !vid.muted;
+      btn.textContent = vid.muted ? '🔇 Sound off' : '🔊 Sound on';
+    }
+    const vid = document.getElementById('promoVideo');
+    if (vid) {
+      vid.addEventListener('ended', () => { document.getElementById('videoOverlay').classList.remove('hidden'); });
+      vid.addEventListener('pause', () => { if(!vid.ended) document.getElementById('videoOverlay').classList.remove('hidden'); });
+    }
+  </script>
 
   <section class="skins-section">
     <div class="section-eyebrow">Collect &amp; Customize</div>
