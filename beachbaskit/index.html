@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://kridallc.com/beachbaskit/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeachBaskit — Buy. Use. Sell it back.</title>
+  <meta name="description" content="Skip rentals. Buy beach gear locally from real beachgoers — umbrellas, chairs, toys — and resell it before you leave. Available on iOS and Android." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kridallc.com/beachbaskit/" />
+  <meta property="og:title" content="BeachBaskit — Buy. Use. Sell it back." />
+  <meta property="og:description" content="Skip rentals. Buy beach gear locally and resell it before you leave." />
+  <meta property="og:image" content="https://kridallc.com/icon_BB.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #04090f;
+      --bg2: #070e18;
+      --card: #0c1520;
+      --card2: #111d2c;
+      --primary: #0ea5e9;
+      --primary-dark: #0284c7;
+      --primary-light: rgba(14,165,233,0.1);
+      --primary-glow: rgba(14,165,233,0.22);
+      --amber: #f59e0b;
+      --amber-light: rgba(245,158,11,0.1);
+      --green: #22c55e;
+      --text: #eef4fb;
+      --muted: #7a9ab8;
+      --muted2: #2a4060;
+      --border: rgba(14,165,233,0.14);
+      --border-hover: rgba(14,165,233,0.38);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; line-height: 1.7; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(4,9,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+    .nav-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+    .nav-brand span { color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
+    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: all 0.18s !important; }
+    .nav-cta:hover { background: var(--primary-dark) !important; transform: translateY(-1px); }
+    .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
+
+    /* HERO */
+    .hero { max-width: 1100px; margin: 0 auto; padding: 5.5rem 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-label { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); background: var(--amber-light); border: 1px solid rgba(245,158,11,0.25); padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards; }
+    .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.5s ease 0.12s forwards; }
+    .hero h1 .accent { color: var(--primary); }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 480px; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.5s ease 0.2s forwards; }
+    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.5s ease 0.28s forwards; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--primary); color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.9rem; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 20px var(--primary-glow); }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(14,165,233,0.35); }
+    .btn-primary svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .btn-android { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--card2); color: var(--text); border: 1.5px solid var(--border); font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem; padding: 0.8rem 1.4rem; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+    .btn-android:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .btn-android svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* HERO VISUAL */
+    .hero-visual { display: flex; justify-content: center; align-items: center; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; position: relative; }
+    .icon-glow-ring { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite; }
+    .app-icon-hero { width: 190px; height: 190px; border-radius: 42px; object-fit: cover; position: relative; z-index: 1; box-shadow: 0 20px 60px rgba(14,165,233,0.22), 0 4px 20px rgba(0,0,0,0.5); border: 1px solid rgba(14,165,233,0.2); }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:0.7;}50%{transform:scale(1.1);opacity:1;} }
+
+    /* ALERT STRIP */
+    .alert-strip { background: linear-gradient(90deg, #030810, #060f1e, #030810); border-top: 1px solid rgba(14,165,233,0.12); border-bottom: 1px solid rgba(14,165,233,0.12); padding: 0.9rem 2rem; text-align: center; }
+    .alert-strip p { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--primary); letter-spacing: 0.01em; }
+    .alert-strip span { color: var(--muted); font-weight: 400; }
+
+    /* GALLERY */
+    .gallery-section { background: var(--bg); padding: 4rem 2rem 5rem; overflow: hidden; }
+    .gallery-inner { max-width: 1100px; margin: 0 auto; }
+    .gallery-track-wrap { position: relative; margin-top: 2.5rem; }
+    .gallery-track { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 0.5rem; scroll-behavior: smooth; }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-slide { flex: 0 0 auto; scroll-snap-align: center; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); background: #07080f; }
+    .gallery-slide.slide-portrait { width: min(300px, 70vw); }
+    .gallery-slide.slide-portrait img { width: 100%; height: 520px; display: block; object-fit: contain; object-position: center; }
+    .gallery-slide.slide-landscape { width: min(860px, 92vw); }
+    .gallery-slide.slide-landscape video { width: 100%; height: 520px; display: block; object-fit: cover; background: #000; }
+    .gallery-slide .slide-caption { padding: 0.9rem 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .gallery-slide .slide-caption strong { color: var(--text); font-weight: 600; }
+    .slide-video-wrap { position: relative; }
+    .slide-video-wrap .video-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(4,9,15,0.4); cursor: pointer; transition: opacity 0.2s; }
+    .slide-video-wrap .video-overlay.hidden { opacity: 0; pointer-events: none; }
+    .play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(14,165,233,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+    .play-btn:hover { transform: scale(1.08); background: var(--primary); }
+    .play-btn svg { width: 24px; height: 24px; fill: #fff; margin-left: 3px; }
+    .sound-btn { position: absolute; bottom: 12px; right: 12px; background: rgba(4,9,15,0.7); border: 1px solid rgba(14,165,233,0.3); color: var(--primary); border-radius: 8px; padding: 0.3rem 0.6rem; font-size: 0.72rem; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.18s; z-index: 2; }
+    .sound-btn:hover { background: rgba(14,165,233,0.15); }
+    .gallery-nav { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; }
+    .gallery-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted2); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+    .gallery-dot.active { background: var(--primary); width: 20px; border-radius: 3px; }
+    .gallery-arr { background: var(--card); border: 1px solid var(--border); color: var(--muted); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.18s; font-size: 1rem; flex-shrink: 0; margin: 0 0.25rem; }
+    .gallery-arr:hover { border-color: var(--border-hover); color: var(--primary); }
+
+    /* HOW IT WORKS */
+    .how-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 3rem; }
+    .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.5rem; }
+    .section-sub { font-size: 0.95rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 540px; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+    .how-card { background: var(--card); padding: 2rem 1.75rem; }
+    .how-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: rgba(14,165,233,0.15); line-height: 1; margin-bottom: 0.75rem; }
+    .how-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+    .how-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* FEATURES */
+    .features-section { background: var(--bg2); padding: 5rem 2rem; }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: all 0.22s; opacity: 0; animation: fadeUp 0.5s ease forwards; }
+    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(14,165,233,0.08); }
+    .feature-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--primary-light); border: 1px solid rgba(14,165,233,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem; }
+    .feature-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+    .feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* VALUE PROPS */
+    .value-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .value-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.2s; }
+    .value-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .value-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
+    .value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .value-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+
+    /* COMPARISON */
+    .compare-section { background: var(--bg2); padding: 5rem 2rem; }
+    .compare-inner { max-width: 800px; margin: 0 auto; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .compare-card { border-radius: 20px; padding: 2.5rem; text-align: center; }
+    .compare-card.rental { background: var(--card); border: 1px solid var(--border); }
+    .compare-card.bb { background: linear-gradient(135deg, #041525, #071e35); border: 1px solid rgba(14,165,233,0.3); }
+    .compare-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--muted); margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+    .compare-price { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1; }
+    .compare-card.rental .compare-price { color: var(--muted); }
+    .compare-card.bb .compare-price { color: var(--primary); }
+    .compare-sub { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+    .compare-card.bb .resell { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--green); margin-top: 0.5rem; }
+    .compare-card.bb .effective { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--amber); margin-top: 0.25rem; }
+    .compare-note { font-size: 0.72rem; color: var(--muted2); margin-top: 1.5rem; text-align: center; }
+
+    /* CTA */
+    .cta-section { padding: 6rem 2rem; text-align: center; }
+    .cta-inner { max-width: 560px; margin: 0 auto; }
+    .cta-inner h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 1rem; }
+    .cta-inner h2 span { color: var(--primary); }
+    .cta-inner p { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: #020609; border-top: 1px solid rgba(255,255,255,0.04); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.18); text-align: center; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);} }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(4,9,15,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 0.6rem 0.75rem; font-size: 0.9rem; }
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem 2rem; gap: 2rem; }
+      .hero-visual { order: -1; }
+      .app-icon-hero { width: 140px; height: 140px; border-radius: 32px; }
+      .icon-glow-ring { width: 190px; height: 190px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .how-section, .value-section { padding: 3.5rem 1.25rem; }
+      .features-section, .compare-section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+</head>
+<body>
+
+  <nav>
+    <a href="/beachbaskit/" class="nav-left">
+      <img src="/icon_BB.png" alt="BeachBaskit" class="nav-logo" />
+      <span class="nav-brand">Beach<span>Baskit</span></span>
+    </a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/beachbaskit/" class="active">Home</a></li>
+      <li><a href="/beachbaskit/support/">Support</a></li>
+      <li><a href="/beachbaskit/privacy/">Privacy</a></li>
+      <li><a href="/beachbaskit/terms/">Terms</a></li>
+      <li><a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="nav-cta">Download</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <div class="hero-label">🏖️ iOS &amp; Android · Free</div>
+      <h1>
+        Buy. Use.<br />
+        <span class="accent">Sell it back.</span>
+      </h1>
+      <p class="hero-sub">Skip rentals. Buy beach gear from real beachgoers nearby — umbrellas, chairs, toys — and resell it before you leave. Pay less than any rental booth.</p>
+      <div class="hero-btns">
+        <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.krida.beachbaskit" target="_blank" class="btn-android">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
+          Google Play
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="icon-glow-ring"></div>
+      <img src="/icon_BB.png" alt="BeachBaskit App Icon" class="app-icon-hero" />
+    </div>
+  </section>
+
+  <div class="alert-strip">
+    <p>🏖️ Smart matching &nbsp;·&nbsp; <span>Secure payments via Stripe</span> &nbsp;·&nbsp; In-app chat &nbsp;·&nbsp; <span>Currently available in Miami Beach, FL</span></p>
+  </div>
+
+  <!-- GALLERY: VIDEO + SCREENSHOTS -->
+  <section class="gallery-section">
+    <div class="gallery-inner">
+      <div class="section-eyebrow">See It In Action</div>
+      <div class="section-title">Beach gear, simplified.</div>
+      <p class="section-sub" style="margin-bottom:0;">Watch the promo or swipe through screenshots of BeachBaskit in action.</p>
+      <div class="gallery-track-wrap">
+        <div class="gallery-track" id="galleryTrack">
+
+          <!-- Slide 1: Promo Video — portrait 1080×1920 -->
+          <div class="gallery-slide slide-portrait">
+            <div class="slide-video-wrap">
+              <video id="promoVideo" src="https://pub-8b9cde523cd04052ba9b6a374af687fe.r2.dev/BeachBaskit_PromoVideo.mp4"
+                playsinline muted preload="metadata" loop style="width:100%;height:520px;display:block;object-fit:cover;background:#000;"></video>
+              <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
+                <button class="play-btn" aria-label="Play video">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+              <button class="sound-btn" id="soundBtn" onclick="toggleSound(event)">🔇 Sound off</button>
+            </div>
+            <div class="slide-caption"><strong>Promo Video</strong> — See BeachBaskit in action.</div>
+          </div>
+
+          <!-- Slides 2–9: Screenshots (portrait 1242×2688) -->
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_1.png" alt="BeachBaskit screenshot 1" /><div class="slide-caption"><strong>Find Gear</strong> — Select what you need: umbrella, chair, beach toy. Set your location and date.</div></div>
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_2.png" alt="BeachBaskit screenshot 2" /><div class="slide-caption"><strong>Instant Match</strong> — Get matched with a seller nearby. See distance, cost, and item details.</div></div>
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_3.png" alt="BeachBaskit screenshot 3" /><div class="slide-caption"><strong>Built-in Chat</strong> — Coordinate the meetup with in-app messaging. No personal info exchanged.</div></div>
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_4.png" alt="BeachBaskit screenshot 4" /><div class="slide-caption"><strong>Order Tracking</strong> — Real-time order and status updates throughout the exchange.</div></div>
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_5.png" alt="BeachBaskit screenshot 5" /><div class="slide-caption"><strong>Secure Payments</strong> — Pay securely through the app. Powered by Stripe.</div></div>
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_6.png" alt="BeachBaskit screenshot 6" /><div class="slide-caption"><strong>Sell Your Gear</strong> — Post items you're done with. Get matched with a buyer nearby.</div></div>
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_7.png" alt="BeachBaskit screenshot 7" /><div class="slide-caption"><strong>Order History</strong> — Track all your buys and sells in one place.</div></div>
+          <div class="gallery-slide slide-portrait"><img src="/beachbaskit/Screenshot_8.png" alt="BeachBaskit screenshot 8" /><div class="slide-caption"><strong>Your Account</strong> — Manage listings, history, and settings from your profile.</div></div>
+
+        </div>
+        <div class="gallery-nav">
+          <button class="gallery-arr" onclick="slideGallery(-1)" aria-label="Previous">&#8592;</button>
+          <button class="gallery-dot active" onclick="goToSlide(0)"></button>
+          <button class="gallery-dot" onclick="goToSlide(1)"></button>
+          <button class="gallery-dot" onclick="goToSlide(2)"></button>
+          <button class="gallery-dot" onclick="goToSlide(3)"></button>
+          <button class="gallery-dot" onclick="goToSlide(4)"></button>
+          <button class="gallery-dot" onclick="goToSlide(5)"></button>
+          <button class="gallery-dot" onclick="goToSlide(6)"></button>
+          <button class="gallery-dot" onclick="goToSlide(7)"></button>
+          <button class="gallery-dot" onclick="goToSlide(8)"></button>
+          <button class="gallery-arr" onclick="slideGallery(1)" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const track = document.getElementById('galleryTrack');
+    const dots = document.querySelectorAll('.gallery-dot');
+    let current = 0;
+    function updateDots(idx) { dots.forEach((d,i) => d.classList.toggle('active', i===idx)); current=idx; }
+    function goToSlide(idx) {
+      const slides = track.querySelectorAll('.gallery-slide');
+      if (!slides[idx]) return;
+      track.scrollTo({ left: slides[idx].offsetLeft - (track.clientWidth - slides[idx].offsetWidth)/2, behavior:'smooth' });
+      updateDots(idx);
+    }
+    function slideGallery(dir) {
+      const slides = track.querySelectorAll('.gallery-slide');
+      goToSlide(Math.max(0, Math.min(slides.length-1, current+dir)));
+    }
+    track.addEventListener('scroll', () => {
+      const slides = track.querySelectorAll('.gallery-slide');
+      let closest=0, minDist=Infinity;
+      slides.forEach((s,i) => { const d=Math.abs(s.getBoundingClientRect().left-track.getBoundingClientRect().left); if(d<minDist){minDist=d;closest=i;} });
+      if (closest !== 0) { const v=document.getElementById('promoVideo'); if(v){v.pause();} document.getElementById('videoOverlay').classList.remove('hidden'); }
+      updateDots(closest);
+    }, {passive:true});
+    function playVideo() { const vid=document.getElementById('promoVideo'); vid.play(); document.getElementById('videoOverlay').classList.add('hidden'); }
+    function toggleSound(e) { e.stopPropagation(); const vid=document.getElementById('promoVideo'); const btn=document.getElementById('soundBtn'); vid.muted=!vid.muted; btn.textContent=vid.muted?'🔇 Sound off':'🔊 Sound on'; }
+    const vid=document.getElementById('promoVideo');
+    if(vid){
+      vid.addEventListener('ended',()=>{document.getElementById('videoOverlay').classList.remove('hidden');});
+      vid.addEventListener('pause',()=>{if(!vid.ended)document.getElementById('videoOverlay').classList.remove('hidden');});
+    }
+  </script>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-eyebrow">How It Works</div>
+    <div class="section-title">Three steps to the beach.</div>
+    <p class="section-sub">Post once. Get matched automatically. No scrolling listings, no haggling.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h3>Post what you need — or what you're selling</h3>
+        <p>Choose buyer or seller mode. Select your item type, quantity, location, and time window. Post once — no need to scroll listings.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h3>We find your match</h3>
+        <p>BeachBaskit automatically connects you with someone nearby based on your item, location, and time window. No browsing, no back-and-forth.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h3>Chat, meet, and trade</h3>
+        <p>Agree on a meetup using built-in chat. Confirm the deal in person. Pay securely through the app. Done.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="features-inner">
+      <div class="section-eyebrow">Features</div>
+      <div class="section-title">Built for real beach days.</div>
+      <div class="features-grid">
+        <div class="feature-card" style="animation-delay:0.05s">
+          <div class="feature-icon">📍</div>
+          <h3>Smart Location Matching</h3>
+          <p>Automatically paired with the nearest available match for your item, date, and time window. No browsing required.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.1s">
+          <div class="feature-icon">💳</div>
+          <h3>Secure Payments via Stripe</h3>
+          <p>All transactions are processed through Stripe. No cash, no risk. Buyers and sellers are both protected through the app.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.15s">
+          <div class="feature-icon">💬</div>
+          <h3>In-App Chat</h3>
+          <p>Coordinate your pickup with built-in messaging. No personal contact info exchanged. Everything stays in the app.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.2s">
+          <div class="feature-icon">🔄</div>
+          <h3>Real-Time Status Updates</h3>
+          <p>Track your order from match to meetup. Know exactly where things stand at every step of the exchange.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.25s">
+          <div class="feature-icon">🛡️</div>
+          <h3>Dispute Resolution</h3>
+          <p>Built-in dispute resolution if something goes wrong. Submit your case, share evidence, and we'll handle it fairly.</p>
+        </div>
+        <div class="feature-card" style="animation-delay:0.3s">
+          <div class="feature-icon">⚖️</div>
+          <h3>Buyer &amp; Seller Flows</h3>
+          <p>Separate confirmation flows for buyers and sellers. Inspect at handoff, confirm in app. Clear accountability at every step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY BEACHBASKIT -->
+  <section class="value-section">
+    <div class="section-eyebrow">Why BeachBaskit</div>
+    <div class="section-title">Better than renting. Better than hauling.</div>
+    <div class="value-grid">
+      <div class="value-card">
+        <span class="value-icon">💰</span>
+        <h3>Save money</h3>
+        <p>Own your beach gear. Use it multiple days. Pay less than a rental would cost for just one. Then resell and recover value instead of leaving it behind.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">♻️</span>
+        <h3>Reduce waste</h3>
+        <p>Buy and resell instead of tossing or renting. Every exchange extends a product's life and cuts down on vacation waste. Good for your wallet and the beach.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🌊</span>
+        <h3>No hassle</h3>
+        <p>Skip the daily rental booths. No hauling gear to the beach. Just match, message, and meet — right on the coast, exactly when you need it.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🛡️</span>
+        <h3>Stay safe</h3>
+        <p>Built-in reputation system. No personal info exchanged between users. In-app disputes if needed. Designed with trust at the core.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="compare-section">
+    <div class="compare-inner">
+      <div class="section-eyebrow" style="text-align:center;">The Math</div>
+      <div class="section-title" style="text-align:center;">Rental vs BeachBaskit</div>
+      <p class="section-sub" style="text-align:center;margin:0.5rem auto 0;max-width:460px;">See how the numbers work out for a typical 3-day beach trip.</p>
+      <div class="compare-grid">
+        <div class="compare-card rental">
+          <h3>Traditional Rental</h3>
+          <div class="compare-price">$100</div>
+          <div class="compare-sub">for 3 days</div>
+          <div class="compare-sub" style="margin-top:1rem; font-size:0.78rem;">Paid daily. Nothing to show for it. Gear left behind.</div>
+        </div>
+        <div class="compare-card bb">
+          <h3>BeachBaskit</h3>
+          <div class="compare-price">$35</div>
+          <div class="compare-sub">buy it once</div>
+          <div class="resell">Resell for ~$20</div>
+          <div class="effective">= ~$15 effective</div>
+          <div class="compare-sub" style="margin-top:0.75rem; font-size:0.78rem;">Own it. Use it. Recover value.</div>
+        </div>
+      </div>
+      <p class="compare-note">*Sample cost | **Illustrative only. Actual prices vary by item and seller.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Beach day sorted. <span>Download now.</span></h2>
+      <p>Free to download on iOS and Android. Available in Miami Beach, FL — expanding soon.</p>
+      <div class="cta-btns">
+        <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.krida.beachbaskit" target="_blank" class="btn-android">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
+          Google Play
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/beachbaskit/">Home</a>
+        <a href="/beachbaskit/support/">Support</a>
+        <a href="/beachbaskit/privacy/">Privacy</a>
+        <a href="/beachbaskit/terms/">Terms of Service</a>
+        <a href="/">Krida LLC</a>
+      </div>
+      <p>© 2026 Krida LLC · All rights reserved · Apple® and the Apple logo® are trademarks of Apple Inc. · Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
