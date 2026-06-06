@@ -321,12 +321,16 @@
     }
     .gallery-track::-webkit-scrollbar { display: none; }
     .gallery-slide {
-      flex: 0 0 auto; width: min(820px, 90vw);
+      flex: 0 0 auto;
       scroll-snap-align: center; border-radius: 18px; overflow: hidden;
-      border: 1px solid var(--border); background: var(--card);
+      border: 1px solid var(--border); background: #07080f;
     }
-    .gallery-slide img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; object-position: top; }
-    .gallery-slide video { width: 100%; display: block; aspect-ratio: 16/9; background: #000; }
+    /* portrait screenshot slides */
+    .gallery-slide.slide-portrait { width: min(300px, 70vw); }
+    .gallery-slide.slide-portrait img { width: 100%; height: 520px; display: block; object-fit: contain; object-position: center; }
+    /* landscape video slide */
+    .gallery-slide.slide-landscape { width: min(860px, 92vw); }
+    .gallery-slide.slide-landscape video { width: 100%; height: 520px; display: block; object-fit: cover; background: #000; }
     .gallery-slide .slide-caption { padding: 0.9rem 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
     .gallery-slide .slide-caption strong { color: var(--text); font-weight: 600; }
     .slide-video-wrap { position: relative; }
@@ -409,7 +413,7 @@
         <div class="gallery-track" id="galleryTrack">
 
           <!-- Slide 1: Promo Video -->
-          <div class="gallery-slide">
+          <div class="gallery-slide slide-landscape">
             <div class="slide-video-wrap">
               <video id="promoVideo" src="https://pub-83e37ae1a7e3496f81916ddaabc06fa6.r2.dev/SwarmDodge.mp4"
                 playsinline muted preload="metadata" loop></video>
@@ -424,27 +428,27 @@
           </div>
 
           <!-- Slides 2–7: Screenshots -->
-          <div class="gallery-slide">
+          <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_1.png" alt="Swarm Dodge screenshot 1" />
             <div class="slide-caption"><strong>Survive the Swarm</strong> — Homing enemies close in from every direction.</div>
           </div>
-          <div class="gallery-slide">
+          <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_2.png" alt="Swarm Dodge screenshot 2" />
             <div class="slide-caption"><strong>Hazard-Filled Arena</strong> — Spinning blades, electric fields, crushing walls, and deadly pits.</div>
           </div>
-          <div class="gallery-slide">
+          <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_3.png" alt="Swarm Dodge screenshot 3" />
             <div class="slide-caption"><strong>Dynamic Modifiers</strong> — Every 20 seconds, choose from three rule changes that shift the game entirely.</div>
           </div>
-          <div class="gallery-slide">
+          <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_4.png" alt="Swarm Dodge screenshot 4" />
             <div class="slide-caption"><strong>100 Levels</strong> — Progressively harder challenges with unique hazard combinations.</div>
           </div>
-          <div class="gallery-slide">
+          <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_5.png" alt="Swarm Dodge screenshot 5" />
             <div class="slide-caption"><strong>Daily Challenge</strong> — A new challenge every day. Same run for every player worldwide.</div>
           </div>
-          <div class="gallery-slide">
+          <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_6.png" alt="Swarm Dodge screenshot 6" />
             <div class="slide-caption"><strong>Collect Skins</strong> — Earn coins to unlock animal skins, each with a unique trail effect.</div>
           </div>
