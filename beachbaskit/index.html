@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://kridallc.com/icon_BB.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,6 +37,7 @@
       --muted2: #2a4060;
       --border: rgba(14,165,233,0.14);
       --border-hover: rgba(14,165,233,0.38);
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -51,23 +52,23 @@
     .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
-    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: all 0.18s !important; }
-    .nav-cta:hover { background: var(--primary-dark) !important; transform: translateY(-1px); }
+    .nav-cta { font-family: var(--mono) !important; font-size: 0.7rem !important; text-transform: uppercase !important; letter-spacing: 0.04em !important; font-weight: 500 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: background 0.18s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important; }
+    .nav-cta:hover { background: var(--primary-dark) !important; }
     .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
 
     /* HERO */
     .hero { max-width: 1100px; margin: 0 auto; padding: 5.5rem 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .hero-label { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); background: var(--amber-light); border: 1px solid rgba(245,158,11,0.25); padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards; }
+    .hero-label { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.68rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); background: var(--amber-light); border: 1px solid rgba(245,158,11,0.25); padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards; }
     .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.5s ease 0.12s forwards; }
     .hero h1 .accent { color: var(--primary); }
     .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 480px; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.5s ease 0.2s forwards; }
     .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.5s ease 0.28s forwards; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--primary); color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.9rem; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 20px var(--primary-glow); }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(14,165,233,0.35); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--primary); color: #fff; font-family: var(--mono); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; transition: background 0.2s, box-shadow 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 4px 20px var(--primary-glow); }
+    .btn-primary:hover { background: var(--primary-dark); box-shadow: 0 8px 28px rgba(14,165,233,0.35); }
     .btn-primary svg { width: 14px; height: 14px; flex-shrink: 0; }
-    .btn-android { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--card2); color: var(--text); border: 1.5px solid var(--border); font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem; padding: 0.8rem 1.4rem; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
-    .btn-android:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .btn-android { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--card2); color: var(--text); border: 1.5px solid var(--border); font-family: var(--mono); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; padding: 0.8rem 1.4rem; border-radius: 10px; text-decoration: none; transition: border-color 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+    .btn-android:hover { border-color: var(--border-hover); }
     .btn-android svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* HERO VISUAL */
@@ -110,7 +111,7 @@
 
     /* HOW IT WORKS */
     .how-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 3rem; }
-    .section-eyebrow { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
+    .section-eyebrow { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--primary); font-weight: 500; margin-bottom: 0.5rem; }
     .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.5rem; }
     .section-sub { font-size: 0.95rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 540px; }
     .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
@@ -123,8 +124,8 @@
     .features-section { background: var(--bg2); padding: 5rem 2rem; }
     .features-inner { max-width: 1100px; margin: 0 auto; }
     .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
-    .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: all 0.22s; opacity: 0; animation: fadeUp 0.5s ease forwards; }
-    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(14,165,233,0.08); }
+    .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: border-color 0.22s, box-shadow 0.22s; }
+    .feature-card:hover { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(14,165,233,0.08); }
     .feature-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--primary-light); border: 1px solid rgba(14,165,233,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem; }
     .feature-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
     .feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
@@ -132,8 +133,8 @@
     /* VALUE PROPS */
     .value-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
     .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2.5rem; }
-    .value-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.2s; }
-    .value-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .value-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.2s; }
+    .value-card:hover { border-color: var(--border-hover); }
     .value-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
     .value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
     .value-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
@@ -172,6 +173,108 @@
 
     @keyframes fadeUp { from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);} }
 
+    /* SCROLL REVEAL — one-shot fade/rise on scroll into view */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* HOVER TILT */
+    .tilt-card {
+      --rx: 0deg; --ry: 0deg; --tz: 0px;
+      transform: perspective(700px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--tz));
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+
+    /* MAGNETIC BUTTONS */
+    .magnetic {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    /* SCROLL PROGRESS INDICATOR */
+    .scroll-progress {
+      position: fixed;
+      right: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-end;
+    }
+    .scroll-progress a {
+      width: 20px;
+      height: 1.5px;
+      background: rgba(238,244,251,0.22);
+      display: block;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+    .scroll-progress a.dot-active {
+      width: 32px;
+      background: var(--primary);
+      box-shadow: 0 0 8px var(--primary-glow);
+    }
+    @media (max-width: 900px) {
+      .scroll-progress { display: none; }
+    }
+
+    /* CUSTOM CURSOR */
+    html.custom-cursor-active,
+    html.custom-cursor-active * { cursor: none !important; }
+    .custom-cursor-ring {
+      position: fixed; top: 0; left: 0;
+      width: 20px; height: 20px;
+      border: 1.5px solid var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      will-change: transform;
+    }
+    .custom-cursor-ring.cursor-hover {
+      width: 46px; height: 46px;
+      background: var(--primary-light);
+      border-color: var(--primary-dark);
+    }
+    .custom-cursor-dot {
+      position: fixed; top: 0; left: 0;
+      width: 5px; height: 5px;
+      background: var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      will-change: transform;
+      transition: opacity 0.25s ease;
+    }
+
+    /* COUNT-UP PRICE COMPARISON */
+    .compare-price[data-target] { font-variant-numeric: tabular-nums; }
+
+    /* PARTICLE WORDMARK */
+    .particle-footer {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 2rem 0;
+    }
+    .particle-footer canvas {
+      display: block;
+      width: 100%;
+      height: clamp(80px, 14vw, 170px);
+      cursor: default;
+      touch-action: none;
+    }
+
     @media (max-width: 680px) {
       nav { padding: 0 1.25rem; }
       .nav-toggle { display: flex; }
@@ -209,11 +312,22 @@
       <li><a href="/beachbaskit/support/">Support</a></li>
       <li><a href="/beachbaskit/privacy/">Privacy</a></li>
       <li><a href="/beachbaskit/terms/">Terms</a></li>
-      <li><a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="nav-cta">Download</a></li>
+      <li><a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="nav-cta magnetic">Download</a></li>
     </ul>
   </nav>
 
-  <section class="hero">
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" role="navigation" aria-label="Page progress">
+    <a href="#hero" data-section="hero" aria-label="Hero"></a>
+    <a href="#gallery" data-section="gallery" aria-label="Gallery"></a>
+    <a href="#how" data-section="how" aria-label="How It Works"></a>
+    <a href="#features" data-section="features" aria-label="Features"></a>
+    <a href="#why" data-section="why" aria-label="Why BeachBaskit"></a>
+    <a href="#compare" data-section="compare" aria-label="Compare"></a>
+    <a href="#cta" data-section="cta" aria-label="Download"></a>
+  </div>
+
+  <section class="hero" id="hero">
     <div>
       <div class="hero-label">🏖️ iOS &amp; Android · Free</div>
       <h1>
@@ -222,11 +336,11 @@
       </h1>
       <p class="hero-sub">Skip rentals. Buy beach gear from real beachgoers nearby — umbrellas, chairs, toys — and resell it before you leave. Pay less than any rental booth.</p>
       <div class="hero-btns">
-        <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="btn-primary">
+        <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="btn-primary magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           App Store
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.krida.beachbaskit" target="_blank" class="btn-android">
+        <a href="https://play.google.com/store/apps/details?id=com.krida.beachbaskit" target="_blank" class="btn-android magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
           Google Play
         </a>
@@ -243,7 +357,7 @@
   </div>
 
   <!-- GALLERY: VIDEO + SCREENSHOTS -->
-  <section class="gallery-section">
+  <section class="gallery-section" id="gallery">
     <div class="gallery-inner">
       <div class="section-eyebrow">See It In Action</div>
       <div class="section-title">Beach gear, simplified.</div>
@@ -326,22 +440,22 @@
   </script>
 
   <!-- HOW IT WORKS -->
-  <section class="how-section">
+  <section class="how-section" id="how">
     <div class="section-eyebrow">How It Works</div>
     <div class="section-title">Three steps to the beach.</div>
     <p class="section-sub">Post once. Get matched automatically. No scrolling listings, no haggling.</p>
     <div class="how-grid">
-      <div class="how-card">
+      <div class="how-card reveal tilt-card">
         <div class="how-num">01</div>
         <h3>Post what you need — or what you're selling</h3>
         <p>Choose buyer or seller mode. Select your item type, quantity, location, and time window. Post once — no need to scroll listings.</p>
       </div>
-      <div class="how-card">
+      <div class="how-card reveal tilt-card">
         <div class="how-num">02</div>
         <h3>We find your match</h3>
         <p>BeachBaskit automatically connects you with someone nearby based on your item, location, and time window. No browsing, no back-and-forth.</p>
       </div>
-      <div class="how-card">
+      <div class="how-card reveal tilt-card">
         <div class="how-num">03</div>
         <h3>Chat, meet, and trade</h3>
         <p>Agree on a meetup using built-in chat. Confirm the deal in person. Pay securely through the app. Done.</p>
@@ -350,37 +464,37 @@
   </section>
 
   <!-- FEATURES -->
-  <section class="features-section">
+  <section class="features-section" id="features">
     <div class="features-inner">
       <div class="section-eyebrow">Features</div>
       <div class="section-title">Built for real beach days.</div>
       <div class="features-grid">
-        <div class="feature-card" style="animation-delay:0.05s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">📍</div>
           <h3>Smart Location Matching</h3>
           <p>Automatically paired with the nearest available match for your item, date, and time window. No browsing required.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.1s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">💳</div>
           <h3>Secure Payments via Stripe</h3>
           <p>All transactions are processed through Stripe. No cash, no risk. Buyers and sellers are both protected through the app.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.15s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">💬</div>
           <h3>In-App Chat</h3>
           <p>Coordinate your pickup with built-in messaging. No personal contact info exchanged. Everything stays in the app.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.2s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🔄</div>
           <h3>Real-Time Status Updates</h3>
           <p>Track your order from match to meetup. Know exactly where things stand at every step of the exchange.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.25s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🛡️</div>
           <h3>Dispute Resolution</h3>
           <p>Built-in dispute resolution if something goes wrong. Submit your case, share evidence, and we'll handle it fairly.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.3s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">⚖️</div>
           <h3>Buyer &amp; Seller Flows</h3>
           <p>Separate confirmation flows for buyers and sellers. Inspect at handoff, confirm in app. Clear accountability at every step.</p>
@@ -390,26 +504,26 @@
   </section>
 
   <!-- WHY BEACHBASKIT -->
-  <section class="value-section">
+  <section class="value-section" id="why">
     <div class="section-eyebrow">Why BeachBaskit</div>
     <div class="section-title">Better than renting. Better than hauling.</div>
     <div class="value-grid">
-      <div class="value-card">
+      <div class="value-card reveal tilt-card">
         <span class="value-icon">💰</span>
         <h3>Save money</h3>
         <p>Own your beach gear. Use it multiple days. Pay less than a rental would cost for just one. Then resell and recover value instead of leaving it behind.</p>
       </div>
-      <div class="value-card">
+      <div class="value-card reveal tilt-card">
         <span class="value-icon">♻️</span>
         <h3>Reduce waste</h3>
         <p>Buy and resell instead of tossing or renting. Every exchange extends a product's life and cuts down on vacation waste. Good for your wallet and the beach.</p>
       </div>
-      <div class="value-card">
+      <div class="value-card reveal tilt-card">
         <span class="value-icon">🌊</span>
         <h3>No hassle</h3>
         <p>Skip the daily rental booths. No hauling gear to the beach. Just match, message, and meet — right on the coast, exactly when you need it.</p>
       </div>
-      <div class="value-card">
+      <div class="value-card reveal tilt-card">
         <span class="value-icon">🛡️</span>
         <h3>Stay safe</h3>
         <p>Built-in reputation system. No personal info exchanged between users. In-app disputes if needed. Designed with trust at the core.</p>
@@ -418,24 +532,24 @@
   </section>
 
   <!-- COMPARISON -->
-  <section class="compare-section">
+  <section class="compare-section" id="compare">
     <div class="compare-inner">
       <div class="section-eyebrow" style="text-align:center;">The Math</div>
       <div class="section-title" style="text-align:center;">Rental vs BeachBaskit</div>
       <p class="section-sub" style="text-align:center;margin:0.5rem auto 0;max-width:460px;">See how the numbers work out for a typical 3-day beach trip.</p>
       <div class="compare-grid">
-        <div class="compare-card rental">
+        <div class="compare-card rental reveal tilt-card">
           <h3>Traditional Rental</h3>
-          <div class="compare-price">$100</div>
+          <div class="compare-price"><span data-target="100" data-prefix="$">$0</span></div>
           <div class="compare-sub">for 3 days</div>
           <div class="compare-sub" style="margin-top:1rem; font-size:0.78rem;">Paid daily. Nothing to show for it. Gear left behind.</div>
         </div>
-        <div class="compare-card bb">
+        <div class="compare-card bb reveal tilt-card">
           <h3>BeachBaskit</h3>
-          <div class="compare-price">$35</div>
+          <div class="compare-price"><span data-target="35" data-prefix="$">$0</span></div>
           <div class="compare-sub">buy it once</div>
-          <div class="resell">Resell for ~$20</div>
-          <div class="effective">= ~$15 effective</div>
+          <div class="resell">Resell for ~<span data-target="20" data-prefix="$">$0</span></div>
+          <div class="effective">= ~<span data-target="15" data-prefix="$">$0</span> effective</div>
           <div class="compare-sub" style="margin-top:0.75rem; font-size:0.78rem;">Own it. Use it. Recover value.</div>
         </div>
       </div>
@@ -444,22 +558,27 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section" id="cta">
     <div class="cta-inner">
       <h2>Beach day sorted. <span>Download now.</span></h2>
       <p>Free to download on iOS and Android. Available in Miami Beach, FL — expanding soon.</p>
       <div class="cta-btns">
-        <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="btn-primary">
+        <a href="https://apps.apple.com/us/app/beachbaskit/id6745843558" target="_blank" class="btn-primary magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           Download on App Store
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.krida.beachbaskit" target="_blank" class="btn-android">
+        <a href="https://play.google.com/store/apps/details?id=com.krida.beachbaskit" target="_blank" class="btn-android magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
           Google Play
         </a>
       </div>
     </div>
   </section>
+
+  <!-- PARTICLE WORDMARK -->
+  <div class="particle-footer">
+    <canvas id="particleCanvas"></canvas>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -473,6 +592,282 @@
       <p>© 2026 Krida LLC · All rights reserved · Apple® and the Apple logo® are trademarks of Apple Inc. · Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function initScrollReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+      els.forEach(function (el, i) {
+        el.style.transitionDelay = (Math.min(i % 3, 2) * 0.08) + 's';
+        observer.observe(el);
+      });
+    }
+
+    function initTiltCards() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      var cards = document.querySelectorAll('.tilt-card');
+      cards.forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect = card.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty('--ry', (nx * 6) + 'deg');
+          card.style.setProperty('--rx', (-ny * 6) + 'deg');
+          card.style.setProperty('--tz', '-4px');
+        });
+        card.addEventListener('mouseleave', function () {
+          card.style.setProperty('--ry', '0deg');
+          card.style.setProperty('--rx', '0deg');
+          card.style.setProperty('--tz', '0px');
+        });
+      });
+    }
+
+    function initMagneticButtons() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.magnetic'));
+      if (!buttons.length) return;
+      var MAX_SHIFT_X = 6, MAX_SHIFT_Y = 12;
+      function handleMove(e) {
+        buttons.forEach(function (btn) {
+          var rect = btn.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2;
+          var cy = rect.top + rect.height / 2;
+          var dx = e.clientX - cx, dy = e.clientY - cy;
+          var dist = Math.hypot(dx, dy);
+          var radius = Math.min(rect.width, rect.height) * 1.1 + 45;
+          if (dist < radius) {
+            var pull = 1 - dist / radius;
+            var tx = Math.max(-MAX_SHIFT_X, Math.min(MAX_SHIFT_X, dx * 0.34 * pull));
+            var ty = Math.max(-MAX_SHIFT_Y, Math.min(MAX_SHIFT_Y, dy * 0.34 * pull));
+            btn.style.transform = 'translate(' + tx.toFixed(1) + 'px, ' + ty.toFixed(1) + 'px)';
+          } else {
+            btn.style.transform = 'translate(0px, 0px)';
+          }
+        });
+      }
+      window.addEventListener('mousemove', handleMove, { passive: true });
+    }
+
+    /* Count-up numbers — supports an optional $ prefix for the price comparison. */
+    function initCountUp() {
+      var els = document.querySelectorAll('[data-target]');
+      if (!els.length) return;
+
+      function animate(el) {
+        var target = parseFloat(el.getAttribute('data-target'));
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        if (isNaN(target)) return;
+        if (reduceMotion) {
+          el.textContent = prefix + Math.round(target) + suffix;
+          return;
+        }
+        var duration = 1200, start = null;
+        function step(ts) {
+          if (start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = prefix + Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = prefix + Math.round(target) + suffix;
+        }
+        requestAnimationFrame(step);
+      }
+
+      if (!('IntersectionObserver' in window)) { els.forEach(animate); return; }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { observer.observe(el); });
+    }
+
+    function initSectionTracking() {
+      var sectionIds = ['hero', 'gallery', 'how', 'features', 'why', 'compare', 'cta'];
+      var sections = sectionIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+      if (!sections.length || !('IntersectionObserver' in window)) return;
+      function setActive(id) {
+        document.querySelectorAll('.scroll-progress [data-section]').forEach(function (el) {
+          el.classList.toggle('dot-active', el.getAttribute('data-section') === id);
+        });
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+      sections.forEach(function (el) { observer.observe(el); });
+    }
+
+    /* Particle wordmark — renders "BeachBaskit" using this app's own accent color. */
+    function initParticleText() {
+      var canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var container = canvas.parentElement;
+      var particles = [];
+      var mouse = { x: -9999, y: -9999 };
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      var W = 0, H = 0;
+
+      function buildParticles() {
+        W = container.clientWidth;
+        H = canvas.clientHeight || 150;
+        if (!W || !H) return;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+
+        var off = document.createElement('canvas');
+        off.width = W * dpr;
+        off.height = H * dpr;
+        var octx = off.getContext('2d');
+        var fontSize = Math.min(H * 0.6, W * 0.13);
+        octx.fillStyle = '#fff';
+        octx.textAlign = 'center';
+        octx.textBaseline = 'middle';
+        octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        var measured = octx.measureText('BeachBaskit').width;
+        var maxWidth = W * dpr * 0.92;
+        if (measured > maxWidth) {
+          fontSize *= maxWidth / measured;
+          octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        }
+        octx.fillText('BeachBaskit', (W * dpr) / 2, (H * dpr) / 2);
+
+        var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
+        particles = [];
+        var step = Math.max(3, Math.round(4 * dpr));
+        for (var y = 0; y < H * dpr; y += step) {
+          for (var x = 0; x < W * dpr; x += step) {
+            if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
+              var px = x / dpr, py = y / dpr;
+              particles.push({ hx: px, hy: py, x: px, y: py, vx: 0, vy: 0 });
+            }
+          }
+        }
+      }
+
+      buildParticles();
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(buildParticles); }
+
+      canvas.addEventListener('mousemove', function (e) {
+        var rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+      function touchPos(e) {
+        var rect = canvas.getBoundingClientRect();
+        var t = e.touches[0];
+        mouse.x = t.clientX - rect.left;
+        mouse.y = t.clientY - rect.top;
+      }
+      canvas.addEventListener('touchstart', touchPos, { passive: true });
+      canvas.addEventListener('touchmove', touchPos, { passive: true });
+      canvas.addEventListener('touchend', function () { mouse.x = -9999; mouse.y = -9999; });
+
+      function tick() {
+        requestAnimationFrame(tick);
+        if (!W || !H) return;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = 'rgba(14,165,233,0.9)';
+        var repelRadius = 50;
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          if (!reduceMotion) {
+            var dx = p.x - mouse.x, dy = p.y - mouse.y;
+            var dist = Math.hypot(dx, dy);
+            if (dist < repelRadius) {
+              var force = (repelRadius - dist) / repelRadius;
+              var inv = 1 / (dist || 1);
+              p.vx += dx * inv * force * 3.2;
+              p.vy += dy * inv * force * 3.2;
+            }
+            p.vx += (p.hx - p.x) * 0.06;
+            p.vy += (p.hy - p.y) * 0.06;
+            p.vx *= 0.82; p.vy *= 0.82;
+            p.x += p.vx; p.y += p.vy;
+          }
+          ctx.fillRect(p.x, p.y, 1.5, 1.5);
+        }
+      }
+      tick();
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(buildParticles, 250);
+      });
+    }
+
+    function initCustomCursor() {
+      if (reduceMotion) return;
+      if (!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
+      var ring = document.createElement('div'); ring.className = 'custom-cursor-ring';
+      var dot = document.createElement('div'); dot.className = 'custom-cursor-dot';
+      document.body.appendChild(ring); document.body.appendChild(dot);
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
+      window.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+      });
+      document.addEventListener('mouseleave', function () { ring.style.opacity = '0'; dot.style.opacity = '0'; });
+      document.addEventListener('mouseenter', function () { ring.style.opacity = '1'; dot.style.opacity = '1'; });
+      var interactiveSelector = 'a, button, .magnetic, .tilt-card, input, [role="button"]';
+      document.addEventListener('mouseover', function (e) { if (e.target.closest(interactiveSelector)) ring.classList.add('cursor-hover'); });
+      document.addEventListener('mouseout', function (e) { if (e.target.closest(interactiveSelector)) ring.classList.remove('cursor-hover'); });
+      function tick() {
+        requestAnimationFrame(tick);
+        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+      }
+      tick();
+      document.documentElement.classList.add('custom-cursor-active');
+    }
+
+    function ready() {
+      try { initParticleText(); } catch (err) { console.error('particle text failed:', err); }
+      try { initScrollReveal(); } catch (err) {
+        console.error('scroll reveal failed:', err);
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+      }
+      try { initTiltCards(); } catch (err) { console.error('tilt cards failed:', err); }
+      try { initMagneticButtons(); } catch (err) { console.error('magnetic buttons failed:', err); }
+      try { initCountUp(); } catch (err) { console.error('count up failed:', err); }
+      try { initSectionTracking(); } catch (err) { console.error('section tracking failed:', err); }
+      try { initCustomCursor(); } catch (err) { console.error('custom cursor failed:', err); }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ready);
+    } else {
+      ready();
+    }
+  })();
+  </script>
 
 </body>
 </html>
