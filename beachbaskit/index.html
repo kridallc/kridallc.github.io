@@ -332,6 +332,12 @@
       .features-grid { grid-template-columns: 1fr; }
       .value-grid { grid-template-columns: 1fr; }
       .compare-grid { grid-template-columns: 1fr; }
+      /* Grid items default to min-width:auto, so any single unbreakable
+         element inside a column (a pill, a button, a long word) forces
+         the WHOLE column wider than the viewport — dragging normal
+         paragraph text along with it even though that text would wrap
+         fine on its own. */
+      .hero > *, .how-grid > *, .features-grid > *, .value-grid > *, .compare-grid > * { min-width: 0; }
       .how-section, .value-section { padding: 3.5rem 1.25rem; }
       .features-section, .compare-section { padding: 3.5rem 1.25rem; }
     }
@@ -806,7 +812,9 @@
 
         var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
         particles = [];
-        var step = Math.max(3, Math.round(4 * dpr));
+        var fixedStep = Math.max(3, Math.round(4 * dpr));
+        var proportionalStep = Math.max(2, Math.floor(fontSize * dpr * 0.05));
+        var step = Math.min(fixedStep, proportionalStep);
         for (var y = 0; y < H * dpr; y += step) {
           for (var x = 0; x < W * dpr; x += step) {
             if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
@@ -904,27 +912,39 @@
         var shine = outer.querySelector('.icon-3d-shine');
         if (!inner || !shine) return;
         if (reduceMotion) return;
-        if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
 
         var targetRX = 0, targetRY = 0, targetTZ = 0, targetSX = 50, targetSY = 50;
         var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50;
         var hovering = false;
 
-        outer.addEventListener('mousemove', function (e) {
+        function updateTiltFromPoint(clientX, clientY) {
           hovering = true;
           var rect = outer.getBoundingClientRect();
-          var nx = (e.clientX - rect.left) / rect.width - 0.5;
-          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          var nx = (clientX - rect.left) / rect.width - 0.5;
+          var ny = (clientY - rect.top) / rect.height - 0.5;
           targetRY = nx * 20;
           targetRX = -ny * 20;
           targetTZ = 14;
           targetSX = 50 + nx * 60;
           targetSY = 50 + ny * 60;
-        });
-        outer.addEventListener('mouseleave', function () {
+        }
+        function resetTilt() {
           hovering = false;
           targetRX = 0; targetRY = 0; targetTZ = 0;
+        }
+
+        outer.addEventListener('mousemove', function (e) {
+          updateTiltFromPoint(e.clientX, e.clientY);
         });
+        outer.addEventListener('mouseleave', resetTilt);
+        outer.addEventListener('touchstart', function (e) {
+          if (e.touches[0]) updateTiltFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+        outer.addEventListener('touchmove', function (e) {
+          if (e.touches[0]) updateTiltFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+        outer.addEventListener('touchend', resetTilt);
+        outer.addEventListener('touchcancel', resetTilt);
 
         (function tick() {
           requestAnimationFrame(tick);
