@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://kridallc.com/mathsdash/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,6 +33,7 @@
       --border-hover: rgba(143, 79, 236, 0.4);
       --card: #ffffff;
       --card-bg: #f9f7ff;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -65,24 +66,18 @@
     .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
 
-    .nav-cta {
-      font-size: 0.82rem !important; font-weight: 700 !important;
-      color: #fff !important; background: var(--primary) !important;
-      padding: 0.4rem 1rem !important; border-radius: 8px !important;
-      transition: all 0.18s !important;
-    }
-    .nav-cta:hover { background: var(--primary-dark) !important; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(143,79,236,0.3) !important; }
-
     .nav-store-btns { display: flex; align-items: center; gap: 0.4rem; }
     .nav-store-btn {
       display: inline-flex; align-items: center; gap: 0.3rem;
-      font-size: 0.78rem !important; font-weight: 700 !important;
+      font-family: var(--mono);
+      font-size: 0.68rem !important; font-weight: 500 !important;
+      text-transform: uppercase; letter-spacing: 0.03em;
       color: #fff !important; background: var(--primary) !important;
       padding: 0.38rem 0.75rem !important; border-radius: 7px !important;
-      text-decoration: none; transition: all 0.18s !important;
+      text-decoration: none; transition: background 0.18s, box-shadow 0.18s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
       white-space: nowrap;
     }
-    .nav-store-btn:hover { background: var(--primary-dark) !important; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(143,79,236,0.3) !important; }
+    .nav-store-btn:hover { background: var(--primary-dark) !important; box-shadow: 0 4px 12px rgba(143,79,236,0.3) !important; }
     .nav-store-btn--android { background: #1a1a2e !important; }
     .nav-store-btn--android:hover { background: #0d0d1a !important; box-shadow: 0 4px 12px rgba(0,0,0,0.25) !important; }
 
@@ -104,8 +99,9 @@
 
     .hero-label {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.15em;
+      font-family: var(--mono);
+      font-size: 0.66rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--primary);
       background: var(--primary-light);
       border: 1px solid rgba(143,79,236,0.2);
@@ -137,13 +133,14 @@
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.45rem;
       background: var(--primary); color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 700; font-size: 0.9rem;
+      font-family: var(--mono);
+      font-weight: 500; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.03em;
       padding: 0.8rem 1.5rem; border-radius: 10px;
-      text-decoration: none; transition: all 0.2s;
+      text-decoration: none; transition: background 0.2s, box-shadow 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
       box-shadow: 0 4px 20px rgba(143,79,236,0.25);
     }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(143,79,236,0.35); }
+    .btn-primary:hover { background: var(--primary-dark); box-shadow: 0 8px 28px rgba(143,79,236,0.35); }
     .btn-primary.btn-android { background: #1a1a2e; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
     .btn-primary.btn-android:hover { background: #0d0d1a; box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
     .btn-primary svg { width: 14px; height: 14px; }
@@ -152,24 +149,25 @@
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: transparent; color: var(--primary);
       border: 1.5px solid rgba(143,79,236,0.35);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600; font-size: 0.9rem;
+      font-family: var(--mono);
+      font-weight: 500; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.03em;
       padding: 0.8rem 1.4rem; border-radius: 10px;
-      text-decoration: none; transition: all 0.2s;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .btn-secondary:hover { border-color: var(--primary); background: var(--primary-light); transform: translateY(-2px); }
+    .btn-secondary:hover { border-color: var(--primary); background: var(--primary-light); }
 
     .hero-visual {
       display: flex; justify-content: center; align-items: center;
       opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
     }
 
-    .app-icon-hero {
+    .icon-3d.hero-icon-wrap {
       width: 200px; height: 200px; border-radius: 44px;
-      object-fit: cover;
       box-shadow: 0 20px 60px rgba(143,79,236,0.25), 0 4px 20px rgba(0,0,0,0.1);
-      border: 1px solid rgba(143,79,236,0.15);
     }
+    .icon-3d.hero-icon-wrap .icon-3d-inner { border-radius: 44px; border: 1px solid rgba(143,79,236,0.15); }
+    .app-icon-hero { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* ACCENT BAR */
     .accent-bar {
@@ -191,9 +189,10 @@
     .features-inner { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
-      font-size: 0.68rem; text-transform: uppercase;
-      letter-spacing: 0.18em; color: var(--primary);
-      font-weight: 700; margin-bottom: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.64rem; text-transform: uppercase;
+      letter-spacing: 0.16em; color: var(--primary);
+      font-weight: 500; margin-bottom: 0.5rem;
     }
     .section-title {
       font-family: 'Syne', sans-serif;
@@ -208,10 +207,9 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px; padding: 1.5rem;
-      transition: all 0.22s;
-      opacity: 0; animation: fadeUp 0.5s ease forwards;
+      transition: border-color 0.22s, box-shadow 0.22s;
     }
-    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(143,79,236,0.1); }
+    .feature-card:hover { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(143,79,236,0.1); }
 
     .feature-icon {
       width: 42px; height: 42px; border-radius: 10px;
@@ -236,6 +234,68 @@
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* HOVER TILT */
+    .tilt-card {
+      --rx: 0deg; --ry: 0deg; --tz: 0px;
+      transform: perspective(700px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--tz));
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+
+    /* MAGNETIC BUTTONS */
+    .magnetic { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+
+    /* ICON 3D (hero app icon) — box-shadow/border tuned to this
+       page's purple brand rather than the blue used elsewhere. */
+    .icon-3d { position: relative; perspective: 600px; z-index: 1; }
+    .icon-3d-inner {
+      position: relative; overflow: hidden; width: 100%; height: 100%;
+      --irx: 0deg; --iry: 0deg; --itz: 0px;
+      transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz));
+      transform-style: preserve-3d;
+      animation: iconFloat 5.5s ease-in-out infinite;
+    }
+    .icon-3d:hover .icon-3d-inner { animation-play-state: paused; }
+    .icon-3d-shine {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at var(--sx, 50%) var(--sy, 15%), rgba(255,255,255,0.55), transparent 55%);
+      opacity: 0; transition: opacity 0.3s ease; pointer-events: none; mix-blend-mode: overlay;
+    }
+    .icon-3d:hover .icon-3d-shine { opacity: 1; }
+    @keyframes iconFloat {
+      0%, 100% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(0); }
+      50% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(-5px); }
+    }
+    @media (prefers-reduced-motion: reduce) { .icon-3d-inner { animation: none; } }
+
+    /* CUSTOM CURSOR — dark purple, since the light-blue version used
+       on the dark pages would be invisible against a white background. */
+    html.custom-cursor-active, html.custom-cursor-active * { cursor: none !important; }
+    .custom-cursor-ring {
+      position: fixed; top: 0; left: 0; width: 20px; height: 20px;
+      border: 1.5px solid var(--primary); border-radius: 50%;
+      pointer-events: none; z-index: 99999;
+      transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      will-change: transform;
+    }
+    .custom-cursor-ring.cursor-hover { width: 46px; height: 46px; background: var(--primary-light); border-color: var(--primary-dark); }
+    .custom-cursor-dot {
+      position: fixed; top: 0; left: 0; width: 5px; height: 5px;
+      background: var(--primary); border-radius: 50%; pointer-events: none; z-index: 99999;
+      will-change: transform; transition: opacity 0.25s ease;
+    }
+
+    /* PARTICLE WORDMARK — sits in the footer, which is dark even
+       though the rest of this page is light, so the bright-dust-on-
+       dark approach from the other pages still works unchanged here. */
+    .particle-footer { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto 1.5rem; }
+    .particle-footer canvas { display: block; width: 100%; height: clamp(70px, 12vw, 150px); cursor: default; touch-action: none; }
+
     @media (max-width: 680px) {
       nav { padding: 0 1.25rem; }
       .nav-toggle { display: flex; }
@@ -255,7 +315,8 @@
         gap: 2rem;
       }
       .hero-visual { order: -1; }
-      .app-icon-hero { width: 130px; height: 130px; border-radius: 30px; }
+      .icon-3d.hero-icon-wrap { width: 130px; height: 130px; border-radius: 30px; }
+      .icon-3d.hero-icon-wrap .icon-3d-inner { border-radius: 30px; }
       .hero h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
       .features { padding: 3rem 1.25rem; }
       .features-grid { grid-template-columns: 1fr; }
@@ -283,11 +344,11 @@
       <li><a href="/mathsdash/privacy/">Privacy</a></li>
       <li><a href="/mathsdash/terms/">Terms</a></li>
       <li class="nav-store-btns">
-        <a href="https://apps.apple.com/us/app/maths-dash/id6698856562" target="_blank" class="nav-store-btn" aria-label="Download on App Store">
+        <a href="https://apps.apple.com/us/app/maths-dash/id6698856562" target="_blank" class="nav-store-btn magnetic" aria-label="Download on App Store">
           <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           iOS
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.krida.mathsdash" target="_blank" class="nav-store-btn nav-store-btn--android" aria-label="Get it on Google Play">
+        <a href="https://play.google.com/store/apps/details?id=com.krida.mathsdash" target="_blank" class="nav-store-btn nav-store-btn--android magnetic" aria-label="Get it on Google Play">
           <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M3.18 23.76c.3.17.64.22.99.14l12.12-6.99-2.56-2.56-10.55 9.41zm-1.9-20.3C1.1 3.83 1 4.24 1 4.69v14.62c0 .45.1.86.28 1.23l.07.06 8.19-8.19v-.19L1.35 3.4l-.07.06zM20.49 10.7l-2.31-1.33-2.88 2.88 2.88 2.88 2.33-1.34c.67-.38.67-1.71-.02-2.09zM4.17.24L16.3 7.23l-2.56 2.56L3.18.38C3.53.3 3.88.35 4.17.53V.24z"/></svg>
           Android
         </a>
@@ -301,19 +362,24 @@
       <h1>Master Mental Math<br /><span>Faster Than Ever</span></h1>
       <p class="hero-sub">Build math speed and confidence with proven techniques inspired by Vedic Math. Engaging videos, clear explanations, and interactive quizzes make mental math easy and enjoyable.</p>
       <div class="hero-btns">
-        <a href="https://apps.apple.com/us/app/maths-dash/id6698856562" target="_blank" class="btn-primary">
+        <a href="https://apps.apple.com/us/app/maths-dash/id6698856562" target="_blank" class="btn-primary magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           App Store
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.krida.mathsdash" target="_blank" class="btn-primary btn-android">
+        <a href="https://play.google.com/store/apps/details?id=com.krida.mathsdash" target="_blank" class="btn-primary btn-android magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.99.14l12.12-6.99-2.56-2.56-10.55 9.41zm-1.9-20.3C1.1 3.83 1 4.24 1 4.69v14.62c0 .45.1.86.28 1.23l.07.06 8.19-8.19v-.19L1.35 3.4l-.07.06zM20.49 10.7l-2.31-1.33-2.88 2.88 2.88 2.88 2.33-1.34c.67-.38.67-1.71-.02-2.09zM4.17.24L16.3 7.23l-2.56 2.56L3.18.38C3.53.3 3.88.35 4.17.53V.24z"/></svg>
           Google Play
         </a>
-        <a href="/mathsdash/foundations/" class="btn-secondary">The Science Behind It →</a>
+        <a href="/mathsdash/foundations/" class="btn-secondary magnetic">The Science Behind It →</a>
       </div>
     </div>
     <div class="hero-visual">
-      <img src="/icon_MD.jpeg" alt="Maths Dash App Icon" class="app-icon-hero" />
+      <div class="icon-3d hero-icon-wrap">
+        <div class="icon-3d-inner">
+          <img src="/icon_MD.jpeg" alt="Maths Dash App Icon" class="app-icon-hero" />
+          <div class="icon-3d-shine"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -326,32 +392,32 @@
       <div class="section-label">What's Inside</div>
       <div class="section-title">Everything you need to<br />think faster</div>
       <div class="features-grid">
-        <div class="feature-card" style="animation-delay:0.05s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">⚡</div>
           <h3>Speed Training</h3>
           <p>Timed drills and progressive challenges build calculation speed you can actually feel improving.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.12s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🧠</div>
           <h3>Vedic Techniques</h3>
           <p>Ancient mental math methods, modernized. Learn tricks that make complex arithmetic feel effortless.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.19s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🎓</div>
           <h3>Video Lessons</h3>
           <p>Clear, engaging explanations that break down each technique before you practice it.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.26s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">📊</div>
           <h3>Progress Tracking</h3>
           <p>Watch your accuracy and speed improve over time with detailed performance metrics.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.33s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🧩</div>
           <h3>Interactive Quizzes</h3>
           <p>Practice what you learn with adaptive quizzes that meet you at your level.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.4s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🔬</div>
           <h3>Research-Backed</h3>
           <p>Built on peer-reviewed neuroscience showing mental arithmetic's benefits for cognitive reserve.</p>
@@ -361,6 +427,9 @@
   </section>
 
   <footer>
+    <div class="particle-footer">
+      <canvas id="particleCanvas"></canvas>
+    </div>
     <div class="footer-inner">
       <div class="footer-links">
         <a href="/mathsdash/">Home</a>
@@ -373,6 +442,220 @@
       <p>© 2026 Krida LLC · All rights reserved · Apple® and the Apple logo® are trademarks of Apple Inc.</p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function initScrollReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in-view'); }); return; }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+      els.forEach(function (el, i) {
+        el.style.transitionDelay = (Math.min(i % 3, 2) * 0.08) + 's';
+        observer.observe(el);
+      });
+    }
+
+    function initTiltCards() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.tilt-card').forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect = card.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty('--ry', (nx * 6) + 'deg');
+          card.style.setProperty('--rx', (-ny * 6) + 'deg');
+          card.style.setProperty('--tz', '-4px');
+        });
+        card.addEventListener('mouseleave', function () {
+          card.style.setProperty('--ry', '0deg'); card.style.setProperty('--rx', '0deg'); card.style.setProperty('--tz', '0px');
+        });
+      });
+    }
+
+    function initMagneticButtons() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.magnetic'));
+      if (!buttons.length) return;
+      var MAX_X = 6, MAX_Y = 12;
+      window.addEventListener('mousemove', function (e) {
+        buttons.forEach(function (btn) {
+          var rect = btn.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+          var dx = e.clientX - cx, dy = e.clientY - cy;
+          var dist = Math.hypot(dx, dy);
+          var radius = Math.min(rect.width, rect.height) * 1.1 + 45;
+          if (dist < radius) {
+            var pull = 1 - dist / radius;
+            var tx = Math.max(-MAX_X, Math.min(MAX_X, dx * 0.34 * pull));
+            var ty = Math.max(-MAX_Y, Math.min(MAX_Y, dy * 0.34 * pull));
+            btn.style.transform = 'translate(' + tx.toFixed(1) + 'px, ' + ty.toFixed(1) + 'px)';
+          } else { btn.style.transform = 'translate(0px, 0px)'; }
+        });
+      }, { passive: true });
+    }
+
+    function initIconWrap() {
+      document.querySelectorAll('.icon-3d').forEach(function (outer) {
+        var inner = outer.querySelector('.icon-3d-inner');
+        var shine = outer.querySelector('.icon-3d-shine');
+        if (!inner || !shine || reduceMotion) return;
+        if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+        var targetRX = 0, targetRY = 0, targetTZ = 0, targetSX = 50, targetSY = 50;
+        var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50, hovering = false;
+        outer.addEventListener('mousemove', function (e) {
+          hovering = true;
+          var rect = outer.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          targetRY = nx * 20; targetRX = -ny * 20; targetTZ = 14;
+          targetSX = 50 + nx * 60; targetSY = 50 + ny * 60;
+        });
+        outer.addEventListener('mouseleave', function () { hovering = false; targetRX = 0; targetRY = 0; targetTZ = 0; });
+        (function tick() {
+          requestAnimationFrame(tick);
+          var ease = 0.28;
+          curRX += (targetRX - curRX) * ease; curRY += (targetRY - curRY) * ease; curTZ += (targetTZ - curTZ) * ease;
+          inner.style.setProperty('--irx', curRX.toFixed(2) + 'deg');
+          inner.style.setProperty('--iry', curRY.toFixed(2) + 'deg');
+          inner.style.setProperty('--itz', curTZ.toFixed(2) + 'px');
+          if (hovering) {
+            curSX += (targetSX - curSX) * ease; curSY += (targetSY - curSY) * ease;
+            shine.style.setProperty('--sx', curSX.toFixed(1) + '%'); shine.style.setProperty('--sy', curSY.toFixed(1) + '%');
+          }
+        })();
+      });
+    }
+
+    function initCustomCursor() {
+      if (reduceMotion) return;
+      if (!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
+      var ring = document.createElement('div'); ring.className = 'custom-cursor-ring';
+      var dot = document.createElement('div'); dot.className = 'custom-cursor-dot';
+      document.body.appendChild(ring); document.body.appendChild(dot);
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
+      window.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+      });
+      document.addEventListener('mouseleave', function () { ring.style.opacity = '0'; dot.style.opacity = '0'; });
+      document.addEventListener('mouseenter', function () { ring.style.opacity = '1'; dot.style.opacity = '1'; });
+      var sel = 'a, button, .magnetic, .tilt-card, .icon-3d, input, [role="button"]';
+      document.addEventListener('mouseover', function (e) { if (e.target.closest(sel)) ring.classList.add('cursor-hover'); });
+      document.addEventListener('mouseout', function (e) { if (e.target.closest(sel)) ring.classList.remove('cursor-hover'); });
+      function tick() {
+        requestAnimationFrame(tick);
+        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+      }
+      tick();
+      document.documentElement.classList.add('custom-cursor-active');
+    }
+
+    /* Particle wordmark — renders "Maths Dash" in gold, matching
+       this app's accent color, against the footer's dark band. */
+    function initParticleText() {
+      var canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var container = canvas.parentElement;
+      var particles = [], mouse = { x: -9999, y: -9999 };
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      var W = 0, H = 0;
+      function buildParticles() {
+        W = container.clientWidth; H = canvas.clientHeight || 120;
+        if (!W || !H) return;
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        var off = document.createElement('canvas');
+        off.width = W * dpr; off.height = H * dpr;
+        var octx = off.getContext('2d');
+        var fontSize = Math.min(H * 0.6, W * 0.13);
+        octx.fillStyle = '#fff'; octx.textAlign = 'center'; octx.textBaseline = 'middle';
+        octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        var measured = octx.measureText('Maths Dash').width;
+        var maxWidth = W * dpr * 0.92;
+        if (measured > maxWidth) { fontSize *= maxWidth / measured; octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif"; }
+        octx.fillText('Maths Dash', (W * dpr) / 2, (H * dpr) / 2);
+        var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
+        particles = [];
+        var step = Math.max(3, Math.round(4 * dpr));
+        for (var y = 0; y < H * dpr; y += step) {
+          for (var x = 0; x < W * dpr; x += step) {
+            if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
+              var px = x / dpr, py = y / dpr;
+              particles.push({ hx: px, hy: py, x: px, y: py, vx: 0, vy: 0 });
+            }
+          }
+        }
+      }
+      buildParticles();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(buildParticles);
+      canvas.addEventListener('mousemove', function (e) {
+        var rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top;
+      });
+      canvas.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+      function touchPos(e) {
+        var rect = canvas.getBoundingClientRect(); var t = e.touches[0];
+        mouse.x = t.clientX - rect.left; mouse.y = t.clientY - rect.top;
+      }
+      canvas.addEventListener('touchstart', touchPos, { passive: true });
+      canvas.addEventListener('touchmove', touchPos, { passive: true });
+      canvas.addEventListener('touchend', function () { mouse.x = -9999; mouse.y = -9999; });
+      function tick() {
+        requestAnimationFrame(tick);
+        if (!W || !H) return;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = 'rgba(254,214,4,0.9)';
+        var repelRadius = 45;
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          if (!reduceMotion) {
+            var dx = p.x - mouse.x, dy = p.y - mouse.y;
+            var dist = Math.hypot(dx, dy);
+            if (dist < repelRadius) {
+              var force = (repelRadius - dist) / repelRadius, inv = 1 / (dist || 1);
+              p.vx += dx * inv * force * 3.2; p.vy += dy * inv * force * 3.2;
+            }
+            p.vx += (p.hx - p.x) * 0.06; p.vy += (p.hy - p.y) * 0.06;
+            p.vx *= 0.82; p.vy *= 0.82; p.x += p.vx; p.y += p.vy;
+          }
+          ctx.fillRect(p.x, p.y, 1.4, 1.4);
+        }
+      }
+      tick();
+      var resizeTimer;
+      window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(buildParticles, 250); });
+    }
+
+    function ready() {
+      try { initIconWrap(); } catch (err) { console.error('icon wrap failed:', err); }
+      try { initParticleText(); } catch (err) { console.error('particle text failed:', err); }
+      try { initScrollReveal(); } catch (err) {
+        console.error('scroll reveal failed:', err);
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+      }
+      try { initTiltCards(); } catch (err) { console.error('tilt cards failed:', err); }
+      try { initMagneticButtons(); } catch (err) { console.error('magnetic buttons failed:', err); }
+      try { initCustomCursor(); } catch (err) { console.error('custom cursor failed:', err); }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ready);
+    } else {
+      ready();
+    }
+  })();
+  </script>
 
 </body>
 </html>
