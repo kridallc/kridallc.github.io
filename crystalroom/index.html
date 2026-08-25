@@ -439,6 +439,13 @@
       .features-grid { grid-template-columns: 1fr; }
       .audience-grid { grid-template-columns: 1fr; }
       .cif-inner { grid-template-columns: 1fr; gap: 2rem; }
+      /* Grid items default to min-width:auto, so any single unbreakable
+         element inside a column (a pill, a button, a long word) forces
+         the WHOLE column wider than the viewport — dragging normal
+         paragraph text along with it even though that text would wrap
+         fine on its own. Applied to every grid on the page, not just
+         the one that happened to get reported. */
+      .hero > *, .crystals-grid > *, .features-grid > *, .audience-grid > *, .cif-inner > * { min-width: 0; }
       .crystals-section, .audience-section { padding: 3.5rem 1.25rem; }
       .features-section, .cif-section { padding: 3.5rem 1.25rem; }
       /* Long-text buttons/pills default to their max-content width in
