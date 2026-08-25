@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -27,6 +27,7 @@
       --border: rgba(79, 142, 247, 0.15);
       --border2: rgba(79, 142, 247, 0.08);
       --card: rgba(13, 18, 32, 0.8);
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -110,8 +111,11 @@
     nav ul a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
       font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       transition: color 0.2s;
     }
 
@@ -159,23 +163,63 @@
     }
 
     .about-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .icon-3d {
+      position: relative;
+      perspective: 500px;
       width: 110px;
       height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 50px rgba(79,142,247,0.2), 0 0 100px rgba(79,142,247,0.08);
-      border: 2px solid rgba(79,142,247,0.25);
       flex-shrink: 0;
+      box-shadow: 0 0 50px rgba(79,142,247,0.2), 0 0 100px rgba(79,142,247,0.08);
+      border-radius: 50%;
+    }
+    .icon-3d-inner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid rgba(79,142,247,0.25);
+      --irx: 0deg;
+      --iry: 0deg;
+      --itz: 0px;
+      transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz));
+      transform-style: preserve-3d;
+      animation: iconFloat 5.5s ease-in-out infinite;
+    }
+    .icon-3d:hover .icon-3d-inner { animation-play-state: paused; }
+    .icon-3d-shine {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--sx, 50%) var(--sy, 15%), rgba(255,255,255,0.4), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+    .icon-3d:hover .icon-3d-shine { opacity: 1; }
+    @keyframes iconFloat {
+      0%, 100% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(0); }
+      50% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(-4px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .icon-3d-inner { animation: none; }
     }
 
     .about-hero-text {}
 
     .about-label {
-      font-size: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 500;
       margin-bottom: 0.6rem;
     }
 
@@ -212,22 +256,23 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       color: var(--accent2);
       text-decoration: none;
       background: rgba(79,142,247,0.08);
       border: 1px solid rgba(79,142,247,0.2);
       padding: 0.3rem 0.85rem;
       border-radius: 100px;
-      transition: all 0.2s;
-      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .about-link:hover {
       background: rgba(79,142,247,0.18);
       border-color: rgba(79,142,247,0.45);
-      transform: translateY(-1px);
     }
 
     .about-link svg { width: 13px; height: 13px; }
@@ -242,16 +287,38 @@
     /* SECTION BLOCKS */
     .about-section {
       margin-bottom: 3.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards;
     }
 
-    .about-section:nth-child(1) { animation-delay: 0.3s; }
-    .about-section:nth-child(2) { animation-delay: 0.4s; }
-    .about-section:nth-child(3) { animation-delay: 0.5s; }
-    .about-section:nth-child(4) { animation-delay: 0.6s; }
-    .about-section:nth-child(5) { animation-delay: 0.7s; }
-    .about-section:nth-child(6) { animation-delay: 0.8s; }
+    /* SCROLL REVEAL — replaces the old load-time fadeUp animation,
+       which fired unconditionally on page load regardless of scroll
+       position, so anything below the fold had already finished
+       animating before it was ever seen. */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    .tilt-card {
+      --rx: 0deg;
+      --ry: 0deg;
+      --tz: 0px;
+      transform: perspective(700px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--tz));
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+
+    .magnetic {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
 
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
@@ -259,11 +326,12 @@
     }
 
     .section-label {
-      font-size: 0.72rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 500;
       margin-bottom: 1rem;
     }
 
@@ -321,7 +389,8 @@
     .stat-pill-num span { color: var(--accent); }
 
     .stat-pill-label {
-      font-size: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -350,6 +419,19 @@
     .career-item:last-child { border-bottom: none; }
     .career-item:hover { background: rgba(79,142,247,0.04); }
 
+    .career-item {
+      border-left: 3px solid transparent;
+      transition: background 0.2s, border-left-color 0.4s;
+    }
+    .career-item.spotlight-active {
+      border-left-color: var(--accent2);
+      background: rgba(79,142,247,0.05);
+    }
+    .career-item.spotlight-active .career-title {
+      color: var(--accent2);
+      transition: color 0.4s;
+    }
+
     .career-title {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -370,13 +452,13 @@
     }
 
     .career-years {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
       color: var(--muted);
       text-align: right;
       white-space: nowrap;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       padding-top: 0.2rem;
     }
 
@@ -422,9 +504,9 @@
     }
 
     .edu-year {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
       color: var(--muted);
       white-space: nowrap;
       text-align: right;
@@ -454,9 +536,9 @@
     .pub-item:hover { background: rgba(79,142,247,0.04); }
 
     .pub-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 500;
       color: var(--muted2);
       padding-top: 0.2rem;
       min-width: 1.5rem;
@@ -484,9 +566,9 @@
     }
 
     .pub-citations {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 500;
       color: var(--muted);
       white-space: nowrap;
       text-align: right;
@@ -519,9 +601,9 @@
     .tech-card:hover { border-color: rgba(79,142,247,0.3); }
 
     .tech-card-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
       color: var(--accent2);
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -535,73 +617,14 @@
     }
 
     .tech-tag {
-      font-size: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
       color: var(--muted);
       background: rgba(79,142,247,0.06);
       border: 1px solid rgba(79,142,247,0.12);
       padding: 0.2rem 0.6rem;
       border-radius: 6px;
       font-weight: 500;
-    }
-
-    /* SOCIAL PROOF */
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .proof-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.3rem 1.5rem;
-      backdrop-filter: blur(10px);
-      transition: all 0.2s;
-    }
-
-    .proof-card:hover {
-      border-color: rgba(79,142,247,0.3);
-      transform: translateY(-2px);
-    }
-
-    .proof-community {
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.6rem;
-    }
-
-    .proof-stats {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .proof-stat {}
-
-    .proof-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-
-    .proof-stat-label {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-
-    .proof-app {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-style: italic;
     }
 
     /* FOOTER */
@@ -625,12 +648,95 @@
     }
 
     .footer-logo span { color: var(--accent); }
-    .about-footer p { color: var(--muted); font-size: 0.85rem; }
+    .about-footer p { color: var(--muted); font-size: 0.78rem; font-family: var(--mono); letter-spacing: 0.02em; }
+
+    /* SCROLL PROGRESS INDICATOR */
+    .scroll-progress {
+      position: fixed;
+      right: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-end;
+    }
+    .scroll-progress a {
+      width: 20px;
+      height: 1.5px;
+      background: rgba(232,237,245,0.25);
+      display: block;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+    .scroll-progress a.dot-active {
+      width: 32px;
+      background: var(--accent2);
+      box-shadow: 0 0 8px rgba(79,142,247,0.6);
+    }
+    @media (max-width: 900px) {
+      .scroll-progress { display: none; }
+    }
+
+    /* PARTICLE WORDMARK */
+    .particle-footer {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 2rem 0;
+    }
+    .particle-footer canvas {
+      display: block;
+      width: 100%;
+      height: clamp(90px, 16vw, 200px);
+      cursor: default;
+      touch-action: none;
+    }
+
+    /* CUSTOM CURSOR */
+    html.custom-cursor-active,
+    html.custom-cursor-active * {
+      cursor: none !important;
+    }
+    .custom-cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid var(--accent2);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      will-change: transform;
+    }
+    .custom-cursor-ring.cursor-hover {
+      width: 46px;
+      height: 46px;
+      background: rgba(126,184,255,0.12);
+      border-color: var(--accent);
+    }
+    .custom-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      background: var(--accent2);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      will-change: transform;
+      transition: opacity 0.25s ease;
+    }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .about-hero { grid-template-columns: 1fr; text-align: center; }
-      .about-logo { margin: 0 auto; }
+      .icon-3d { margin: 0 auto; }
       .about-links { justify-content: center; }
       .tech-grid { grid-template-columns: 1fr; }
       .proof-grid { grid-template-columns: 1fr; }
@@ -655,7 +761,7 @@
   <nav>
     <a href="index.html" class="nav-logo">
       <img src="logo_square.jpg" alt="Krida" />
-      <span class="nav-logo-text">Krida<span>.</span></span>
+      <span class="nav-logo-text">Krida <span>LLC</span></span>
     </a>
     <ul>
       <li><a href="index.html#apps">Apps</a></li>
@@ -664,6 +770,17 @@
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" role="navigation" aria-label="Page progress">
+    <a href="#statement" data-section="statement" aria-label="Statement"></a>
+    <a href="#recognition" data-section="recognition" aria-label="Recognition"></a>
+    <a href="#impact" data-section="impact" aria-label="Impact"></a>
+    <a href="#publications" data-section="publications" aria-label="Publications"></a>
+    <a href="#career" data-section="career" aria-label="Career"></a>
+    <a href="#education" data-section="education" aria-label="Education"></a>
+    <a href="#skills" data-section="skills" aria-label="Skills"></a>
+  </div>
 
   <div class="page">
 
@@ -676,21 +793,26 @@
 
     <!-- HERO -->
     <div class="about-hero">
-      <img src="headshot.jpg" alt="Nitin Kumar" class="about-logo" />
+      <div class="icon-3d">
+        <div class="icon-3d-inner">
+          <img src="headshot.jpg" alt="Nitin Kumar" class="about-logo" />
+          <div class="icon-3d-shine"></div>
+        </div>
+      </div>
       <div class="about-hero-text">
         <div class="about-label">Founder &amp; Lead Developer</div>
         <div class="about-name">Nitin Kumar<span>.</span></div>
         <div class="about-role">Krida LLC · Golden, Colorado · Founded 2022</div>
         <div class="about-links">
-          <a href="https://www.linkedin.com/in/nkumar-founder/" target="_blank" class="about-link">
+          <a href="https://www.linkedin.com/in/nkumar-founder/" target="_blank" class="about-link magnetic">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
-          <a href="https://scholar.google.com/citations?user=30L__igAAAAJ&hl=en" target="_blank" class="about-link">
+          <a href="https://scholar.google.com/citations?user=30L__igAAAAJ&hl=en" target="_blank" class="about-link magnetic">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
             Google Scholar
           </a>
-          <a href="mailto:nitin@kridallc.com" class="about-link">
+          <a href="mailto:nitin@kridallc.com" class="about-link magnetic">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
             Email
           </a>
@@ -701,7 +823,7 @@
     <div class="divider"></div>
 
     <!-- PERSONAL STATEMENT -->
-    <div class="about-section">
+    <div class="about-section reveal" id="statement">
       <div class="section-label">In His Own Words</div>
       <p class="statement">Research trains you to ask hard questions and follow them wherever they lead. That same instinct led to Krida — a conviction that the depth and rigor of academic work could be channeled into building technology products from scratch, and a quiet confidence that the skills would follow. Four years later, with four apps shipped across iOS, Android, and Apple Vision Pro, and more in development, that conviction has held.</p>
     </div>
@@ -709,12 +831,12 @@
     <div class="divider"></div>
 
     <!-- GRANT RECOGNITION -->
-    <div class="about-section">
+    <div class="about-section reveal" id="recognition">
       <div class="section-label">Recognition</div>
       <div class="section-heading">2026 OEDIT Translational Quantum Research Seed Grant</div>
       <p style="font-size:0.93rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;">Krida LLC has been selected as a recipient of the 2026 OEDIT Translational Quantum Research Seed Grant, administered by the <strong style="color:var(--text);">CUbit Quantum Initiative at the University of Colorado Boulder</strong> on behalf of the Colorado Office of Economic Development and International Trade. Backed by nearly $1.5 million approved by the Colorado Economic Development Commission, the program provides non-dilutive funding to academic and industry-led teams demonstrating strong commercial potential.</p>
       <p style="font-size:0.93rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;">Operating at the intersection of <strong style="color:var(--text);">Quantum and AI</strong>, the project is being developed in collaboration with academic partners at <strong style="color:var(--text);">Colorado School of Mines</strong> — advancing work that bridges cutting-edge research and real-world commercialization.</p>
-      <a href="https://www.colorado.edu/initiative/cubit/2026/04/29/colorado-advances-quantum-innovation-third-round-translational-seed-grant-awards" target="_blank" style="display:inline-flex;align-items:center;gap:0.45rem;font-size:0.82rem;font-weight:700;color:var(--accent2);text-decoration:none;padding:0.4rem 1rem;border:1px solid rgba(79,142,247,0.3);border-radius:8px;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)';this.style.background='rgba(79,142,247,0.08)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.3)';this.style.background='transparent'">
+      <a href="https://www.colorado.edu/initiative/cubit/2026/04/29/colorado-advances-quantum-innovation-third-round-translational-seed-grant-awards" target="_blank" class="magnetic" style="display:inline-flex;align-items:center;gap:0.45rem;font-family:var(--mono);font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.04em;color:var(--accent2);text-decoration:none;padding:0.4rem 1rem;border:1px solid rgba(79,142,247,0.3);border-radius:8px;transition:border-color 0.2s, background 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)';this.style.background='rgba(79,142,247,0.08)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.3)';this.style.background='transparent'">
         Read Official Announcement
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
@@ -722,20 +844,20 @@
 
     <div class="divider"></div>
 
-    <div class="about-section">
+    <div class="about-section reveal" id="impact">
       <div class="section-label">Research Impact</div>
       <div class="section-heading">A Decade of Published Science</div>
       <div class="stat-row">
         <div class="stat-pill">
-          <div class="stat-pill-num">14</div>
+          <div class="stat-pill-num" data-target="14" data-decimals="0" data-suffix="">0</div>
           <div class="stat-pill-label">Publications</div>
         </div>
         <div class="stat-pill">
-          <div class="stat-pill-num">1,224</div>
+          <div class="stat-pill-num" data-target="1224" data-decimals="0" data-suffix="" data-comma="true">0</div>
           <div class="stat-pill-label">Citations</div>
         </div>
         <div class="stat-pill">
-          <div class="stat-pill-num">14</div>
+          <div class="stat-pill-num" data-target="14" data-decimals="0" data-suffix="">0</div>
           <div class="stat-pill-label">h-index</div>
         </div>
       </div>
@@ -744,68 +866,68 @@
     </div>
 
     <!-- SELECTED PUBLICATIONS -->
-    <div class="about-section">
+    <div class="about-section reveal" id="publications">
       <div class="section-label">Selected Publications</div>
       <div class="pub-list">
 
-        <div class="pub-item">
+        <div class="pub-item reveal tilt-card">
           <div class="pub-num">01</div>
           <div>
             <div class="pub-title">ReaxFF Molecular Dynamics Simulations on Lithiated Sulfur Cathode Materials</div>
             <div class="pub-authors">MM Islam, A Ostadhossein, O Borodin, AT Yeates, WW Tipton, RG Hennig, N Kumar et al.</div>
             <div class="pub-journal">Physical Chemistry Chemical Physics, 17(5), 3383–3393 · 2015</div>
           </div>
-          <div class="pub-citations"><span>208</span>cited by</div>
+          <div class="pub-citations"><span data-target="208" data-decimals="0" data-suffix="">0</span>cited by</div>
         </div>
 
-        <div class="pub-item">
+        <div class="pub-item reveal tilt-card">
           <div class="pub-num">02</div>
           <div>
             <div class="pub-title">Development of a ReaxFF Reactive Force Field for Titanium Dioxide/Water Systems</div>
             <div class="pub-authors">SY Kim, N Kumar, P Persson, J Sofo, ACT Van Duin, JD Kubicki</div>
             <div class="pub-journal">Langmuir, 29(25), 7838–7846 · 2013</div>
           </div>
-          <div class="pub-citations"><span>151</span>cited by</div>
+          <div class="pub-citations"><span data-target="151" data-decimals="0" data-suffix="">0</span>cited by</div>
         </div>
 
-        <div class="pub-item">
+        <div class="pub-item reveal tilt-card">
           <div class="pub-num">03</div>
           <div>
             <div class="pub-title">Crystal Surface and State of Charge Dependencies of Electrolyte Decomposition on LiMn₂O₄ Cathode</div>
             <div class="pub-authors">N Kumar, K Leung, DJ Siegel</div>
             <div class="pub-journal">Journal of The Electrochemical Society, 161(8) · 2014 · Invited</div>
           </div>
-          <div class="pub-citations"><span>98</span>cited by</div>
+          <div class="pub-citations"><span data-target="98" data-decimals="0" data-suffix="">0</span>cited by</div>
         </div>
 
-        <div class="pub-item">
+        <div class="pub-item reveal tilt-card">
           <div class="pub-num">04</div>
           <div>
             <div class="pub-title">Water Adsorption and Insertion in MOF-5</div>
             <div class="pub-authors">Y Ming, N Kumar, DJ Siegel</div>
             <div class="pub-journal">ACS Omega, 2(8), 4921–4928 · 2017</div>
           </div>
-          <div class="pub-citations"><span>98</span>cited by</div>
+          <div class="pub-citations"><span data-target="98" data-decimals="0" data-suffix="">0</span>cited by</div>
         </div>
 
-        <div class="pub-item">
+        <div class="pub-item reveal tilt-card">
           <div class="pub-num">05</div>
           <div>
             <div class="pub-title">Adiabatic and Nonadiabatic Charge Transport in Li-S Batteries</div>
             <div class="pub-authors">H Park, N Kumar, M Melander, T Vegge, JM Garcia Lastra, DJ Siegel</div>
             <div class="pub-journal">Chemistry of Materials, 30(3), 915–928 · 2018</div>
           </div>
-          <div class="pub-citations"><span>44</span>cited by</div>
+          <div class="pub-citations"><span data-target="44" data-decimals="0" data-suffix="">0</span>cited by</div>
         </div>
 
-        <div class="pub-item">
+        <div class="pub-item reveal tilt-card">
           <div class="pub-num">06</div>
           <div>
             <div class="pub-title">Interface-Induced Renormalization of Electrolyte Energy Levels in Magnesium Batteries</div>
             <div class="pub-authors">N Kumar, DJ Siegel</div>
             <div class="pub-journal">Journal of Physical Chemistry Letters, 7(5), 874–881 · 2016</div>
           </div>
-          <div class="pub-citations"><span>64</span>cited by</div>
+          <div class="pub-citations"><span data-target="64" data-decimals="0" data-suffix="">0</span>cited by</div>
         </div>
 
       </div>
@@ -820,12 +942,12 @@
     <div class="divider"></div>
 
     <!-- CAREER -->
-    <div class="about-section">
+    <div class="about-section reveal" id="career">
       <div class="section-label">Career</div>
       <div class="section-heading">Research &amp; Industry Experience</div>
       <div class="career-list">
 
-        <div class="career-item">
+        <div class="career-item reveal tilt-card">
           <div>
             <div class="career-title">Founder &amp; Lead Developer</div>
             <div class="career-org">Krida LLC</div>
@@ -834,7 +956,7 @@
           <div class="career-years">2022 — Present</div>
         </div>
 
-        <div class="career-item">
+        <div class="career-item reveal tilt-card">
           <div>
             <div class="career-title">Research Assistant Professor of Physics</div>
             <div class="career-org">Colorado School of Mines</div>
@@ -843,7 +965,7 @@
           <div class="career-years">2018 — 2021</div>
         </div>
 
-        <div class="career-item">
+        <div class="career-item reveal tilt-card">
           <div>
             <div class="career-title">Postdoctoral Research Fellow</div>
             <div class="career-org">University of Michigan &amp; Sandia National Laboratories</div>
@@ -852,7 +974,7 @@
           <div class="career-years">2013 — 2017</div>
         </div>
 
-        <div class="career-item">
+        <div class="career-item reveal tilt-card">
           <div>
             <div class="career-title">Graduate Researcher &amp; Postdoctoral Scholar</div>
             <div class="career-org">Pennsylvania State University</div>
@@ -865,11 +987,11 @@
     </div>
 
     <!-- EDUCATION -->
-    <div class="about-section">
+    <div class="about-section reveal" id="education">
       <div class="section-label">Education</div>
       <div class="edu-list">
 
-        <div class="edu-item">
+        <div class="edu-item reveal tilt-card">
           <div>
             <div class="edu-degree">Doctor of Philosophy in Physics</div>
             <div class="edu-institution">Pennsylvania State University, University Park, PA</div>
@@ -878,7 +1000,7 @@
           <div class="edu-year">2012</div>
         </div>
 
-        <div class="edu-item">
+        <div class="edu-item reveal tilt-card">
           <div>
             <div class="edu-degree">Master of Science in Physics</div>
             <div class="edu-institution">Indian Institute of Technology Bombay, Mumbai</div>
@@ -887,7 +1009,7 @@
           <div class="edu-year">2006</div>
         </div>
 
-        <div class="edu-item">
+        <div class="edu-item reveal tilt-card">
           <div>
             <div class="edu-degree">Bachelor of Science in Physics</div>
             <div class="edu-institution">St. Stephen's College, Delhi University, New Delhi</div>
@@ -901,11 +1023,11 @@
     <div class="divider"></div>
 
     <!-- TECH STACK -->
-    <div class="about-section">
+    <div class="about-section reveal" id="skills">
       <div class="section-label">Technical Skills</div>
       <div class="section-heading">From Quantum Mechanics to App Stores</div>
       <div class="tech-grid">
-        <div class="tech-card">
+        <div class="tech-card reveal tilt-card">
           <div class="tech-card-title">Software Development</div>
           <div class="tech-tags">
             <span class="tech-tag">Swift</span>
@@ -919,7 +1041,7 @@
             <span class="tech-tag">Android</span>
           </div>
         </div>
-        <div class="tech-card">
+        <div class="tech-card reveal tilt-card">
           <div class="tech-card-title">Computational Physics</div>
           <div class="tech-tags">
             <span class="tech-tag">DFT</span>
@@ -930,7 +1052,7 @@
             <span class="tech-tag">ReaxFF</span>
           </div>
         </div>
-        <div class="tech-card">
+        <div class="tech-card reveal tilt-card">
           <div class="tech-card-title">Programming &amp; Data</div>
           <div class="tech-tags">
             <span class="tech-tag">Python</span>
@@ -941,7 +1063,7 @@
             <span class="tech-tag">Machine Learning</span>
           </div>
         </div>
-        <div class="tech-card">
+        <div class="tech-card reveal tilt-card">
           <div class="tech-card-title">Tools &amp; Platforms</div>
           <div class="tech-tags">
             <span class="tech-tag">Xcode</span>
@@ -961,10 +1083,372 @@
   </div><!-- end .page -->
 
   <!-- FOOTER -->
+  <!-- PARTICLE WORDMARK -->
+  <div class="particle-footer">
+    <canvas id="particleCanvas"></canvas>
+  </div>
+
   <footer class="about-footer">
-    <div class="footer-logo">Krida<span>.</span></div>
-    <p>© 2026 Krida LLC · <a href="index.html" style="color:var(--accent2);text-decoration:none;">Back to Home</a></p>
+    <div class="footer-logo">Krida <span>LLC</span></div>
+    <p>© 2026 Krida LLC · <a href="index.html" class="magnetic" style="color:var(--accent2);text-decoration:none;">Back to Home</a></p>
   </footer>
+
+  <script>
+  (function () {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Scroll reveal — one-shot fade/rise as elements enter the viewport. */
+    function initScrollReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+      els.forEach(function (el, i) {
+        el.style.transitionDelay = (Math.min(i % 3, 2) * 0.08) + 's';
+        observer.observe(el);
+      });
+    }
+
+    /* Hover tilt on cards. */
+    function initTiltCards() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      var cards = document.querySelectorAll('.tilt-card');
+      cards.forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect = card.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty('--ry', (nx * 6) + 'deg');
+          card.style.setProperty('--rx', (-ny * 6) + 'deg');
+          card.style.setProperty('--tz', '-4px');
+        });
+        card.addEventListener('mouseleave', function () {
+          card.style.setProperty('--ry', '0deg');
+          card.style.setProperty('--rx', '0deg');
+          card.style.setProperty('--tz', '0px');
+        });
+      });
+    }
+
+    /* Magnetic buttons. */
+    function initMagneticButtons() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.magnetic'));
+      if (!buttons.length) return;
+      var MAX_SHIFT_X = 6, MAX_SHIFT_Y = 12;
+      function handleMove(e) {
+        buttons.forEach(function (btn) {
+          var rect = btn.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2;
+          var cy = rect.top + rect.height / 2;
+          var dx = e.clientX - cx, dy = e.clientY - cy;
+          var dist = Math.hypot(dx, dy);
+          var radius = Math.min(rect.width, rect.height) * 1.1 + 45;
+          if (dist < radius) {
+            var pull = 1 - dist / radius;
+            var tx = Math.max(-MAX_SHIFT_X, Math.min(MAX_SHIFT_X, dx * 0.34 * pull));
+            var ty = Math.max(-MAX_SHIFT_Y, Math.min(MAX_SHIFT_Y, dy * 0.34 * pull));
+            btn.style.transform = 'translate(' + tx.toFixed(1) + 'px, ' + ty.toFixed(1) + 'px)';
+          } else {
+            btn.style.transform = 'translate(0px, 0px)';
+          }
+        });
+      }
+      window.addEventListener('mousemove', handleMove, { passive: true });
+    }
+
+    /* Count-up numbers (stat pills + publication citation counts). */
+    function initCountUp() {
+      var els = document.querySelectorAll('.stat-pill-num[data-target], .pub-citations span[data-target]');
+      if (!els.length) return;
+
+      function format(value, decimals, comma, suffix) {
+        var str = value.toFixed(decimals);
+        if (comma) {
+          var parts = str.split('.');
+          parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          str = parts.join('.');
+        }
+        return str + suffix;
+      }
+
+      function animate(el) {
+        var target = parseFloat(el.getAttribute('data-target'));
+        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var comma = el.getAttribute('data-comma') === 'true';
+        if (isNaN(target)) return;
+        if (reduceMotion) {
+          el.textContent = format(target, decimals, comma, suffix);
+          return;
+        }
+        var duration = 1400, start = null;
+        function step(ts) {
+          if (start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = format(target * eased, decimals, comma, suffix);
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = format(target, decimals, comma, suffix);
+        }
+        requestAnimationFrame(step);
+      }
+
+      if (!('IntersectionObserver' in window)) { els.forEach(animate); return; }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { observer.observe(el); });
+    }
+
+    /* Scroll-progress dots tracking this page's own sections. */
+    function initSectionTracking() {
+      var sectionIds = ['statement', 'recognition', 'impact', 'publications', 'career', 'education', 'skills'];
+      var sections = sectionIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+      if (!sections.length || !('IntersectionObserver' in window)) return;
+
+      function setActive(id) {
+        document.querySelectorAll('.scroll-progress [data-section]').forEach(function (el) {
+          el.classList.toggle('dot-active', el.getAttribute('data-section') === id);
+        });
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+      sections.forEach(function (el) { observer.observe(el); });
+    }
+
+    /* Career spotlight — left-border accent lights up as each role
+       scrolls through the center of the viewport. */
+    function initCareerSpotlight() {
+      var items = document.querySelectorAll('.career-item');
+      if (!items.length || !('IntersectionObserver' in window)) return;
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle('spotlight-active', entry.isIntersecting);
+        });
+      }, { rootMargin: '-35% 0px -35% 0px', threshold: 0 });
+      items.forEach(function (item) { observer.observe(item); });
+    }
+
+    /* Icon 3D wrap for the headshot — independent tilt + shine. */
+    function initIconWrap() {
+      var wrappers = document.querySelectorAll('.icon-3d');
+      wrappers.forEach(function (outer) {
+        var inner = outer.querySelector('.icon-3d-inner');
+        var shine = outer.querySelector('.icon-3d-shine');
+        if (!inner || !shine) return;
+        if (reduceMotion) return;
+        if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+
+        var targetRX = 0, targetRY = 0, targetTZ = 0, targetSX = 50, targetSY = 50;
+        var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50;
+        var hovering = false;
+
+        outer.addEventListener('mousemove', function (e) {
+          hovering = true;
+          var rect = outer.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          targetRY = nx * 20;
+          targetRX = -ny * 20;
+          targetTZ = 14;
+          targetSX = 50 + nx * 60;
+          targetSY = 50 + ny * 60;
+        });
+        outer.addEventListener('mouseleave', function () {
+          hovering = false;
+          targetRX = 0; targetRY = 0; targetTZ = 0;
+        });
+
+        (function tick() {
+          requestAnimationFrame(tick);
+          var ease = 0.28;
+          curRX += (targetRX - curRX) * ease;
+          curRY += (targetRY - curRY) * ease;
+          curTZ += (targetTZ - curTZ) * ease;
+          inner.style.setProperty('--irx', curRX.toFixed(2) + 'deg');
+          inner.style.setProperty('--iry', curRY.toFixed(2) + 'deg');
+          inner.style.setProperty('--itz', curTZ.toFixed(2) + 'px');
+          if (hovering) {
+            curSX += (targetSX - curSX) * ease;
+            curSY += (targetSY - curSY) * ease;
+            shine.style.setProperty('--sx', curSX.toFixed(1) + '%');
+            shine.style.setProperty('--sy', curSY.toFixed(1) + '%');
+          }
+        })();
+      });
+    }
+
+    /* Particle wordmark footer. */
+    function initParticleText() {
+      var canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var container = canvas.parentElement;
+      var particles = [];
+      var mouse = { x: -9999, y: -9999 };
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      var W = 0, H = 0;
+
+      function buildParticles() {
+        W = container.clientWidth;
+        H = canvas.clientHeight || 180;
+        if (!W || !H) return;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+
+        var off = document.createElement('canvas');
+        off.width = W * dpr;
+        off.height = H * dpr;
+        var octx = off.getContext('2d');
+        var fontSize = Math.min(H * 0.6, W * 0.15);
+        octx.fillStyle = '#fff';
+        octx.textAlign = 'center';
+        octx.textBaseline = 'middle';
+        octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        var measured = octx.measureText('Krida LLC').width;
+        var maxWidth = W * dpr * 0.92;
+        if (measured > maxWidth) {
+          fontSize *= maxWidth / measured;
+          octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        }
+        octx.fillText('Krida LLC', (W * dpr) / 2, (H * dpr) / 2);
+
+        var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
+        particles = [];
+        var step = Math.max(3, Math.round(4 * dpr));
+        for (var y = 0; y < H * dpr; y += step) {
+          for (var x = 0; x < W * dpr; x += step) {
+            if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
+              var px = x / dpr, py = y / dpr;
+              particles.push({ hx: px, hy: py, x: px, y: py, vx: 0, vy: 0 });
+            }
+          }
+        }
+      }
+
+      buildParticles();
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(buildParticles); }
+
+      canvas.addEventListener('mousemove', function (e) {
+        var rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+      function touchPos(e) {
+        var rect = canvas.getBoundingClientRect();
+        var t = e.touches[0];
+        mouse.x = t.clientX - rect.left;
+        mouse.y = t.clientY - rect.top;
+      }
+      canvas.addEventListener('touchstart', touchPos, { passive: true });
+      canvas.addEventListener('touchmove', touchPos, { passive: true });
+      canvas.addEventListener('touchend', function () { mouse.x = -9999; mouse.y = -9999; });
+
+      function tick() {
+        requestAnimationFrame(tick);
+        if (!W || !H) return;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = 'rgba(126,184,255,0.9)';
+        var repelRadius = 55;
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          if (!reduceMotion) {
+            var dx = p.x - mouse.x, dy = p.y - mouse.y;
+            var dist = Math.hypot(dx, dy);
+            if (dist < repelRadius) {
+              var force = (repelRadius - dist) / repelRadius;
+              var inv = 1 / (dist || 1);
+              p.vx += dx * inv * force * 3.2;
+              p.vy += dy * inv * force * 3.2;
+            }
+            p.vx += (p.hx - p.x) * 0.06;
+            p.vy += (p.hy - p.y) * 0.06;
+            p.vx *= 0.82; p.vy *= 0.82;
+            p.x += p.vx; p.y += p.vy;
+          }
+          ctx.fillRect(p.x, p.y, 1.6, 1.6);
+        }
+      }
+      tick();
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(buildParticles, 250);
+      });
+    }
+
+    /* Custom cursor. */
+    function initCustomCursor() {
+      if (reduceMotion) return;
+      if (!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
+      var ring = document.createElement('div'); ring.className = 'custom-cursor-ring';
+      var dot = document.createElement('div'); dot.className = 'custom-cursor-dot';
+      document.body.appendChild(ring); document.body.appendChild(dot);
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
+      window.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+      });
+      document.addEventListener('mouseleave', function () { ring.style.opacity = '0'; dot.style.opacity = '0'; });
+      document.addEventListener('mouseenter', function () { ring.style.opacity = '1'; dot.style.opacity = '1'; });
+      var interactiveSelector = 'a, button, .magnetic, .tilt-card, .icon-3d, input, [role="button"]';
+      document.addEventListener('mouseover', function (e) { if (e.target.closest(interactiveSelector)) ring.classList.add('cursor-hover'); });
+      document.addEventListener('mouseout', function (e) { if (e.target.closest(interactiveSelector)) ring.classList.remove('cursor-hover'); });
+      function tick() {
+        requestAnimationFrame(tick);
+        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+      }
+      tick();
+      document.documentElement.classList.add('custom-cursor-active');
+    }
+
+    function ready() {
+      try { initIconWrap(); } catch (err) { console.error('icon wrap failed:', err); }
+      try { initParticleText(); } catch (err) { console.error('particle text failed:', err); }
+      try { initScrollReveal(); } catch (err) {
+        console.error('scroll reveal failed:', err);
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+      }
+      try { initTiltCards(); } catch (err) { console.error('tilt cards failed:', err); }
+      try { initMagneticButtons(); } catch (err) { console.error('magnetic buttons failed:', err); }
+      try { initCountUp(); } catch (err) { console.error('count up failed:', err); }
+      try { initSectionTracking(); } catch (err) { console.error('section tracking failed:', err); }
+      try { initCareerSpotlight(); } catch (err) { console.error('career spotlight failed:', err); }
+      try { initCustomCursor(); } catch (err) { console.error('custom cursor failed:', err); }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ready);
+    } else {
+      ready();
+    }
+  })();
+  </script>
 
 </body>
 </html>
