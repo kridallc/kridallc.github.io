@@ -441,6 +441,15 @@
       .cif-inner { grid-template-columns: 1fr; gap: 2rem; }
       .crystals-section, .audience-section { padding: 3.5rem 1.25rem; }
       .features-section, .cif-section { padding: 3.5rem 1.25rem; }
+      /* Long-text buttons/pills default to their max-content width in
+         inline-flex and don't shrink to fit the viewport on their own —
+         this was pushing them off-screen (hard-clipped by the page's
+         overflow-x:hidden) instead of wrapping onto a second line. */
+      .btn-primary, .btn-secondary, .cif-free-pill, .cta-btns a {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
     }
   </style>
 
@@ -1153,18 +1162,23 @@
         var inner = outer.querySelector('.icon-3d-inner');
         var shine = outer.querySelector('.icon-3d-shine');
         if (!inner || !shine || reduceMotion) return;
-        if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
         var targetRX = 0, targetRY = 0, targetTZ = 0, targetSX = 50, targetSY = 50;
         var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50, hovering = false;
-        outer.addEventListener('mousemove', function (e) {
+        function updateTiltFromPoint(clientX, clientY) {
           hovering = true;
           var rect = outer.getBoundingClientRect();
-          var nx = (e.clientX - rect.left) / rect.width - 0.5;
-          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          var nx = (clientX - rect.left) / rect.width - 0.5;
+          var ny = (clientY - rect.top) / rect.height - 0.5;
           targetRY = nx * 20; targetRX = -ny * 20; targetTZ = 14;
           targetSX = 50 + nx * 60; targetSY = 50 + ny * 60;
-        });
-        outer.addEventListener('mouseleave', function () { hovering = false; targetRX = 0; targetRY = 0; targetTZ = 0; });
+        }
+        function resetTilt() { hovering = false; targetRX = 0; targetRY = 0; targetTZ = 0; }
+        outer.addEventListener('mousemove', function (e) { updateTiltFromPoint(e.clientX, e.clientY); });
+        outer.addEventListener('mouseleave', resetTilt);
+        outer.addEventListener('touchstart', function (e) { if (e.touches[0]) updateTiltFromPoint(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+        outer.addEventListener('touchmove', function (e) { if (e.touches[0]) updateTiltFromPoint(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+        outer.addEventListener('touchend', resetTilt);
+        outer.addEventListener('touchcancel', resetTilt);
         (function tick() {
           requestAnimationFrame(tick);
           var ease = 0.28;
@@ -1204,7 +1218,9 @@
         octx.fillText('CrystalRoom', (W * dpr) / 2, (H * dpr) / 2);
         var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
         particles = [];
-        var step = Math.max(3, Math.round(4 * dpr));
+        var fixedStep = Math.max(3, Math.round(4 * dpr));
+        var proportionalStep = Math.max(2, Math.floor(fontSize * dpr * 0.05));
+        var step = Math.min(fixedStep, proportionalStep);
         for (var y = 0; y < H * dpr; y += step) {
           for (var x = 0; x < W * dpr; x += step) {
             if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
