@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://kridallc.com/icon_SD.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,6 +36,7 @@
       --muted2: #4a5568;
       --border: rgba(249,115,22,0.15);
       --border-hover: rgba(249,115,22,0.4);
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -65,8 +66,8 @@
     .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
-    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: all 0.18s !important; }
-    .nav-cta:hover { background: var(--primary-dark) !important; transform: translateY(-1px); box-shadow: 0 4px 16px var(--primary-glow) !important; }
+    .nav-cta { font-family: var(--mono) !important; font-size: 0.7rem !important; text-transform: uppercase !important; letter-spacing: 0.04em !important; font-weight: 500 !important; color: #fff !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: background 0.18s, box-shadow 0.18s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important; }
+    .nav-cta:hover { background: var(--primary-dark) !important; box-shadow: 0 4px 16px var(--primary-glow) !important; }
     .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
 
@@ -80,8 +81,9 @@
 
     .hero-label {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.15em;
+      font-family: var(--mono);
+      font-size: 0.66rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--primary);
       background: var(--primary-light);
       border: 1px solid rgba(249,115,22,0.25);
@@ -114,25 +116,27 @@
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.45rem;
       background: var(--primary); color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 700; font-size: 0.9rem;
+      font-family: var(--mono);
+      font-weight: 500; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.03em;
       padding: 0.8rem 1.5rem; border-radius: 10px;
-      text-decoration: none; transition: all 0.2s;
+      text-decoration: none; transition: background 0.2s, box-shadow 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
       box-shadow: 0 4px 20px var(--primary-glow);
     }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
+    .btn-primary:hover { background: var(--primary-dark); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
     .btn-primary svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     .btn-android {
       display: inline-flex; align-items: center; gap: 0.45rem;
       background: var(--card2); color: var(--text);
       border: 1.5px solid var(--border);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600; font-size: 0.9rem;
+      font-family: var(--mono);
+      font-weight: 500; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.03em;
       padding: 0.8rem 1.4rem; border-radius: 10px;
-      text-decoration: none; transition: all 0.2s;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .btn-android:hover { border-color: var(--border-hover); transform: translateY(-2px); background: var(--card); }
+    .btn-android:hover { border-color: var(--border-hover); background: var(--card); }
     .btn-android svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* HERO VISUAL */
@@ -143,17 +147,18 @@
     }
     .icon-glow-ring {
       position: absolute;
-      width: 260px; height: 260px;
+      width: 300px; height: 300px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%);
       animation: pulse 3s ease-in-out infinite;
     }
-    .app-icon-hero {
-      width: 200px; height: 200px; border-radius: 44px;
-      object-fit: cover; position: relative; z-index: 1;
+    .icon-3d.hero-icon-large {
+      width: 230px; height: 230px; border-radius: 48px;
+      position: relative; z-index: 1;
       box-shadow: 0 20px 60px rgba(249,115,22,0.3), 0 4px 20px rgba(0,0,0,0.5);
-      border: 1px solid rgba(249,115,22,0.2);
     }
+    .icon-3d.hero-icon-large .icon-3d-inner { border-radius: 48px; border: 1px solid rgba(249,115,22,0.2); }
+    .app-icon-hero { width: 100%; height: 100%; object-fit: cover; display: block; }
     @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.1); opacity: 1; } }
 
     /* ALERT STRIP */
@@ -177,9 +182,10 @@
       padding: 5rem 2rem 3rem;
     }
     .section-eyebrow {
-      font-size: 0.68rem; text-transform: uppercase;
-      letter-spacing: 0.18em; color: var(--primary);
-      font-weight: 700; margin-bottom: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.64rem; text-transform: uppercase;
+      letter-spacing: 0.16em; color: var(--primary);
+      font-weight: 500; margin-bottom: 0.5rem;
     }
     .section-title {
       font-family: 'Syne', sans-serif;
@@ -204,10 +210,9 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px; padding: 1.5rem;
-      transition: all 0.22s;
-      opacity: 0; animation: fadeUp 0.5s ease forwards;
+      transition: border-color 0.22s, box-shadow 0.22s;
     }
-    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(249,115,22,0.1); }
+    .feature-card:hover { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(249,115,22,0.1); }
     .feature-icon {
       width: 42px; height: 42px; border-radius: 10px;
       background: var(--primary-light);
@@ -225,9 +230,9 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px; padding: 1.5rem 1rem;
-      text-align: center; transition: all 0.2s;
+      text-align: center; transition: border-color 0.2s;
     }
-    .skin-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .skin-card:hover { border-color: var(--border-hover); }
     .skin-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
     .skin-name { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
     .skin-trail { font-size: 0.78rem; color: var(--muted); }
@@ -299,8 +304,9 @@
       .nav-links a { padding: 0.6rem 0.75rem; font-size: 0.9rem; }
       .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem 2rem; gap: 2rem; }
       .hero-visual { order: -1; }
-      .app-icon-hero { width: 140px; height: 140px; border-radius: 32px; }
-      .icon-glow-ring { width: 190px; height: 190px; }
+      .icon-3d.hero-icon-large { width: 150px; height: 150px; border-radius: 34px; }
+      .icon-3d.hero-icon-large .icon-3d-inner { border-radius: 34px; }
+      .icon-glow-ring { width: 200px; height: 200px; }
       .how-grid { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
       .skins-grid { grid-template-columns: repeat(2,1fr); }
@@ -350,6 +356,64 @@
     .gallery-arr { background: var(--card); border: 1px solid var(--border); color: var(--muted); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.18s; font-size: 1rem; flex-shrink: 0; margin: 0 0.25rem; }
     .gallery-arr:hover { border-color: var(--border-hover); color: var(--primary); }
 
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* HOVER TILT */
+    .tilt-card {
+      --rx: 0deg; --ry: 0deg; --tz: 0px;
+      transform: perspective(700px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--tz));
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+
+    /* MAGNETIC BUTTONS */
+    .magnetic { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+
+    /* ICON 3D (hero app icon) */
+    .icon-3d { position: relative; perspective: 600px; z-index: 1; }
+    .icon-3d-inner {
+      position: relative; overflow: hidden; width: 100%; height: 100%;
+      --irx: 0deg; --iry: 0deg; --itz: 0px;
+      transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz));
+      transform-style: preserve-3d;
+      animation: iconFloat 5.5s ease-in-out infinite;
+    }
+    .icon-3d:hover .icon-3d-inner { animation-play-state: paused; }
+    .icon-3d-shine {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at var(--sx, 50%) var(--sy, 15%), rgba(255,255,255,0.4), transparent 55%);
+      opacity: 0; transition: opacity 0.3s ease; pointer-events: none; mix-blend-mode: overlay;
+    }
+    .icon-3d:hover .icon-3d-shine { opacity: 1; }
+    @keyframes iconFloat {
+      0%, 100% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(0); }
+      50% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(-5px); }
+    }
+    @media (prefers-reduced-motion: reduce) { .icon-3d-inner { animation: none; } }
+
+    /* CUSTOM CURSOR */
+    html.custom-cursor-active, html.custom-cursor-active * { cursor: none !important; }
+    .custom-cursor-ring {
+      position: fixed; top: 0; left: 0; width: 20px; height: 20px;
+      border: 1.5px solid var(--primary); border-radius: 50%;
+      pointer-events: none; z-index: 99999;
+      transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      will-change: transform;
+    }
+    .custom-cursor-ring.cursor-hover { width: 46px; height: 46px; background: var(--primary-light); border-color: var(--primary-dark); }
+    .custom-cursor-dot {
+      position: fixed; top: 0; left: 0; width: 5px; height: 5px;
+      background: var(--primary); border-radius: 50%; pointer-events: none; z-index: 99999;
+      will-change: transform; transition: opacity 0.25s ease;
+    }
+
+    /* PARTICLE WORDMARK */
+    .particle-footer { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 0; }
+    .particle-footer canvas { display: block; width: 100%; height: clamp(80px, 14vw, 170px); cursor: default; touch-action: none; }
+
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
@@ -370,7 +434,7 @@
       <li><a href="/swarmdodge/support/">Support</a></li>
       <li><a href="/swarmdodge/privacy/">Privacy</a></li>
       <li><a href="/swarmdodge/terms/">Terms</a></li>
-      <li><a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="nav-cta">Download</a></li>
+      <li><a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="nav-cta magnetic">Download</a></li>
     </ul>
   </nav>
 
@@ -383,11 +447,11 @@
       </h1>
       <p class="hero-sub">Drag your finger to move. Homing enemies close in from every direction. Spinning blades, electric fields, crushing walls, and pits fill the arena. Simple to learn. Nearly impossible to master.</p>
       <div class="hero-btns">
-        <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="btn-primary">
+        <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="btn-primary magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           App Store
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge" target="_blank" class="btn-android">
+        <a href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge" target="_blank" class="btn-android magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
           Google Play
         </a>
@@ -395,7 +459,12 @@
     </div>
     <div class="hero-visual">
       <div class="icon-glow-ring"></div>
-      <img src="/icon_SD.png" alt="Swarm Dodge App Icon" class="app-icon-hero" />
+      <div class="icon-3d hero-icon-large">
+        <div class="icon-3d-inner">
+          <img src="/icon_SD.png" alt="Swarm Dodge App Icon" class="app-icon-hero" />
+          <div class="icon-3d-shine"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -515,17 +584,17 @@
     <div class="section-title">One rule. Zero mercy.</div>
     <p class="section-sub">The entire control scheme fits in a single sentence. What happens after you start — that's a different story.</p>
     <div class="how-grid">
-      <div class="how-card">
+      <div class="how-card reveal tilt-card">
         <div class="how-num">01</div>
         <h3>Drag to Move</h3>
         <p>Place your finger anywhere and drag. Your player follows. That's the only control you'll ever need.</p>
       </div>
-      <div class="how-card">
+      <div class="how-card reveal tilt-card">
         <div class="how-num">02</div>
         <h3>Don't Get Hit</h3>
         <p>Homing enemies track your position constantly. Spinning blades, electric fields, crushing walls, and deadly pits fill the arena. All at once.</p>
       </div>
-      <div class="how-card">
+      <div class="how-card reveal tilt-card">
         <div class="how-num">03</div>
         <h3>Adapt or Die</h3>
         <p>Every 20 seconds the rules change. Three new modifiers shift the game — fog descends, blades accelerate, enemies clump, your speed doubles. Every run is different.</p>
@@ -538,32 +607,32 @@
       <div class="section-eyebrow">Features</div>
       <div class="section-title">Built for obsession.</div>
       <div class="features-grid">
-        <div class="feature-card" style="animation-delay:0.05s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🎯</div>
           <h3>100 Levels</h3>
           <p>Work through 100 progressively challenging levels, each with unique hazard combinations. Early levels teach the arena. Later levels will break you.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.1s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">📅</div>
           <h3>Daily Challenge</h3>
           <p>A new challenge every day, identical for every player worldwide. Compete for the top of the daily leaderboard, then come back tomorrow.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.15s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🏆</div>
           <h3>Global Leaderboards</h3>
           <p>Submit your best scores via Game Center on iOS. Prove you're the last one standing — against the whole world.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.2s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🔄</div>
           <h3>Dynamic Rule Changes</h3>
           <p>Every 20 seconds, choose from three modifiers that fundamentally shift how the game plays. No two runs feel the same.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.25s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🛡️</div>
           <h3>Deflector Shield</h3>
           <p>Can't see enemies hiding behind your finger? Enable the Deflector Shield in Settings to push them away. A quality-of-life feature that actually matters.</p>
         </div>
-        <div class="feature-card" style="animation-delay:0.3s">
+        <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🚫</div>
           <h3>Remove Ads Forever</h3>
           <p>One single purchase. No subscriptions, no energy systems, no pay-to-win. Just the game — exactly how it should be.</p>
@@ -577,22 +646,22 @@
     <div class="section-title">Earn coins. Unlock skins.</div>
     <p class="section-sub">Survive longer to earn more coins. Each animal skin comes with its own unique trail effect.</p>
     <div class="skins-grid">
-      <div class="skin-card">
+      <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐇</span>
         <div class="skin-name">Rabbit</div>
         <div class="skin-trail">Leaves dust puffs</div>
       </div>
-      <div class="skin-card">
+      <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐟</span>
         <div class="skin-name">Fish</div>
         <div class="skin-trail">Blows bubbles</div>
       </div>
-      <div class="skin-card">
+      <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐝</span>
         <div class="skin-name">Bee</div>
         <div class="skin-trail">Sparks yellow</div>
       </div>
-      <div class="skin-card">
+      <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐭</span>
         <div class="skin-name">Mouse</div>
         <div class="skin-trail">Silent footprints</div>
@@ -605,17 +674,17 @@
       <div class="section-eyebrow">Reviews</div>
       <div class="section-title">5.0 on the App Store.</div>
       <div class="reviews-grid">
-        <div class="review-card">
+        <div class="review-card reveal tilt-card">
           <div class="review-stars">★★★★★</div>
           <blockquote>"Really liked the fact that it's a simple skill and strategy game. Running from swarm and using environment to protect yourself."</blockquote>
           <div class="review-author">MSciQ26 · App Store</div>
         </div>
-        <div class="review-card">
+        <div class="review-card reveal tilt-card">
           <div class="review-stars">★★★★★</div>
           <blockquote>"Luring enemies into hazards adds a clever layer of gameplay. Every run feels different."</blockquote>
           <div class="review-author">Molly.MG · App Store</div>
         </div>
-        <div class="review-card">
+        <div class="review-card reveal tilt-card">
           <div class="review-stars">★★★★★</div>
           <blockquote>"The visuals are sleek, and the mechanics are intuitive. A great arcade experience."</blockquote>
           <div class="review-author">MathPro2 · App Store</div>
@@ -629,17 +698,22 @@
       <h2>Ready to be <span>hunted?</span></h2>
       <p>Free to download. Available on iOS and Android. One optional purchase removes ads forever.</p>
       <div class="cta-btns">
-        <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="btn-cyan">
+        <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="btn-cyan magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           Download on App Store
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge" target="_blank" class="btn-outline-cyan">
+        <a href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge" target="_blank" class="btn-outline-cyan magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07L14.76 12 3.14.17a1.1 1.1 0 0 0-.96.07C1.77.56 1.5 1 1.5 1.5v21c0 .5.27.94.68 1.26zM16.54 13.78l2.76-1.6c.6-.35.6-1 0-1.35l-2.76-1.6L13.65 12l2.89 1.78zM4.06.29L14.06 11 5.16 19.9 4.06.29z"/></svg>
           Google Play
         </a>
       </div>
     </div>
   </section>
+
+  <!-- PARTICLE WORDMARK -->
+  <div class="particle-footer">
+    <canvas id="particleCanvas"></canvas>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -653,6 +727,221 @@
       <p>© 2026 Krida LLC · All rights reserved · Apple® and the Apple logo® are trademarks of Apple Inc. · Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ===========================================================
+       BASELINE DYNAMIC SYSTEMS
+    =========================================================== */
+    function initScrollReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in-view'); }); return; }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+      els.forEach(function (el, i) {
+        el.style.transitionDelay = (Math.min(i % 3, 2) * 0.08) + 's';
+        observer.observe(el);
+      });
+    }
+
+    function initTiltCards() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.tilt-card').forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect = card.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty('--ry', (nx * 6) + 'deg');
+          card.style.setProperty('--rx', (-ny * 6) + 'deg');
+          card.style.setProperty('--tz', '-4px');
+        });
+        card.addEventListener('mouseleave', function () {
+          card.style.setProperty('--ry', '0deg'); card.style.setProperty('--rx', '0deg'); card.style.setProperty('--tz', '0px');
+        });
+      });
+    }
+
+    function initMagneticButtons() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.magnetic'));
+      if (!buttons.length) return;
+      var MAX_X = 6, MAX_Y = 12;
+      window.addEventListener('mousemove', function (e) {
+        buttons.forEach(function (btn) {
+          var rect = btn.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+          var dx = e.clientX - cx, dy = e.clientY - cy;
+          var dist = Math.hypot(dx, dy);
+          var radius = Math.min(rect.width, rect.height) * 1.1 + 45;
+          if (dist < radius) {
+            var pull = 1 - dist / radius;
+            var tx = Math.max(-MAX_X, Math.min(MAX_X, dx * 0.34 * pull));
+            var ty = Math.max(-MAX_Y, Math.min(MAX_Y, dy * 0.34 * pull));
+            btn.style.transform = 'translate(' + tx.toFixed(1) + 'px, ' + ty.toFixed(1) + 'px)';
+          } else { btn.style.transform = 'translate(0px, 0px)'; }
+        });
+      }, { passive: true });
+    }
+
+    function initIconWrap() {
+      document.querySelectorAll('.icon-3d').forEach(function (outer) {
+        var inner = outer.querySelector('.icon-3d-inner');
+        var shine = outer.querySelector('.icon-3d-shine');
+        if (!inner || !shine || reduceMotion) return;
+        if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+        var targetRX = 0, targetRY = 0, targetTZ = 0, targetSX = 50, targetSY = 50;
+        var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50, hovering = false;
+        outer.addEventListener('mousemove', function (e) {
+          hovering = true;
+          var rect = outer.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          targetRY = nx * 20; targetRX = -ny * 20; targetTZ = 14;
+          targetSX = 50 + nx * 60; targetSY = 50 + ny * 60;
+        });
+        outer.addEventListener('mouseleave', function () { hovering = false; targetRX = 0; targetRY = 0; targetTZ = 0; });
+        (function tick() {
+          requestAnimationFrame(tick);
+          var ease = 0.28;
+          curRX += (targetRX - curRX) * ease; curRY += (targetRY - curRY) * ease; curTZ += (targetTZ - curTZ) * ease;
+          inner.style.setProperty('--irx', curRX.toFixed(2) + 'deg');
+          inner.style.setProperty('--iry', curRY.toFixed(2) + 'deg');
+          inner.style.setProperty('--itz', curTZ.toFixed(2) + 'px');
+          if (hovering) {
+            curSX += (targetSX - curSX) * ease; curSY += (targetSY - curSY) * ease;
+            shine.style.setProperty('--sx', curSX.toFixed(1) + '%'); shine.style.setProperty('--sy', curSY.toFixed(1) + '%');
+          }
+        })();
+      });
+    }
+
+    function initCustomCursor() {
+      if (reduceMotion) return;
+      if (!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
+      var ring = document.createElement('div'); ring.className = 'custom-cursor-ring';
+      var dot = document.createElement('div'); dot.className = 'custom-cursor-dot';
+      document.body.appendChild(ring); document.body.appendChild(dot);
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
+      window.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+      });
+      document.addEventListener('mouseleave', function () { ring.style.opacity = '0'; dot.style.opacity = '0'; });
+      document.addEventListener('mouseenter', function () { ring.style.opacity = '1'; dot.style.opacity = '1'; });
+      var sel = 'a, button, .magnetic, .tilt-card, .icon-3d, input, [role="button"]';
+      document.addEventListener('mouseover', function (e) { if (e.target.closest(sel)) ring.classList.add('cursor-hover'); });
+      document.addEventListener('mouseout', function (e) { if (e.target.closest(sel)) ring.classList.remove('cursor-hover'); });
+      function tick() {
+        requestAnimationFrame(tick);
+        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+      }
+      tick();
+      document.documentElement.classList.add('custom-cursor-active');
+    }
+
+    function initParticleText() {
+      var canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var container = canvas.parentElement;
+      var particles = [], mouse = { x: -9999, y: -9999 };
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      var W = 0, H = 0;
+      function buildParticles() {
+        W = container.clientWidth; H = canvas.clientHeight || 150;
+        if (!W || !H) return;
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        var off = document.createElement('canvas');
+        off.width = W * dpr; off.height = H * dpr;
+        var octx = off.getContext('2d');
+        var fontSize = Math.min(H * 0.6, W * 0.13);
+        octx.fillStyle = '#fff'; octx.textAlign = 'center'; octx.textBaseline = 'middle';
+        octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        var measured = octx.measureText('Swarm Dodge').width;
+        var maxWidth = W * dpr * 0.92;
+        if (measured > maxWidth) { fontSize *= maxWidth / measured; octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif"; }
+        octx.fillText('Swarm Dodge', (W * dpr) / 2, (H * dpr) / 2);
+        var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
+        particles = [];
+        var step = Math.max(3, Math.round(4 * dpr));
+        for (var y = 0; y < H * dpr; y += step) {
+          for (var x = 0; x < W * dpr; x += step) {
+            if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
+              var px = x / dpr, py = y / dpr;
+              particles.push({ hx: px, hy: py, x: px, y: py, vx: 0, vy: 0 });
+            }
+          }
+        }
+      }
+      buildParticles();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(buildParticles);
+      canvas.addEventListener('mousemove', function (e) {
+        var rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top;
+      });
+      canvas.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+      function touchPos(e) {
+        var rect = canvas.getBoundingClientRect(); var t = e.touches[0];
+        mouse.x = t.clientX - rect.left; mouse.y = t.clientY - rect.top;
+      }
+      canvas.addEventListener('touchstart', touchPos, { passive: true });
+      canvas.addEventListener('touchmove', touchPos, { passive: true });
+      canvas.addEventListener('touchend', function () { mouse.x = -9999; mouse.y = -9999; });
+      function tick() {
+        requestAnimationFrame(tick);
+        if (!W || !H) return;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = 'rgba(249,115,22,0.9)';
+        var repelRadius = 50;
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          if (!reduceMotion) {
+            var dx = p.x - mouse.x, dy = p.y - mouse.y;
+            var dist = Math.hypot(dx, dy);
+            if (dist < repelRadius) {
+              var force = (repelRadius - dist) / repelRadius, inv = 1 / (dist || 1);
+              p.vx += dx * inv * force * 3.2; p.vy += dy * inv * force * 3.2;
+            }
+            p.vx += (p.hx - p.x) * 0.06; p.vy += (p.hy - p.y) * 0.06;
+            p.vx *= 0.82; p.vy *= 0.82; p.x += p.vx; p.y += p.vy;
+          }
+          ctx.fillRect(p.x, p.y, 1.5, 1.5);
+        }
+      }
+      tick();
+      var resizeTimer;
+      window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(buildParticles, 250); });
+    }
+
+    function ready() {
+      try { initIconWrap(); } catch (err) { console.error('icon wrap failed:', err); }
+      try { initParticleText(); } catch (err) { console.error('particle text failed:', err); }
+      try { initScrollReveal(); } catch (err) {
+        console.error('scroll reveal failed:', err);
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+      }
+      try { initTiltCards(); } catch (err) { console.error('tilt cards failed:', err); }
+      try { initMagneticButtons(); } catch (err) { console.error('magnetic buttons failed:', err); }
+      try { initCustomCursor(); } catch (err) { console.error('custom cursor failed:', err); }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ready);
+    } else {
+      ready();
+    }
+  })();
+  </script>
 
 </body>
 </html>
