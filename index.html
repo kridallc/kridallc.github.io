@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://kridallc.com/og_image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -41,6 +41,7 @@
       --muted: #7a8ba8;
       --border: rgba(79, 142, 247, 0.15);
       --card: rgba(13, 18, 32, 0.8);
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -76,6 +77,25 @@
       pointer-events: none;
       z-index: 0;
     }
+
+    /* ======================== */
+    /*   THREE.JS PROTOTYPE ADD-ONS   */
+    /* ======================== */
+    #bg-field-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .hero-mark {
+      width: min(340px, 68vw);
+      height: min(340px, 68vw);
+      margin: 0 auto 0.25rem;
+      pointer-events: none;
+    }
+    .hero-mark canvas { display: block; }
 
     /* NAV */
     nav {
@@ -130,18 +150,62 @@
     }
 
     nav ul a:hover { color: var(--text); }
+    nav ul a.nav-active { color: var(--accent2); }
+    nav ul a.nav-active::after {
+      content: '';
+      display: block;
+      height: 2px;
+      margin-top: 4px;
+      background: var(--accent2);
+      border-radius: 2px;
+    }
+
+    /* MAGNETIC BUTTONS */
+    .magnetic {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    /* SCROLL PROGRESS INDICATOR */
+    .scroll-progress {
+      position: fixed;
+      right: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-end;
+    }
+    .scroll-progress a {
+      width: 20px;
+      height: 1.5px;
+      background: rgba(232,237,245,0.25);
+      display: block;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+    .scroll-progress a.dot-active {
+      width: 32px;
+      background: var(--accent2);
+      box-shadow: 0 0 8px rgba(79,142,247,0.6);
+    }
+    @media (max-width: 900px) {
+      .scroll-progress { display: none; }
+    }
 
     /* HERO */
     .hero {
       position: relative;
       z-index: 1;
-      min-height: 100vh;
+      min-height: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 8rem 2rem 4rem;
+      padding: 3.5rem 2rem 3rem;
       overflow: hidden;
     }
 
@@ -175,11 +239,12 @@
       border: 1px solid rgba(79,142,247,0.3);
       border-radius: 100px;
       padding: 0.4rem 1rem;
-      font-size: 0.8rem;
+      font-size: 0.72rem;
+      font-family: var(--mono);
       color: var(--accent2);
       margin-bottom: 2rem;
       font-weight: 500;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
@@ -230,14 +295,48 @@
       justify-content: center;
     }
 
+    .scroll-cue {
+      margin-top: 2.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.55;
+      transition: opacity 0.4s ease;
+    }
+    .scroll-cue span {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .scroll-cue-line {
+      width: 1px;
+      height: 26px;
+      background: linear-gradient(to bottom, var(--accent2), transparent);
+      animation: scrollCueMove 1.8s ease-in-out infinite;
+      transform-origin: top;
+    }
+    @keyframes scrollCueMove {
+      0% { transform: scaleY(0.25); opacity: 0; }
+      50% { transform: scaleY(1); opacity: 1; }
+      100% { transform: scaleY(0.25); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-cue-line { animation: none; transform: scaleY(0.6); opacity: 0.6; }
+    }
+
     .btn-primary {
       background: var(--accent);
       color: #fff;
       padding: 0.85rem 2rem;
-      border-radius: 8px;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       transition: all 0.2s;
       border: none;
       cursor: pointer;
@@ -245,7 +344,6 @@
 
     .btn-primary:hover {
       background: var(--accent2);
-      transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(79,142,247,0.3);
     }
 
@@ -253,18 +351,20 @@
       background: transparent;
       color: var(--text);
       padding: 0.85rem 2rem;
-      border-radius: 8px;
+      border-radius: 6px;
       text-decoration: none;
+      font-family: var(--mono);
       font-weight: 500;
-      font-size: 0.95rem;
-      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(232,237,245,0.35);
       transition: all 0.2s;
     }
 
     .btn-secondary:hover {
       border-color: var(--accent);
       color: var(--accent2);
-      transform: translateY(-2px);
     }
 
     /* SECTION */
@@ -277,11 +377,12 @@
     }
 
     .section-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      font-family: var(--mono);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--accent);
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 1rem;
     }
 
@@ -334,7 +435,6 @@
 
     .app-card-featured:hover {
       border-color: rgba(79,142,247,0.4);
-      transform: translateY(-3px);
       box-shadow: 0 20px 60px rgba(79,142,247,0.1);
     }
 
@@ -353,7 +453,6 @@
 
     .app-card:hover {
       border-color: rgba(79,142,247,0.3);
-      transform: translateY(-2px);
       box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
 
@@ -397,13 +496,14 @@
       background: rgba(79,142,247,0.15);
       border: 1px solid rgba(79,142,247,0.3);
       color: var(--accent2);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
+      font-family: var(--mono);
       padding: 0.2rem 0.7rem;
       border-radius: 100px;
       margin-bottom: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-weight: 500;
     }
 
     .app-tag.vision {
@@ -535,6 +635,17 @@
       z-index: 2;
     }
 
+    .timeline-fill {
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 1px;
+      height: 0%;
+      background: linear-gradient(to bottom, var(--accent2), var(--accent));
+      box-shadow: 0 0 8px rgba(79,142,247,0.7);
+      z-index: 1;
+    }
+
     .timeline-item:hover .timeline-dot {
       background: var(--accent);
       box-shadow: 0 0 16px rgba(79,142,247,0.9), 0 0 36px rgba(79,142,247,0.4);
@@ -567,12 +678,53 @@
       box-shadow: none;
     }
 
+    /* Scroll-activated spotlight beam, inspired by oxigen.sa's
+       glowing-pillar reveal on each step as it scrolls into view. */
+    .timeline-beam {
+      position: absolute;
+      left: -2.35rem;
+      top: -3.5rem;
+      width: 2px;
+      height: 3.5rem;
+      background: linear-gradient(to bottom, transparent, var(--accent2));
+      opacity: 0;
+      transform: scaleY(0.3);
+      transform-origin: bottom;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      pointer-events: none;
+      filter: blur(0.5px);
+    }
+
+    .timeline-item:first-child .timeline-beam { display: none; }
+
+    .timeline-item.in-view .timeline-beam {
+      opacity: 0.85;
+      transform: scaleY(1);
+    }
+
+    .timeline-item.in-view .timeline-dot {
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(79,142,247,0.9), 0 0 40px rgba(79,142,247,0.4);
+      transform: scale(1.2);
+    }
+
+    .timeline-item .timeline-title,
+    .timeline-item .timeline-year {
+      transition: opacity 0.5s ease, color 0.5s ease;
+      opacity: 0.55;
+    }
+
+    .timeline-item.in-view .timeline-title,
+    .timeline-item.in-view .timeline-year {
+      opacity: 1;
+    }
+
     /* Year label */
     .timeline-year {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.45rem;
@@ -606,9 +758,10 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.09em;
+      font-size: 0.66rem;
+      font-family: var(--mono);
+      font-weight: 500;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 0.22rem 0.8rem;
       border-radius: 100px;
@@ -700,7 +853,6 @@
 
     .community-card:hover {
       border-color: rgba(79,142,247,0.3);
-      transform: translateY(-2px);
       box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
 
@@ -712,10 +864,11 @@
     }
 
     .community-platform {
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.68rem;
+      font-family: var(--mono);
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       color: var(--accent);
       background: rgba(79,142,247,0.08);
       border: 1px solid rgba(79,142,247,0.2);
@@ -724,7 +877,8 @@
     }
 
     .community-date {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
+      font-family: var(--mono);
       color: var(--muted);
       letter-spacing: 0.03em;
     }
@@ -788,6 +942,29 @@
 
     .about-highlights { display: grid; gap: 1rem; }
 
+    .stat-row {
+      display: flex;
+      gap: 2.2rem;
+      margin: 1.6rem 0 0.4rem;
+      flex-wrap: wrap;
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.1rem;
+      color: var(--accent2);
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
     .highlight {
       background: var(--card);
       border: 1px solid var(--border);
@@ -796,11 +973,17 @@
       backdrop-filter: blur(10px);
     }
 
+    .highlight:hover {
+      border-color: rgba(79,142,247,0.3);
+    }
+
     .highlight-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 0.3rem;
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
       color: var(--accent2);
     }
 
@@ -842,10 +1025,24 @@
     .contact-email:hover {
       border-color: var(--accent);
       box-shadow: 0 8px 30px rgba(79,142,247,0.15);
-      transform: translateY(-2px);
     }
 
     /* FOOTER */
+    .particle-footer {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 2rem 0;
+    }
+    .particle-footer canvas {
+      display: block;
+      width: 100%;
+      height: clamp(90px, 16vw, 210px);
+      cursor: default;
+      touch-action: none;
+    }
+
     footer {
       position: relative;
       z-index: 1;
@@ -866,7 +1063,7 @@
     }
 
     .footer-logo span { color: var(--accent); }
-    footer p { color: var(--muted); font-size: 0.85rem; }
+    footer p { color: var(--muted); font-size: 0.78rem; font-family: var(--mono); letter-spacing: 0.02em; }
 
     /* FADE-IN */
     .fade-in {
@@ -882,6 +1079,113 @@
 
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SCROLL REVEAL — cards fade/rise into place once as they enter
+       the viewport, via IntersectionObserver (see script at bottom). */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* HOVER TILT — subtle 3D perspective on pointer-aware cards,
+       driven by JS setting --rx/--ry/--tz custom properties. */
+    .tilt-card {
+      --rx: 0deg;
+      --ry: 0deg;
+      --tz: 0px;
+      transform: perspective(700px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--tz));
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+    .contact-info-box:hover {
+      border-color: rgba(79,142,247,0.35) !important;
+      box-shadow: 0 8px 24px rgba(79,142,247,0.12);
+    }
+
+    /* CUSTOM CURSOR — only activated by JS after successful init,
+       so a script failure never leaves the visitor with no cursor. */
+    html.custom-cursor-active,
+    html.custom-cursor-active * {
+      cursor: none !important;
+    }
+    .custom-cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid var(--accent2);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      will-change: transform;
+    }
+    .custom-cursor-ring.cursor-hover {
+      width: 46px;
+      height: 46px;
+      background: rgba(126,184,255,0.12);
+      border-color: var(--accent);
+    }
+    .custom-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      background: var(--accent2);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      will-change: transform;
+      transition: opacity 0.25s ease;
+    }
+
+    /* ICON 3D — independent tilt + light-reflection shine on app
+       icons, without altering the icon images themselves. */
+    .icon-3d {
+      position: relative;
+      perspective: 500px;
+    }
+    .icon-3d-inner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      --irx: 0deg;
+      --iry: 0deg;
+      --itz: 0px;
+      transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz));
+      transform-style: preserve-3d;
+      animation: iconFloat 5.5s ease-in-out infinite;
+    }
+    .icon-3d:hover .icon-3d-inner { animation-play-state: paused; }
+    .icon-3d-inner img { display: block; width: 100%; height: 100%; }
+    .icon-3d-shine {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--sx, 50%) var(--sy, 15%), rgba(255,255,255,0.4), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+    .icon-3d:hover .icon-3d-shine { opacity: 1; }
+    @keyframes iconFloat {
+      0%, 100% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(0); }
+      50% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(-5px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .icon-3d-inner { animation: none; }
     }
 
     /* RESPONSIVE */
@@ -979,13 +1283,13 @@
   <nav>
     <a href="#" class="nav-logo">
       <img src="logo_square.jpg" alt="Krida" />
-      <span class="nav-logo-text">Krida<span>.</span></span>
+      <span class="nav-logo-text">Krida <span>LLC</span></span>
     </a>
     <ul>
-      <li><a href="#apps">Apps</a></li>
-      <li><a href="#journey">Journey</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#apps" data-section="apps">Apps</a></li>
+      <li><a href="#journey" data-section="journey">Journey</a></li>
+      <li><a href="about.html" data-section="about">About</a></li>
+      <li><a href="#contact" data-section="contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -994,10 +1298,19 @@
 
   <!-- MOBILE NAV MENU -->
   <div class="nav-mobile-menu" id="mobileMenu">
-    <a href="#apps" onclick="closeMobileMenu()">Apps</a>
-    <a href="#journey" onclick="closeMobileMenu()">Journey</a>
-    <a href="about.html">About</a>
-    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="#apps" data-section="apps" onclick="closeMobileMenu()">Apps</a>
+    <a href="#journey" data-section="journey" onclick="closeMobileMenu()">Journey</a>
+    <a href="about.html" data-section="about">About</a>
+    <a href="#contact" data-section="contact" onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" role="navigation" aria-label="Page progress">
+    <a href="#hero" data-section="hero" aria-label="Hero"></a>
+    <a href="#apps" data-section="apps" aria-label="Apps"></a>
+    <a href="#journey" data-section="journey" aria-label="Journey"></a>
+    <a href="#about" data-section="about" aria-label="About"></a>
+    <a href="#contact" data-section="contact" aria-label="Contact"></a>
   </div>
 
   <script>
@@ -1014,9 +1327,9 @@
   </script>
 
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero" id="hero">
     <div class="hero-glow"></div>
-    <img src="logo_square.jpg" alt="Krida" class="hero-logo fade-in" />
+    <div class="hero-mark fade-in" id="heroMark"></div>
     <div class="hero-badge">Spatial Computing · Quantum & AI · Science · Gaming · Consumer Tech</div>
     <h1 class="fade-in">
       Building Apps<br><span class="line2">That Matter</span>
@@ -1025,8 +1338,12 @@
       Krida LLC builds applications across spatial computing, science education, gaming, and consumer technology — each one rooted in the same principle: rigorous engineering applied to real problems.
     </p>
     <div class="hero-cta fade-in">
-      <a href="#apps" class="btn-primary">Explore Our Apps</a>
-      <a href="#contact" class="btn-secondary">Get in Touch</a>
+      <a href="#apps" class="btn-primary magnetic">Explore Our Apps</a>
+      <a href="#contact" class="btn-secondary magnetic">Get in Touch</a>
+    </div>
+    <div class="scroll-cue" id="scrollCue">
+      <span>SCROLL</span>
+      <div class="scroll-cue-line"></div>
     </div>
   </div>
 
@@ -1035,10 +1352,10 @@
     <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
       <div style="display:flex;align-items:center;gap:0.5rem;flex-shrink:0;">
         <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;background:rgba(79,142,247,0.15);border:1px solid rgba(79,142,247,0.3);font-size:0.85rem;">⚛</span>
-        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--accent2);">Research Recognition</span>
+        <span style="font-family:var(--mono);font-size:0.64rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent2);">Research Recognition</span>
       </div>
       <p style="font-size:0.88rem;color:var(--muted);line-height:1.5;flex:1;min-width:200px;">Krida LLC selected as recipient of the <strong style="color:var(--text);">2026 OEDIT Translational Quantum Research Seed Grant</strong>, administered by the CUbit Quantum Initiative at CU Boulder — advancing work at the intersection of Quantum and AI.</p>
-      <a href="https://www.colorado.edu/initiative/cubit/2026/04/29/colorado-advances-quantum-innovation-third-round-translational-seed-grant-awards" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:700;color:var(--accent2);text-decoration:none;white-space:nowrap;flex-shrink:0;padding:0.35rem 0.85rem;border:1px solid rgba(79,142,247,0.3);border-radius:7px;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)';this.style.background='rgba(79,142,247,0.08)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.3)';this.style.background='transparent'">
+      <a href="https://www.colorado.edu/initiative/cubit/2026/04/29/colorado-advances-quantum-innovation-third-round-translational-seed-grant-awards" target="_blank" class="magnetic" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:700;color:var(--accent2);text-decoration:none;white-space:nowrap;flex-shrink:0;padding:0.35rem 0.85rem;border:1px solid rgba(79,142,247,0.3);border-radius:7px;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(79,142,247,0.6)';this.style.background='rgba(79,142,247,0.08)'" onmouseout="this.style.borderColor='rgba(79,142,247,0.3)';this.style.background='transparent'">
         Read Announcement
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
@@ -1055,7 +1372,7 @@
 
       <!-- Maths Dash 2.0 - FEATURED NEW RELEASE -->
       <a href="/mathsdash/" style="text-decoration:none;color:inherit;display:contents;">
-      <div class="app-card-featured" style="cursor:pointer;">
+      <div class="app-card-featured reveal tilt-card" style="cursor:pointer;">
         <img src="icon_MD.jpeg" alt="Maths Dash" class="app-icon-featured" />
         <div class="app-info">
           <div class="app-tag vision">✦ v2.0 · Now on iOS &amp; Android</div>
@@ -1077,7 +1394,7 @@
 
       <!-- CrystalRoom - FEATURED -->
       <a href="/crystalroom/" style="text-decoration:none;color:inherit;display:contents;">
-      <div class="app-card-featured" style="cursor:pointer;">
+      <div class="app-card-featured reveal tilt-card" style="cursor:pointer;">
         <img src="icon_CR.png" alt="CrystalRoom" class="app-icon-featured" />
         <div class="app-info">
           <div class="app-tag vision">✦ visionOS · Apple Vision Pro · February 2026</div>
@@ -1095,7 +1412,7 @@
 
       <!-- Swarm Dodge - FEATURED -->
       <a href="/swarmdodge/" style="text-decoration:none;color:inherit;display:contents;">
-      <div class="app-card-featured" style="cursor:pointer;">
+      <div class="app-card-featured reveal tilt-card" style="cursor:pointer;">
         <img src="icon_SD.png" alt="Swarm Dodge" class="app-icon-featured" />
         <div class="app-info">
           <div class="app-tag vision">✦ iOS · Android · March 2026</div>
@@ -1118,13 +1435,13 @@
       <!-- EARLIER RELEASES DIVIDER -->
       <div style="display:flex;align-items:center;gap:1rem;padding:0.5rem 0;">
         <div style="flex:1;height:1px;background:var(--border);"></div>
-        <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted);">Earlier Releases</span>
+        <span style="font-family:var(--mono);font-size:0.66rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);">Earlier Releases</span>
         <div style="flex:1;height:1px;background:var(--border);"></div>
       </div>
 
       <!-- BeachBaskit -->
       <a href="/beachbaskit/" style="text-decoration:none;color:inherit;display:contents;">
-      <div class="app-card" style="cursor:pointer;">
+      <div class="app-card reveal tilt-card" style="cursor:pointer;">
         <img src="icon_BB.png" alt="BeachBaskit" class="app-icon" style="background:#000;padding:4px;" />
         <div class="app-info">
           <div class="app-tag">iOS · Android · 2025</div>
@@ -1146,7 +1463,7 @@
 
       <!-- Maths Dash v1 (original) -->
       <a href="/mathsdash/" style="text-decoration:none;color:inherit;display:contents;">
-      <div class="app-card" style="cursor:pointer;">
+      <div class="app-card reveal tilt-card" style="cursor:pointer;">
         <img src="icon_MD.jpeg" alt="Maths Dash" class="app-icon" />
         <div class="app-info">
           <div class="app-tag">iOS · Android · 2024 → 2026</div>
@@ -1175,7 +1492,7 @@
     <h2 class="section-title">Out in the Wild</h2>
     <div class="community-feed">
 
-      <a href="https://www.reddit.com/r/materials/comments/1rl7oqg/comment/o8rfa4m/" target="_blank" class="community-card" style="text-decoration:none;color:inherit;">
+      <a href="https://www.reddit.com/r/materials/comments/1rl7oqg/comment/o8rfa4m/" target="_blank" class="community-card reveal tilt-card" style="text-decoration:none;color:inherit;">
         <div class="community-card-top">
           <span class="community-platform">r/materials</span>
           <span class="community-date">Mar 2026</span>
@@ -1183,17 +1500,17 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num">6.8K</div>
+            <div class="community-stat-num" data-target="6.8" data-decimals="1" data-suffix="K">0</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
-            <div class="community-stat-num">60</div>
+            <div class="community-stat-num" data-target="60" data-decimals="0" data-suffix="">0</div>
             <div class="community-stat-label">Upvotes</div>
           </div>
         </div>
       </a>
 
-      <a href="https://www.reddit.com/r/chemistry/comments/1rl68iy/tired_of_explaining_crystal_unit_cells_with_flat/" target="_blank" class="community-card" style="text-decoration:none;color:inherit;">
+      <a href="https://www.reddit.com/r/chemistry/comments/1rl68iy/tired_of_explaining_crystal_unit_cells_with_flat/" target="_blank" class="community-card reveal tilt-card" style="text-decoration:none;color:inherit;">
         <div class="community-card-top">
           <span class="community-platform">r/chemistry</span>
           <span class="community-date">Mar 2026</span>
@@ -1201,17 +1518,17 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num">12K</div>
+            <div class="community-stat-num" data-target="12" data-decimals="0" data-suffix="K">0</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
-            <div class="community-stat-num">28</div>
+            <div class="community-stat-num" data-target="28" data-decimals="0" data-suffix="">0</div>
             <div class="community-stat-label">Upvotes</div>
           </div>
         </div>
       </a>
 
-      <a href="https://www.reddit.com/r/VisionPro/comments/1rl5yt7/i_built_a_crystal_structure_visualizer_for_apple/" target="_blank" class="community-card" style="text-decoration:none;color:inherit;">
+      <a href="https://www.reddit.com/r/VisionPro/comments/1rl5yt7/i_built_a_crystal_structure_visualizer_for_apple/" target="_blank" class="community-card reveal tilt-card" style="text-decoration:none;color:inherit;">
         <div class="community-card-top">
           <span class="community-platform">r/visionPro</span>
           <span class="community-date">Mar 2026</span>
@@ -1219,11 +1536,11 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num">3.4K</div>
+            <div class="community-stat-num" data-target="3.4" data-decimals="1" data-suffix="K">0</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
-            <div class="community-stat-num">17</div>
+            <div class="community-stat-num" data-target="17" data-decimals="0" data-suffix="">0</div>
             <div class="community-stat-label">Upvotes</div>
           </div>
         </div>
@@ -1242,9 +1559,11 @@
     </div>
 
     <div class="timeline-container">
+      <div class="timeline-fill" id="timelineFill"></div>
 
       <!-- Founded -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot"></div>
         <div class="timeline-year">2022</div>
         <div class="timeline-title">Krida LLC Founded</div>
@@ -1255,6 +1574,7 @@
 
       <!-- Maths Dash -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot"></div>
         <div class="timeline-year">2024</div>
         <div class="timeline-title">Maths Dash — First App Ships</div>
@@ -1264,6 +1584,7 @@
 
       <!-- BeachBaskit -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot"></div>
         <div class="timeline-year">2025</div>
         <div class="timeline-title">BeachBaskit — Cross-Platform Launch</div>
@@ -1273,6 +1594,7 @@
 
       <!-- CrystalRoom -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot"></div>
         <div class="timeline-year">February 2026</div>
         <div class="timeline-title">CrystalRoom — Spatial Computing Debut</div>
@@ -1282,6 +1604,7 @@
 
       <!-- Swarm Dodge -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot active"></div>
         <div class="timeline-year">March 2026</div>
         <div class="timeline-title">Swarm Dodge — Cross-Platform Arcade Launch</div>
@@ -1291,6 +1614,7 @@
 
       <!-- VR / Enterprise simulation -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot future"></div>
         <div class="timeline-year dim">2026 — In Development</div>
         <div class="timeline-title dim">Quantum, AI &amp; Spatial Computing</div>
@@ -1300,6 +1624,7 @@
 
       <!-- Maths Dash 2.0 -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot active"></div>
         <div class="timeline-year">June 2026</div>
         <div class="timeline-title">Maths Dash 2.0 — Cross-Platform Relaunch</div>
@@ -1309,6 +1634,7 @@
 
       <!-- KridaHQ teaser -->
       <div class="timeline-item">
+        <div class="timeline-beam"></div>
         <div class="timeline-dot future"></div>
         <div class="timeline-year dim">2026 — In Development</div>
         <div class="timeline-title dim">Something New Is Taking Shape</div>
@@ -1327,25 +1653,39 @@
         <h2 class="section-title">Science Meets<br>Software</h2>
         <p>Research trains you to ask hard questions and follow them wherever they lead. That same instinct led to Krida — a conviction that the depth and rigor of academic work could be channeled into building technology products from scratch.</p>
         <p>Founded by a <strong>computational physicist</strong> with a decade of research spanning Penn State, Sandia National Laboratories, University of Michigan, and Colorado School of Mines — with 14 peer-reviewed publications and 1,200+ citations.</p>
-        <a href="about.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;">
+        <div class="stat-row">
+          <div class="stat-item">
+            <span class="stat-number" data-target="10" data-suffix="+">0</span>
+            <span class="stat-label">Years Research</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="14" data-suffix="">0</span>
+            <span class="stat-label">Publications</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="1200" data-suffix="+">0</span>
+            <span class="stat-label">Citations</span>
+          </div>
+        </div>
+        <a href="about.html" class="btn-primary magnetic" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;">
           Full Story &amp; Research Background
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
       <div class="about-highlights">
-        <div class="highlight">
+        <div class="highlight reveal tilt-card">
           <div class="highlight-title">Spatial Computing</div>
           <div class="highlight-desc">One of a small number of independent developers with a published native visionOS app on the App Store.</div>
         </div>
-        <div class="highlight">
+        <div class="highlight reveal tilt-card">
           <div class="highlight-title">Research Background</div>
           <div class="highlight-desc">PhD in Physics, IIT Bombay Silver Medal, postdoctoral research at top US national laboratories and universities.</div>
         </div>
-        <div class="highlight">
+        <div class="highlight reveal tilt-card">
           <div class="highlight-title">Multi-Platform</div>
           <div class="highlight-desc">Building across visionOS, iOS, and Android with Swift, Flutter, Firebase, and RealityKit.</div>
         </div>
-        <div class="highlight">
+        <div class="highlight reveal tilt-card">
           <div class="highlight-title">Full Product Lifecycle</div>
           <div class="highlight-desc">From concept and UI/UX design through development, testing, and App Store launch.</div>
         </div>
@@ -1359,28 +1699,33 @@
     <h2 class="section-title">Let's Work Together</h2>
     <p class="section-sub">Research collaborations · App development · Consulting</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
-      <div style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:180px;max-width:220px;">
-        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">Research</div>
+      <div class="contact-info-box reveal tilt-card" style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:180px;max-width:220px;">
+        <div style="font-family:var(--mono);font-size:0.64rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;">Research</div>
         <div style="font-size:0.85rem;color:var(--muted);line-height:1.5;">Computational physics · materials science · quantum systems</div>
       </div>
-      <div style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:180px;max-width:220px;">
-        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">Development</div>
+      <div class="contact-info-box reveal tilt-card" style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:180px;max-width:220px;">
+        <div style="font-family:var(--mono);font-size:0.64rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;">Development</div>
         <div style="font-size:0.85rem;color:var(--muted);line-height:1.5;">iOS · Android · visionOS · spatial computing</div>
       </div>
-      <div style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:180px;max-width:220px;">
-        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">Consulting</div>
+      <div class="contact-info-box reveal tilt-card" style="background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:12px;padding:1rem 1.4rem;text-align:left;min-width:180px;max-width:220px;">
+        <div style="font-family:var(--mono);font-size:0.64rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);font-weight:500;margin-bottom:0.5rem;">Consulting</div>
         <div style="font-size:0.85rem;color:var(--muted);line-height:1.5;">Scientific software · physics-informed systems · simulation tools</div>
       </div>
     </div>
-    <a href="mailto:contact@kridallc.com" class="contact-email">
+    <a href="mailto:contact@kridallc.com" class="contact-email magnetic">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
       contact@kridallc.com
     </a>
   </div>
 
   <!-- FOOTER -->
+  <!-- PARTICLE WORDMARK -->
+  <div class="particle-footer">
+    <canvas id="particleCanvas"></canvas>
+  </div>
+
   <footer>
-    <div class="footer-logo">Krida<span>.</span></div>
+    <div class="footer-logo">Krida <span>LLC</span></div>
 
     <div style="display:flex;align-items:center;gap:0.85rem;">
       <a href="https://www.tiktok.com/@kridabuilds" target="_blank" title="TikTok" style="color:var(--muted);transition:color 0.2s;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">
@@ -1405,6 +1750,825 @@
 
     <p>© 2026 Krida LLC · <a href="/links/" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--muted)'">All Links</a></p>
   </footer>
+
+  <canvas id="bg-field-canvas"></canvas>
+
+  <!-- ======================== -->
+  <!--   THREE.JS PROTOTYPE JS  -->
+  <!--   (3 experiments — see chat notes on which is which) -->
+  <!-- ======================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+  (function () {
+    if (typeof THREE === 'undefined') return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------------------------------------------------------
+       EXPERIMENT 1 — Ambient background particle field
+       Fixed, full-page, very low-key. Sits behind everything,
+       drifts slowly. Meant to replace/extend the static CSS
+       grid+noise overlay with something alive but unobtrusive.
+    --------------------------------------------------------- */
+    function initBgField() {
+      var canvas = document.getElementById('bg-field-canvas');
+      if (!canvas) return;
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.z = 12;
+
+      var count = window.innerWidth < 700 ? 90 : 220;
+      var geo = new THREE.BufferGeometry();
+      var pos = new Float32Array(count * 3);
+      for (var i = 0; i < count; i++) {
+        pos[i * 3] = (Math.random() - 0.5) * 30;
+        pos[i * 3 + 1] = (Math.random() - 0.5) * 40;
+        pos[i * 3 + 2] = (Math.random() - 0.5) * 20 - 4;
+      }
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      var mat = new THREE.PointsMaterial({ color: 0x4f8ef7, size: 0.045, transparent: true, opacity: 0.55 });
+      var points = new THREE.Points(geo, mat);
+      scene.add(points);
+
+      function resize() {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      var clock = new THREE.Clock();
+      function tick() {
+        requestAnimationFrame(tick);
+        if (!reduceMotion) {
+          var t = clock.getElapsedTime();
+          points.rotation.y = t * 0.015;
+          points.rotation.x = Math.sin(t * 0.05) * 0.05;
+        }
+        renderer.render(scene, camera);
+      }
+      tick();
+    }
+
+    /* ---------------------------------------------------------
+       EXPERIMENT 2 — Hero mark
+       Corrected geometry: an icosahedron explicitly oriented
+       along its 5-fold axis (vertex up / vertex down, two
+       5-point rings between) so it reads as a symmetric "gem"
+       the way the reference logo does, rather than a randomly
+       tumbled polyhedron. Wireframe + glowing vertices + halo.
+       Drag or hover to rotate; otherwise idles.
+    --------------------------------------------------------- */
+    function initHeroMark() {
+      var container = document.getElementById('heroMark');
+      if (!container) return;
+      var W = container.clientWidth || window.innerWidth;
+      var H = container.clientHeight || window.innerHeight;
+
+      var scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x080c14, 0.045);
+      var camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 100);
+      camera.position.set(0, 0, 5.6);
+
+      var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(W, H);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      var group = new THREE.Group();
+      group.position.y = 0.15;
+      var baseScale = 0.62;
+      group.scale.setScalar(baseScale);
+      scene.add(group);
+
+      /* ---------------------------------------------------------
+         Custom node-network mark — built vertex-by-vertex to match
+         the actual Krida logo: apex top, apex bottom, a 6-node
+         belt with straight vertical side edges (not a tapered
+         icosahedron), plus dense diagonal cross-bracing through
+         the center. Not a named Platonic solid — a bespoke graph.
+      --------------------------------------------------------- */
+      var ringN = 6;
+      var apexH = 2.1;
+      var ringH = 1.0;
+      var ringR = 1.65;
+
+      var verts = [];
+      verts.push(new THREE.Vector3(0, apexH, 0));               // 0: top apex
+      var upperStart = verts.length;
+      for (var i = 0; i < ringN; i++) {
+        var a = (i / ringN) * Math.PI * 2;
+        verts.push(new THREE.Vector3(ringR * Math.cos(a), ringH, ringR * Math.sin(a)));
+      }
+      var lowerStart = verts.length;
+      for (var i = 0; i < ringN; i++) {
+        var a = (i / ringN) * Math.PI * 2;
+        verts.push(new THREE.Vector3(ringR * Math.cos(a), -ringH, ringR * Math.sin(a)));
+      }
+      var bottomIdx = verts.length;
+      verts.push(new THREE.Vector3(0, -apexH, 0));               // bottom apex
+
+      var edges = [];
+      for (var i = 0; i < ringN; i++) {
+        edges.push([0, upperStart + i]);                                   // apex -> upper ring
+        edges.push([upperStart + i, upperStart + (i + 1) % ringN]);        // upper ring loop
+        edges.push([lowerStart + i, lowerStart + (i + 1) % ringN]);        // lower ring loop
+        edges.push([bottomIdx, lowerStart + i]);                           // apex -> lower ring
+        edges.push([upperStart + i, lowerStart + i]);                      // vertical "cube" side edges
+        edges.push([upperStart + i, lowerStart + (i + 1) % ringN]);        // cross-brace diagonal
+        edges.push([upperStart + i, lowerStart + (i - 1 + ringN) % ringN]);// cross-brace diagonal
+        if (i < ringN / 2) {
+          edges.push([upperStart + i, upperStart + (i + ringN / 2) % ringN]); // horizontal through-center (upper)
+          edges.push([lowerStart + i, lowerStart + (i + ringN / 2) % ringN]); // horizontal through-center (lower)
+          edges.push([upperStart + i, lowerStart + (i + ringN / 2) % ringN]); // long diagonal through center
+        }
+      }
+
+      var linePositions = [];
+      edges.forEach(function (e) {
+        var a = verts[e[0]], b = verts[e[1]];
+        linePositions.push(a.x, a.y, a.z, b.x, b.y, b.z);
+      });
+      var edgeGeo = new THREE.BufferGeometry();
+      edgeGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3));
+      var edgeMat = new THREE.LineBasicMaterial({ color: 0x7eb8ff, transparent: true, opacity: 0.55 });
+      group.add(new THREE.LineSegments(edgeGeo, edgeMat));
+
+      var nodePositions = [];
+      verts.forEach(function (v) { nodePositions.push(v.x, v.y, v.z); });
+      var nodeGeo = new THREE.BufferGeometry();
+      nodeGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(nodePositions), 3));
+
+      // Dim secondary nodes at edge midpoints — the reference logo shows
+      // a denser field of smaller, fainter points along the lattice, not
+      // just the 14 structural vertices.
+      var midPositions = [];
+      edges.forEach(function (e) {
+        var a = verts[e[0]], b = verts[e[1]];
+        midPositions.push((a.x + b.x) / 2, (a.y + b.y) / 2, (a.z + b.z) / 2);
+      });
+      var midGeo = new THREE.BufferGeometry();
+      midGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(midPositions), 3));
+      function dotTexture() {
+        var c = document.createElement('canvas');
+        c.width = c.height = 64;
+        var ctx = c.getContext('2d');
+        var g = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        g.addColorStop(0, 'rgba(255,255,255,1)');
+        g.addColorStop(0.35, 'rgba(255,255,255,0.9)');
+        g.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, 64, 64);
+        return new THREE.CanvasTexture(c);
+      }
+      var sharedDotTex = dotTexture();
+
+      var nodeMat = new THREE.PointsMaterial({ color: 0x9fc6ff, size: 0.28, map: sharedDotTex, transparent: true, opacity: 0.95, sizeAttenuation: true, depthWrite: false });
+      group.add(new THREE.Points(nodeGeo, nodeMat));
+
+      var midMat = new THREE.PointsMaterial({ color: 0x6f9be0, size: 0.1, map: sharedDotTex, transparent: true, opacity: 0.4, sizeAttenuation: true, depthWrite: false });
+      group.add(new THREE.Points(midGeo, midMat));
+
+      // Brighter apex points (top/bottom read as the "hero" nodes in the logo)
+      var apexGeo = new THREE.BufferGeometry();
+      apexGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
+        verts[0].x, verts[0].y, verts[0].z,
+        verts[bottomIdx].x, verts[bottomIdx].y, verts[bottomIdx].z
+      ]), 3));
+      var apexMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.4, map: sharedDotTex, transparent: true, opacity: 1, depthWrite: false });
+      group.add(new THREE.Points(apexGeo, apexMat));
+
+      function glowTexture() {
+        var c = document.createElement('canvas');
+        c.width = c.height = 256;
+        var ctx = c.getContext('2d');
+        var g = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
+        g.addColorStop(0, 'rgba(79,142,247,0.5)');
+        g.addColorStop(0.5, 'rgba(79,142,247,0.13)');
+        g.addColorStop(1, 'rgba(79,142,247,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, 256, 256);
+        return new THREE.CanvasTexture(c);
+      }
+      var glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTexture(), transparent: true, depthWrite: false }));
+      glow.scale.set(6.5, 6.5, 1);
+      glow.position.y = 0.15;
+
+      function reflectionTexture() {
+        var c = document.createElement('canvas');
+        c.width = 256; c.height = 64;
+        var ctx = c.getContext('2d');
+        var g = ctx.createLinearGradient(0, 32, 256, 32);
+        g.addColorStop(0, 'rgba(126,184,255,0)');
+        g.addColorStop(0.5, 'rgba(200,225,255,0.55)');
+        g.addColorStop(1, 'rgba(126,184,255,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 20, 256, 24);
+        return new THREE.CanvasTexture(c);
+      }
+      var reflection = new THREE.Sprite(new THREE.SpriteMaterial({ map: reflectionTexture(), transparent: true, depthWrite: false, opacity: 0.7 }));
+      reflection.scale.set(4.2, 0.5, 1);
+      reflection.position.set(0, verts[bottomIdx].y - 0.35, 0);
+      group.add(reflection);
+      group.add(glow);
+
+      // Ambient dust particles around the mark
+      var orbitCount = W < 700 ? 50 : 110;
+      var orbitGeo = new THREE.BufferGeometry();
+      var orbitPos = new Float32Array(orbitCount * 3);
+      for (var i = 0; i < orbitCount; i++) {
+        var r = 1.3 + Math.random() * 1.5;
+        var theta = Math.random() * Math.PI * 2;
+        var phi = Math.acos((Math.random() * 2) - 1);
+        orbitPos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+        orbitPos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta) + 0.15;
+        orbitPos[i * 3 + 2] = r * Math.cos(phi);
+      }
+      orbitGeo.setAttribute('position', new THREE.BufferAttribute(orbitPos, 3));
+      var orbitMat = new THREE.PointsMaterial({ color: 0x7eb8ff, size: 0.08, map: sharedDotTex, transparent: true, opacity: 0.45, depthWrite: false });
+      var orbitPoints = new THREE.Points(orbitGeo, orbitMat);
+      scene.add(orbitPoints);
+
+      // Cursor magnetism across the whole viewport (not just the canvas box)
+      var targetX = 0.12, targetY = 0.35, curX = targetX, curY = targetY;
+      var autoRotate = true;
+
+      function setTargetFromPointer(clientX, clientY) {
+        var nx = clientX / window.innerWidth - 0.5;
+        var ny = clientY / window.innerHeight - 0.5;
+        targetY = 0.35 + nx * 1.3;
+        targetX = 0.12 - ny * 0.75;
+      }
+      window.addEventListener('mousemove', function (e) {
+        autoRotate = false;
+        setTargetFromPointer(e.clientX, e.clientY);
+      });
+      container.style.pointerEvents = 'none';
+
+      // Scroll-linked recession: as the user scrolls the mark up and
+      // out of the hero, it shrinks, pushes back in Z, and fades —
+      // reads as leaving into the distance rather than just scrolling
+      // off flat with the page. Based purely on scroll distance from
+      // the top (not viewport-relative position), so it's guaranteed
+      // zero at rest regardless of hero layout/viewport size.
+      var recedeProgress = 0;
+      var recedeThreshold = Math.max((container.offsetHeight || 340) * 1.4, 280);
+      function updateRecede() {
+        var p = window.scrollY / recedeThreshold;
+        recedeProgress = Math.min(Math.max(p, 0), 1);
+      }
+      window.addEventListener('scroll', updateRecede, { passive: true });
+      updateRecede();
+
+      var clock = new THREE.Clock();
+      function tick() {
+        requestAnimationFrame(tick);
+        var tm = clock.getElapsedTime();
+        if (autoRotate && !reduceMotion) targetY += 0.0016;
+        curX += (targetX - curX) * 0.09;
+        curY += (targetY - curY) * 0.09;
+        group.rotation.x = curX;
+        group.rotation.y = curY;
+
+        var eased = recedeProgress * recedeProgress;
+        group.scale.setScalar(baseScale * (1 - eased * 0.55));
+        group.position.z = -eased * 5.5;
+        renderer.domElement.style.opacity = String(1 - eased * 0.85);
+
+        orbitPoints.rotation.y = tm * 0.02;
+        orbitMat.opacity = 0.45 * (1 - eased * 0.8);
+        glow.material.opacity = (0.8 + Math.sin(tm * 1.0) * 0.12) * (1 - eased * 0.7);
+
+        renderer.render(scene, camera);
+      }
+      tick();
+
+      window.addEventListener('resize', function () {
+        var w = container.clientWidth || window.innerWidth;
+        var h = container.clientHeight || window.innerHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+        updateRecede();
+      });
+    }
+
+    /* ---------------------------------------------------------
+       Timeline spotlight — inspired by oxigen.sa's glowing pillar
+       that highlights the current step as it scrolls into view.
+       Toggles .in-view on each .timeline-item using an
+       IntersectionObserver centered on the viewport.
+    --------------------------------------------------------- */
+    function initTimelineSpotlight() {
+      var items = document.querySelectorAll('.timeline-item');
+      if (!items.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (item) { item.classList.add('in-view'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle('in-view', entry.isIntersecting);
+        });
+      }, { rootMargin: '-35% 0px -35% 0px', threshold: 0 });
+
+      items.forEach(function (item) { observer.observe(item); });
+    }
+
+    /* ---------------------------------------------------------
+       Scroll reveal — cards fade/rise into place once as they
+       enter the viewport. Simple one-shot reveal (unobserve after
+       triggering), unlike the timeline's continuous spotlight.
+    --------------------------------------------------------- */
+    function initScrollReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+
+      els.forEach(function (el, i) {
+        el.style.transitionDelay = (Math.min(i % 3, 2) * 0.08) + 's';
+        observer.observe(el);
+      });
+    }
+
+    /* ---------------------------------------------------------
+       Pointer tilt — subtle 3D perspective tilt on cards, tracked
+       via CSS custom properties so the existing transition on
+       .tilt-card handles the smoothing in and out.
+    --------------------------------------------------------- */
+    function initTiltCards() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+
+      var cards = document.querySelectorAll('.tilt-card');
+      cards.forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect = card.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty('--ry', (nx * 6) + 'deg');
+          card.style.setProperty('--rx', (-ny * 6) + 'deg');
+          card.style.setProperty('--tz', '-4px');
+        });
+        card.addEventListener('mouseleave', function () {
+          card.style.setProperty('--ry', '0deg');
+          card.style.setProperty('--rx', '0deg');
+          card.style.setProperty('--tz', '0px');
+        });
+      });
+    }
+
+    /* ---------------------------------------------------------
+       Section tracking — drives both the nav's active-link
+       highlight and the scroll-progress dots from one shared
+       IntersectionObserver over the page's major sections.
+    --------------------------------------------------------- */
+    function initSectionTracking() {
+      var sectionIds = ['hero', 'apps', 'journey', 'about', 'contact'];
+      var sections = sectionIds
+        .map(function (id) { return document.getElementById(id); })
+        .filter(Boolean);
+      if (!sections.length) return;
+      if (!('IntersectionObserver' in window)) return;
+
+      function setActive(id) {
+        document.querySelectorAll('[data-section]').forEach(function (el) {
+          var match = el.getAttribute('data-section') === id;
+          el.classList.toggle('nav-active', match && el.closest('nav'));
+          el.classList.toggle('dot-active', match && el.closest('.scroll-progress'));
+        });
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+      sections.forEach(function (el) { observer.observe(el); });
+    }
+
+    /* ---------------------------------------------------------
+       Magnetic buttons — pull toward the cursor when nearby,
+       release smoothly on mouseleave. Proximity-based, so it
+       activates slightly before the cursor actually lands.
+    --------------------------------------------------------- */
+    function initMagneticButtons() {
+      if (reduceMotion) return;
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.magnetic'));
+      if (!buttons.length) return;
+
+      var MAX_SHIFT_X = 6; // px — horizontal capped tighter, since side-by-side
+                            // buttons must never close enough to touch
+      var MAX_SHIFT_Y = 12; // px — vertical has more room to be expressive
+
+      function handleMove(e) {
+        buttons.forEach(function (btn) {
+          var rect = btn.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2;
+          var cy = rect.top + rect.height / 2;
+          var dx = e.clientX - cx;
+          var dy = e.clientY - cy;
+          var dist = Math.hypot(dx, dy);
+          // Larger, more generous proximity zone so the pull kicks in
+          // from farther away and feels more alive.
+          var radius = Math.min(rect.width, rect.height) * 1.1 + 45;
+          if (dist < radius) {
+            var pull = 1 - dist / radius;
+            var tx = Math.max(-MAX_SHIFT_X, Math.min(MAX_SHIFT_X, dx * 0.34 * pull));
+            var ty = Math.max(-MAX_SHIFT_Y, Math.min(MAX_SHIFT_Y, dy * 0.34 * pull));
+            btn.style.transform = 'translate(' + tx.toFixed(1) + 'px, ' + ty.toFixed(1) + 'px)';
+          } else {
+            btn.style.transform = 'translate(0px, 0px)';
+          }
+        });
+      }
+      window.addEventListener('mousemove', handleMove, { passive: true });
+    }
+
+    /* ---------------------------------------------------------
+       Icon 3D wrap — wraps each app icon <img> in a perspective
+       container with independent tilt and a light-reflection
+       shine, entirely via DOM manipulation at runtime. The icon
+       images themselves are moved (not recreated or re-encoded),
+       so this never touches the underlying image data.
+    --------------------------------------------------------- */
+    function initIconWrap() {
+      var icons = document.querySelectorAll('img.app-icon-featured, img.app-icon');
+      icons.forEach(function (img) {
+        if (img.closest('.icon-3d')) return;
+        var featured = img.classList.contains('app-icon-featured');
+        var size = featured ? 100 : 80;
+        var radius = featured ? 22 : 18;
+
+        var outer = document.createElement('div');
+        outer.className = 'icon-3d';
+        outer.style.width = size + 'px';
+        outer.style.height = size + 'px';
+        outer.style.flexShrink = '0';
+        if (featured) {
+          outer.style.boxShadow = '0 8px 30px rgba(79,142,247,0.3)';
+          outer.style.borderRadius = radius + 'px';
+        }
+
+        var inner = document.createElement('div');
+        inner.className = 'icon-3d-inner';
+        inner.style.borderRadius = radius + 'px';
+
+        var shine = document.createElement('div');
+        shine.className = 'icon-3d-shine';
+
+        var parent = img.parentNode;
+        parent.insertBefore(outer, img);
+        inner.appendChild(img);
+        inner.appendChild(shine);
+        outer.appendChild(inner);
+
+        if (!reduceMotion && !(window.matchMedia && window.matchMedia('(hover: none)').matches)) {
+          // Per-frame interpolation (matching the hero mark's approach)
+          // instead of letting CSS transitions restart on every mousemove,
+          // which is what made this feel jagged.
+          var targetRX = 0, targetRY = 0, targetTZ = 0, targetSX = 50, targetSY = 50;
+          var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50;
+          var hovering = false;
+
+          outer.addEventListener('mousemove', function (e) {
+            hovering = true;
+            var rect = outer.getBoundingClientRect();
+            var nx = (e.clientX - rect.left) / rect.width - 0.5;
+            var ny = (e.clientY - rect.top) / rect.height - 0.5;
+            targetRY = nx * 20;
+            targetRX = -ny * 20;
+            targetTZ = 14;
+            targetSX = 50 + nx * 60;
+            targetSY = 50 + ny * 60;
+          });
+          outer.addEventListener('mouseleave', function () {
+            hovering = false;
+            targetRX = 0; targetRY = 0; targetTZ = 0;
+          });
+
+          (function tick() {
+            requestAnimationFrame(tick);
+            var ease = 0.28;
+            curRX += (targetRX - curRX) * ease;
+            curRY += (targetRY - curRY) * ease;
+            curTZ += (targetTZ - curTZ) * ease;
+            inner.style.setProperty('--irx', curRX.toFixed(2) + 'deg');
+            inner.style.setProperty('--iry', curRY.toFixed(2) + 'deg');
+            inner.style.setProperty('--itz', curTZ.toFixed(2) + 'px');
+            if (hovering) {
+              curSX += (targetSX - curSX) * ease;
+              curSY += (targetSY - curSY) * ease;
+              shine.style.setProperty('--sx', curSX.toFixed(1) + '%');
+              shine.style.setProperty('--sy', curSY.toFixed(1) + '%');
+            }
+          })();
+        }
+      });
+    }
+
+    /* ---------------------------------------------------------
+       Count-up stats — numbers animate from 0 up to their target
+       once scrolled into view. Used for About's publication/
+       citation figures and the community section's Reddit stats.
+    --------------------------------------------------------- */
+    function initCountUp() {
+      var els = document.querySelectorAll('.stat-number, .community-stat-num');
+      if (!els.length) return;
+
+      function animate(el) {
+        var target = parseFloat(el.getAttribute('data-target'));
+        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        if (isNaN(target)) return;
+        if (reduceMotion) {
+          el.textContent = target.toFixed(decimals) + suffix;
+          return;
+        }
+        var duration = 1400;
+        var start = null;
+        function step(ts) {
+          if (start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+          var value = target * eased;
+          el.textContent = value.toFixed(decimals) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target.toFixed(decimals) + suffix;
+        }
+        requestAnimationFrame(step);
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(animate);
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { observer.observe(el); });
+    }
+
+    /* ---------------------------------------------------------
+       Timeline progress fill — the vertical spine fills in as
+       the user scrolls through the Journey section, rather than
+       only the dots lighting up individually.
+    --------------------------------------------------------- */
+    function initTimelineFill() {
+      var container = document.querySelector('.timeline-container');
+      var fill = document.getElementById('timelineFill');
+      if (!container || !fill) return;
+
+      function update() {
+        var rect = container.getBoundingClientRect();
+        var vh = window.innerHeight || 800;
+        var progress = (vh * 0.5 - rect.top) / rect.height;
+        progress = Math.min(Math.max(progress, 0), 1);
+        fill.style.height = (progress * 100) + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    }
+
+    /* ---------------------------------------------------------
+       Hero scroll cue — fades out once the user actually starts
+       scrolling, so it doesn't linger once it's done its job.
+    --------------------------------------------------------- */
+    function initScrollCue() {
+      var cue = document.getElementById('scrollCue');
+      if (!cue) return;
+      function update() {
+        cue.style.opacity = window.scrollY > 40 ? '0' : '';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+    }
+
+    /* ---------------------------------------------------------
+       Custom cursor — a small ring + dot replacing the native
+       cursor on desktop, scaling up over interactive elements.
+       Only activates the CSS that hides the native cursor after
+       the JS has successfully set everything up, so a failure
+       here can never leave the visitor without a cursor.
+    --------------------------------------------------------- */
+    function initCustomCursor() {
+      if (reduceMotion) return;
+      if (!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
+
+      var ring = document.createElement('div');
+      ring.className = 'custom-cursor-ring';
+      var dot = document.createElement('div');
+      dot.className = 'custom-cursor-dot';
+      document.body.appendChild(ring);
+      document.body.appendChild(dot);
+
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+      var rx = mx, ry = my;
+
+      window.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+      });
+      document.addEventListener('mouseleave', function () {
+        ring.style.opacity = '0'; dot.style.opacity = '0';
+      });
+      document.addEventListener('mouseenter', function () {
+        ring.style.opacity = '1'; dot.style.opacity = '1';
+      });
+
+      var interactiveSelector = 'a, button, .magnetic, .tilt-card, .icon-3d, input, [role="button"]';
+      document.addEventListener('mouseover', function (e) {
+        if (e.target.closest(interactiveSelector)) ring.classList.add('cursor-hover');
+      });
+      document.addEventListener('mouseout', function (e) {
+        if (e.target.closest(interactiveSelector)) ring.classList.remove('cursor-hover');
+      });
+
+      function tick() {
+        requestAnimationFrame(tick);
+        rx += (mx - rx) * 0.18;
+        ry += (my - ry) * 0.18;
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+      }
+      tick();
+
+      // Only now hide the native cursor — everything above worked.
+      document.documentElement.classList.add('custom-cursor-active');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ready);
+    } else {
+      ready();
+    }
+    /* ---------------------------------------------------------
+       Particle wordmark — renders "Krida." as a field of tiny
+       points sampled from the rendered text, which scatter away
+       from the cursor and spring back to their home position.
+       Inspired by oxigen.sa's footer treatment.
+    --------------------------------------------------------- */
+    function initParticleText() {
+      var canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var container = canvas.parentElement;
+      var particles = [];
+      var mouse = { x: -9999, y: -9999 };
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      var W = 0, H = 0;
+
+      function buildParticles() {
+        W = container.clientWidth;
+        H = canvas.clientHeight || 180;
+        if (!W || !H) return;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+
+        var off = document.createElement('canvas');
+        off.width = W * dpr;
+        off.height = H * dpr;
+        var octx = off.getContext('2d');
+        var fontSize = Math.min(H * 0.6, W * 0.15);
+        octx.fillStyle = '#fff';
+        octx.textAlign = 'center';
+        octx.textBaseline = 'middle';
+        octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        var measured = octx.measureText('Krida LLC').width;
+        var maxWidth = W * dpr * 0.92;
+        if (measured > maxWidth) {
+          fontSize *= maxWidth / measured;
+          octx.font = "800 " + (fontSize * dpr) + "px 'Syne', sans-serif";
+        }
+        octx.fillText('Krida LLC', (W * dpr) / 2, (H * dpr) / 2);
+
+        var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
+        particles = [];
+        var step = Math.max(3, Math.round(4 * dpr));
+        for (var y = 0; y < H * dpr; y += step) {
+          for (var x = 0; x < W * dpr; x += step) {
+            if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
+              var px = x / dpr, py = y / dpr;
+              particles.push({ hx: px, hy: py, x: px, y: py, vx: 0, vy: 0 });
+            }
+          }
+        }
+      }
+
+      buildParticles();
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(buildParticles);
+      }
+
+      canvas.addEventListener('mousemove', function (e) {
+        var rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.addEventListener('mouseleave', function () {
+        mouse.x = -9999; mouse.y = -9999;
+      });
+
+      function touchPos(e) {
+        var rect = canvas.getBoundingClientRect();
+        var t = e.touches[0];
+        mouse.x = t.clientX - rect.left;
+        mouse.y = t.clientY - rect.top;
+      }
+      canvas.addEventListener('touchstart', touchPos, { passive: true });
+      canvas.addEventListener('touchmove', touchPos, { passive: true });
+      canvas.addEventListener('touchend', function () {
+        mouse.x = -9999; mouse.y = -9999;
+      });
+
+      function tick() {
+        requestAnimationFrame(tick);
+        if (!W || !H) return;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = 'rgba(126,184,255,0.9)';
+        var repelRadius = 55;
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          if (!reduceMotion) {
+            var dx = p.x - mouse.x, dy = p.y - mouse.y;
+            var dist = Math.hypot(dx, dy);
+            if (dist < repelRadius) {
+              var force = (repelRadius - dist) / repelRadius;
+              var inv = 1 / (dist || 1);
+              p.vx += dx * inv * force * 3.2;
+              p.vy += dy * inv * force * 3.2;
+            }
+            p.vx += (p.hx - p.x) * 0.06;
+            p.vy += (p.hy - p.y) * 0.06;
+            p.vx *= 0.82;
+            p.vy *= 0.82;
+            p.x += p.vx;
+            p.y += p.vy;
+          }
+          ctx.fillRect(p.x, p.y, 1.6, 1.6);
+        }
+      }
+      tick();
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(buildParticles, 250);
+      });
+    }
+
+    function ready() {
+      try { initIconWrap(); } catch (err) { console.error('icon wrap failed:', err); }
+      try { initParticleText(); } catch (err) { console.error('particle text failed:', err); }
+      try { initBgField(); } catch (err) { console.error('bg field failed:', err); }
+      try { initHeroMark(); } catch (err) {
+        console.error('hero mark failed:', err);
+        var hm = document.getElementById('heroMark');
+        if (hm) hm.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#7a8ba8;font-size:11px;text-align:center;padding:1rem;">3D mark failed to load — check browser console</div>';
+      }
+      try { initTimelineSpotlight(); } catch (err) {
+        console.error('timeline spotlight failed:', err);
+        document.querySelectorAll('.timeline-item').forEach(function (item) { item.classList.add('in-view'); });
+      }
+      try { initScrollReveal(); } catch (err) {
+        console.error('scroll reveal failed:', err);
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+      }
+      try { initTiltCards(); } catch (err) { console.error('tilt cards failed:', err); }
+      try { initSectionTracking(); } catch (err) { console.error('section tracking failed:', err); }
+      try { initMagneticButtons(); } catch (err) { console.error('magnetic buttons failed:', err); }
+      try { initCountUp(); } catch (err) { console.error('count up failed:', err); }
+      try { initTimelineFill(); } catch (err) { console.error('timeline fill failed:', err); }
+      try { initScrollCue(); } catch (err) { console.error('scroll cue failed:', err); }
+      try { initCustomCursor(); } catch (err) { console.error('custom cursor failed:', err); }
+    }
+  })();
+  </script>
 
 </body>
 </html>
