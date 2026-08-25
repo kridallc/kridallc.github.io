@@ -1243,6 +1243,9 @@
     @media (max-width: 768px) {
       html, body { overflow-x: hidden; max-width: 100vw; }
       section { padding: 3rem 1.2rem; }
+      .contact-section { padding: 3rem 1.2rem; }
+      .timeline-section { padding: 3rem 1.2rem; }
+      .community-section { padding: 3rem 1.2rem; }
       .community-feed { grid-template-columns: 1fr; }
       .app-card-featured, .app-card {
         grid-template-columns: 1fr;
@@ -2243,7 +2246,7 @@
         inner.appendChild(shine);
         outer.appendChild(inner);
 
-        if (!reduceMotion && !(window.matchMedia && window.matchMedia('(hover: none)').matches)) {
+        if (!reduceMotion) {
           // Per-frame interpolation (matching the hero mark's approach)
           // instead of letting CSS transitions restart on every mousemove,
           // which is what made this feel jagged.
@@ -2251,21 +2254,39 @@
           var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50;
           var hovering = false;
 
-          outer.addEventListener('mousemove', function (e) {
+          function updateTiltFromPoint(clientX, clientY) {
             hovering = true;
             var rect = outer.getBoundingClientRect();
-            var nx = (e.clientX - rect.left) / rect.width - 0.5;
-            var ny = (e.clientY - rect.top) / rect.height - 0.5;
+            var nx = (clientX - rect.left) / rect.width - 0.5;
+            var ny = (clientY - rect.top) / rect.height - 0.5;
             targetRY = nx * 20;
             targetRX = -ny * 20;
             targetTZ = 14;
             targetSX = 50 + nx * 60;
             targetSY = 50 + ny * 60;
-          });
-          outer.addEventListener('mouseleave', function () {
+          }
+          function resetTilt() {
             hovering = false;
             targetRX = 0; targetRY = 0; targetTZ = 0;
+          }
+
+          // Mouse (desktop)
+          outer.addEventListener('mousemove', function (e) {
+            updateTiltFromPoint(e.clientX, e.clientY);
           });
+          outer.addEventListener('mouseleave', resetTilt);
+
+          // Touch (phones) — tapping and holding tilts the icon toward
+          // the touch point, same math as the mouse version; lifting
+          // the finger springs it back to resting position.
+          outer.addEventListener('touchstart', function (e) {
+            if (e.touches[0]) updateTiltFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+          }, { passive: true });
+          outer.addEventListener('touchmove', function (e) {
+            if (e.touches[0]) updateTiltFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+          }, { passive: true });
+          outer.addEventListener('touchend', resetTilt);
+          outer.addEventListener('touchcancel', resetTilt);
 
           (function tick() {
             requestAnimationFrame(tick);
@@ -2468,7 +2489,15 @@
 
         var imgData = octx.getImageData(0, 0, W * dpr, H * dpr).data;
         particles = [];
-        var step = Math.max(3, Math.round(4 * dpr));
+        // Sampling grid must scale with the rendered glyph size, not
+        // stay fixed — at small mobile font sizes a fixed pixel step
+        // can exceed the gap between adjacent letters (e.g. "r" and
+        // "i" in Syne Bold), causing them to visually merge. Capping
+        // by the old fixed step keeps desktop density/performance
+        // exactly as before; only small text gets finer sampling.
+        var fixedStep = Math.max(3, Math.round(4 * dpr));
+        var proportionalStep = Math.max(2, Math.floor(fontSize * dpr * 0.05));
+        var step = Math.min(fixedStep, proportionalStep);
         for (var y = 0; y < H * dpr; y += step) {
           for (var x = 0; x < W * dpr; x += step) {
             if (imgData[(y * (W * dpr) + x) * 4 + 3] > 120) {
