@@ -74,7 +74,49 @@
     /* HERO VISUAL */
     .hero-visual { display: flex; justify-content: center; align-items: center; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; position: relative; }
     .icon-glow-ring { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite; }
-    .app-icon-hero { width: 190px; height: 190px; border-radius: 42px; object-fit: cover; position: relative; z-index: 1; box-shadow: 0 20px 60px rgba(14,165,233,0.22), 0 4px 20px rgba(0,0,0,0.5); border: 1px solid rgba(14,165,233,0.2); }
+    .app-icon-hero { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .icon-3d {
+      position: relative;
+      perspective: 600px;
+      width: 190px;
+      height: 190px;
+      z-index: 1;
+      box-shadow: 0 20px 60px rgba(14,165,233,0.22), 0 4px 20px rgba(0,0,0,0.5);
+      border-radius: 42px;
+    }
+    .icon-3d-inner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      border-radius: 42px;
+      border: 1px solid rgba(14,165,233,0.2);
+      --irx: 0deg;
+      --iry: 0deg;
+      --itz: 0px;
+      transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz));
+      transform-style: preserve-3d;
+      animation: iconFloat 5.5s ease-in-out infinite;
+    }
+    .icon-3d:hover .icon-3d-inner { animation-play-state: paused; }
+    .icon-3d-shine {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--sx, 50%) var(--sy, 15%), rgba(255,255,255,0.4), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+    .icon-3d:hover .icon-3d-shine { opacity: 1; }
+    @keyframes iconFloat {
+      0%, 100% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(0); }
+      50% { transform: rotateX(var(--irx)) rotateY(var(--iry)) translateZ(var(--itz)) translateY(-5px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .icon-3d-inner { animation: none; }
+    }
     @keyframes pulse { 0%,100%{transform:scale(1);opacity:0.7;}50%{transform:scale(1.1);opacity:1;} }
 
     /* ALERT STRIP */
@@ -283,7 +325,8 @@
       .nav-links a { padding: 0.6rem 0.75rem; font-size: 0.9rem; }
       .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem 2rem; gap: 2rem; }
       .hero-visual { order: -1; }
-      .app-icon-hero { width: 140px; height: 140px; border-radius: 32px; }
+      .icon-3d { width: 140px; height: 140px; border-radius: 32px; }
+      .icon-3d-inner { border-radius: 32px; }
       .icon-glow-ring { width: 190px; height: 190px; }
       .how-grid { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
@@ -348,7 +391,12 @@
     </div>
     <div class="hero-visual">
       <div class="icon-glow-ring"></div>
-      <img src="/icon_BB.png" alt="BeachBaskit App Icon" class="app-icon-hero" />
+      <div class="icon-3d">
+        <div class="icon-3d-inner">
+          <img src="/icon_BB.png" alt="BeachBaskit App Icon" class="app-icon-hero" />
+          <div class="icon-3d-shine"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -836,7 +884,7 @@
       });
       document.addEventListener('mouseleave', function () { ring.style.opacity = '0'; dot.style.opacity = '0'; });
       document.addEventListener('mouseenter', function () { ring.style.opacity = '1'; dot.style.opacity = '1'; });
-      var interactiveSelector = 'a, button, .magnetic, .tilt-card, input, [role="button"]';
+      var interactiveSelector = 'a, button, .magnetic, .tilt-card, .icon-3d, input, [role="button"]';
       document.addEventListener('mouseover', function (e) { if (e.target.closest(interactiveSelector)) ring.classList.add('cursor-hover'); });
       document.addEventListener('mouseout', function (e) { if (e.target.closest(interactiveSelector)) ring.classList.remove('cursor-hover'); });
       function tick() {
@@ -848,7 +896,57 @@
       document.documentElement.classList.add('custom-cursor-active');
     }
 
+    /* Icon 3D wrap for the hero app icon — independent tilt + shine. */
+    function initIconWrap() {
+      var wrappers = document.querySelectorAll('.icon-3d');
+      wrappers.forEach(function (outer) {
+        var inner = outer.querySelector('.icon-3d-inner');
+        var shine = outer.querySelector('.icon-3d-shine');
+        if (!inner || !shine) return;
+        if (reduceMotion) return;
+        if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+
+        var targetRX = 0, targetRY = 0, targetTZ = 0, targetSX = 50, targetSY = 50;
+        var curRX = 0, curRY = 0, curTZ = 0, curSX = 50, curSY = 50;
+        var hovering = false;
+
+        outer.addEventListener('mousemove', function (e) {
+          hovering = true;
+          var rect = outer.getBoundingClientRect();
+          var nx = (e.clientX - rect.left) / rect.width - 0.5;
+          var ny = (e.clientY - rect.top) / rect.height - 0.5;
+          targetRY = nx * 20;
+          targetRX = -ny * 20;
+          targetTZ = 14;
+          targetSX = 50 + nx * 60;
+          targetSY = 50 + ny * 60;
+        });
+        outer.addEventListener('mouseleave', function () {
+          hovering = false;
+          targetRX = 0; targetRY = 0; targetTZ = 0;
+        });
+
+        (function tick() {
+          requestAnimationFrame(tick);
+          var ease = 0.28;
+          curRX += (targetRX - curRX) * ease;
+          curRY += (targetRY - curRY) * ease;
+          curTZ += (targetTZ - curTZ) * ease;
+          inner.style.setProperty('--irx', curRX.toFixed(2) + 'deg');
+          inner.style.setProperty('--iry', curRY.toFixed(2) + 'deg');
+          inner.style.setProperty('--itz', curTZ.toFixed(2) + 'px');
+          if (hovering) {
+            curSX += (targetSX - curSX) * ease;
+            curSY += (targetSY - curSY) * ease;
+            shine.style.setProperty('--sx', curSX.toFixed(1) + '%');
+            shine.style.setProperty('--sy', curSY.toFixed(1) + '%');
+          }
+        })();
+      });
+    }
+
     function ready() {
+      try { initIconWrap(); } catch (err) { console.error('icon wrap failed:', err); }
       try { initParticleText(); } catch (err) { console.error('particle text failed:', err); }
       try { initScrollReveal(); } catch (err) {
         console.error('scroll reveal failed:', err);
