@@ -2008,6 +2008,23 @@
         autoRotate = false;
         setTargetFromPointer(e.clientX, e.clientY);
       });
+      // Touch (phones) — mobile browsers don't reliably fire mousemove
+      // for touch input, so the magnetism never activated on phones
+      // without this. Passive + no preventDefault, so this never
+      // interferes with normal page scrolling or tapping content
+      // underneath (the mark already has pointer-events:none).
+      window.addEventListener('touchstart', function (e) {
+        if (e.touches[0]) {
+          autoRotate = false;
+          setTargetFromPointer(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+      window.addEventListener('touchmove', function (e) {
+        if (e.touches[0]) {
+          autoRotate = false;
+          setTargetFromPointer(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
       container.style.pointerEvents = 'none';
 
       // Scroll-linked recession: as the user scrolls the mark up and
