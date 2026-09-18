@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Maths Dash</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      var ios = /iPhone|iPad|iPod/.test(ua) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPadOS
+      var android = /Android/.test(ua);
+      var apple = 'https://apps.apple.com/app/id6698856562';
+      // referrer= is read by Google Play and handed to the app on first
+      // launch, so shared installs show up in analytics as their own source.
+      var play = 'https://play.google.com/store/apps/details?id=com.krida.mathsdash' +
+                 '&referrer=' + encodeURIComponent('utm_source=share&utm_medium=app&utm_campaign=speed_record');
+      var site = '/mathsdash/';
+      window.location.replace(ios ? apple : android ? play : site);
+    })();
+  </script>
+  <style>
+    body{font-family:-apple-system,'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;color:#1a1a2e;text-align:center;padding:2rem;}
+    a{color:#8F4FEC;font-weight:700;}
+  </style>
+</head>
+<body>
+  <noscript>
+    <p>Get Maths Dash on the
+      <a href="https://apps.apple.com/app/id6698856562">App Store</a> or
+      <a href="https://play.google.com/store/apps/details?id=com.krida.mathsdash">Google Play</a>.
+    </p>
+  </noscript>
+</body>
+</html>
