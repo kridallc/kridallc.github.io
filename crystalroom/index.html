@@ -13,9 +13,7 @@
   <meta property="og:title" content="CrystalRoom — Step Inside Crystal Structures" />
   <meta property="og:description" content="CrystalRoom transforms real crystallographic data into interactive 3D structures you can explore, measure, and physically walk through on Apple Vision Pro." />
   <meta property="og:image" content="https://kridallc.com/icon_CR.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/crystalroom/fonts/fonts.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -495,9 +493,8 @@
     }
   </style>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+  <script src="/crystalroom/vendor/three.r128.min.js"></script>
+  <script src="/crystalroom/consent.js"></script>
 </head>
 <body>
 
@@ -864,6 +861,7 @@
         <a href="/crystalroom/privacy/">Privacy</a>
         <a href="/crystalroom/terms/">Terms of Service</a>
         <a href="/">Krida LLC</a>
+        <a href="#cookie-settings" data-consent-open>Cookie settings</a>
       </div>
       <p>© 2026 Krida LLC · All rights reserved · Apple®, Apple Vision Pro®, and visionOS® are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
     </div>

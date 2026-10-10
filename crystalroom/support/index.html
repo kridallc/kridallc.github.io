@@ -5,14 +5,12 @@
   <link rel="canonical" href="https://kridallc.com/crystalroom/support/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Support — CrystalRoom</title>
-  <meta name="description" content="Get help with CrystalRoom on Apple Vision Pro. FAQs on immersion, supercells, guided tours, and windows, plus how to contact Krida LLC." />
+  <meta name="description" content="Get help with CrystalRoom on Apple Vision Pro: immersion, windows, measuring, Miller planes, supercells, guided tours, and how to contact Krida LLC." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta property="og:url" content="https://kridallc.com/crystalroom/support/" />
   <meta property="og:title" content="Support — CrystalRoom" />
   <meta property="og:image" content="https://kridallc.com/icon_CR.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/crystalroom/fonts/fonts.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,6 +18,7 @@
       --bg: #050818; --bg2: #080d20; --card: #0c1228; --card2: #101630;
       --primary: #38bdf8; --primary-dark: #0ea5e9; --primary-light: rgba(56,189,248,0.08);
       --violet: #818cf8;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
       --text: #e8f0fe; --muted: #7a90b8; --muted2: #3a4a6a;
       --border: rgba(56,189,248,0.14); --border-hover: rgba(56,189,248,0.38);
     }
@@ -33,8 +32,8 @@
     .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
-    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: var(--bg) !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; }
-    .nav-cta:hover { background: var(--primary-dark) !important; }
+    .nav-cta { font-family: var(--mono) !important; font-size: 0.7rem !important; text-transform: uppercase !important; letter-spacing: 0.04em !important; font-weight: 500 !important; color: var(--bg) !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: background 0.18s, box-shadow 0.18s !important; }
+    .nav-cta:hover { background: var(--primary-dark) !important; box-shadow: 0 4px 16px rgba(56,189,248,0.2) !important; }
     .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
 
@@ -61,17 +60,48 @@
     }
     .contact-email:hover { background: var(--primary-dark); transform: translateY(-1px); }
 
-    .faq-section { opacity: 0; animation: fadeUp 0.5s ease 0.15s forwards; }
-    .faq-section h2 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--text); margin-bottom: 1.5rem; }
-    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 1.25rem 0; }
-    .faq-item:first-of-type { border-top: 1px solid rgba(255,255,255,0.05); }
-    .faq-q { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
+    .jump a { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 0.75rem; transition: all 0.18s; }
+    .jump a:hover { color: var(--primary); border-color: var(--border-hover); background: var(--primary-light); }
+
+    .block-title { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--text); margin-bottom: 0.4rem; }
+    .block-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .glance, .toolbar-ref { margin-bottom: 3rem; scroll-margin-top: 80px; opacity: 0; animation: fadeUp 0.5s ease 0.15s forwards; }
+    .glance .block-title { margin-bottom: 1.25rem; }
+    .glance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .glance-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; }
+    .glance-card h3 { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .glance-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+    .tb-pill { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem; background: rgba(120,130,150,0.18); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; padding: 0.45rem 0.6rem; backdrop-filter: blur(12px); margin-bottom: 1.25rem; }
+    .tb-btn { display: flex; align-items: center; gap: 0.4rem; color: var(--text); font-size: 0.82rem; padding: 0.4rem 0.75rem; border-radius: 100px; }
+    .tb-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .tb-legend { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.5rem; }
+    .tb-legend div { display: flex; gap: 0.6rem; font-size: 0.84rem; padding: 0.35rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .tb-legend dt { color: var(--text); font-weight: 500; min-width: 6rem; }
+    .tb-legend dd { color: var(--muted); }
+
+    .faq-section { opacity: 0; animation: fadeUp 0.5s ease 0.2s forwards; }
+    .faq-section > h2 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--text); margin-bottom: 1rem; }
+    .faq-group { margin-bottom: 2rem; scroll-margin-top: 80px; }
+    .faq-group-title { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--primary); margin-bottom: 0.25rem; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); scroll-margin-top: 80px; }
+    .faq-group .faq-item:first-of-type { border-top: 1px solid rgba(255,255,255,0.05); }
+    .faq-q { list-style: none; font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); padding: 1.1rem 0; cursor: pointer; display: flex; align-items: flex-start; gap: 0.75rem; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q span { flex: 1; }
     .faq-q::after { content: '+'; color: var(--primary); font-size: 1.2rem; line-height: 1; flex-shrink: 0; transition: transform 0.2s; }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a { font-size: 0.88rem; color: var(--muted); line-height: 1.7; display: none; padding-top: 0.25rem; }
+    .faq-item[open] > .faq-q::after { transform: rotate(45deg); }
+    .faq-q:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; border-radius: 4px; }
+    .faq-link { font-family: var(--mono); font-size: 0.8rem; color: var(--muted2); text-decoration: none; opacity: 0; transition: opacity 0.15s, color 0.15s; }
+    .faq-q:hover .faq-link, .faq-link:focus { opacity: 1; }
+    .faq-link:hover { color: var(--primary); }
+    .faq-link.copied::before { content: 'Link copied '; font-size: 0.65rem; color: var(--primary); }
+    .faq-a { font-size: 0.88rem; color: var(--muted); line-height: 1.7; padding: 0 2rem 1.2rem 0; }
     .faq-a a { color: var(--primary); text-decoration: none; }
     .faq-a a:hover { text-decoration: underline; }
-    .faq-item.open .faq-a { display: block; }
+    .faq-a strong { color: var(--text); font-weight: 500; }
+    .faq-item:target > .faq-q { color: var(--primary); }
 
     footer { background: #020510; border-top: 1px solid rgba(255,255,255,0.04); padding: 2.5rem 2rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
@@ -88,10 +118,136 @@
       .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(5,8,24,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
       .nav-links.open { display: flex; }
       main { padding: 3rem 1.25rem 5rem; }
+      .glance-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .glance-card { padding: 0.8rem; }
+      .glance-card p { font-size: 0.76rem; }
+      .tb-legend { grid-template-columns: 1fr; }
+      .tb-pill { border-radius: 18px; }
+      .faq-link { opacity: 1; }
+      .faq-a { padding-right: 0; }
     }
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+  <script src="/crystalroom/consent.js"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What hardware do I need to use CrystalRoom?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "CrystalRoom is built exclusively for Apple Vision Pro running visionOS. It is not available on iPhone, iPad, or Mac."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is CrystalRoom free?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. CrystalRoom is free to download from the App Store, with all eleven built-in structures and every feature on this page included. Family Sharing is enabled."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where do the built-in crystal structures come from?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The eleven built-in structures — Corundum (Al₂O₃), Calcite (CaCO₃), Fluorite (CaF₂), Zircon (ZrSiO₄), Forsterite (Mg₂SiO₄), Diamond (C), Gold (Au), Halite (NaCl), Barium titanate (BaTiO₃, a tetragonal perovskite), Quartz (SiO₂), and Rutile (TiO₂) — are reconstructed from CIF crystallographic data bundled directly with the app. No internet connection is required to view them."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do the guided tours work?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "CrystalRoom includes a 20-step guided tour of the windowed workspace, an interactive immersive Halite tour, and a generated “Tour This Structure” experience that adapts to the crystal you are viewing. In immersion, start a tour with Tour on the toolbar."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I step inside a crystal?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Enter full immersion from the toolbar to walk through a room-scale lattice. Tap atoms around you to inspect their identity, coordinates, bonding, and local environment; use Smaller and Larger to scale the lattice around you; and switch structures without leaving immersion. Tap Exit on the head-anchored toolbar to return to your windows."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "My windows disappeared when I entered immersion.",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "That is intentional. Entering the immersive space closes the app’s windows so nothing floats in front of the lattice. Tap Exit on the head-anchored toolbar and the windows come back exactly as you left them."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "I reopened the app and only the main window, axis gizmo and legend appeared.",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Also intentional. Reopening CrystalRoom — after closing its main window, a force quit, or a restart — restores your structure, supercell and view, but always starts with the default window pair so the layout is predictable. Only an immersive round trip brings back every window you had open."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "I closed every panel but one, then closed the main window, and that panel stayed.",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "visionOS does not let an app close its own last window. Close that panel yourself; the next tap on the app icon opens the main window as usual."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I measure distances and angles?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Select two atoms to measure the distance between them, or three atoms to measure an angle — the angle is calculated at the middle atom. CrystalRoom draws guide lines directly on the structure so measurements stay connected to the atoms, and keeps a history of your measurements."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I explore Miller planes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Set the h, k, l indices or pick a (100), (110), or (111) preset. CrystalRoom shows the live d-spacing in the panel and on the plane itself; you can display one plane or the entire plane family and offset planes through the lattice."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I use Auto-Spin for a presentation or demo?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Auto-Spin continuously rotates the structure at a gentle pace — ideal for demonstrations, lectures, or leaving a structure on display. Enable it from the toolbar. You can still zoom and adjust the supercell size while auto-spin is active."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do supercells work, and why is 5×5×5 greyed out for some structures?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A supercell repeats the unit cell along a, b, and c — each set independently — so you can see the full periodic lattice. Most structures go all the way to 5×5×5. Corundum, calcite, zircon and forsterite have large unit cells: above a few thousand atoms Apple Vision Pro cannot render a windowed scene smoothly, so CrystalRoom caps those structures at 3×3×3 or 4×4×4. The supercell panel shows the atom count and the limit."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does CrystalRoom collect any data?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The app has no accounts and no analytics, and nothing leaves your device. (This website uses Google Analytics — in the EU and UK only if you accept; see the privacy policy.)"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I load my own CIF files?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "CIF (Crystallographic Information File) is the universal standard for sharing crystal structure data, and many structures are freely available from the Crystallography Open Database. CIF Import is available through institutional licensing — if you’re at a university, research lab, or educational program interested in deploying CrystalRoom with CIF Import, contact us at support_crystalroom@kridallc.com."
+   }
+  }
+ ]
+}
+  </script>
 </head>
 <body>
 
@@ -117,85 +273,127 @@
       <div class="eyebrow">Support</div>
       <h1>We're here to help.</h1>
       <p class="lead">Questions about CrystalRoom, custom structures, institutional deployments, or anything else? Reach out — we respond promptly.</p>
+      <div class="jump" role="navigation" aria-label="Support sections"><a href="#glance">At a glance</a><a href="#toolbar">Immersive toolbar</a><a href="#sec-start">Getting started</a><a href="#sec-immersion">Immersion &amp; windows</a><a href="#sec-explore">Structures &amp; measuring</a><a href="#sec-supercells">Supercells &amp; performance</a><a href="#sec-data">Privacy &amp; CIF files</a></div>
     </div>
 
     <div class="contact-card">
       <h2>Contact Krida LLC</h2>
-      <p>Email is the fastest way to reach us. Include your visionOS version, app version, and a description of your issue for the quickest resolution.</p>
-      <a href="mailto:support_crystalroom@kridallc.com" class="contact-email">✉️ &nbsp;support_crystalroom@kridallc.com</a>
+      <p>Email is the fastest way to reach us. The button below opens a message with a short template — fill in your visionOS version, app version, and what happened for the quickest resolution.</p>
+      <a href="mailto:support_crystalroom@kridallc.com?subject=CrystalRoom%20support&amp;body=Hi%20CrystalRoom%20team%2C%0A%0AvisionOS%20version%3A%0ACrystalRoom%20version%3A%0AStructure%20%28if%20relevant%29%3A%0AWhat%20happened%3A%0ASteps%20to%20reproduce%3A%0A%0A" class="contact-email">✉️ &nbsp;support_crystalroom@kridallc.com</a>
     </div>
+
+    <section class="glance" id="glance">
+      <h2 class="block-title">At a glance</h2>
+      <div class="glance-grid">
+        <div class="glance-card"><h3>Explore from your space</h3><p>Rotate, inspect atoms, highlight elements, arrange windows — with undo/redo and session restore.</p></div>
+        <div class="glance-card"><h3>Step inside the crystal</h3><p>Full immersion: walk through a room-scale lattice and tap atoms around you.</p></div>
+        <div class="glance-card"><h3>Measure atomic geometry</h3><p>Two atoms for distance, three for an angle, with guide lines and history.</p></div>
+        <div class="glance-card"><h3>See more of the structure</h3><p>a/b/c supercells, coordination polyhedra, edge atoms, Miller planes with live d-spacing.</p></div>
+        <div class="glance-card"><h3>Guided exploration</h3><p>A 20-step workspace tour, an immersive Halite tour, and “Tour This Structure”.</p></div>
+        <div class="glance-card"><h3>Built on real data</h3><p>Structures reconstructed from bundled CIF data, backed by an automated scientific test suite.</p></div>
+      </div>
+    </section>
+
+    <section class="toolbar-ref" id="toolbar">
+      <h2 class="block-title">The immersive toolbar</h2>
+      <p class="block-sub">In full immersion, these controls stay within reach on a head-anchored toolbar.</p>
+      <div class="tb-pill" role="list">
+        <div class="tb-btn" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></svg><span>Structures</span></div>
+        <div class="tb-btn" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m12 8 1.2 2.8L16 12l-2.8 1.2L12 16l-1.2-2.8L8 12l2.8-1.2Z"/></svg><span>Tour</span></div>
+        <div class="tb-btn" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg><span>Unit Cell</span></div>
+        <div class="tb-btn" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v4M15 8v3M19 8v3"/></svg><span>Measure</span></div>
+        <div class="tb-btn" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M8 11h6"/></svg><span>Smaller</span></div>
+        <div class="tb-btn" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M8 11h6M11 8v6"/></svg><span>Larger</span></div>
+        <div class="tb-btn" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v9M8.5 12.5 12 16l3.5-3.5"/></svg><span>Exit</span></div>
+      </div>
+      <dl class="tb-legend">
+        <div><dt>Structures</dt><dd>Switch to another crystal</dd></div>
+        <div><dt>Tour</dt><dd>Start the guided tour</dd></div>
+        <div><dt>Unit Cell</dt><dd>Unit cell view</dd></div>
+        <div><dt>Measure</dt><dd>Distances and angles</dd></div>
+        <div><dt>Smaller</dt><dd>Scale the lattice down</dd></div>
+        <div><dt>Larger</dt><dd>Scale the lattice up</dd></div>
+        <div><dt>Exit</dt><dd>Back to your windows</dd></div>
+      </dl>
+    </section>
 
     <div class="faq-section">
       <h2>Frequently Asked Questions</h2>
 
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What hardware do I need to use CrystalRoom?</div>
-        <div class="faq-a">CrystalRoom is built exclusively for Apple Vision Pro running visionOS. It is not available on iPhone, iPad, or Mac. You need an Apple Vision Pro headset to use the app.</div>
+      <div class="faq-group" id="sec-start">
+        <h3 class="faq-group-title">Getting started</h3>
+        <details class="faq-item" id="hardware">
+          <summary class="faq-q"><span>What hardware do I need to use CrystalRoom?</span><a class="faq-link" href="#hardware" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">CrystalRoom is built exclusively for Apple Vision Pro running visionOS. It is not available on iPhone, iPad, or Mac.</div>
+        </details>
+        <details class="faq-item" id="free">
+          <summary class="faq-q"><span>Is CrystalRoom free?</span><a class="faq-link" href="#free" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">Yes. CrystalRoom is free to download from the App Store, with all eleven built-in structures and every feature on this page included. Family Sharing is enabled.</div>
+        </details>
+        <details class="faq-item" id="structures">
+          <summary class="faq-q"><span>Where do the built-in crystal structures come from?</span><a class="faq-link" href="#structures" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">The eleven built-in structures — Corundum (Al₂O₃), Calcite (CaCO₃), Fluorite (CaF₂), Zircon (ZrSiO₄), Forsterite (Mg₂SiO₄), Diamond (C), Gold (Au), Halite (NaCl), Barium titanate (BaTiO₃, a tetragonal perovskite), Quartz (SiO₂), and Rutile (TiO₂) — are reconstructed from CIF crystallographic data bundled directly with the app. No internet connection is required to view them.</div>
+        </details>
+        <details class="faq-item" id="tours">
+          <summary class="faq-q"><span>How do the guided tours work?</span><a class="faq-link" href="#tours" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">CrystalRoom includes a 20-step guided tour of the windowed workspace, an interactive immersive Halite tour, and a generated “Tour This Structure” experience that adapts to the crystal you are viewing. In immersion, start a tour with <strong>Tour</strong> on the toolbar.</div>
+        </details>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What can I do in CrystalRoom?</div>
-        <div class="faq-a"><strong>Explore from your space</strong> — rotate, zoom, inspect atoms, build supercells, highlight elements, and arrange windows around you, with undo/redo and session restore (your structure, supercell, and view come back when you return).<br /><strong>Step inside the crystal</strong> — enter full immersion, walk through a room-scale lattice, and tap atoms around you to inspect them.<br /><strong>Measure atomic geometry</strong> — two atoms for distance, three for an angle, with guide lines on the structure and a measurement history.<br /><strong>See more of the structure</strong> — independent a/b/c supercells, coordination polyhedra, edge atoms, Miller planes with live d-spacing, element search, and fractional/Cartesian coordinates.<br /><strong>Guided exploration</strong> — a 20-step workspace tour, an immersive Halite tour, and a “Tour This Structure” experience that adapts to the crystal you are viewing.<br /><strong>Built on real crystallographic data</strong> — structures reconstructed from bundled CIF data, backed by an automated scientific test suite.</div>
+      <div class="faq-group" id="sec-immersion">
+        <h3 class="faq-group-title">Immersion &amp; windows</h3>
+        <details class="faq-item" id="step-inside">
+          <summary class="faq-q"><span>How do I step inside a crystal?</span><a class="faq-link" href="#step-inside" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">Enter full immersion from the toolbar to walk through a room-scale lattice. Tap atoms around you to inspect their identity, coordinates, bonding, and local environment; use <strong>Smaller</strong> and <strong>Larger</strong> to scale the lattice around you; and switch structures without leaving immersion. Tap <strong>Exit</strong> on the head-anchored toolbar to return to your windows.</div>
+        </details>
+        <details class="faq-item" id="windows-immersion">
+          <summary class="faq-q"><span>My windows disappeared when I entered immersion.</span><a class="faq-link" href="#windows-immersion" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">That is intentional. Entering the immersive space closes the app’s windows so nothing floats in front of the lattice. Tap <strong>Exit</strong> on the head-anchored toolbar and the windows come back exactly as you left them.</div>
+        </details>
+        <details class="faq-item" id="windows-reopen">
+          <summary class="faq-q"><span>I reopened the app and only the main window, axis gizmo and legend appeared.</span><a class="faq-link" href="#windows-reopen" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">Also intentional. Reopening CrystalRoom — after closing its main window, a force quit, or a restart — restores your structure, supercell and view, but always starts with the default window pair so the layout is predictable. Only an immersive round trip brings back every window you had open.</div>
+        </details>
+        <details class="faq-item" id="last-window">
+          <summary class="faq-q"><span>I closed every panel but one, then closed the main window, and that panel stayed.</span><a class="faq-link" href="#last-window" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">visionOS does not let an app close its own last window. Close that panel yourself; the next tap on the app icon opens the main window as usual.</div>
+        </details>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is Immersive Space mode?</div>
-        <div class="faq-a">Immersive Space mode uses Apple Vision Pro's spatial computing capabilities to place your crystal structure in your physical environment at room scale. You can literally walk around a unit cell. Enable it from the toolbar inside the app. You can exit back to windowed mode at any time.</div>
+      <div class="faq-group" id="sec-explore">
+        <h3 class="faq-group-title">Structures &amp; measuring</h3>
+        <details class="faq-item" id="measure">
+          <summary class="faq-q"><span>How do I measure distances and angles?</span><a class="faq-link" href="#measure" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">Select two atoms to measure the distance between them, or three atoms to measure an angle — the angle is calculated at the middle atom. CrystalRoom draws guide lines directly on the structure so measurements stay connected to the atoms, and keeps a history of your measurements.</div>
+        </details>
+        <details class="faq-item" id="miller">
+          <summary class="faq-q"><span>How do I explore Miller planes?</span><a class="faq-link" href="#miller" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">Set the h, k, l indices or pick a (100), (110), or (111) preset. CrystalRoom shows the live d-spacing in the panel and on the plane itself; you can display one plane or the entire plane family and offset planes through the lattice.</div>
+        </details>
+        <details class="faq-item" id="autospin">
+          <summary class="faq-q"><span>How do I use Auto-Spin for a presentation or demo?</span><a class="faq-link" href="#autospin" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">Auto-Spin continuously rotates the structure at a gentle pace — ideal for demonstrations, lectures, or leaving a structure on display. Enable it from the toolbar. You can still zoom and adjust the supercell size while auto-spin is active.</div>
+        </details>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I measure bond distances and angles?</div>
-        <div class="faq-a">Tap any atom in the structure to select it, then tap a second atom. CrystalRoom will display the bond distance between them. For angles, select three atoms in sequence — the angle at the middle atom is calculated automatically.</div>
+      <div class="faq-group" id="sec-supercells">
+        <h3 class="faq-group-title">Supercells &amp; performance</h3>
+        <details class="faq-item" id="supercell">
+          <summary class="faq-q"><span>How do supercells work, and why is 5×5×5 greyed out for some structures?</span><a class="faq-link" href="#supercell" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">A supercell repeats the unit cell along a, b, and c — each set independently — so you can see the full periodic lattice. Most structures go all the way to 5×5×5. Corundum, calcite, zircon and forsterite have large unit cells: above a few thousand atoms Apple Vision Pro cannot render a windowed scene smoothly, so CrystalRoom caps those structures at 3×3×3 or 4×4×4. The supercell panel shows the atom count and the limit.</div>
+        </details>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a supercell and how do I expand it?</div>
-        <div class="faq-a">A supercell is a repeating tile of the unit cell — expanding from 1×1×1 to larger grids lets you see the full periodic lattice and how structures propagate through space. Supercell expansion from 1×1×1 up to 5×5×5; the largest unit cells (corundum, calcite, zircon, forsterite) are capped at 3×3×3–4×4×4 to keep Vision Pro responsive.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is CIF Import and how do I use it?</div>
-        <div class="faq-a">CIF (Crystallographic Information File) is the universal standard for sharing crystal structure data, and many structures are freely available from the <a href="https://www.crystallography.net/cod/" target="_blank">Crystallography Open Database</a>. CIF Import is available through institutional licensing — if you're at a university, research lab, or educational program interested in deploying CrystalRoom with CIF Import, contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I use Auto-Spin for a presentation or demo?</div>
-        <div class="faq-a">Auto-Spin continuously rotates the structure at a gentle pace — ideal for demonstrations, lectures, or leaving a structure on display. Enable it from the toolbar. You can still zoom and adjust the supercell size while auto-spin is active.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I request a refund?</div>
-        <div class="faq-a">All purchases are processed by Apple through the App Store. To request a refund, visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a> or contact Apple Support — we do not have access to your payment information.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where do the built-in crystal structures come from?</div>
-        <div class="faq-a">The eleven built-in structures — Corundum (Al₂O₃), Calcite (CaCO₃), Fluorite (CaF₂), Zircon (ZrSiO₄), Forsterite (Mg₂SiO₄), Diamond (C), Gold (Au), Halite (NaCl), Barium titanate (BaTiO₃, a tetragonal perovskite), Quartz (SiO₂), and Rutile (TiO₂) — are reconstructed from CIF crystallographic data bundled directly with the app. No internet connection is required to view them.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is 5×5×5 greyed out for some structures?</div>
-        <div class="faq-a">Corundum, calcite, zircon and forsterite have large unit cells. Above a few thousand atoms Apple Vision Pro cannot render a windowed scene smoothly, so CrystalRoom caps those structures at 3×3×3 or 4×4×4. The supercell panel shows the atom count and the limit. The seven compact structures go all the way to 5×5×5.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">My windows disappeared when I entered immersion.</div>
-        <div class="faq-a">That is intentional. Entering the immersive space closes the app’s windows so nothing floats in front of the lattice. Tap Exit on the head-anchored toolbar and the windows come back exactly as you left them.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I reopened the app and only the main window, axis gizmo and legend appeared.</div>
-        <div class="faq-a">Also intentional. Reopening CrystalRoom — after closing its main window, a force quit, or a restart — restores your structure, supercell and view, but always starts with the default window pair so the layout is predictable. Only an immersive round trip brings back every window you had open.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I closed every panel but one, then closed the main window, and that panel stayed.</div>
-        <div class="faq-a">visionOS does not let an app close its own last window. Close that panel yourself; the next tap on the app icon opens the main window as usual.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does CrystalRoom collect any data?</div>
-        <div class="faq-a">No. See the <a href="/crystalroom/privacy/">privacy policy</a> — no accounts, no analytics, nothing leaves the device.</div>
+      <div class="faq-group" id="sec-data">
+        <h3 class="faq-group-title">Privacy &amp; CIF files</h3>
+        <details class="faq-item" id="data">
+          <summary class="faq-q"><span>Does CrystalRoom collect any data?</span><a class="faq-link" href="#data" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">No. The app has no accounts and no analytics, and nothing leaves your device. (This website uses Google Analytics — in the EU and UK only if you accept; see the <a href="/crystalroom/privacy/#website">privacy policy</a>.)</div>
+        </details>
+        <details class="faq-item" id="cif">
+          <summary class="faq-q"><span>Can I load my own CIF files?</span><a class="faq-link" href="#cif" aria-label="Link to this answer" title="Copy link to this answer">#</a></summary>
+          <div class="faq-a">CIF (Crystallographic Information File) is the universal standard for sharing crystal structure data, and many structures are freely available from the <a href="https://www.crystallography.net/cod/" target="_blank" rel="noopener">Crystallography Open Database</a>. CIF Import is available through institutional licensing — if you’re at a university, research lab, or educational program interested in deploying CrystalRoom with CIF Import, contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</div>
+        </details>
       </div>
     </div>
   </main>
@@ -208,10 +406,35 @@
         <a href="/crystalroom/privacy/">Privacy</a>
         <a href="/crystalroom/terms/">Terms of Service</a>
         <a href="/">Krida LLC</a>
+        <a href="#cookie-settings" data-consent-open>Cookie settings</a>
       </div>
-      <p>© 2026 Krida LLC · All rights reserved</p>
+      <p>© 2026 Krida LLC · All rights reserved · Apple®, Apple Vision Pro®, and visionOS® are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    function openFromHash() {
+      var id = decodeURIComponent(location.hash.slice(1));
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ block: 'start' }); }
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+    document.querySelectorAll('.faq-link').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        var url = location.origin + location.pathname + a.getAttribute('href');
+        history.replaceState(null, '', a.getAttribute('href'));
+        a.closest('details').open = true;
+        if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () {
+          a.classList.add('copied'); setTimeout(function () { a.classList.remove('copied'); }, 1500);
+        }).catch(function () {});
+      });
+    });
+  })();
+  </script>
 
 </body>
 </html>

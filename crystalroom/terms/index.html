@@ -10,9 +10,7 @@
   <meta property="og:url" content="https://kridallc.com/crystalroom/terms/" />
   <meta property="og:title" content="Terms of Service — CrystalRoom" />
   <meta property="og:image" content="https://kridallc.com/icon_CR.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/crystalroom/fonts/fonts.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,6 +18,7 @@
       --bg: #050818; --bg2: #080d20; --card: #0c1228;
       --primary: #38bdf8; --primary-dark: #0ea5e9; --primary-light: rgba(56,189,248,0.08);
       --violet: #818cf8;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
       --text: #e8f0fe; --muted: #7a90b8; --muted2: #3a4a6a;
       --border: rgba(56,189,248,0.14);
     }
@@ -33,7 +32,8 @@
     .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
-    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: var(--bg) !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; }
+    .nav-cta { font-family: var(--mono) !important; font-size: 0.7rem !important; text-transform: uppercase !important; letter-spacing: 0.04em !important; font-weight: 500 !important; color: var(--bg) !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: background 0.18s, box-shadow 0.18s !important; }
+    .nav-cta:hover { background: var(--primary-dark) !important; box-shadow: 0 4px 16px rgba(56,189,248,0.2) !important; }
     .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
 
@@ -69,8 +69,7 @@
       main { padding: 3rem 1.25rem 5rem; }
     }
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+  <script src="/crystalroom/consent.js"></script>
 </head>
 <body>
 
@@ -165,8 +164,9 @@
         <a href="/crystalroom/privacy/">Privacy</a>
         <a href="/crystalroom/terms/">Terms of Service</a>
         <a href="/">Krida LLC</a>
+        <a href="#cookie-settings" data-consent-open>Cookie settings</a>
       </div>
-      <p>© 2026 Krida LLC · All rights reserved · Apple® and Apple Vision Pro® are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+      <p>© 2026 Krida LLC · All rights reserved · Apple®, Apple Vision Pro®, and visionOS® are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
     </div>
   </footer>
 

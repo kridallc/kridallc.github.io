@@ -5,14 +5,12 @@
   <link rel="canonical" href="https://kridallc.com/crystalroom/privacy/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — CrystalRoom</title>
-  <meta name="description" content="Privacy Policy for CrystalRoom by Krida LLC. CrystalRoom collects no personal data." />
+  <meta name="description" content="Privacy Policy for CrystalRoom by Krida LLC. The app collects no personal data; this website uses Google Analytics with consent in the EU and UK." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta property="og:url" content="https://kridallc.com/crystalroom/privacy/" />
   <meta property="og:title" content="Privacy Policy — CrystalRoom" />
   <meta property="og:image" content="https://kridallc.com/icon_CR.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/crystalroom/fonts/fonts.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,6 +18,7 @@
       --bg: #050818; --bg2: #080d20; --card: #0c1228;
       --primary: #38bdf8; --primary-dark: #0ea5e9; --primary-light: rgba(56,189,248,0.08);
       --violet: #818cf8;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
       --text: #e8f0fe; --muted: #7a90b8; --muted2: #3a4a6a;
       --border: rgba(56,189,248,0.14); --border-hover: rgba(56,189,248,0.38);
     }
@@ -33,7 +32,8 @@
     .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 7px; transition: all 0.18s; white-space: nowrap; font-weight: 500; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
-    .nav-cta { font-size: 0.82rem !important; font-weight: 700 !important; color: var(--bg) !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; }
+    .nav-cta { font-family: var(--mono) !important; font-size: 0.7rem !important; text-transform: uppercase !important; letter-spacing: 0.04em !important; font-weight: 500 !important; color: var(--bg) !important; background: var(--primary) !important; padding: 0.4rem 1rem !important; border-radius: 8px !important; transition: background 0.18s, box-shadow 0.18s !important; }
+    .nav-cta:hover { background: var(--primary-dark) !important; box-shadow: 0 4px 16px rgba(56,189,248,0.2) !important; }
     .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-toggle span { width: 20px; height: 2px; background: var(--muted); border-radius: 2px; display: block; }
 
@@ -61,6 +61,10 @@
     .content ul li { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem; }
     .content a { color: var(--primary); text-decoration: none; }
     .content a:hover { text-decoration: underline; }
+    .content h2 { scroll-margin-top: 80px; }
+    .part-label { font-family: var(--mono); font-size: 0.66rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: var(--primary); margin: 3.25rem 0 -1.6rem; }
+    .content code { font-family: var(--mono); font-size: 0.82rem; color: var(--text); background: rgba(56,189,248,0.08); padding: 0.05rem 0.35rem; border-radius: 4px; }
+    .summary-card a { color: var(--primary); text-decoration: none; }
 
     footer { background: #020510; border-top: 1px solid rgba(255,255,255,0.04); padding: 2.5rem 2rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
@@ -79,8 +83,7 @@
       main { padding: 3rem 1.25rem 5rem; }
     }
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
+  <script src="/crystalroom/consent.js"></script>
 </head>
 <body>
 
@@ -105,23 +108,23 @@
     <div class="page-hero">
       <div class="eyebrow">Legal</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">CrystalRoom · Developed by Krida LLC · Effective Date: March 1, 2026</p>
+      <p class="meta">CrystalRoom · Developed by Krida LLC · Effective Date: October 10, 2026</p>
     </div>
 
     <div class="summary-card">
       <h2>TL;DR — The Short Version</h2>
       <ul>
-        <li>CrystalRoom collects <strong>no personal data</strong> whatsoever.</li>
+        <li>The CrystalRoom app collects <strong>no personal data</strong> whatsoever.</li>
         <li>No account creation or login is required.</li>
         <li>All crystal structure data is bundled with the app or loaded locally from files you provide.</li>
-        <li>CIF Import is available through institutional licensing — no consumer in-app purchase exists.</li>
-        <li>This is one of the most privacy-respecting apps you'll ever use.</li>
+        <li>The app has no in-app purchases and never handles payment information.</li>
+        <li>This website uses Google Analytics. In the EU and UK it runs only if you accept, and anyone can change their choice via <a href="#cookie-settings" data-consent-open>Cookie settings</a>.</li>
       </ul>
     </div>
 
     <div class="content">
 
-      <h2>Interpretation and Definitions</h2>
+      <h2 id="definitions">Interpretation and Definitions</h2>
       <p>Words with initial capital letters have meanings defined under the following conditions and apply equally whether terms appear in singular or plural.</p>
       <ul>
         <li><strong>Application:</strong> The CrystalRoom software program, available for Apple Vision Pro.</li>
@@ -130,40 +133,59 @@
         <li><strong>Device:</strong> Any Apple Vision Pro device that accesses the Application.</li>
         <li><strong>Personal Data:</strong> Any information that identifies or can be used to identify an individual.</li>
         <li><strong>Service:</strong> Refers to the Application.</li>
+        <li><strong>Website:</strong> kridallc.com/crystalroom and its subpages.</li>
         <li><strong>You:</strong> The individual accessing or using the Service.</li>
       </ul>
 
-      <h2>Collecting and Using Your Personal Data</h2>
+      <div class="part-label">Part 1 · The CrystalRoom app</div>
+      <h2 id="collecting">Collecting and Using Your Personal Data</h2>
       <p>CrystalRoom does not collect, store, or transmit any Personal Data. No account creation or authentication is required to use the app. All crystal structure data is either bundled with the app or loaded locally from files you provide on your own device.</p>
       <p>We do not operate any servers that receive data from the app. There are no analytics SDKs, advertising SDKs, or tracking frameworks integrated into CrystalRoom.</p>
 
-      <h2>In-App Purchases</h2>
+      <h2 id="purchases">In-App Purchases</h2>
       <p>CrystalRoom does not currently offer consumer in-app purchases. CIF Import is available through institutional licensing agreements. If an institutional license arrangement is established, any associated billing is handled directly between Krida LLC and the institution — Krida LLC does not collect individual payment information from end users.</p>
 
-      <h2>Locally Stored Data</h2>
-      <p>CrystalRoom may store your preferences (such as display settings and the last-opened structure) locally on your device using standard visionOS storage mechanisms. This data never leaves your device and is not transmitted anywhere. It is deleted when you uninstall the app.</p>
+      <h2 id="local-data">Locally Stored Data</h2>
+      <p>So that it can pick up where you left off, CrystalRoom stores your session — the current structure, supercell, and view — along with display preferences locally on your device, using standard visionOS storage. This data never leaves your device and is not transmitted anywhere. It is deleted when you uninstall the app.</p>
 
-      <h2>Retention of Your Personal Data</h2>
-      <p>Since CrystalRoom does not collect Personal Data, no data retention policy applies on our end. Local preferences are retained on your device until you delete the app.</p>
+      <h2 id="third-parties">Third-Party Services</h2>
+      <p>The CrystalRoom app does not integrate any third-party analytics, advertising, or tracking services. No external data is transmitted from the app during normal use. The Website’s use of third-party services is described in Part 2.</p>
 
-      <h2>Security</h2>
-      <p>Because no Personal Data is collected or transmitted, there is no associated data security risk from our application. Your crystal structure files (CIF files) are processed entirely on your device and are never sent to our servers.</p>
+      <div class="part-label">Part 2 · This website</div>
+      <h2 id="website">This Website</h2>
+      <p>This policy also covers this Website. The Website is separate from the app: nothing you do in the app is linked to your visits here.</p>
+      <h3>Hosting and media</h3>
+      <p>The Website is hosted on GitHub Pages, and its videos are delivered from Cloudflare. Like any web server, these providers receive your IP address and browser information in order to deliver pages and protect against abuse. Fonts and scripts are served from this Website itself, not from third-party font or script services.</p>
+      <h3>Google Analytics</h3>
+      <p>We use Google Analytics 4 to understand how visitors use the Website — for example, which pages are viewed, the approximate region visitors come from, and the type of device and browser used. It sets first-party cookies named <code>_ga</code> and <code>_ga_*</code>. Google Analytics 4 does not log or store IP addresses. We do not use analytics for advertising, and advertising storage is disabled.</p>
+      <ul>
+        <li><strong>EU, EEA, UK, and Switzerland:</strong> analytics runs only after you choose <em>Accept</em> in the cookie banner.</li>
+        <li><strong>Elsewhere:</strong> analytics is on by default, and you can turn it off.</li>
+        <li>You can change your choice at any time with <a href="#cookie-settings" data-consent-open>Cookie settings</a>, also linked in the footer of every page. Declining removes the analytics cookies from your browser.</li>
+      </ul>
+      <p>Google processes this data on our behalf. Google LLC is certified under the EU–U.S. Data Privacy Framework and its UK and Swiss extensions, which cover transfers to the United States. Event-level analytics data is deleted automatically after the retention period configured for our Google Analytics property. See <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from sites that use its services</a>.</p>
 
-      <h2>Your Rights under the GDPR</h2>
-      <p>Since CrystalRoom does not process or transmit Personal Data, no GDPR data management actions are required on our part. For users in the European Economic Area or United Kingdom, your privacy is fully respected — we simply have no data to manage.</p>
+      <div class="part-label">Part 3 · Applies to both</div>
+      <h2 id="retention">Retention of Your Personal Data</h2>
+      <p>Since the CrystalRoom app does not collect Personal Data, no data retention policy applies to the app on our end. Your local session and preferences are retained on your device until you delete the app. For website analytics, see <a href="#website">This Website</a> above.</p>
 
-      <h2>Children's Privacy</h2>
-      <p>CrystalRoom does not knowingly collect data from anyone under the age of 13. The app collects no data from any user regardless of age. CrystalRoom is rated 4+ on the App Store and is suitable for all audiences.</p>
+      <h2 id="security">Security</h2>
+      <p>Because no Personal Data is collected or transmitted, there is no associated data security risk from our application. Your crystal structure files (CIF files) are processed entirely on your device and are never sent to our servers. The Website is served only over encrypted HTTPS connections.</p>
 
-      <h2>Third-Party Services</h2>
-      <p>CrystalRoom does not integrate any third-party analytics, advertising, or tracking services. No external data is transmitted from the app during normal use.</p>
+      <h2 id="gdpr">Your Rights under the GDPR and UK GDPR</h2>
+      <p>The CrystalRoom app does not process or transmit Personal Data, so there is no app data for us to access, correct, or delete.</p>
+      <p>For this Website, our legal basis for analytics in the European Economic Area, the United Kingdom, and Switzerland is your consent. You can withdraw it at any time via <a href="#cookie-settings" data-consent-open>Cookie settings</a>, without affecting the lawfulness of earlier processing. Analytics data is pseudonymous; you may ask us to access or delete data associated with your visits by emailing <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>. You also have the right to lodge a complaint with your local data protection authority (in the UK, the Information Commissioner’s Office).</p>
 
-      <h2>Changes to This Privacy Policy</h2>
-      <p>We may update this Privacy Policy periodically. Changes are effective when posted at this URL. We encourage you to check this page occasionally. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
+      <h2 id="children">Children's Privacy</h2>
+      <p>CrystalRoom does not knowingly collect data from anyone under the age of 13. The app collects no data from any user regardless of age. CrystalRoom is rated 4+ on the App Store and is suitable for all audiences. The Website is not directed at children, and we do not knowingly use analytics to collect information about children.</p>
 
-      <h2>Contact Us</h2>
+      <h2 id="changes">Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy periodically. Changes are effective when posted at this URL. We encourage you to check this page occasionally. Your continued use of the App or the Website after changes constitutes acceptance of the updated policy.</p>
+
+      <h2 id="contact">Contact Us</h2>
       <p>For questions regarding this Privacy Policy, please contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</p>
-      <p style="margin-top:2rem; font-size:0.82rem; color: var(--muted2);">Last updated: March 1, 2026 · © 2026 Krida LLC</p>
+
+      <p style="margin-top:2rem; font-size:0.82rem; color: var(--muted2);">Last updated: October 10, 2026 · © 2026 Krida LLC</p>
     </div>
   </main>
 
@@ -175,8 +197,9 @@
         <a href="/crystalroom/privacy/">Privacy</a>
         <a href="/crystalroom/terms/">Terms of Service</a>
         <a href="/">Krida LLC</a>
+        <a href="#cookie-settings" data-consent-open>Cookie settings</a>
       </div>
-      <p>© 2026 Krida LLC · All rights reserved · Apple® and Apple Vision Pro® are trademarks of Apple Inc.</p>
+      <p>© 2026 Krida LLC · All rights reserved · Apple®, Apple Vision Pro®, and visionOS® are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
     </div>
   </footer>
 
