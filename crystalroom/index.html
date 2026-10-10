@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <link rel="canonical" href="https://kridallc.com/crystalroom/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CrystalRoom — Crystal Structures in 3D Space</title>
-  <meta name="description" content="Visualize atomic arrangements in true 3D on Apple Vision Pro. Explore Diamond, Gold, NaCl, Quartz, and more. Rotate, measure, and experience crystal structures like never before." />
+  <title>CrystalRoom — Step Inside Crystal Structures</title>
+  <meta name="description" content="CrystalRoom transforms real crystallographic data into interactive 3D structures you can explore, measure, and physically walk through on Apple Vision Pro." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kridallc.com/crystalroom/" />
-  <meta property="og:title" content="CrystalRoom — Crystal Structures in 3D Space" />
-  <meta property="og:description" content="Visualize atomic arrangements in true 3D on Apple Vision Pro." />
+  <meta property="og:title" content="CrystalRoom — Step Inside Crystal Structures" />
+  <meta property="og:description" content="CrystalRoom transforms real crystallographic data into interactive 3D structures you can explore, measure, and physically walk through on Apple Vision Pro." />
   <meta property="og:image" content="https://kridallc.com/icon_CR.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -257,43 +257,62 @@
     .audience-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
     .audience-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
 
-    /* SCREENSHOT GALLERY */
-    .gallery-section { padding: 5rem 2rem; overflow: hidden; }
+    /* SEE IT IN ACTION — demo player + screenshot grid */
+    .gallery-section { padding: 5rem 2rem; }
     .gallery-inner { max-width: 1100px; margin: 0 auto; }
-    .gallery-track-wrap { position: relative; margin-top: 2.5rem; }
-    .gallery-track {
-      display: flex; gap: 1.25rem;
-      overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; padding-bottom: 0.5rem;
-      scroll-behavior: smooth;
+
+    .demo-player { margin-top: 2.5rem; }
+    .demo-stage {
+      position: relative; border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border); background: #000;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 30px 80px rgba(2,6,23,0.6), 0 0 0 1px rgba(56,189,248,0.05);
     }
-    .gallery-track::-webkit-scrollbar { display: none; }
-    .gallery-slide {
-      flex: 0 0 auto; width: min(780px, 88vw);
-      scroll-snap-align: center; border-radius: 18px; overflow: hidden;
-      border: 1px solid var(--border); background: var(--card);
+    .demo-stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.35s ease; }
+    .demo-stage video.swapping { opacity: 0; }
+    .demo-toggle {
+      position: absolute; right: 14px; bottom: 14px; z-index: 2;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(5,8,24,0.65); border: 1px solid rgba(56,189,248,0.3);
+      color: var(--primary); cursor: pointer; display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(8px); transition: background 0.2s;
     }
-    .gallery-slide img { width: 100%; height: auto; display: block; object-fit: cover; }
-    .gallery-slide .slide-caption { padding: 0.9rem 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
-    .gallery-slide .slide-caption strong { color: var(--text); font-weight: 600; }
-    .gallery-nav { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; }
-    .gallery-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted2); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
-    .gallery-dot.active { background: var(--primary); width: 20px; border-radius: 3px; }
-    .gallery-arr { background: var(--card); border: 1px solid var(--border); color: var(--muted); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.18s; font-size: 1rem; flex-shrink: 0; margin: 0 0.25rem; }
-    .gallery-arr:hover { border-color: var(--border-hover); color: var(--primary); }
-    .gallery-slide video { width: 100%; display: block; aspect-ratio: 16/9; background: #000; }
-    .slide-video-wrap { position: relative; }
-    .slide-video-wrap .video-overlay {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      background: rgba(5,8,24,0.35); cursor: pointer; transition: opacity 0.2s;
+    .demo-toggle:hover { background: rgba(56,189,248,0.15); }
+    .demo-toggle svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .demo-controls { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: stretch; margin-top: 1rem; }
+    .demo-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .demo-tab {
+      position: relative; text-align: left; cursor: pointer;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 0.85rem 1rem 1.1rem; color: var(--muted); font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.2s, background 0.2s; overflow: hidden;
     }
-    .slide-video-wrap .video-overlay.hidden { opacity: 0; pointer-events: none; }
-    .play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(56,189,248,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; }
-    .play-btn:hover { transform: scale(1.08); background: var(--primary); }
-    .play-btn svg { width: 24px; height: 24px; fill: #050818; margin-left: 3px; }
-    .sound-btn { position: absolute; bottom: 12px; right: 12px; background: rgba(5,8,24,0.7); border: 1px solid rgba(56,189,248,0.3); color: var(--primary); border-radius: 8px; padding: 0.3rem 0.6rem; font-size: 0.72rem; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.18s; z-index: 2; }
-    .sound-btn:hover { background: rgba(56,189,248,0.15); }
+    .demo-tab:hover { border-color: var(--border-hover); }
+    .demo-tab.active { background: var(--card2); border-color: rgba(56,189,248,0.45); }
+    .demo-tab-num { display: block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--violet); margin-bottom: 0.2rem; }
+    .demo-tab-title { display: block; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text); }
+    .demo-tab-sub { display: block; font-size: 0.78rem; line-height: 1.45; margin-top: 0.15rem; }
+    .demo-tab-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(56,189,248,0.08); }
+    .demo-tab-bar i { display: block; height: 100%; width: 0; background: var(--primary); box-shadow: 0 0 10px var(--primary-glow); }
+    .demo-tab:not(.active) .demo-tab-bar i { width: 0 !important; }
+    .demo-film { align-self: stretch; justify-content: center; white-space: nowrap; border-radius: 12px !important; }
+    .demo-film svg { width: 12px; height: 12px; fill: currentColor; }
+
+    .shots-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin: 3.5rem 0 1.25rem; }
+    .shots-head .section-eyebrow { margin: 0; }
+    .shots-head span { font-size: 0.8rem; color: var(--muted); }
+    .shots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .shot {
+      position: relative; padding: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      background: var(--card); cursor: zoom-in; aspect-ratio: 16 / 9; display: block; width: 100%;
+    }
+    .shot.shot-hero { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+    .shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s; }
+    .shot::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(56,189,248,0); transition: box-shadow 0.25s; pointer-events: none; }
+    .shot:hover img, .shot:focus-visible img { transform: scale(1.04); }
+    .shot:hover::after, .shot:focus-visible::after { box-shadow: inset 0 0 0 1.5px var(--primary); }
+    .shot:focus-visible { outline: none; }
 
     /* CIF SECTION */
     .cif-section { background: var(--bg2); padding: 5rem 2rem; }
@@ -413,6 +432,13 @@
     }
     .lightbox-close:hover { background: rgba(255,255,255,0.12); }
     .lightbox-trigger { cursor: zoom-in; }
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text); font-size: 1.2rem; display: none; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; z-index: 2; }
+    .lightbox-nav:hover { background: rgba(56,189,248,0.15); }
+    .lightbox-overlay.has-nav .lightbox-nav { display: flex; }
+    .lightbox-prev { left: 1.25rem; } .lightbox-next { right: 1.25rem; }
+    .lightbox-count { position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; color: var(--muted); display: none; }
+    .lightbox-overlay.has-nav .lightbox-count { display: block; }
+    @media (max-width: 680px) { .lightbox-nav { top: auto; bottom: 1rem; transform: none; } .lightbox-count { bottom: 1.9rem; } }
 
     /* FEATURE CARD VIDEO SLOT — ready for marketing clips, falls back
        to the emoji icon when no clip is set yet. */
@@ -439,6 +465,15 @@
       .features-grid { grid-template-columns: 1fr; }
       .audience-grid { grid-template-columns: 1fr; }
       .cif-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .gallery-section { padding: 3.5rem 1.25rem; }
+      .demo-controls { grid-template-columns: 1fr; }
+      .demo-tabs { gap: 0.4rem; }
+      .demo-tab { padding: 0.6rem 0.65rem 0.8rem; }
+      .demo-tab-title { font-size: 0.78rem; line-height: 1.25; }
+      .demo-tab-sub { display: none; }
+      .demo-film { padding: 0.7rem 1rem !important; }
+      .shots-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .shot.shot-hero { grid-row: auto; aspect-ratio: 16 / 9; }
       /* Grid items default to min-width:auto, so any single unbreakable
          element inside a column (a pill, a button, a long word) forces
          the WHOLE column wider than the viewport — dragging normal
@@ -490,7 +525,7 @@
     <a href="#crystals" data-section="crystals" aria-label="Crystals"></a>
     <a href="#features" data-section="features" aria-label="Features"></a>
     <a href="#audience" data-section="audience" aria-label="Audience"></a>
-    <a href="#cif" data-section="cif" aria-label="CIF Import"></a>
+    <a href="#cif" data-section="cif" aria-label="Institutions"></a>
     <a href="#cta" data-section="cta" aria-label="Download"></a>
   </div>
 
@@ -498,10 +533,11 @@
     <div>
       <div class="hero-label">✦ Apple Vision Pro · visionOS · Education</div>
       <h1>
-        Crystal Structures<br />
-        <span class="accent">in 3D Space.</span>
+        Step Inside<br />
+        <span class="accent">Crystal Structures</span>
       </h1>
-      <p class="hero-sub">Visualize atomic arrangements as they were meant to be seen — rotating, floating, and real. Explore unit cells, measure bonds, and step inside crystal structures on Apple Vision Pro.</p>
+      <p class="hero-sub" style="margin-bottom:0.75rem;">Experience crystal structures at human scale — walk through atomic lattices, measure geometry, explore Miller planes, and learn from within.</p>
+      <p class="hero-sub">CrystalRoom transforms real crystallographic data into interactive 3D structures you can explore, measure, and physically walk through on Apple Vision Pro.</p>
       <div class="hero-btns">
         <a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" class="btn-primary magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -524,154 +560,169 @@
   </section>
 
   <div class="vision-strip">
-    <p>✦ Exclusively on Apple Vision Pro &nbsp;·&nbsp; <span>Free to download · 6 built-in crystal structures · Family Sharing enabled</span></p>
+    <p>✦ Exclusively on Apple Vision Pro &nbsp;·&nbsp; <span>Free to download · 11 built-in crystal structures · Family Sharing enabled</span></p>
   </div>
 
   <section class="gallery-section" id="gallery">
     <div class="gallery-inner">
       <div class="section-eyebrow">See It In Action</div>
       <div class="section-title">Experience spatial crystallography.</div>
-      <p class="section-sub" style="margin-bottom:0;">Watch the promo or swipe through screenshots — CrystalRoom running on Apple Vision Pro.</p>
-      <div class="gallery-track-wrap">
-        <div class="gallery-track" id="galleryTrack">
-          <!-- Slide 1: Promo Video -->
-          <div class="gallery-slide">
-            <div class="slide-video-wrap">
-              <video id="promoVideo" src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/CrystalRoom_PromoVideo.mp4"
-                playsinline muted preload="metadata" loop></video>
-              <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
-                <button class="play-btn" aria-label="Play video">
-                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-              </div>
-              <button class="sound-btn" id="soundBtn" onclick="toggleSound(event)">🔇 Sound off</button>
-            </div>
-            <div class="slide-caption"><strong>Promo Video</strong> — See CrystalRoom in action on Apple Vision Pro.</div>
-          </div>
+      <p class="section-sub" style="margin-bottom:0;">Real captures from CrystalRoom on Apple Vision Pro.</p>
 
-          <!-- Slides 2–5: Screenshots -->
-          <div class="gallery-slide">
-            <img src="/crystalroom/Screenshot_1.png" alt="CrystalRoom screenshot 1" class="lightbox-trigger" onclick="openLightbox(this.src, 'image')" />
-            <div class="slide-caption"><strong>Main View</strong> — Explore six built-in crystal structures in full 3D. Rotate, zoom, and inspect from any angle.</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="/crystalroom/Screenshot_2.png" alt="CrystalRoom screenshot 2" class="lightbox-trigger" onclick="openLightbox(this.src, 'image')" />
-            <div class="slide-caption"><strong>Immersive Space</strong> — Place your crystal structure in your room via visionOS Immersive Space mode.</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="/crystalroom/Screenshot_3.png" alt="CrystalRoom screenshot 3" class="lightbox-trigger" onclick="openLightbox(this.src, 'image')" />
-            <div class="slide-caption"><strong>Bond Measurement</strong> — Tap atoms to measure bond distances and angles in real time.</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="/crystalroom/Screenshot_4.png" alt="CrystalRoom screenshot 4" class="lightbox-trigger" onclick="openLightbox(this.src, 'image')" />
-            <div class="slide-caption"><strong>Supercell Expansion</strong> — Expand any structure up to 5×5×5 to visualize the full periodic lattice.</div>
-          </div>
+      <div class="demo-player">
+        <div class="demo-stage">
+          <video id="demoVideo" muted playsinline preload="metadata" poster="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-1-poster.webp" src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-1.mp4" aria-label="CrystalRoom feature demo"></video>
+          <button class="demo-toggle" id="demoToggle" aria-label="Pause video">
+            <svg viewBox="0 0 24 24" class="ico-pause"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+            <svg viewBox="0 0 24 24" class="ico-play" style="display:none"><path d="M8 5v14l11-7z"/></svg>
+          </button>
         </div>
-        <div class="gallery-nav">
-          <button class="gallery-arr" onclick="slideGallery(-1)" aria-label="Previous">&#8592;</button>
-          <button class="gallery-dot active" onclick="goToSlide(0)"></button>
-          <button class="gallery-dot" onclick="goToSlide(1)"></button>
-          <button class="gallery-dot" onclick="goToSlide(2)"></button>
-          <button class="gallery-dot" onclick="goToSlide(3)"></button>
-          <button class="gallery-dot" onclick="goToSlide(4)"></button>
-          <button class="gallery-arr" onclick="slideGallery(1)" aria-label="Next">&#8594;</button>
+        <div class="demo-controls">
+          <div class="demo-tabs" role="tablist" aria-label="Feature demos">
+          <button class="demo-tab active" role="tab" aria-selected="true" data-src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-1.mp4" data-poster="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-1-poster.webp">
+            <span class="demo-tab-num">01</span><span class="demo-tab-title">Step inside</span><span class="demo-tab-sub">Immersion at human scale and guided tours</span><span class="demo-tab-bar"><i></i></span>
+          </button>
+          <button class="demo-tab" role="tab" aria-selected="false" data-src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-2.mp4" data-poster="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-2-poster.webp">
+            <span class="demo-tab-num">02</span><span class="demo-tab-title">Measure &amp; analyze</span><span class="demo-tab-sub">Atoms, geometry, Miller planes, coordination</span><span class="demo-tab-bar"><i></i></span>
+          </button>
+          <button class="demo-tab" role="tab" aria-selected="false" data-src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-3.mp4" data-poster="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/cr-demo-3-poster.webp">
+            <span class="demo-tab-num">03</span><span class="demo-tab-title">Build &amp; explore</span><span class="demo-tab-sub">Crystal library, supercells, your own space</span><span class="demo-tab-bar"><i></i></span>
+          </button>
+          </div>
+          <button class="btn-secondary magnetic demo-film" id="demoFilm" data-src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/CrystalRoom_2-0_PromoVideo.mp4" data-poster="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/CrystalRoom_2-0_PromoVideo-poster.webp">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch the full film · 0:48
+          </button>
         </div>
+      </div>
+
+      <div class="shots-head">
+        <div class="section-eyebrow">Screenshots</div>
+        <span>Tap any image to enlarge</span>
+      </div>
+      <div class="shots-grid" id="shotsGrid">
+        <button class="shot shot-hero reveal" data-index="0" aria-label="View screenshot 1 of 9: Step inside matter">
+          <img src="/crystalroom/media/cr-1-thumb.webp" srcset="/crystalroom/media/cr-1-thumb.webp 960w, /crystalroom/media/cr-1.webp 1920w" sizes="(max-width: 680px) 100vw, 730px" width="960" height="540" loading="lazy" decoding="async" alt="Step inside matter — an immersive walk through a crystal lattice" />
+        </button>
+        <button class="shot reveal" data-index="1" aria-label="View screenshot 2 of 9: Bring crystals into your space">
+          <img src="/crystalroom/media/cr-2-thumb.webp" srcset="/crystalroom/media/cr-2-thumb.webp 960w, /crystalroom/media/cr-2.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="Bring crystals into your space — a structure floating in a living room" />
+        </button>
+        <button class="shot reveal" data-index="2" aria-label="View screenshot 3 of 9: Learn inside the crystal">
+          <img src="/crystalroom/media/cr-3-thumb.webp" srcset="/crystalroom/media/cr-3-thumb.webp 960w, /crystalroom/media/cr-3.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="Learn inside the crystal — the immersive Halite tour" />
+        </button>
+        <button class="shot reveal" data-index="3" aria-label="View screenshot 4 of 9: Inspect every atom">
+          <img src="/crystalroom/media/cr-4-thumb.webp" srcset="/crystalroom/media/cr-4-thumb.webp 960w, /crystalroom/media/cr-4.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="Inspect every atom — atom details panel on rutile" />
+        </button>
+        <button class="shot reveal" data-index="4" aria-label="View screenshot 5 of 9: Measure atomic geometry">
+          <img src="/crystalroom/media/cr-5-thumb.webp" srcset="/crystalroom/media/cr-5-thumb.webp 960w, /crystalroom/media/cr-5.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="Measure atomic geometry — distance and angle guides on halite" />
+        </button>
+        <button class="shot reveal" data-index="5" aria-label="View screenshot 6 of 9: Explore Miller planes">
+          <img src="/crystalroom/media/cr-6-thumb.webp" srcset="/crystalroom/media/cr-6-thumb.webp 960w, /crystalroom/media/cr-6.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="Explore Miller planes — a highlighted plane through halite" />
+        </button>
+        <button class="shot reveal" data-index="6" aria-label="View screenshot 7 of 9: See coordination in 3D">
+          <img src="/crystalroom/media/cr-7-thumb.webp" srcset="/crystalroom/media/cr-7-thumb.webp 960w, /crystalroom/media/cr-7.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="See coordination in 3D — coordination around rutile atoms" />
+        </button>
+        <button class="shot reveal" data-index="7" aria-label="View screenshot 8 of 9: Build the lattice">
+          <img src="/crystalroom/media/cr-8-thumb.webp" srcset="/crystalroom/media/cr-8-thumb.webp 960w, /crystalroom/media/cr-8.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="Build the lattice — the a/b/c supercell panel" />
+        </button>
+        <button class="shot reveal" data-index="8" aria-label="View screenshot 9 of 9: Explore the crystal library">
+          <img src="/crystalroom/media/cr-9-thumb.webp" srcset="/crystalroom/media/cr-9-thumb.webp 960w, /crystalroom/media/cr-9.webp 1920w" sizes="(max-width: 680px) 50vw, 360px" width="960" height="540" loading="lazy" decoding="async" alt="Explore the crystal library — the built-in structure list" />
+        </button>
       </div>
     </div>
   </section>
-  <script>
-    const track = document.getElementById('galleryTrack');
-    const dots = document.querySelectorAll('.gallery-dot');
-    let current = 0;
-    function updateDots(idx) { dots.forEach((d,i) => d.classList.toggle('active', i===idx)); current=idx; }
-    function goToSlide(idx) {
-      const slides = track.querySelectorAll('.gallery-slide');
-      if (!slides[idx]) return;
-      track.scrollTo({ left: slides[idx].offsetLeft - (track.clientWidth - slides[idx].offsetWidth)/2, behavior:'smooth' });
-      updateDots(idx);
-    }
-    function slideGallery(dir) {
-      const slides = track.querySelectorAll('.gallery-slide');
-      goToSlide(Math.max(0, Math.min(slides.length-1, current+dir)));
-    }
-    track.addEventListener('scroll', () => {
-      const slides = track.querySelectorAll('.gallery-slide');
-      let closest=0, minDist=Infinity;
-      slides.forEach((s,i) => { const d=Math.abs(s.getBoundingClientRect().left-track.getBoundingClientRect().left); if(d<minDist){minDist=d;closest=i;} });
-      if (closest !== 0) { const v=document.getElementById('promoVideo'); if(v){v.pause();} document.getElementById('videoOverlay').classList.remove('hidden'); }
-      updateDots(closest);
-    }, {passive:true});
-
-    // Video controls
-    function playVideo() {
-      const vid = document.getElementById('promoVideo');
-      vid.play();
-      document.getElementById('videoOverlay').classList.add('hidden');
-    }
-    function toggleSound(e) {
-      e.stopPropagation();
-      const vid = document.getElementById('promoVideo');
-      const btn = document.getElementById('soundBtn');
-      vid.muted = !vid.muted;
-      btn.textContent = vid.muted ? '🔇 Sound off' : '🔊 Sound on';
-    }
-    const vid = document.getElementById('promoVideo');
-    if (vid) {
-      vid.addEventListener('ended', () => { document.getElementById('videoOverlay').classList.remove('hidden'); });
-      vid.addEventListener('pause', () => { if(!vid.ended) document.getElementById('videoOverlay').classList.remove('hidden'); });
-    }
-  </script>
 
 
 
   <!-- BUILT-IN CRYSTALS -->
   <section class="crystals-section" id="crystals">
     <div class="section-eyebrow">Built-In Structures</div>
-    <div class="section-title">Six crystals. Every major system.</div>
+    <div class="section-title">Eleven crystals. Four crystal systems.</div>
     <p class="section-sub">Each structure is fully interactive — rotate, zoom, expand into a supercell, and measure from any angle.</p>
     <div class="crystals-grid">
+      <div class="crystal-card reveal tilt-card" data-crystal="corundum">
+        <div class="crystal-preview" id="crystalPreview-corundum"></div>
+        <div class="crystal-formula">Al₂O₃</div>
+        <div class="crystal-name">Corundum</div>
+        <div class="crystal-system">Trigonal</div>
+        <p class="crystal-desc">Space group R-3c</p>
+      </div>
+      <div class="crystal-card reveal tilt-card" data-crystal="calcite">
+        <div class="crystal-preview" id="crystalPreview-calcite"></div>
+        <div class="crystal-formula">CaCO₃</div>
+        <div class="crystal-name">Calcite</div>
+        <div class="crystal-system">Trigonal</div>
+        <p class="crystal-desc">Space group R-3c</p>
+      </div>
+      <div class="crystal-card reveal tilt-card" data-crystal="fluorite">
+        <div class="crystal-preview" id="crystalPreview-fluorite"></div>
+        <div class="crystal-formula">CaF₂</div>
+        <div class="crystal-name">Fluorite</div>
+        <div class="crystal-system">Cubic</div>
+        <p class="crystal-desc">Space group Fm-3m</p>
+      </div>
+      <div class="crystal-card reveal tilt-card" data-crystal="zircon">
+        <div class="crystal-preview" id="crystalPreview-zircon"></div>
+        <div class="crystal-formula">ZrSiO₄</div>
+        <div class="crystal-name">Zircon</div>
+        <div class="crystal-system">Tetragonal</div>
+        <p class="crystal-desc">Space group I4₁/amd</p>
+      </div>
+      <div class="crystal-card reveal tilt-card" data-crystal="forsterite">
+        <div class="crystal-preview" id="crystalPreview-forsterite"></div>
+        <div class="crystal-formula">Mg₂SiO₄</div>
+        <div class="crystal-name">Forsterite</div>
+        <div class="crystal-system">Orthorhombic</div>
+        <p class="crystal-desc">Space group Pbnm</p>
+      </div>
       <div class="crystal-card reveal tilt-card" data-crystal="diamond">
         <div class="crystal-preview" id="crystalPreview-diamond"></div>
         <div class="crystal-formula">C</div>
         <div class="crystal-name">Diamond</div>
         <div class="crystal-system">Cubic</div>
-        <p class="crystal-desc">The ultimate covalent network — each carbon bonded to four others in a tetrahedral lattice of extraordinary hardness.</p>
+        <p class="crystal-desc">Space group Fd-3m</p>
       </div>
       <div class="crystal-card reveal tilt-card" data-crystal="gold">
         <div class="crystal-preview" id="crystalPreview-gold"></div>
         <div class="crystal-formula">Au</div>
         <div class="crystal-name">Gold</div>
-        <div class="crystal-system">Face-Centered Cubic</div>
-        <p class="crystal-desc">The archetypal FCC metal — closest-packed atoms arranged in a structure that gives gold its unique malleability.</p>
+        <div class="crystal-system">Cubic</div>
+        <p class="crystal-desc">Space group Fm-3m</p>
       </div>
       <div class="crystal-card reveal tilt-card" data-crystal="nacl">
         <div class="crystal-preview" id="crystalPreview-nacl"></div>
         <div class="crystal-formula">NaCl</div>
-        <div class="crystal-name">Halite (Rock Salt)</div>
+        <div class="crystal-name">Halite (rock salt)</div>
         <div class="crystal-system">Cubic</div>
-        <p class="crystal-desc">The classic ionic crystal — alternating sodium and chloride ions in an interpenetrating FCC lattice.</p>
+        <p class="crystal-desc">Space group Fm-3m</p>
       </div>
       <div class="crystal-card reveal tilt-card" data-crystal="perovskite">
         <div class="crystal-preview" id="crystalPreview-perovskite"></div>
-        <div class="crystal-formula">CaTiO₃</div>
-        <div class="crystal-name">Perovskite</div>
-        <div class="crystal-system">Orthorhombic</div>
-        <p class="crystal-desc">One of the most technologically important structures — the template for solar cells, superconductors, and ferroelectrics.</p>
+        <div class="crystal-formula">BaTiO₃</div>
+        <div class="crystal-name">Barium titanate (perovskite)</div>
+        <div class="crystal-system">Tetragonal</div>
+        <p class="crystal-desc">Space group P4mm</p>
       </div>
       <div class="crystal-card reveal tilt-card" data-crystal="quartz">
         <div class="crystal-preview" id="crystalPreview-quartz"></div>
         <div class="crystal-formula">SiO₂</div>
         <div class="crystal-name">Quartz</div>
         <div class="crystal-system">Trigonal</div>
-        <p class="crystal-desc">Silicon and oxygen in a helical lattice — the structure behind piezoelectricity and one of Earth's most abundant minerals.</p>
+        <p class="crystal-desc">Space group P3₂21</p>
       </div>
       <div class="crystal-card reveal tilt-card" data-crystal="rutile">
         <div class="crystal-preview" id="crystalPreview-rutile"></div>
         <div class="crystal-formula">TiO₂</div>
         <div class="crystal-name">Rutile</div>
         <div class="crystal-system">Tetragonal</div>
-        <p class="crystal-desc">Titanium dioxide in its most stable form — studied for photocatalysis, solar energy, and semiconductor applications.</p>
+        <p class="crystal-desc">Space group P4₂/mnm</p>
       </div>
+      <a href="#cif" class="crystal-card reveal tilt-card" data-crystal="custom" style="display:block;text-decoration:none;outline:1px dashed rgba(129,140,248,0.4);outline-offset:-10px;">
+        <div class="crystal-preview" id="crystalPreview-custom"></div>
+        <div class="crystal-formula" style="color:var(--violet);">?</div>
+        <div class="crystal-name">Your structure</div>
+        <div class="crystal-system">Custom</div>
+        <p class="crystal-desc">Need a structure that isn’t here? <span style="color:var(--primary);">Get in touch →</span></p>
+      </a>
     </div>
   </section>
 
@@ -684,38 +735,48 @@
         <div class="feature-card reveal tilt-card">
           <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
           <div class="feature-icon">🔭</div>
-          <h3>Full 3D Interaction</h3>
-          <p>Rotate, zoom, and pan from any angle. See how atoms pack and bond from perspectives impossible with flat diagrams or physical models.</p>
+          <h3>Explore from your space</h3>
+          <p>Study crystal structures in a native visionOS workspace. Rotate and zoom the model, inspect atoms, build supercells, highlight elements from the legend or by search, view crystallographic axes, and arrange supporting windows around you. Undo and redo view changes, and pick up where you left off — your structure, supercell, and view are restored when you return.</p>
         </div>
         <div class="feature-card reveal tilt-card">
           <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
           <div class="feature-icon">🌐</div>
-          <h3>Immersive Space Mode</h3>
-          <p>Place your crystal structure in your actual room with Apple Vision Pro's spatial computing. Walk around a room-scale unit cell — literally.</p>
+          <h3>Step inside the crystal</h3>
+          <p>Enter full immersion and walk through a room-scale lattice. Tap atoms around you to inspect their identity, coordinates, bonding, and local environment. Scale the lattice around you, switch structures without leaving immersion, and keep essential controls within reach.</p>
         </div>
         <div class="feature-card reveal tilt-card">
           <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
           <div class="feature-icon">📐</div>
-          <h3>Bond Measurement</h3>
-          <p>Tap any two atoms to measure bond distance and angles in real time. Ground your visual exploration in the actual crystallographic data.</p>
+          <h3>Measure atomic geometry</h3>
+          <p>Select two atoms to measure distance or three atoms to measure an angle. CrystalRoom draws guide lines directly on the structure so measurements stay spatially connected to the atoms you are studying, and keeps a history of your measurements.</p>
         </div>
         <div class="feature-card reveal tilt-card">
           <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
           <div class="feature-icon">🧱</div>
-          <h3>Supercell Expansion</h3>
-          <p>Expand any structure from 1×1×1 up to 5×5×5 repetitions. Visualize the periodic lattice and understand long-range crystalline order.</p>
+          <h3>See more of the structure</h3>
+          <ul class="cif-points">
+            <li>Build independent a/b/c supercells up to 5×5×5 (the largest unit cells are capped automatically to keep Vision Pro responsive)</li>
+            <li>Visualize coordination polyhedra</li>
+            <li>Complete boundary coordination with display-only edge atoms</li>
+            <li>Explore Miller planes with adjustable h, k, l indices and (100), (110), (111) presets</li>
+            <li>View live d-spacing, in the panel and on the plane itself</li>
+            <li>Display one plane or an entire plane family, and offset planes through the lattice</li>
+            <li>Search for an element and highlight every matching atom</li>
+            <li>Inspect fractional and Cartesian coordinates</li>
+            <li>View space group, lattice parameters, atom counts, bond counts, and parser warnings</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal tilt-card">
+          <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
+          <div class="feature-icon">🧭</div>
+          <h3>Guided exploration</h3>
+          <p>A 20-step guided tour of the windowed workspace, an interactive immersive Halite tour, and a generated “Tour This Structure” experience that adapts to the crystal you are viewing.</p>
         </div>
         <div class="feature-card reveal tilt-card">
           <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
           <div class="feature-icon">⚛️</div>
-          <h3>Element Info Panels</h3>
-          <p>Tap any atom to see element data — symbol, atomic number, radius, and role in the structure. Exploration and reference in one gesture.</p>
-        </div>
-        <div class="feature-card reveal tilt-card">
-          <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
-          <div class="feature-icon">🎬</div>
-          <h3>Auto-Spin Animation</h3>
-          <p>Enable continuous rotation for presentations, lectures, and demos. Your crystal structure becomes a living exhibit — no hands required.</p>
+          <h3>Built on real crystallographic data</h3>
+          <p>CrystalRoom reconstructs its structures from bundled CIF crystallographic data, including space-group symmetry expansion, special-position handling, disorder handling, crystallographic coordinate transforms, and chemically informed bond detection. Its scientific pipeline is backed by an automated test suite covering lattice mathematics, structure parsing, published bond lengths, coordination, Miller-plane geometry, guided-tour logic, scene limits, and reference structures cross-checked against established crystallographic tooling.</p>
         </div>
       </div>
     </div>
@@ -730,7 +791,7 @@
       <div class="audience-card reveal tilt-card">
         <span class="audience-icon">🎓</span>
         <h3>Students</h3>
-        <p>Chemistry, materials science, geology, physics — crystallography is everywhere. Stop memorizing 2D diagrams and actually see what's being described.</p>
+        <p>Chemistry, materials science, geoscience, mineralogy, and physics — crystallography is everywhere. Stop memorizing 2D diagrams and actually see what's being described.</p>
       </div>
       <div class="audience-card reveal tilt-card">
         <span class="audience-icon">🔬</span>
@@ -746,28 +807,21 @@
   </section>
 
   <!-- SCREENSHOT GALLERY -->
-  <!-- CIF IMPORT -->
+  <!-- CUSTOM STRUCTURES & INSTITUTIONS -->
   <section class="cif-section" id="cif">
     <div class="cif-inner">
       <div>
-        <div class="section-eyebrow">CIF Import</div>
-        <h2>Bring your own <span>structures.</span></h2>
-        <div class="cif-free-pill">✦ Institutional Licensing · Contact Us</div>
-        <p>CIF (Crystallographic Information File) is the universal standard for crystal structure data. CrystalRoom supports CIF Import — load structures from databases like the ICSD, COD, or Cambridge Structural Database, and visualize your own research files in full spatial 3D.</p>
-        <p>CIF Import is available through institutional licensing for universities, research labs, and educational programs. If you're interested in deploying CrystalRoom with CIF Import for your institution, we'd like to hear from you.</p>
-        <ul class="cif-points">
-          <li>Load any valid CIF file from Files, email, or external sources</li>
-          <li>Same full 3D interaction, supercell expansion, and measurement tools</li>
-          <li>Works with structures from ICSD, COD, Cambridge Structural Database, and more</li>
-          <li>Institutional deployment across Apple Vision Pro devices</li>
-        </ul>
-        <a href="mailto:contact@kridallc.com" class="btn-secondary magnetic" style="margin-top:1.5rem;display:inline-flex;">Contact Us About Licensing →</a>
+        <div class="section-eyebrow">Custom Structures &amp; Institutions</div>
+        <h2>Custom structures and <span>institutions.</span></h2>
+        <div class="cif-free-pill">✦ Universities · Research Labs · Education</div>
+        <p>Interested in custom structures or an institutional deployment of CrystalRoom? Contact us at <a href="mailto:support_crystalroom@kridallc.com" style="color:var(--primary);text-decoration:none;">support_crystalroom@kridallc.com</a>.</p>
+        <a href="mailto:support_crystalroom@kridallc.com" class="btn-secondary magnetic" style="margin-top:1.5rem;display:inline-flex;">Contact Us →</a>
       </div>
       <div class="cif-visual">
         <div class="cif-badge">
-          <div class="free-label">Institutional</div>
-          <div class="price-label">CIF Import</div>
-          <div class="one-time">Available via licensing</div>
+          <div class="free-label">Institutions</div>
+          <div class="price-label">Custom structures &amp; deployments</div>
+          <div class="one-time">Get in touch</div>
           <div class="family">Universities · Research Labs · Education</div>
         </div>
       </div>
@@ -778,7 +832,7 @@
   <section class="cta-section" id="cta">
     <div class="cta-inner">
       <h2>See matter <span>differently.</span></h2>
-      <p>CrystalRoom is free to download on Apple Vision Pro. Explore six built-in crystal structures in full spatial 3D — no purchase required.</p>
+      <p>CrystalRoom is free to download on Apple Vision Pro. Explore eleven built-in crystal structures in full spatial 3D — no purchase required.</p>
       <div class="cta-btns">
         <a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" class="btn-primary magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -791,6 +845,9 @@
   <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this) closeLightbox()">
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxStep(-1)" aria-label="Previous image">&#8592;</button>
+    <button class="lightbox-nav lightbox-next" onclick="lightboxStep(1)" aria-label="Next image">&#8594;</button>
+    <div class="lightbox-count" id="lightboxCount"></div>
     <div class="lightbox-content" id="lightboxContent"></div>
   </div>
 
@@ -821,11 +878,12 @@
        SHARED 3D CRYSTAL SCENE BUILDER
        Renders a self-contained lattice of atoms + auto-bonded
        lines into any container. Used for both the big interactive
-       hero crystal and the six small card previews.
+       hero crystal and the small card previews.
 
        Note on accuracy: these are simplified, visually-representative
        unit cells built for a fast, recognizable marketing preview —
-       not crystallographically exact atomic coordinates. Perovskite's
+       not crystallographically exact atomic coordinates (the v2.0
+       additions below use REAL_FRAGMENTS, which are). Perovskite's
        cation/anion/octahedron arrangement is the real textbook ABX3
        cell; Diamond and Gold are true conventional-cell geometry;
        NaCl, Quartz, and Rutile are stylized to read clearly at a
@@ -852,7 +910,7 @@
       });
       var cx = (box.minX + box.maxX) / 2, cy = (box.minY + box.maxY) / 2, cz = (box.minZ + box.maxZ) / 2;
       var extent = Math.max(box.maxX - box.minX, box.maxY - box.minY, box.maxZ - box.minZ, 0.5);
-      var camDist = extent * (interactive ? 2.5 : 2.9);
+      var camDist = extent * (interactive ? 2.5 : 2.9) / (options.zoom || 1);
 
       var group = new THREE.Group();
       scene.add(group);
@@ -885,6 +943,7 @@
       }
 
       // Atoms as glowing points, grouped by color for one draw call per color
+      var pointMats = [];
       var byColor = {};
       atoms.forEach(function (a) {
         var key = a.color + '|' + (a.radius || 1);
@@ -906,6 +965,7 @@
           sizeAttenuation: true
         });
         group.add(new THREE.Points(geo, mat));
+        pointMats.push({ mat: mat, center: group_atoms.length === 1 });
       });
 
       var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -951,6 +1011,12 @@
         curRotY += (targetRotY - curRotY) * 0.08;
         group.rotation.x = curRotX;
         group.rotation.y = curRotY;
+        if (options.pulse && !reduceMotion) {
+          var t = clock.getElapsedTime();
+          pointMats.forEach(function (pm) {
+            pm.mat.opacity = pm.center ? 0.25 + 0.7 * (0.5 + 0.5 * Math.sin(t * 2.2)) : 0.95;
+          });
+        }
         renderer.render(scene, camera);
       }
       tick();
@@ -993,8 +1059,40 @@
     // that those corner atoms are chemically bonded to each other.
     var CUBE_EDGES = [[0,1],[0,2],[0,3],[1,4],[1,5],[2,4],[2,6],[3,5],[3,6],[4,7],[5,7],[6,7]];
 
+
+    /* Real-structure previews for the v2.0 additions. Atom positions are
+       Cartesian fragments generated from the published crystallographic
+       parameters (space-group expansion, then complete coordination
+       polyhedra around the selected cations), normalized to a unit extent.
+       Element order per entry matches `style` ([color, radius]); bonds are
+       index pairs (Al–O, C–O, Ca–O, Ca–F, Si–O, Zr–O). */
+    var REAL_FRAGMENTS = {
+      corundum: { zoom: 1, style: [[C_PRIMARY,1.1],[C_LIGHT,0.75]], atoms: [[-0,-0.336,0.23,0],[-0,-0.336,-0.23,0],[-0.285,-0.171,-0.029,0],[-0.285,-0.171,0.289,0],[-0.11,-0.5,-0.13,1],[-0.372,-0.349,-0.13,1],[-0.087,-0.158,-0.13,1],[0.175,-0.336,0.389,1],[-0.087,-0.184,0.389,1],[-0.087,-0.487,0.389,1],[-0.175,-0.336,-0.389,1],[0.087,-0.487,-0.389,1],[0.087,-0.184,-0.389,1],[-0.459,-0.171,0.13,1],[-0.198,-0.322,0.13,1],[-0.198,-0.02,0.13,1],[-0.285,0.158,0.23,0],[-0.285,0.158,-0.23,0],[-0.395,-0.007,-0.13,1],[-0.372,0.336,-0.13,1],[-0.11,0.158,0.389,1],[-0.372,0.309,0.389,1],[-0.372,0.007,0.389,1],[-0.459,0.158,-0.389,1],[-0.198,0.007,-0.389,1],[-0.198,0.309,-0.389,1],[-0.482,0.171,0.13,1],[0.285,-0.171,-0.029,0],[0.285,-0.171,0.289,0],[0.198,-0.349,-0.13,1],[0.482,-0.158,-0.13,1],[0.482,-0.184,0.389,1],[0.11,-0.171,0.13,1],[0.372,-0.322,0.13,1],[0.372,-0.02,0.13,1],[0,-0.007,0.029,0],[0,-0.007,-0.289,0],[0.285,0.158,0.23,0],[0.285,0.158,-0.23,0],[0,0.322,-0.029,0],[0,0.322,0.289,0],[0.175,-0.007,-0.13,1],[-0.087,0.145,-0.13,1],[0.198,0.336,-0.13,1],[0.459,0.158,0.389,1],[0.198,0.309,0.389,1],[0.198,0.007,0.389,1],[0.11,0.158,-0.389,1],[0.372,0.007,-0.389,1],[0.372,0.309,-0.389,1],[-0.175,0.322,0.13,1],[0.087,0.171,0.13,1],[0.087,0.473,0.13,1],[-0.11,0.487,-0.13,1],[-0.087,0.5,0.389,1],[0.482,0.145,-0.13,1],[0.395,0.322,0.13,1]], bonds: [[0,7],[0,8],[0,9],[0,14],[0,32],[1,4],[1,6],[1,10],[1,11],[1,12],[1,29],[2,5],[2,6],[2,13],[2,14],[2,15],[2,18],[3,8],[3,13],[3,14],[3,15],[3,22],[6,35],[6,36],[7,28],[12,36],[15,16],[15,35],[16,20],[16,21],[16,22],[16,26],[16,50],[17,18],[17,19],[17,23],[17,24],[17,25],[17,42],[20,40],[24,36],[27,29],[27,30],[27,32],[27,33],[27,34],[27,41],[28,31],[28,32],[28,33],[28,34],[28,46],[32,35],[34,37],[35,41],[35,42],[35,51],[36,41],[36,42],[36,47],[37,44],[37,45],[37,46],[37,51],[37,56],[38,41],[38,43],[38,47],[38,48],[38,49],[38,55],[39,42],[39,43],[39,50],[39,51],[39,52],[39,53],[40,45],[40,50],[40,51],[40,52],[40,54]] },
+      calcite: { zoom: 1.15, style: [[C_VIOLET,1.25],[C_PRIMARY,0.8],[C_LIGHT,0.75]], atoms: [[0.038,-0.338,0.167,0],[-0.255,-0.169,-0.167,0],[0.038,-0.338,-0.333,1],[-0.255,-0.169,0.333,1],[-0.038,-0.131,-0,2],[-0.113,-0.338,-0.333,2],[0.113,-0.468,-0.333,2],[0.113,-0.207,-0.333,2],[-0.406,-0.169,0.333,2],[-0.179,-0.299,0.333,2],[-0.179,-0.038,0.333,2],[-0.255,0.169,0.167,0],[-0.255,0.169,-0.333,1],[-0.406,0.169,-0.333,2],[-0.179,0.038,-0.333,2],[-0.179,0.299,-0.333,2],[0.33,-0.169,-0.167,0],[0.33,-0.169,0.333,1],[0.179,-0.169,0.333,2],[0.406,-0.299,0.333,2],[0.406,-0.038,0.333,2],[0.038,0,-0.5,0],[0.038,0,0.5,0],[0.33,0.169,0.167,0],[0.038,0.338,-0.167,0],[0.038,0,-0,1],[0.33,0.169,-0.333,1],[0.038,0.338,0.333,1],[0.188,0,-0,2],[-0.038,0.131,-0,2],[0.179,0.169,-0.333,2],[0.406,0.038,-0.333,2],[0.406,0.299,-0.333,2],[-0.113,0.338,0.333,2],[0.113,0.207,0.333,2],[0.113,0.468,0.333,2]], bonds: [[0,4],[0,9],[0,18],[1,4],[1,5],[1,14],[2,5],[2,6],[2,7],[3,8],[3,9],[3,10],[4,25],[7,16],[7,21],[10,11],[10,22],[11,29],[11,33],[12,13],[12,14],[12,15],[14,21],[15,24],[16,28],[16,31],[17,18],[17,19],[17,20],[18,22],[20,23],[21,30],[22,34],[23,28],[23,34],[24,29],[24,30],[25,28],[25,29],[26,30],[26,31],[26,32],[27,33],[27,34],[27,35]] },
+      fluorite: { zoom: 1, style: [[C_PRIMARY,1.2],[C_LIGHT,0.8]], atoms: [[-0.5,-0.5,-0.5,0],[-0.5,-0,-0,0],[-0,-0.5,-0,0],[-0,-0,-0.5,0],[-0.25,-0.25,-0.25,1],[0.25,0.25,-0.25,1],[0.25,-0.25,0.25,1],[-0.25,0.25,0.25,1],[-0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[-0.25,0.25,-0.25,1],[0.25,-0.25,-0.25,1],[-0.5,-0.5,0.5,0],[-0,-0,0.5,0],[-0.5,0.5,-0.5,0],[-0,0.5,-0,0],[-0.5,0.5,0.5,0],[0.5,-0.5,-0.5,0],[0.5,-0,-0,0],[0.5,-0.5,0.5,0],[0.5,0.5,-0.5,0],[0.5,0.5,0.5,0]], bonds: [[0,4],[1,4],[1,7],[1,8],[1,10],[2,4],[2,6],[2,8],[2,11],[3,4],[3,5],[3,10],[3,11],[5,15],[5,18],[5,20],[6,13],[6,18],[6,19],[7,13],[7,15],[7,16],[8,12],[8,13],[9,13],[9,15],[9,18],[9,21],[10,14],[10,15],[11,17],[11,18]] },
+      zircon: { zoom: 1.3, style: [[C_VIOLET,1.35],[C_PRIMARY,1.15],[C_LIGHT,0.85]], atoms: [[-0.432,0.249,-0.049,2],[-0.432,-0.249,0.049,2],[0.066,-0.249,-0.5,2],[0.432,-0.249,-0.5,2],[-0.249,0.249,-0.338,0],[0.249,-0.249,0.113,0],[0.249,0.249,-0.113,0],[-0.249,-0.249,0.338,0],[-0.249,-0.249,-0.113,1],[0.249,0.249,0.338,1],[-0.249,0.249,0.113,1],[0.249,-0.249,-0.338,1],[-0.249,-0.432,-0.275,2],[0.249,0.432,0.176,2],[-0.066,0.249,-0.049,2],[0.249,-0.432,-0.176,2],[-0.249,0.432,0.275,2],[-0.066,-0.249,0.049,2],[0.249,0.066,0.176,2],[-0.249,-0.066,-0.275,2],[-0.249,0.066,0.275,2],[0.249,-0.066,-0.176,2],[0.066,0.249,0.5,2],[0.432,0.249,0.5,2]], bonds: [[0,10],[1,8],[2,11],[3,11],[4,19],[5,17],[5,18],[6,14],[6,21],[7,20],[8,12],[8,17],[8,19],[9,13],[9,18],[9,22],[9,23],[10,14],[10,16],[10,20],[11,15],[11,21]] },
+      forsterite: { zoom: 1.5, style: [[C_VIOLET,1.25],[C_PRIMARY,1.15],[C_LIGHT,0.85]], atoms: [[-0.5,-0.124,-0.093,2],[0.083,-0.124,-0.323,2],[-0.452,-0.256,-0.211,0],[0,-0.256,0,0],[-0.452,0.009,-0.211,0],[0,0.009,0,0],[-0.201,-0.124,0.207,0],[-0.251,0.141,-0.004,0],[0.201,0.141,-0.207,0],[0.251,-0.124,0.004,0],[-0.367,-0.124,-0.031,1],[-0.085,0.141,0.18,1],[0.367,0.141,0.031,1],[0.085,-0.124,-0.18,1],[-0.37,-0.124,0.112,2],[0.37,0.141,-0.112,2],[-0.048,-0.124,-0.117,2],[0.048,0.141,0.117,2],[-0.305,-0.239,-0.094,2],[-0.147,0.256,0.117,2],[0.305,0.026,0.094,2],[0.147,-0.009,-0.117,2],[0.305,0.256,0.094,2],[0.147,-0.239,-0.117,2],[-0.305,-0.009,-0.094,2],[-0.147,0.026,0.117,2],[-0.083,0.141,0.323,2],[0.5,0.141,0.093,2]], bonds: [[0,2],[0,4],[0,10],[1,13],[2,18],[3,16],[3,23],[4,24],[5,16],[5,17],[5,21],[5,25],[6,14],[6,25],[7,19],[7,24],[7,25],[8,15],[8,21],[9,20],[9,21],[9,23],[10,14],[10,18],[10,24],[11,17],[11,19],[11,25],[11,26],[12,15],[12,20],[12,22],[12,27],[13,16],[13,21],[13,23]] }
+    };
+
     function crystalConfig(key, cell) {
       cell = cell || 1;
+      if (REAL_FRAGMENTS[key]) {
+        var f = REAL_FRAGMENTS[key];
+        var atoms = f.atoms.map(function (a) {
+          var st = f.style[a[3]];
+          return { pos: [a[0] * cell, a[1] * cell, a[2] * cell], color: st[0], radius: st[1] };
+        });
+        return { atoms: atoms, bonds: f.bonds, zoom: f.zoom || 1 };
+      }
+      if (key === 'custom') {
+        // An empty unit cell waiting to be filled — corners + edges only.
+        var basis = [[0,0,0],[1,0,0],[0,1,0],[0,0,1],[1,1,0],[1,0,1],[0,1,1],[1,1,1]].map(function (f) {
+          return { frac: f, color: C_VIOLET, radius: 0.9 };
+        });
+        basis.push({ frac: [0.5, 0.5, 0.5], color: C_PRIMARY, radius: 1.4 });
+        var atoms = tileBasis(basis, 1, 1, 1, cell * 0.8);
+        return { atoms: atoms, bonds: CUBE_EDGES.slice() };
+      }
       if (key === 'diamond') {
         var basis = [
           { frac: [0, 0, 0], color: C_PRIMARY }, { frac: [0.5, 0.5, 0], color: C_PRIMARY },
@@ -1081,12 +1179,12 @@
     }
 
     function initCrystalPreviews() {
-      var keys = ['diamond', 'gold', 'nacl', 'perovskite', 'quartz', 'rutile'];
+      var keys = ['corundum', 'calcite', 'fluorite', 'zircon', 'forsterite', 'diamond', 'gold', 'nacl', 'perovskite', 'quartz', 'rutile', 'custom'];
       keys.forEach(function (key) {
         var container = document.getElementById('crystalPreview-' + key);
         if (!container) return;
         var cfg = crystalConfig(key, 1.4);
-        buildCrystalScene(container, cfg.atoms, cfg.bonds, { interactive: false, idleSpeed: 0.1 });
+        buildCrystalScene(container, cfg.atoms, cfg.bonds, { interactive: false, idleSpeed: 0.1, pulse: key === 'custom', zoom: cfg.zoom });
       });
     }
 
@@ -1291,7 +1389,7 @@
       });
       document.addEventListener('mouseleave', function () { ring.style.opacity = '0'; dot.style.opacity = '0'; });
       document.addEventListener('mouseenter', function () { ring.style.opacity = '1'; dot.style.opacity = '1'; });
-      var sel = 'a, button, .magnetic, .tilt-card, .icon-3d, .lightbox-trigger, .hero-crystal-scene, input, [role="button"]';
+      var sel = 'a, button, .magnetic, .tilt-card, .icon-3d, .lightbox-trigger, .shot, .demo-stage, .hero-crystal-scene, input, [role="button"]';
       document.addEventListener('mouseover', function (e) { if (e.target.closest(sel)) ring.classList.add('cursor-hover'); });
       document.addEventListener('mouseout', function (e) { if (e.target.closest(sel)) ring.classList.remove('cursor-hover'); });
       function tick() {
@@ -1303,24 +1401,145 @@
       document.documentElement.classList.add('custom-cursor-active');
     }
 
-    /* Lightbox — global so inline onclick handlers can reach it. */
-    window.openLightbox = function (src, type) {
+    /* Lightbox — global so inline onclick handlers can reach it.
+       Optional `list` + `index` turn it into a pager (arrows, keys, swipe). */
+    var lbList = null, lbIndex = 0;
+    function lbRender() {
+      var content = document.getElementById('lightboxContent');
+      var item = lbList[lbIndex];
+      content.innerHTML = '<img src="' + item.src + '" alt="' + (item.alt || '').replace(/"/g, '&quot;') + '" />';
+      var count = document.getElementById('lightboxCount');
+      if (count) count.textContent = (lbIndex + 1) + ' / ' + lbList.length;
+      var next = lbList[(lbIndex + 1) % lbList.length];
+      if (next) { var pre = new Image(); pre.src = next.src; }
+    }
+    window.openLightbox = function (src, type, opts) {
       var overlay = document.getElementById('lightboxOverlay');
       var content = document.getElementById('lightboxContent');
       if (!overlay || !content) return;
-      content.innerHTML = type === 'video'
-        ? '<video src="' + src + '" controls autoplay playsinline></video>'
-        : '<img src="' + src + '" alt="" />';
+      opts = opts || {};
+      document.dispatchEvent(new CustomEvent('lightbox:open'));
+      if (opts.list) {
+        lbList = opts.list; lbIndex = opts.index || 0;
+        overlay.classList.add('has-nav');
+        lbRender();
+      } else {
+        lbList = null;
+        overlay.classList.remove('has-nav');
+        content.innerHTML = type === 'video'
+          ? '<video src="' + src + '"' + (opts.poster ? ' poster="' + opts.poster + '"' : '') + ' controls autoplay playsinline></video>'
+          : '<img src="' + src + '" alt="" />';
+      }
       overlay.classList.add('open');
+    };
+    window.lightboxStep = function (dir) {
+      if (!lbList) return;
+      lbIndex = (lbIndex + dir + lbList.length) % lbList.length;
+      lbRender();
     };
     window.closeLightbox = function () {
       var overlay = document.getElementById('lightboxOverlay');
       var content = document.getElementById('lightboxContent');
       if (!overlay) return;
-      overlay.classList.remove('open');
+      overlay.classList.remove('open', 'has-nav');
       if (content) content.innerHTML = '';
+      lbList = null;
+      document.dispatchEvent(new CustomEvent('lightbox:close'));
     };
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') window.closeLightbox(); });
+    document.addEventListener('keydown', function (e) {
+      var overlay = document.getElementById('lightboxOverlay');
+      if (!overlay || !overlay.classList.contains('open')) return;
+      if (e.key === 'Escape') window.closeLightbox();
+      else if (e.key === 'ArrowRight') window.lightboxStep(1);
+      else if (e.key === 'ArrowLeft') window.lightboxStep(-1);
+    });
+    (function () {
+      var overlay = document.getElementById('lightboxOverlay');
+      if (!overlay) return;
+      var x0 = null;
+      overlay.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      overlay.addEventListener('touchend', function (e) {
+        if (x0 === null || !lbList) return;
+        var dx = e.changedTouches[0].clientX - x0; x0 = null;
+        if (Math.abs(dx) > 40) window.lightboxStep(dx < 0 ? 1 : -1);
+      }, { passive: true });
+    })();
+
+    /* Screenshot grid → lightbox pager */
+    function initShotGrid() {
+      var grid = document.getElementById('shotsGrid');
+      if (!grid) return;
+      var shots = Array.prototype.slice.call(grid.querySelectorAll('.shot'));
+      var list = shots.map(function (b) {
+        var img = b.querySelector('img');
+        return { src: img.getAttribute('srcset').split(',')[1].trim().split(' ')[0], alt: img.alt };
+      });
+      shots.forEach(function (b, i) {
+        b.addEventListener('click', function () { window.openLightbox(null, 'image', { list: list, index: i }); });
+      });
+    }
+
+    /* Demo player: three muted clips that play while on screen and
+       advance on their own; tabs switch clips; full film opens in the
+       lightbox with sound. */
+    function initDemoPlayer() {
+      var video = document.getElementById('demoVideo');
+      if (!video) return;
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.demo-tab'));
+      var toggle = document.getElementById('demoToggle');
+      var film = document.getElementById('demoFilm');
+      var current = 0, onScreen = false, userPaused = !!reduceMotion, lightboxOpen = false;
+
+      function setIcon() {
+        var paused = video.paused;
+        toggle.querySelector('.ico-pause').style.display = paused ? 'none' : '';
+        toggle.querySelector('.ico-play').style.display = paused ? '' : 'none';
+        toggle.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+      }
+      function maybePlay() {
+        if (onScreen && !userPaused && !lightboxOpen) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+        else video.pause();
+      }
+      function select(i, fromUser) {
+        current = i;
+        tabs.forEach(function (t, k) {
+          t.classList.toggle('active', k === i);
+          t.setAttribute('aria-selected', k === i ? 'true' : 'false');
+        });
+        video.classList.add('swapping');
+        setTimeout(function () {
+          video.poster = tabs[i].getAttribute('data-poster');
+          video.src = tabs[i].getAttribute('data-src');
+          video.load();
+          video.classList.remove('swapping');
+          if (fromUser) userPaused = false;
+          maybePlay();
+        }, 200);
+      }
+      tabs.forEach(function (t, i) { t.addEventListener('click', function () { select(i, true); }); });
+      video.addEventListener('timeupdate', function () {
+        var bar = tabs[current].querySelector('.demo-tab-bar i');
+        if (bar && video.duration) bar.style.width = (100 * video.currentTime / video.duration) + '%';
+      });
+      video.addEventListener('ended', function () { select((current + 1) % tabs.length, false); });
+      video.addEventListener('play', setIcon);
+      video.addEventListener('pause', setIcon);
+      toggle.addEventListener('click', function () {
+        if (video.paused) { userPaused = false; maybePlay(); } else { userPaused = true; video.pause(); }
+      });
+      video.addEventListener('click', function () { toggle.click(); });
+      if (film) film.addEventListener('click', function () {
+        window.openLightbox(film.getAttribute('data-src'), 'video', { poster: film.getAttribute('data-poster') });
+      });
+      document.addEventListener('lightbox:open', function () { lightboxOpen = true; video.pause(); });
+      document.addEventListener('lightbox:close', function () { lightboxOpen = false; maybePlay(); });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          onScreen = entries[0].isIntersecting; maybePlay();
+        }, { threshold: 0.35 }).observe(video);
+      } else { onScreen = true; maybePlay(); }
+      setIcon();
+    }
 
     /* Feature-card video activation — set data-video="URL" on a
        .feature-card once a marketing clip is ready, and it lights
@@ -1349,6 +1568,8 @@
       try { initSectionTracking(); } catch (err) { console.error('section tracking failed:', err); }
       try { initCustomCursor(); } catch (err) { console.error('custom cursor failed:', err); }
       try { initFeatureVideos(); } catch (err) { console.error('feature videos failed:', err); }
+      try { initDemoPlayer(); } catch (err) { console.error('demo player failed:', err); }
+      try { initShotGrid(); } catch (err) { console.error('screenshot grid failed:', err); }
     }
 
     if (document.readyState === 'loading') {
