@@ -5,7 +5,7 @@
   <link rel="canonical" href="https://kridallc.com/crystalroom/support/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Support — CrystalRoom</title>
-  <meta name="description" content="Get help with CrystalRoom on Apple Vision Pro. FAQs, CIF import help, restore purchases, and contact Krida LLC." />
+  <meta name="description" content="Get help with CrystalRoom on Apple Vision Pro. FAQs on immersion, supercells, guided tours, and windows, plus how to contact Krida LLC." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta property="og:url" content="https://kridallc.com/crystalroom/support/" />
   <meta property="og:title" content="Support — CrystalRoom" />
@@ -116,7 +116,7 @@
     <div class="page-hero">
       <div class="eyebrow">Support</div>
       <h1>We're here to help.</h1>
-      <p class="lead">Questions about CrystalRoom, institutional licensing, or anything else? Reach out — we respond promptly.</p>
+      <p class="lead">Questions about CrystalRoom, custom structures, institutional deployments, or anything else? Reach out — we respond promptly.</p>
     </div>
 
     <div class="contact-card">
@@ -134,6 +134,11 @@
       </div>
 
       <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What can I do in CrystalRoom?</div>
+        <div class="faq-a"><strong>Explore from your space</strong> — rotate, zoom, inspect atoms, build supercells, highlight elements, and arrange windows around you, with undo/redo and session restore (your structure, supercell, and view come back when you return).<br /><strong>Step inside the crystal</strong> — enter full immersion, walk through a room-scale lattice, and tap atoms around you to inspect them.<br /><strong>Measure atomic geometry</strong> — two atoms for distance, three for an angle, with guide lines on the structure and a measurement history.<br /><strong>See more of the structure</strong> — independent a/b/c supercells, coordination polyhedra, edge atoms, Miller planes with live d-spacing, element search, and fractional/Cartesian coordinates.<br /><strong>Guided exploration</strong> — a 20-step workspace tour, an immersive Halite tour, and a “Tour This Structure” experience that adapts to the crystal you are viewing.<br /><strong>Built on real crystallographic data</strong> — structures reconstructed from bundled CIF data, backed by an automated scientific test suite.</div>
+      </div>
+
+      <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is Immersive Space mode?</div>
         <div class="faq-a">Immersive Space mode uses Apple Vision Pro's spatial computing capabilities to place your crystal structure in your physical environment at room scale. You can literally walk around a unit cell. Enable it from the toolbar inside the app. You can exit back to windowed mode at any time.</div>
       </div>
@@ -145,20 +150,15 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a supercell and how do I expand it?</div>
-        <div class="faq-a">A supercell is a repeating tile of the unit cell — expanding from 1×1×1 to larger grids lets you see the full periodic lattice and how structures propagate through space. Use the expansion slider in the toolbar to go up to 5×5×5. Note that very large supercells (5×5×5) may be computationally intensive depending on the structure.</div>
+        <div class="faq-a">A supercell is a repeating tile of the unit cell — expanding from 1×1×1 to larger grids lets you see the full periodic lattice and how structures propagate through space. Supercell expansion from 1×1×1 up to 5×5×5; the largest unit cells (corundum, calcite, zircon, forsterite) are capped at 3×3×3–4×4×4 to keep Vision Pro responsive.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is CIF Import and how do I use it?</div>
-        <div class="faq-a">CIF (Crystallographic Information File) is the universal standard for sharing crystal structure data. CIF Import allows you to load any valid CIF file into CrystalRoom from Files, email attachments, or any other source that appears in the visionOS share sheet. CIF files are freely available from databases like the <a href="https://www.crystallography.net/cod/" target="_blank">Crystallography Open Database</a>, ICSD, and the Cambridge Structural Database. CIF Import is available through institutional licensing — if you're at a university, research lab, or educational program interested in deploying CrystalRoom with CIF Import, contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</div>
+        <div class="faq-a">CIF (Crystallographic Information File) is the universal standard for sharing crystal structure data, and many structures are freely available from the <a href="https://www.crystallography.net/cod/" target="_blank">Crystallography Open Database</a>. CIF Import is available through institutional licensing — if you're at a university, research lab, or educational program interested in deploying CrystalRoom with CIF Import, contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">My CIF file won't load. What should I check?</div>
-        <div class="faq-a">CrystalRoom supports standard CIF format (both CIF1 and mmCIF). If your file fails to import, check that: (1) it's a valid CIF file and not a compressed archive; (2) it contains the required _atom_site fields; (3) the file isn't corrupted. If you continue having issues, send the file to <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a> and we'll investigate.</div>
-      </div>
-
-<div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I use Auto-Spin for a presentation or demo?</div>
         <div class="faq-a">Auto-Spin continuously rotates the structure at a gentle pace — ideal for demonstrations, lectures, or leaving a structure on display. Enable it from the toolbar. You can still zoom and adjust the supercell size while auto-spin is active.</div>
       </div>
@@ -170,7 +170,32 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where do the built-in crystal structures come from?</div>
-        <div class="faq-a">The six built-in structures (Diamond, Gold, NaCl, Perovskite, Quartz, and Rutile) are based on well-established crystallographic data and are bundled directly with the app. No internet connection is required to view them.</div>
+        <div class="faq-a">The eleven built-in structures — Corundum (Al₂O₃), Calcite (CaCO₃), Fluorite (CaF₂), Zircon (ZrSiO₄), Forsterite (Mg₂SiO₄), Diamond (C), Gold (Au), Halite (NaCl), Barium titanate (BaTiO₃, a tetragonal perovskite), Quartz (SiO₂), and Rutile (TiO₂) — are reconstructed from CIF crystallographic data bundled directly with the app. No internet connection is required to view them.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is 5×5×5 greyed out for some structures?</div>
+        <div class="faq-a">Corundum, calcite, zircon and forsterite have large unit cells. Above a few thousand atoms Apple Vision Pro cannot render a windowed scene smoothly, so CrystalRoom caps those structures at 3×3×3 or 4×4×4. The supercell panel shows the atom count and the limit. The seven compact structures go all the way to 5×5×5.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">My windows disappeared when I entered immersion.</div>
+        <div class="faq-a">That is intentional. Entering the immersive space closes the app’s windows so nothing floats in front of the lattice. Tap Exit on the head-anchored toolbar and the windows come back exactly as you left them.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I reopened the app and only the main window, axis gizmo and legend appeared.</div>
+        <div class="faq-a">Also intentional. Reopening CrystalRoom — after closing its main window, a force quit, or a restart — restores your structure, supercell and view, but always starts with the default window pair so the layout is predictable. Only an immersive round trip brings back every window you had open.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I closed every panel but one, then closed the main window, and that panel stayed.</div>
+        <div class="faq-a">visionOS does not let an app close its own last window. Close that panel yourself; the next tap on the app icon opens the main window as usual.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does CrystalRoom collect any data?</div>
+        <div class="faq-a">No. See the <a href="/crystalroom/privacy/">privacy policy</a> — no accounts, no analytics, nothing leaves the device.</div>
       </div>
     </div>
   </main>
