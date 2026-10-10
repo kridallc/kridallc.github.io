@@ -5,7 +5,7 @@
   <link rel="canonical" href="https://kridallc.com/crystalroom/terms/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Service — CrystalRoom</title>
-  <meta name="description" content="Terms of Service for CrystalRoom by Krida LLC." />
+  <meta name="description" content="Terms of Service for CrystalRoom by Krida LLC — free for personal, educational, research, and commercial use on Apple Vision Pro." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta property="og:url" content="https://kridallc.com/crystalroom/terms/" />
   <meta property="og:title" content="Terms of Service — CrystalRoom" />
@@ -50,7 +50,19 @@
     .content ul li { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.3rem; }
     .content a { color: var(--primary); text-decoration: none; }
     .content a:hover { text-decoration: underline; }
-    .content .caps { font-size: 0.88rem; }
+    .summary-card { background: linear-gradient(135deg, #060d24, #080d20); border: 1px solid rgba(56,189,248,0.22); border-radius: 14px; padding: 1.5rem 1.75rem; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards; }
+    .summary-card h2 { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 800; color: var(--primary); margin-bottom: 0.75rem; }
+    .summary-card ul { margin: 0 0 0 1.1rem; }
+    .summary-card li { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .summary-card strong { color: var(--text); font-weight: 500; }
+    .summary-note { font-size: 0.75rem; color: var(--muted2); margin-top: 0.75rem; }
+    .toc { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.15rem 1.5rem; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(56,189,248,0.1); opacity: 0; animation: fadeUp 0.5s ease 0.12s forwards; }
+    .toc a { display: flex; gap: 0.75rem; font-size: 0.85rem; color: var(--muted); text-decoration: none; padding: 0.3rem 0; transition: color 0.15s; }
+    .toc a span { font-family: var(--mono); font-size: 0.7rem; color: var(--violet); padding-top: 0.15rem; }
+    .toc a:hover { color: var(--primary); }
+    .content h2 { scroll-margin-top: 80px; }
+    .content h2:target { color: var(--primary); }
+    .legal-callout { font-size: 0.82rem; line-height: 1.7; color: var(--muted); background: rgba(56,189,248,0.04); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.8rem; letter-spacing: 0.01em; }
 
     footer { background: #020510; border-top: 1px solid rgba(255,255,255,0.04); padding: 2.5rem 2rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
@@ -67,6 +79,8 @@
       .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(5,8,24,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
       .nav-links.open { display: flex; }
       main { padding: 3rem 1.25rem 5rem; }
+      .toc { grid-template-columns: 1fr; }
+      .summary-card { padding: 1.25rem; }
     }
   </style>
   <script src="/crystalroom/consent.js"></script>
@@ -94,65 +108,113 @@
     <div class="page-hero">
       <div class="eyebrow">Legal</div>
       <h1>Terms of Service</h1>
-      <p class="meta">CrystalRoom · Developed by Krida LLC · Effective Date: March 1, 2026</p>
+      <p class="meta">CrystalRoom · Developed by Krida LLC · Effective Date: October 10, 2026</p>
+    </div>
+
+    <div class="summary-card">
+      <h2>In plain English</h2>
+      <ul>
+        <li>CrystalRoom is <strong>free</strong> — use it for learning, teaching, research, or work.</li>
+        <li>Don’t redistribute, resell, or reverse-engineer the app.</li>
+        <li>In immersion, use a clear space and stay aware of your surroundings.</li>
+        <li>It’s a visualization tool — confirm research conclusions with professional crystallographic software.</li>
+        <li>The app collects no personal data. Apple’s standard EULA also applies.</li>
+      </ul>
+      <p class="summary-note">This summary is for convenience; the full Terms below are what apply.</p>
+    </div>
+
+    <div class="toc" role="navigation" aria-label="Sections">
+      <a href="#agreement"><span>01</span>Agreement</a>
+      <a href="#license"><span>02</span>License to Use</a>
+      <a href="#ip"><span>03</span>Intellectual Property</a>
+      <a href="#safety"><span>04</span>Safe Use</a>
+      <a href="#price"><span>05</span>Price, CIF Import &amp; Institutions</a>
+      <a href="#cif"><span>06</span>User-Provided Content (CIF Files)</a>
+      <a href="#prohibited"><span>07</span>Prohibited Activities</a>
+      <a href="#warranty"><span>08</span>Disclaimer of Warranties</a>
+      <a href="#liability"><span>09</span>Limitation of Liability</a>
+      <a href="#privacy"><span>10</span>Privacy</a>
+      <a href="#apple"><span>11</span>Apple App Store</a>
+      <a href="#termination"><span>12</span>Termination</a>
+      <a href="#law"><span>13</span>Governing Law</a>
+      <a href="#changes"><span>14</span>Changes to These Terms</a>
+      <a href="#general"><span>15</span>General</a>
+      <a href="#contact"><span>16</span>Contact Us</a>
     </div>
 
     <div class="content">
-      <p>Welcome to CrystalRoom. By downloading, installing, or using the app ("App"), you agree to be bound by these Terms of Service ("Terms"). These Terms constitute a legally binding agreement between you and Krida LLC ("we," "us," or "our"). If you do not agree, do not use the App.</p>
-      <p>CrystalRoom is owned and operated by Krida LLC, based in Colorado, U.S.A. We reserve the right to modify these Terms at any time. Continued use of the App after changes constitutes your acceptance of the updated Terms.</p>
+      <h2 id="agreement">1. Agreement</h2>
+      <p>Welcome to CrystalRoom. By downloading, installing, or using the CrystalRoom app (the “App”), you agree to these Terms of Service (“Terms”). They form a legally binding agreement between you and Krida LLC, based in Colorado, U.S.A. (“Krida,” “we,” “us,” or “our”). If you do not agree, do not use the App.</p>
+      <p>If you downloaded the App from the Apple App Store, your use is also governed by Apple’s <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement</a> (“Apple’s EULA”). These Terms add to Apple’s EULA; if the two conflict, Apple’s EULA prevails to the extent of the conflict.</p>
 
-      <h2>1. Intellectual Property</h2>
-      <p>All content within CrystalRoom — including but not limited to crystal structure data, 3D visualizations, interface designs, code, and other materials (collectively, "Content") — is the sole property of Krida LLC and is protected by copyright and intellectual property laws.</p>
-      <p>You are strictly prohibited from copying, reproducing, reverse-engineering, decompiling, or redistributing any part of the Content without prior written permission from Krida LLC. "CrystalRoom" and associated visual identity are trademarks of Krida LLC.</p>
-
-      <h2>2. License to Use</h2>
-      <p>Subject to your compliance with these Terms, Krida LLC grants you a limited, non-exclusive, non-transferable, revocable license to use CrystalRoom on an Apple Vision Pro device you own or control, for personal or educational, non-commercial purposes.</p>
-      <p>This license does not include the right to:</p>
+      <h2 id="license">2. License to Use</h2>
+      <p>Subject to these Terms, Krida grants you a limited, non-exclusive, non-transferable, revocable license to use the App on any Apple Vision Pro that you own or control — for personal, educational, research, or commercial purposes.</p>
+      <p>You may not:</p>
       <ul>
-        <li>Use the App for commercial purposes without prior written consent from Krida LLC</li>
-        <li>Transfer, sublicense, or resell your right to use the App</li>
-        <li>Attempt to bypass any security features of the App</li>
-        <li>Remove or alter any proprietary notices within the App</li>
+        <li>Copy, redistribute, sell, rent, lease, or sublicense the App, or extract and redistribute its bundled content outside the App</li>
+        <li>Reverse-engineer, decompile, or disassemble the App, except to the extent applicable law expressly permits this despite this restriction</li>
+        <li>Attempt to bypass or disable any security feature of the App</li>
+        <li>Remove or alter any proprietary notices in the App</li>
       </ul>
 
-      <h2>3. Institutional Licensing (CIF Import)</h2>
-      <p>CrystalRoom is free to download. CIF Import — the ability to load custom CIF files — is available through institutional licensing for universities, research labs, and educational programs. Consumer in-app purchase of CIF Import is not currently offered.</p>
-      <p>If your institution is interested in licensing CIF Import, contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>. Institutional licensing terms will be set out in a separate written agreement between Krida LLC and the institution.</p>
+      <h2 id="ip">3. Intellectual Property</h2>
+      <p>The App — including its software, code, 3D visualizations, interface design, graphics, text, and other original materials — is owned by Krida LLC and protected by copyright and other intellectual property laws. “CrystalRoom” and its visual identity are trademarks of Krida LLC.</p>
+      <p>The built-in crystallographic data is derived from published scientific literature and open crystallographic databases. Krida claims no ownership of the underlying scientific data, which remains subject to the terms of its original sources.</p>
+      <p>You may capture and share screenshots and screen recordings of the App for teaching, presentations, publications, and social media.</p>
 
-      <h2>4. User-Provided Content (CIF Files)</h2>
-      <p>CrystalRoom supports loading CIF files for visualization. Where CIF Import access has been granted (via institutional license), you are responsible for ensuring you have the right to use any CIF files you import. Krida LLC does not review, store, or access CIF files you load into the App. All file processing occurs locally on your device.</p>
-      <p>We make no representations about the accuracy or completeness of crystallographic data contained in user-provided CIF files. CrystalRoom is a visualization tool and is not a substitute for professional crystallographic analysis software.</p>
+      <h2 id="safety">4. Safe Use</h2>
+      <p>CrystalRoom includes full immersion, in which you can walk through a room-scale crystal lattice. For your safety:</p>
+      <ul>
+        <li>Use the App in a clear, safe space, and stay aware of your surroundings — people, pets, furniture, stairs, and other obstacles.</li>
+        <li>Do not use immersion while walking in unsafe areas, operating a vehicle or machinery, or in any situation that requires your full attention.</li>
+        <li>Follow Apple’s Apple Vision Pro safety and health information, take breaks, and stop using the App if you feel discomfort, dizziness, or eye strain.</li>
+      </ul>
+      <p>You are responsible for using the App safely. Educators using the App with students are responsible for appropriate supervision.</p>
 
-      <h2>5. Prohibited Activities</h2>
-      <p>You agree not to use the App for any illegal or unauthorized purpose, attempt to gain unauthorized access to the App or its systems, or interfere with the App's functionality.</p>
+      <h2 id="price">5. Price, CIF Import &amp; Institutions</h2>
+      <p>CrystalRoom is free to download and has no in-app purchases. CIF Import — the ability to load custom CIF files — is available only through institutional licensing for universities, research labs, and educational programs, under a separate written agreement between Krida and the institution. To ask about it, contact <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</p>
 
-      <h2>6. Disclaimer of Warranties</h2>
-      <p class="caps">THE APP AND ITS CONTENT ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. KRIDA LLC DOES NOT GUARANTEE THAT THE APP WILL BE ERROR-FREE OR UNINTERRUPTED, OR THAT CRYSTALLOGRAPHIC DATA IS SUITABLE FOR EVERY USE CASE. THIS APP IS INTENDED FOR EDUCATIONAL AND VISUALIZATION PURPOSES ONLY AND SHOULD NOT BE USED AS THE SOLE BASIS FOR SCIENTIFIC RESEARCH CONCLUSIONS.</p>
+      <h2 id="cif">6. User-Provided Content (CIF Files)</h2>
+      <p>Where CIF Import access has been granted through an institutional license, you are responsible for ensuring you have the right to use any CIF files you load. Krida does not review, store, or access CIF files you load into the App; all file processing occurs locally on your device.</p>
+      <p>We make no representations about the accuracy or completeness of crystallographic data in user-provided CIF files.</p>
 
-      <h2>7. Limitation of Liability</h2>
-      <p class="caps">TO THE FULLEST EXTENT PERMITTED BY LAW, KRIDA LLC AND ITS AFFILIATES WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES RESULTING FROM YOUR USE OR INABILITY TO USE THE APP, INCLUDING LOSS OF DATA OR ISSUES ARISING FROM THIRD-PARTY SERVICES. IN NO EVENT SHALL KRIDA LLC'S TOTAL LIABILITY EXCEED THE AMOUNT YOU PAID FOR THE APP OR ANY IN-APP PURCHASE IN THE PRECEDING TWELVE MONTHS.</p>
+      <h2 id="prohibited">7. Prohibited Activities</h2>
+      <p>You agree not to use the App for any illegal or unauthorized purpose, attempt to gain unauthorized access to the App or its systems, or interfere with the App’s functionality.</p>
 
-      <h2>8. Privacy Policy</h2>
-      <p>Your use of CrystalRoom is governed by our <a href="/crystalroom/privacy/">Privacy Policy</a>. CrystalRoom collects no personal data. By using the App, you agree to the terms of the Privacy Policy.</p>
+      <h2 id="warranty">8. Disclaimer of Warranties</h2>
+      <div class="legal-callout">THE APP AND ITS CONTENT ARE PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. KRIDA LLC DOES NOT GUARANTEE THAT THE APP WILL BE ERROR-FREE OR UNINTERRUPTED, OR THAT ITS CRYSTALLOGRAPHIC DATA IS SUITABLE FOR EVERY PURPOSE. CRYSTALROOM IS A VISUALIZATION AND EDUCATIONAL TOOL; IT IS NOT A SUBSTITUTE FOR PROFESSIONAL CRYSTALLOGRAPHIC ANALYSIS SOFTWARE AND SHOULD NOT BE THE SOLE BASIS FOR SCIENTIFIC RESEARCH CONCLUSIONS. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES, SO SOME OF THESE EXCLUSIONS MAY NOT APPLY TO YOU.</div>
 
-      <h2>9. Apple App Store Additional Terms</h2>
-      <p>If you downloaded CrystalRoom from the Apple App Store, you acknowledge that:</p>
+      <h2 id="liability">9. Limitation of Liability</h2>
+      <div class="legal-callout">TO THE FULLEST EXTENT PERMITTED BY LAW, KRIDA LLC AND ITS AFFILIATES WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF DATA, ARISING FROM YOUR USE OF OR INABILITY TO USE THE APP. KRIDA LLC’S TOTAL LIABILITY FOR ALL CLAIMS RELATING TO THE APP WILL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID FOR THE APP IN THE TWELVE MONTHS BEFORE THE CLAIM, OR (B) US$50.<br /><br />NOTHING IN THESE TERMS EXCLUDES OR LIMITS LIABILITY FOR DEATH OR PERSONAL INJURY CAUSED BY NEGLIGENCE, FOR FRAUD, OR ANY OTHER LIABILITY THAT CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</div>
+
+      <h2 id="privacy">10. Privacy</h2>
+      <p>The CrystalRoom app collects no personal data. How we handle data on this website — including analytics and your cookie choices — is described in our <a href="/crystalroom/privacy/">Privacy Policy</a>.</p>
+
+      <h2 id="apple">11. Apple App Store</h2>
+      <p>If you downloaded the App from the Apple App Store, you acknowledge that:</p>
       <ul>
         <li>These Terms are between you and Krida LLC, not Apple Inc.</li>
-        <li>Apple has no obligation to provide maintenance or support for the App</li>
-        <li>Apple is not responsible for the App or its content</li>
-        <li>Apple is a third-party beneficiary of these Terms and may enforce them against you</li>
+        <li>Apple has no obligation to provide maintenance or support for the App.</li>
+        <li>Apple is not responsible for the App or its content.</li>
+        <li>Your use of the App is also governed by <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Apple’s EULA</a>, which prevails if it conflicts with these Terms.</li>
       </ul>
 
-      <h2>10. Governing Law</h2>
-      <p>These Terms are governed by and construed in accordance with the laws of the State of Colorado, United States, without regard to conflict of law provisions. Any disputes arising out of these Terms will be resolved in the courts of Colorado, USA.</p>
+      <h2 id="termination">12. Termination</h2>
+      <p>Your license ends automatically if you breach these Terms; you must then stop using and delete the App. You may stop using the App at any time. We may modify, suspend, or discontinue the App, in whole or in part, at any time.</p>
 
-      <h2>11. Modifications</h2>
-      <p>Krida LLC reserves the right to modify these Terms of Service at any time. We will indicate the effective date of the most recent update at the top of this document. Continued use of the App after modifications constitutes acceptance of the new terms.</p>
+      <h2 id="law">13. Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of Colorado, United States, without regard to conflict-of-law principles, and disputes will be resolved in the courts of Colorado. If you are a consumer, you also keep any mandatory protections of the law of your country of residence — including in the EU and UK — and nothing in these Terms affects those rights.</p>
 
-      <h2>12. Contact Us</h2>
-      <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</p>
-      <p style="margin-top:2rem; font-size:0.82rem; color: var(--muted2);">Last updated: March 1, 2026 · © 2026 Krida LLC</p>
+      <h2 id="changes">14. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. We will show the effective date of the latest version at the top of this page. Your continued use of the App after an update means you accept the updated Terms.</p>
+
+      <h2 id="general">15. General</h2>
+      <p>These Terms, together with our Privacy Policy and, where applicable, Apple’s EULA, are the entire agreement between you and Krida about the App. If any provision is found unenforceable, the rest remains in effect. Our failure to enforce a provision is not a waiver of it. You may not transfer these Terms; we may transfer them in connection with a merger, acquisition, or sale of assets.</p>
+
+      <h2 id="contact">16. Contact Us</h2>
+      <p>Questions about these Terms? Contact us at <a href="mailto:support_crystalroom@kridallc.com">support_crystalroom@kridallc.com</a>.</p>
+
+      <p style="margin-top:2rem; font-size:0.82rem; color: var(--muted2);">Last updated: October 10, 2026 · © 2026 Krida LLC</p>
     </div>
   </main>
 
