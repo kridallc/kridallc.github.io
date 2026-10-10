@@ -77,7 +77,7 @@
     + '.cr-consent a{color:#38bdf8;text-decoration:none}.cr-consent a:hover{text-decoration:underline}'
     + '.cr-consent .cr-btns{display:flex;gap:.5rem;flex:0 0 auto}'
     + '.cr-consent button{font:500 .72rem/1 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em;'
-    + 'padding:.7rem 1.1rem;border-radius:9px;cursor:pointer;border:1.5px solid #38bdf8;transition:background .18s,color .18s}'
+    + 'min-height:44px;padding:.8rem 1.2rem;border-radius:9px;cursor:pointer;border:1.5px solid #38bdf8;transition:background .18s,color .18s}'
     + '.cr-consent .cr-accept{background:#38bdf8;color:#050818}.cr-consent .cr-accept:hover{background:#0ea5e9;border-color:#0ea5e9}'
     + '.cr-consent .cr-decline{background:transparent;color:#38bdf8}.cr-consent .cr-decline:hover{background:rgba(56,189,248,.1)}'
     + '.cr-consent button:focus-visible{outline:2px solid #e8f0fe;outline-offset:2px}'

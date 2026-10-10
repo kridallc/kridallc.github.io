@@ -71,10 +71,17 @@
     .footer-links a:hover { color: var(--primary); }
     footer p { font-size: 0.75rem; color: rgba(255,255,255,0.18); text-align: center; }
 
+    /* Touch targets & small-screen readability (mobile QA) */
+    .nav-toggle { padding: 10px 8px !important; margin-right: -8px; }
+    .footer-links a { display: inline-block; padding: 0.55rem 0.25rem; }
+
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 680px) {
       nav { padding: 0 1.25rem; }
+      .section-eyebrow, .eyebrow, .hero-label, .part-label, .faq-group-title, .jump a { font-size: 0.72rem !important; }
+      .hero-crystal-hint { font-size: 0.7rem !important; }
+      .footer-links { gap: 0.25rem 1rem; }
       .nav-toggle { display: flex; }
       .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(5,8,24,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
       .nav-links.open { display: flex; }

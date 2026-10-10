@@ -93,7 +93,7 @@
     .faq-q::after { content: '+'; color: var(--primary); font-size: 1.2rem; line-height: 1; flex-shrink: 0; transition: transform 0.2s; }
     .faq-item[open] > .faq-q::after { transform: rotate(45deg); }
     .faq-q:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; border-radius: 4px; }
-    .faq-link { font-family: var(--mono); font-size: 0.8rem; color: var(--muted2); text-decoration: none; opacity: 0; transition: opacity 0.15s, color 0.15s; }
+    .faq-link { display: inline-flex; align-items: center; justify-content: center; min-width: 28px; min-height: 28px; font-family: var(--mono); font-size: 0.8rem; color: var(--muted2); text-decoration: none; opacity: 0; transition: opacity 0.15s, color 0.15s; }
     .faq-q:hover .faq-link, .faq-link:focus { opacity: 1; }
     .faq-link:hover { color: var(--primary); }
     .faq-link.copied::before { content: 'Link copied '; font-size: 0.65rem; color: var(--primary); }
@@ -110,14 +110,22 @@
     .footer-links a:hover { color: var(--primary); }
     footer p { font-size: 0.75rem; color: rgba(255,255,255,0.18); text-align: center; }
 
+    /* Touch targets & small-screen readability (mobile QA) */
+    .nav-toggle { padding: 10px 8px !important; margin-right: -8px; }
+    .footer-links a { display: inline-block; padding: 0.55rem 0.25rem; }
+
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 680px) {
       nav { padding: 0 1.25rem; }
+      .section-eyebrow, .eyebrow, .hero-label, .part-label, .faq-group-title, .jump a { font-size: 0.72rem !important; }
+      .hero-crystal-hint { font-size: 0.7rem !important; }
+      .footer-links { gap: 0.25rem 1rem; }
       .nav-toggle { display: flex; }
       .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(5,8,24,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
       .nav-links.open { display: flex; }
       main { padding: 3rem 1.25rem 5rem; }
+      .contact-email { max-width: 100%; font-size: 0.8rem; padding: 0.75rem 1rem; overflow-wrap: anywhere; }
       .glance-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
       .glance-card { padding: 0.8rem; }
       .glance-card p { font-size: 0.76rem; }

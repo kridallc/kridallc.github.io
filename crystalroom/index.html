@@ -340,8 +340,9 @@
     .cif-points li { font-size: 0.88rem; color: var(--muted); padding: 0.3rem 0; padding-left: 1.2rem; position: relative; }
     .cif-points li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-size: 0.75rem; top: 0.38rem; }
     .cif-visual { display: flex; justify-content: center; align-items: center; }
-    .cif-badge { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; text-align: center; box-shadow: 0 0 60px rgba(56,189,248,0.06); }
-    .cif-badge .free-label { font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800; color: var(--primary); line-height: 1; }
+    .cif-inner > * { min-width: 0; }
+    .cif-badge { max-width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; text-align: center; box-shadow: 0 0 60px rgba(56,189,248,0.06); }
+    .cif-badge .free-label { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 800; color: var(--primary); line-height: 1; }
     .cif-badge .price-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; margin-bottom: 1rem; }
     .cif-badge .one-time { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--violet); }
     .cif-badge .family { font-size: 0.75rem; color: var(--muted); margin-top: 0.4rem; }
@@ -361,6 +362,10 @@
     .footer-links a { font-size: 0.82rem; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--primary); }
     footer p { font-size: 0.75rem; color: rgba(255,255,255,0.18); text-align: center; }
+
+    /* Touch targets & small-screen readability (mobile QA) */
+    .nav-toggle { padding: 10px 8px !important; margin-right: -8px; }
+    .footer-links a { display: inline-block; padding: 0.55rem 0.25rem; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -467,11 +472,16 @@
 
     @media (max-width: 680px) {
       nav { padding: 0 1.25rem; }
+      .section-eyebrow, .eyebrow, .hero-label, .part-label, .faq-group-title, .jump a { font-size: 0.72rem !important; }
+      .hero-crystal-hint { font-size: 0.7rem !important; }
+      .footer-links { gap: 0.25rem 1rem; }
       .nav-toggle { display: flex; }
       .nav-links { display: none; position: absolute; top: 58px; left: 0; right: 0; background: rgba(5,8,24,0.98); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 1.25rem; gap: 0.25rem; }
       .nav-links.open { display: flex; }
       .nav-links a { padding: 0.6rem 0.75rem; font-size: 0.9rem; }
       .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem 2rem; gap: 2rem; }
+      .hero h1 { font-size: clamp(2rem, 10.5vw, 3.6rem); }
+      .section-title, .cif-inner h2, .cta-inner h2 { font-size: clamp(1.3rem, 7.4vw, 2rem); overflow-wrap: break-word; }
       .hero-visual { order: -1; }
       .hero-crystal-scene { max-width: 260px; }
       .hero-icon-badge { width: 44px; height: 44px; border-radius: 12px; }
