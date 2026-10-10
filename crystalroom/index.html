@@ -12,7 +12,13 @@
   <meta property="og:url" content="https://kridallc.com/crystalroom/" />
   <meta property="og:title" content="CrystalRoom — Step Inside Crystal Structures" />
   <meta property="og:description" content="CrystalRoom transforms real crystallographic data into interactive 3D structures you can explore, measure, and physically walk through on Apple Vision Pro." />
-  <meta property="og:image" content="https://kridallc.com/icon_CR.png" />
+  <meta property="og:image" content="https://kridallc.com/crystalroom/media/og-crystalroom.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="CrystalRoom on Apple Vision Pro: step inside a crystal lattice" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CrystalRoom — Step Inside Crystal Structures" />
+  <meta name="twitter:image" content="https://kridallc.com/crystalroom/media/og-crystalroom.jpg" />
   <link rel="stylesheet" href="/crystalroom/fonts/fonts.css" />
 
   <style>
@@ -107,7 +113,7 @@
     }
 
     .hero-btns {
-      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;
       opacity: 0; animation: fadeUp 0.5s ease 0.28s forwards;
     }
 
@@ -124,6 +130,11 @@
     .btn-primary:hover { background: var(--primary-dark); box-shadow: 0 8px 28px rgba(56,189,248,0.35); }
     .btn-primary svg { width: 14px; height: 14px; flex-shrink: 0; }
 
+    /* Official Apple badge: unmodified artwork, no animation, clear space >= 1/4 badge height */
+    .app-store-badge { display: inline-flex; align-items: center; padding: 0; margin: 0.25rem; line-height: 0; border-radius: 8px; }
+    .app-store-badge img { display: block; height: 48px; width: auto; }
+    .cta-btns .app-store-badge img { height: 56px; }
+    .app-store-badge:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: transparent; color: var(--primary);
@@ -135,6 +146,7 @@
       text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .btn-secondary:hover { border-color: var(--primary); background: var(--primary-light); }
+    button.btn-secondary { cursor: pointer; }
 
     /* HERO VISUAL */
     .hero-visual {
@@ -241,6 +253,11 @@
     }
     .feature-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
     .feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .feature-wide { grid-column: span 2; }
+    .feature-wide .cif-points { columns: 2; column-gap: 2rem; }
+    .feature-wide .cif-points li { break-inside: avoid; }
+    .feature-full { grid-column: 1 / -1; }
+    .feature-full p { max-width: 900px; }
 
     /* WHO IS IT FOR */
     .audience-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
@@ -461,6 +478,10 @@
       .hero-icon-badge .icon-3d-inner { border-radius: 12px; }
       .crystals-grid { grid-template-columns: 1fr 1fr; }
       .features-grid { grid-template-columns: 1fr; }
+      .feature-wide, .feature-full { grid-column: auto; }
+      .feature-wide .cif-points { columns: 1; }
+      .cif-badge { padding: 1.75rem 1.25rem; max-width: 100%; }
+      .cif-badge .free-label { font-size: clamp(1.6rem, 8vw, 2.2rem); }
       .audience-grid { grid-template-columns: 1fr; }
       .cif-inner { grid-template-columns: 1fr; gap: 2rem; }
       .gallery-section { padding: 3.5rem 1.25rem; }
@@ -485,7 +506,7 @@
          inline-flex and don't shrink to fit the viewport on their own —
          this was pushing them off-screen (hard-clipped by the page's
          overflow-x:hidden) instead of wrapping onto a second line. */
-      .btn-primary, .btn-secondary, .cif-free-pill, .cta-btns a {
+      .btn-primary, .btn-secondary, .cif-free-pill, .cta-btns a:not(.app-store-badge) {
         max-width: 100%;
         white-space: normal;
         text-align: center;
@@ -493,8 +514,31 @@
     }
   </style>
 
-  <script src="/crystalroom/vendor/three.r128.min.js"></script>
+  <script defer src="/crystalroom/vendor/three.r128.min.js"></script>
   <script src="/crystalroom/consent.js"></script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "CrystalRoom",
+ "operatingSystem": "visionOS",
+ "applicationCategory": "EducationalApplication",
+ "description": "CrystalRoom transforms real crystallographic data into interactive 3D structures you can explore, measure, and physically walk through on Apple Vision Pro.",
+ "url": "https://kridallc.com/crystalroom/",
+ "downloadUrl": "https://apps.apple.com/us/app/crystalroom/id6759402819",
+ "image": "https://kridallc.com/crystalroom/media/og-crystalroom.jpg",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "Krida LLC",
+  "url": "https://kridallc.com/"
+ }
+}
+  </script>
 </head>
 <body>
 
@@ -536,16 +580,13 @@
       <p class="hero-sub" style="margin-bottom:0.75rem;">Experience crystal structures at human scale — walk through atomic lattices, measure geometry, explore Miller planes, and learn from within.</p>
       <p class="hero-sub">CrystalRoom transforms real crystallographic data into interactive 3D structures you can explore, measure, and physically walk through on Apple Vision Pro.</p>
       <div class="hero-btns">
-        <a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" class="btn-primary magnetic">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Download on App Store
-        </a>
-        <a href="/crystalroom/support/" class="btn-secondary magnetic">Learn More →</a>
+        <a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" rel="noopener" class="app-store-badge"><img src="/crystalroom/media/app-store-badge.svg" alt="Download on the App Store" width="144" height="48" /></a>
+        <button type="button" class="btn-secondary magnetic" id="heroFilm" data-src="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/CrystalRoom_2-0_PromoVideo.mp4" data-poster="https://pub-118b616912b04e6cb9d46eb2e7055448.r2.dev/CrystalRoom_2-0_PromoVideo-poster.webp">▶ Watch the film</button>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-crystal-scene" id="heroCrystalScene">
-        <div class="hero-crystal-hint">Drag to rotate</div>
+      <div class="hero-crystal-scene" id="heroCrystalScene" role="img" aria-label="Rotating 3D model of the diamond crystal structure">
+        <div class="hero-crystal-hint">Diamond · <span style="text-transform:none">Fd-3m</span> · drag to rotate</div>
       </div>
       <div class="hero-icon-badge icon-3d">
         <div class="icon-3d-inner">
@@ -747,7 +788,7 @@
           <h3>Measure atomic geometry</h3>
           <p>Select two atoms to measure distance or three atoms to measure an angle. CrystalRoom draws guide lines directly on the structure so measurements stay spatially connected to the atoms you are studying, and keeps a history of your measurements.</p>
         </div>
-        <div class="feature-card reveal tilt-card">
+        <div class="feature-card feature-wide reveal tilt-card">
           <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
           <div class="feature-icon">🧱</div>
           <h3>See more of the structure</h3>
@@ -769,7 +810,7 @@
           <h3>Guided exploration</h3>
           <p>A 20-step guided tour of the windowed workspace, an interactive immersive Halite tour, and a generated “Tour This Structure” experience that adapts to the crystal you are viewing.</p>
         </div>
-        <div class="feature-card reveal tilt-card">
+        <div class="feature-card feature-full reveal tilt-card">
           <div class="feature-media"><video muted loop playsinline preload="none"></video></div>
           <div class="feature-icon">⚛️</div>
           <h3>Built on real crystallographic data</h3>
@@ -798,7 +839,7 @@
       <div class="audience-card reveal tilt-card">
         <span class="audience-icon">📖</span>
         <h3>Educators</h3>
-        <p>Teach atomic structure with a level of visual fidelity that textbooks and whiteboards can't match. The auto-spin demo mode was built for the classroom.</p>
+        <p>Teach atomic structure with a level of visual fidelity that textbooks and whiteboards can't match. Guided tours and auto-spin mode were built for the classroom.</p>
       </div>
     </div>
   </section>
@@ -808,9 +849,8 @@
   <section class="cif-section" id="cif">
     <div class="cif-inner">
       <div>
-        <div class="section-eyebrow">Custom Structures &amp; Institutions</div>
+        <div class="section-eyebrow">Work With Us</div>
         <h2>Custom structures and <span>institutions.</span></h2>
-        <div class="cif-free-pill">✦ Universities · Research Labs · Education</div>
         <p>Interested in custom structures or an institutional deployment of CrystalRoom? Contact us at <a href="mailto:support_crystalroom@kridallc.com" style="color:var(--primary);text-decoration:none;">support_crystalroom@kridallc.com</a>.</p>
         <a href="mailto:support_crystalroom@kridallc.com" class="btn-secondary magnetic" style="margin-top:1.5rem;display:inline-flex;">Contact Us →</a>
       </div>
@@ -831,10 +871,7 @@
       <h2>See matter <span>differently.</span></h2>
       <p>CrystalRoom is free to download on Apple Vision Pro. Explore eleven built-in crystal structures in full spatial 3D — no purchase required.</p>
       <div class="cta-btns">
-        <a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" class="btn-primary magnetic">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Get CrystalRoom on Vision Pro
-        </a>
+        <a href="https://apps.apple.com/us/app/crystalroom/id6759402819" target="_blank" rel="noopener" class="app-store-badge"><img src="/crystalroom/media/app-store-badge.svg" alt="Download on the App Store" width="168" height="56" /></a>
       </div>
     </div>
   </section>
@@ -870,7 +907,6 @@
   <script>
   (function () {
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var HAS_THREE = typeof THREE !== 'undefined';
 
     /* ===========================================================
        SHARED 3D CRYSTAL SCENE BUILDER
@@ -887,7 +923,7 @@
        crystallographic parameters.
     =========================================================== */
     function buildCrystalScene(container, atoms, bonds, options) {
-      if (!HAS_THREE || !container) return;
+      if (typeof THREE === 'undefined' || !container) return;
       options = options || {};
       var interactive = !!options.interactive;
       var idleSpeed = options.idleSpeed || 0.006;
@@ -1496,6 +1532,10 @@
         if (video.paused) { userPaused = false; maybePlay(); } else { userPaused = true; video.pause(); }
       });
       video.addEventListener('click', function () { toggle.click(); });
+      var heroFilm = document.getElementById('heroFilm');
+      if (heroFilm) heroFilm.addEventListener('click', function () {
+        window.openLightbox(heroFilm.getAttribute('data-src'), 'video', { poster: heroFilm.getAttribute('data-poster') });
+      });
       if (film) film.addEventListener('click', function () {
         window.openLightbox(film.getAttribute('data-src'), 'video', { poster: film.getAttribute('data-poster') });
       });
