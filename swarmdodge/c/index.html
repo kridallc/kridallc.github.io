@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swarm Dodge challenge — can you beat it?</title>
+  <meta name="description" content="A friend challenged you in Swarm Dodge. Get the free game and try to beat their endless score." />
+  <meta name="robots" content="noindex" />
+  <meta property="og:title" content="Swarm Dodge challenge — can you beat it?" />
+  <meta property="og:description" content="A friend challenged you. Free on iPhone and Android." />
+  <meta property="og:image" content="https://kridallc.com/og_image.png" />
+  <meta name="apple-itunes-app" content="app-id=6759713593" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07080f; --card: #111420; --primary: #f97316; --cyan: #22d3ee;
+      --text: #f0f2f8; --muted: #8892a4; --border: rgba(249,115,22,0.15);
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 50% 30%, #111a2e 0%, var(--bg) 60%);
+      color: var(--text); font-family: 'DM Sans', sans-serif; padding: 24px 16px;
+    }
+    .card {
+      width: 100%; max-width: 420px; text-align: center; background: var(--card);
+      border: 1px solid var(--border); border-radius: 20px; padding: 36px 24px 28px;
+    }
+    .icon { width: 84px; height: 84px; border-radius: 20px; }
+    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem;
+         letter-spacing: 0.2em; margin-top: 18px; }
+    h1 span { color: var(--primary); }
+    .label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+             letter-spacing: 0.18em; text-transform: uppercase; margin-top: 26px; }
+    .score { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 3.4rem;
+             margin: 6px 0 4px; }
+    .pitch { color: var(--muted); font-size: 0.95rem; line-height: 1.5; margin: 6px 0 26px; }
+    .buttons { display: flex; flex-direction: column; gap: 12px; }
+    .btn { display: block; padding: 14px; border-radius: 12px; text-decoration: none;
+           font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em;
+           text-transform: uppercase; font-weight: 500; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-secondary { border: 1px solid rgba(34,211,238,0.4); color: var(--cyan); }
+    .hint { color: var(--muted); font-size: 0.8rem; line-height: 1.5; margin-top: 22px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="icon" src="/icon_SD.png" alt="Swarm Dodge" />
+    <h1>SWARM <span>DODGE</span></h1>
+    <p class="label" id="label">You've been challenged</p>
+    <p class="score" id="score">Can you survive?</p>
+    <p class="pitch" id="pitch">Steer a dot, lure the swarm into the blades, and outlast them all. Free to play.</p>
+    <div class="buttons">
+      <a class="btn btn-primary" id="store" href="https://apps.apple.com/us/app/swarm-dodge/id6759713593">Get it on the App Store</a>
+      <a class="btn btn-secondary" id="other" href="https://play.google.com/store/apps/details?id=com.krida.swarm_dodge">Get it on Google Play</a>
+    </div>
+    <p class="hint">Already have Swarm Dodge? Open this link again from your messages and the challenge starts in the game.</p>
+  </main>
+  <script>
+    // The score rides in the link (?s=1879); nothing is sent anywhere.
+    var s = parseInt(new URLSearchParams(location.search).get('s'), 10);
+    if (s > 0 && s <= 10000000) {
+      document.getElementById('label').textContent = 'Beat my endless score';
+      document.getElementById('score').textContent = s.toLocaleString('en-US');
+      document.getElementById('pitch').textContent =
+        'A friend scored ' + s.toLocaleString('en-US') +
+        ' points in Swarm Dodge endless. Free to play — think you can beat it?';
+      document.title = 'Can you beat ' + s.toLocaleString('en-US') + ' in Swarm Dodge?';
+    }
+    // Put the visitor's own store first.
+    if (/android/i.test(navigator.userAgent)) {
+      var store = document.getElementById('store'), other = document.getElementById('other');
+      var href = store.href, text = store.textContent;
+      store.href = other.href; store.textContent = other.textContent;
+      other.href = href; other.textContent = text;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.krida.swarm_dodge",
+      "sha256_cert_fingerprints": [
+        "62:B3:DF:B9:7C:70:89:D4:A5:C3:F0:03:C6:EF:AB:E0:9F:A6:5C:C5:1D:72:60:6A:49:6B:7A:C1:F7:F3:EB:A9",
+        "28:31:57:F2:9F:34:B4:1A:82:5B:68:48:F8:07:12:C6:37:57:D7:89:00:AF:CF:8F:6C:CC:D0:D1:27:F0:4A:26"
+      ]
+    }
+  }
+]

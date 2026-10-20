@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["4D77W5HDAJ.com.krida.swarmDodge"],
+        "components": [
+          { "/": "/swarmdodge/c/*", "comment": "Swarm Dodge challenge links" },
+          { "/": "/swarmdodge/c", "comment": "Same, without the trailing slash" }
+        ]
+      }
+    ]
+  }
+}
