@@ -5,13 +5,13 @@
   <link rel="canonical" href="https://kridallc.com/swarmdodge/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swarm Dodge — Survive the Swarm</title>
-  <meta name="description" content="You are the prey. Survive homing enemies, spinning blades, electric fields, and crushing walls. 100 levels. Daily challenges. Global leaderboards." />
+  <meta name="description" content="You are the prey — until you turn the arena against them. Lure homing enemies into blades, electric fields, and pits. 100 three-star levels, Endless mode, Daily Challenge, missions, and leaderboards." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kridallc.com/swarmdodge/" />
   <meta property="og:title" content="Swarm Dodge — Survive the Swarm" />
-  <meta property="og:description" content="You are the prey. Drag your finger to move. Survive as long as you can." />
+  <meta property="og:description" content="You are the prey. Lure the swarm into the arena's hazards, score every kill, and survive as long as you can." />
   <meta property="og:image" content="https://kridallc.com/icon_SD.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -225,7 +225,7 @@
 
     /* SKINS SECTION */
     .skins-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
-    .skins-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .skins-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2.5rem; }
     .skin-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -236,6 +236,16 @@
     .skin-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
     .skin-name { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
     .skin-trail { font-size: 0.78rem; color: var(--muted); }
+    .skin-earn { display: inline-block; margin-top: 0.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary); background: var(--primary-light); border: 1px solid var(--border); border-radius: 100px; padding: 0.15rem 0.55rem; }
+    .ach-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .ach-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .ach-card { text-align: center; padding: 1rem 0.5rem; border: 1px solid var(--border); border-radius: 14px; background: var(--card); transition: border-color 0.2s; }
+    .ach-card:hover { border-color: var(--border-hover); }
+    .ach-card img { width: 72px; height: 72px; display: block; margin: 0 auto 0.6rem; border-radius: 50%; }
+    .ach-name { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+    .ach-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+    @media (max-width: 900px) { .skins-grid { grid-template-columns: repeat(3, 1fr); } .ach-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 600px) { .skins-grid { grid-template-columns: repeat(2, 1fr); } .ach-grid { grid-template-columns: repeat(3, 1fr); } .ach-section { padding: 3.5rem 1.25rem; } }
 
     /* REVIEWS */
     .reviews-section { background: var(--bg2); padding: 5rem 2rem; }
@@ -440,12 +450,12 @@
 
   <section class="hero">
     <div>
-      <div class="hero-label">🔥 iOS &amp; Android · Free to Play</div>
+      <div class="hero-label">🔥 Swarm Dodge 2 · iOS &amp; Android · Free to Play</div>
       <h1>
         <span class="prey">YOU ARE THE PREY.</span>
-        <span class="sub">Survive the swarm. How long can you last?</span>
+        <span class="sub">Until you turn the arena against them.</span>
       </h1>
-      <p class="hero-sub">Drag your finger to move. Homing enemies close in from every direction. Spinning blades, electric fields, crushing walls, and pits fill the arena. Simple to learn. Nearly impossible to master.</p>
+      <p class="hero-sub">Drag your finger to move. Homing enemies close in from every direction — lure them into spinning blades, electric fields, and bottomless pits. Every kill scores, with multipliers up to 5×. Simple to learn. Nearly impossible to master.</p>
       <div class="hero-btns">
         <a href="https://apps.apple.com/us/app/swarm-dodge/id6759713593" target="_blank" class="btn-primary magnetic">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -469,7 +479,7 @@
   </section>
 
   <div class="alert-strip">
-    <p>🎯 100 levels &nbsp;·&nbsp; <span>Daily challenge</span> &nbsp;·&nbsp; Global leaderboards &nbsp;·&nbsp; <span>Remove ads — one purchase, forever</span></p>
+    <p>🎯 100 three-star levels &nbsp;·&nbsp; <span>Endless mode</span> &nbsp;·&nbsp; Daily challenge &nbsp;·&nbsp; <span>Remove ads — one purchase, forever</span></p>
   </div>
 
   <!-- GALLERY: VIDEO + SCREENSHOTS -->
@@ -503,11 +513,11 @@
           </div>
           <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_2.png" alt="Swarm Dodge screenshot 2" />
-            <div class="slide-caption"><strong>Hazard-Filled Arena</strong> — Spinning blades, electric fields, crushing walls, and deadly pits.</div>
+            <div class="slide-caption"><strong>Hazard-Filled Arena</strong> — Lure enemies into spinning blades, electric fields, and deadly pits.</div>
           </div>
           <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_3.png" alt="Swarm Dodge screenshot 3" />
-            <div class="slide-caption"><strong>Dynamic Modifiers</strong> — Every 20 seconds, choose from three rule changes that shift the game entirely.</div>
+            <div class="slide-caption"><strong>Rule-Change Cards</strong> — Every 20 seconds, pick one of three cards that rewrite the rules.</div>
           </div>
           <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_4.png" alt="Swarm Dodge screenshot 4" />
@@ -519,7 +529,7 @@
           </div>
           <div class="gallery-slide slide-portrait">
             <img src="/swarmdodge/Screenshot_6.png" alt="Swarm Dodge screenshot 6" />
-            <div class="slide-caption"><strong>Collect Skins</strong> — Earn coins to unlock animal skins, each with a unique trail effect.</div>
+            <div class="slide-caption"><strong>Collect Skins</strong> — Eleven skins, each with its own trail and death effect.</div>
           </div>
 
         </div>
@@ -591,13 +601,13 @@
       </div>
       <div class="how-card reveal tilt-card">
         <div class="how-num">02</div>
-        <h3>Don't Get Hit</h3>
-        <p>Homing enemies track your position constantly. Spinning blades, electric fields, crushing walls, and deadly pits fill the arena. All at once.</p>
+        <h3>Turn the Arena</h3>
+        <p>Homing enemies track your position constantly. Lead them into spinning blades, electric fields, and deadly pits — every kill scores, with multipliers up to 5×.</p>
       </div>
       <div class="how-card reveal tilt-card">
         <div class="how-num">03</div>
         <h3>Adapt or Die</h3>
-        <p>Every 20 seconds the rules change. Three new modifiers shift the game — fog descends, blades accelerate, enemies clump, your speed doubles. Every run is different.</p>
+        <p>Every 20 seconds, pick one of three cards that rewrite the rules. Some fight for you — Shield, Pulse, Slow, Hunter. Others don't — fog descends, blades accelerate, enemies clump. Every run is different.</p>
       </div>
     </div>
   </section>
@@ -608,24 +618,39 @@
       <div class="section-title">Built for obsession.</div>
       <div class="features-grid">
         <div class="feature-card reveal tilt-card">
-          <div class="feature-icon">🎯</div>
-          <h3>100 Levels</h3>
-          <p>Work through 100 progressively challenging levels, each with unique hazard combinations. Early levels teach the arena. Later levels will break you.</p>
+          <div class="feature-icon">⭐</div>
+          <h3>100 Levels, Three Stars</h3>
+          <p>100 hand-tuned levels, each rated up to three stars. Stars unlock what comes next — replay any level to chase the ones you missed.</p>
+        </div>
+        <div class="feature-card reveal tilt-card">
+          <div class="feature-icon">♾️</div>
+          <h3>Endless Mode</h3>
+          <p>No finish line. Score points for every kill and survive as long as you can, with bonus coins at 1,000, 2,500, 5,000, and 10,000 points.</p>
         </div>
         <div class="feature-card reveal tilt-card">
           <div class="feature-icon">📅</div>
           <h3>Daily Challenge</h3>
-          <p>A new challenge every day, identical for every player worldwide. Compete for the top of the daily leaderboard, then come back tomorrow.</p>
+          <p>A new challenge every day, identical for every player worldwide. Share your run as a card, then come back tomorrow.</p>
+        </div>
+        <div class="feature-card reveal tilt-card">
+          <div class="feature-icon">🔥</div>
+          <h3>Daily Missions &amp; Streaks</h3>
+          <p>Three new missions every day that pay out coins, plus a streak that rewards you for coming back. An optional reminder keeps it alive.</p>
+        </div>
+        <div class="feature-card reveal tilt-card">
+          <div class="feature-icon">⚔️</div>
+          <h3>Challenge Your Friends</h3>
+          <p>Send a "beat my score" link straight to a friend. One tap and they're playing for your record.</p>
         </div>
         <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🏆</div>
-          <h3>Global Leaderboards</h3>
-          <p>Submit your best scores via Game Center on iOS. Prove you're the last one standing — against the whole world.</p>
+          <h3>Achievements &amp; Leaderboards</h3>
+          <p>12 achievements to earn and global leaderboards to climb. Prove you're the last one standing — against the whole world.</p>
         </div>
         <div class="feature-card reveal tilt-card">
-          <div class="feature-icon">🔄</div>
-          <h3>Dynamic Rule Changes</h3>
-          <p>Every 20 seconds, choose from three modifiers that fundamentally shift how the game plays. No two runs feel the same.</p>
+          <div class="feature-icon">🃏</div>
+          <h3>Rule-Change Cards</h3>
+          <p>Every 20 seconds, choose one of three cards. Some help, some hurt — the right pick at the right moment turns a run around.</p>
         </div>
         <div class="feature-card reveal tilt-card">
           <div class="feature-icon">🛡️</div>
@@ -643,28 +668,136 @@
 
   <section class="skins-section">
     <div class="section-eyebrow">Collect &amp; Customize</div>
-    <div class="section-title">Earn coins. Unlock skins.</div>
-    <p class="section-sub">Survive longer to earn more coins. Each animal skin comes with its own unique trail effect.</p>
+    <div class="section-title">Buy them. Earn them. Master them.</div>
+    <p class="section-sub">Eleven skins, each with its own trail and death effect. Four you buy with coins from kills, missions, and milestones. Four you earn by clearing milestone levels. Two you only get by how you play.</p>
     <div class="skins-grid">
       <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐇</span>
         <div class="skin-name">Rabbit</div>
-        <div class="skin-trail">Leaves dust puffs</div>
+        <div class="skin-trail">Dust trail</div>
+        <span class="skin-earn">500 coins</span>
       </div>
       <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐟</span>
         <div class="skin-name">Fish</div>
-        <div class="skin-trail">Blows bubbles</div>
+        <div class="skin-trail">Bubble trail</div>
+        <span class="skin-earn">900 coins</span>
       </div>
       <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐝</span>
         <div class="skin-name">Bee</div>
-        <div class="skin-trail">Sparks yellow</div>
+        <div class="skin-trail">Spark trail</div>
+        <span class="skin-earn">1,500 coins</span>
       </div>
       <div class="skin-card reveal tilt-card">
         <span class="skin-emoji">🐭</span>
         <div class="skin-name">Mouse</div>
-        <div class="skin-trail">Silent footprints</div>
+        <div class="skin-trail">Stealth trail</div>
+        <span class="skin-earn">2,500 coins</span>
+      </div>
+      <div class="skin-card reveal tilt-card">
+        <span class="skin-emoji">✨</span>
+        <div class="skin-name">Firefly</div>
+        <div class="skin-trail">Light pulse trail</div>
+        <span class="skin-earn">Clear level 25</span>
+      </div>
+      <div class="skin-card reveal tilt-card">
+        <span class="skin-emoji">🐸</span>
+        <div class="skin-name">Frog</div>
+        <div class="skin-trail">Ripple trail</div>
+        <span class="skin-earn">Clear level 50</span>
+      </div>
+      <div class="skin-card reveal tilt-card">
+        <span class="skin-emoji">🦌</span>
+        <div class="skin-name">Deer</div>
+        <div class="skin-trail">Dust kick trail</div>
+        <span class="skin-earn">Clear level 75</span>
+      </div>
+      <div class="skin-card reveal tilt-card">
+        <span class="skin-emoji">👑</span>
+        <div class="skin-name">Crown</div>
+        <div class="skin-trail">Gold sparkle trail</div>
+        <span class="skin-earn">Clear level 100</span>
+      </div>
+      <div class="skin-card reveal tilt-card">
+        <span class="skin-emoji">👻</span>
+        <div class="skin-name">Phantom</div>
+        <div class="skin-trail">Splitting wisp trail</div>
+        <span class="skin-earn">Reach a ×50 chain</span>
+      </div>
+      <div class="skin-card reveal tilt-card">
+        <span class="skin-emoji">🌟</span>
+        <div class="skin-name">Nova</div>
+        <div class="skin-trail">Starlight trail</div>
+        <span class="skin-earn">Earn 30 stars</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ach-section">
+    <div class="section-eyebrow">Achievements</div>
+    <div class="section-title">Twelve to earn.</div>
+    <p class="section-sub">From your first lured enemy to all 100 levels cleared — on Game Center and Google Play Games.</p>
+    <div class="ach-grid">
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/first_blood.webp" alt="First Blood achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">First Blood</div>
+        <div class="ach-desc">Lure your first enemy into a hazard</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/swarm_slayer.webp" alt="Swarm Slayer achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Swarm Slayer</div>
+        <div class="ach-desc">Kill 500 enemies</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/exterminator.webp" alt="Exterminator achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Exterminator</div>
+        <div class="ach-desc">Kill 5,000 enemies</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/chain_reaction.webp" alt="Chain Reaction achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Chain Reaction</div>
+        <div class="ach-desc">Reach a ×10 chain</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/massacre.webp" alt="Massacre achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Massacre</div>
+        <div class="ach-desc">Reach a ×25 chain</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/getting_started.webp" alt="Getting Started achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Getting Started</div>
+        <div class="ach-desc">Clear level 10</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/halfway_there.webp" alt="Halfway There achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Halfway There</div>
+        <div class="ach-desc">Clear level 50</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/swarm_master.webp" alt="Swarm Master achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Swarm Master</div>
+        <div class="ach-desc">Clear all 100 levels</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/star_collector.webp" alt="Star Collector achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Star Collector</div>
+        <div class="ach-desc">Earn 30 stars</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/perfectionist.webp" alt="Perfectionist achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Perfectionist</div>
+        <div class="ach-desc">3 stars on 10 levels</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/endless_survivor.webp" alt="Endless Survivor achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Endless Survivor</div>
+        <div class="ach-desc">Survive 60s in Endless</div>
+      </div>
+      <div class="ach-card reveal">
+        <img src="/swarmdodge/achievements/devoted.webp" alt="Devoted achievement badge" width="72" height="72" loading="lazy" />
+        <div class="ach-name">Devoted</div>
+        <div class="ach-desc">Reach a 7-day streak</div>
       </div>
     </div>
   </section>
