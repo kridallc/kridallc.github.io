@@ -93,6 +93,12 @@
       .nav-links.open { display: flex; }
       main { padding: 3rem 1.25rem 5rem; }
     }
+      /* touch targets + small-phone fixes (2026-11-19) */
+    @media (max-width: 600px), (pointer: coarse) {
+      .footer-links a { display: inline-block; padding: 0.6rem 0.25rem; }
+      .toc a { display: inline-block; padding: 0.45rem 0; }
+    }
+    @media (max-width: 600px) { .contact-email { display: inline-block; max-width: 100%; text-align: center; overflow-wrap: anywhere; } }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
@@ -104,7 +110,7 @@
       <img src="/icon_SD.png" alt="Swarm Dodge" class="nav-logo" />
       <span class="nav-brand">Swarm<span>Dodge</span></span>
     </a>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
@@ -126,7 +132,7 @@
     <div class="contact-card">
       <h2>Contact Krida LLC</h2>
       <p>Email is the fastest way to reach us. Include your device type, OS version, and a description of your issue for the quickest resolution.</p>
-      <a href="mailto:support_swarmdodge@kridallc.com" class="contact-email">✉️ &nbsp;support_swarmdodge@kridallc.com</a>
+      <a href="mailto:support_swarmdodge@kridallc.com" class="contact-email">✉️ &nbsp;support_swarmdodge@<wbr>kridallc.com</a>
     </div>
 
     <div class="faq-section">
@@ -134,7 +140,7 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I restore my Remove Ads purchase?</div>
-        <div class="faq-a">On iOS, go to the in-app store and tap "Restore Purchases" — your purchase is tied to your Apple ID and will restore on any device signed into the same account. On Android, reinstalling the app and signing in with the same Google account should automatically restore your purchase. If it doesn't, contact us at <a href="mailto:support_swarmdodge@kridallc.com">support_swarmdodge@kridallc.com</a>.</div>
+        <div class="faq-a">On iOS, go to the in-app store and tap "Restore Purchases" — your purchase is tied to your Apple ID and will restore on any device signed into the same account. On Android, reinstalling the app and signing in with the same Google account should automatically restore your purchase. If it doesn't, contact us at <a href="mailto:support_swarmdodge@kridallc.com">support_swarmdodge@<wbr>kridallc.com</a>.</div>
       </div>
 
       <div class="faq-item">
@@ -154,7 +160,7 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why aren't my scores appearing on the leaderboard?</div>
-        <div class="faq-a">Leaderboards are powered by Apple Game Center on iOS. Make sure you are signed into Game Center in your device Settings. If you are signed in and scores still aren't appearing, try restarting the app. If the issue persists, email us at <a href="mailto:support_swarmdodge@kridallc.com">support_swarmdodge@kridallc.com</a>.</div>
+        <div class="faq-a">Leaderboards are powered by Apple Game Center on iOS. Make sure you are signed into Game Center in your device Settings. If you are signed in and scores still aren't appearing, try restarting the app. If the issue persists, email us at <a href="mailto:support_swarmdodge@kridallc.com">support_swarmdodge@<wbr>kridallc.com</a>.</div>
       </div>
 
       <div class="faq-item">
@@ -164,7 +170,7 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I found a bug. How do I report it?</div>
-        <div class="faq-a">Please email <a href="mailto:support_swarmdodge@kridallc.com">support_swarmdodge@kridallc.com</a> with "Bug Report" in the subject line. Include your device model, OS version, app version (visible in Settings), and a description of what happened. Screenshots or screen recordings are very helpful.</div>
+        <div class="faq-a">Please email <a href="mailto:support_swarmdodge@kridallc.com">support_swarmdodge@<wbr>kridallc.com</a> with "Bug Report" in the subject line. Include your device model, OS version, app version (visible in Settings), and a description of what happened. Screenshots or screen recordings are very helpful.</div>
       </div>
 
       <div class="faq-item">

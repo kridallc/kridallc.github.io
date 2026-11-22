@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:04.600 --> 00:00:08.400
+In a project, go down to its tasks
+
+2
+00:00:08.400 --> 00:00:11.900
+Right-click the task
+
+3
+00:00:11.900 --> 00:00:15.500
+Edit Task…
+
+4
+00:00:15.500 --> 00:00:18.000
+Down to Depends On
+
+5
+00:00:18.000 --> 00:00:21.600
+Under Depends On, click Add
+
+6
+00:00:21.600 --> 00:00:25.100
+Pick the task it waits for
+
+7
+00:00:25.100 --> 00:00:28.600
+Save
+
+8
+00:00:28.600 --> 00:00:32.700
+Open the Gantt
+
+9
+00:00:32.700 --> 00:00:36.300
+Month fits both tasks on the screen
+
+10
+00:00:36.300 --> 00:00:45.800
+An arrow runs from the task it waits for

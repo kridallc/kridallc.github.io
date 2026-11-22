@@ -444,6 +444,12 @@
     @media (max-width: 360px) {
       .apps-grid { grid-template-columns: 1fr; }
     }
+      /* touch targets + small-phone fixes (2026-11-19) */
+    @media (pointer: coarse) {
+      .store-btn { min-height: 36px; font-size: 0.74rem; }
+      .store-btns { gap: 0.4rem; }
+      .footer a { display: inline-block; padding: 0.5rem 0.25rem; }
+    }
   </style>
 
   <!-- Google Analytics -->

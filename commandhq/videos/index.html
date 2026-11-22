@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommandHQ video guides: short how-to videos for iPhone, iPad and Mac</title>
+  <meta name="description" content="Short video guides for many CommandHQ features on iPhone, iPad and Mac. Search, or filter by device and feature area." />
+  <link rel="canonical" href="https://kridallc.com/commandhq/videos/" />
+  <link rel="icon" type="image/png" href="/commandhq/media/icon-180.png" />
+  <link rel="apple-touch-icon" href="/commandhq/media/icon-180.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kridallc.com/commandhq/videos/" />
+  <meta property="og:title" content="Video guides — CommandHQ" />
+  <meta property="og:description" content="Short video guides for many CommandHQ features on iPhone, iPad and Mac." />
+  <meta property="og:image" content="https://kridallc.com/commandhq/media/og-2026-11.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/commandhq/site.css?v=20261119c" />
+  <script src="/commandhq/consent.js?v=20261117a"></script>
+  <script src="/commandhq/store.js?v=20261117a"></script>
+  <style>
+    .vwrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem 6rem; }
+    /* Search in the header; one slim filter bar pinned under the nav */
+    .search { display: flex; align-items: center; gap: 0.65rem; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 0 0.6rem 0 1.1rem; max-width: 640px; margin: 1.8rem auto 0; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+    .search:focus-within { border-color: var(--amber); box-shadow: 0 0 0 4px var(--amber-light), 0 10px 30px rgba(0,0,0,0.12); }
+    .search svg { width: 20px; height: 20px; color: var(--muted); flex: none; }
+    .search input { flex: 1; background: none; border: 0; outline: 0; color: var(--text); font: inherit; font-size: 1.05rem; padding: 0.95rem 0; min-width: 0; }
+    .search input::-webkit-search-cancel-button { cursor: pointer; }
+    .controls { position: sticky; top: 60px; z-index: 50; background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); margin: 2.2rem 0 1.6rem; }
+    .cbar { max-width: 1180px; margin: 0 auto; padding: 0.6rem 2rem; display: flex; align-items: center; gap: 0.75rem; min-height: 56px; box-sizing: border-box; }
+    .seg { display: inline-flex; background: var(--card); border: 1px solid var(--border-soft); border-radius: 11px; padding: 3px; gap: 2px; }
+    .seg button { font: 500 0.84rem/1 var(--sans); color: var(--muted); background: none; border: 0; border-radius: 8px; padding: 0 0.85rem; min-height: 34px; cursor: pointer; white-space: nowrap; }
+    .seg button:hover { color: var(--text); }
+    .seg button[aria-pressed="true"] { color: var(--on-amber); background: linear-gradient(135deg, var(--btn-amber), var(--btn-gold)); font-weight: 600; }
+    .seg button:focus-visible, .asel select:focus-visible, .cbar-search:focus-visible { outline: 2px solid var(--btn-amber); outline-offset: 2px; }
+    .asel { position: relative; }
+    .asel select { appearance: none; -webkit-appearance: none; font: 500 0.84rem/1 var(--sans); color: var(--text); background: var(--card); border: 1px solid var(--border-soft); border-radius: 11px; padding: 0 2.2rem 0 0.95rem; min-height: 40px; cursor: pointer; max-width: 240px; }
+    .asel::after { content: ""; position: absolute; right: 0.95rem; top: 50%; width: 7px; height: 7px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+    .asel select.on { border-color: rgba(254,143,8,0.6); }
+    .cbar .count { margin: 0 0 0 auto; font-size: 0.82rem; color: var(--muted); white-space: nowrap; }
+    .cbar-search { flex: none; width: 40px; height: 40px; border-radius: 11px; border: 1px solid var(--border-soft); background: var(--card); color: var(--muted); display: grid; place-items: center; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s; }
+    .cbar-search.show { opacity: 1; pointer-events: auto; }
+    .cbar-search svg { width: 18px; height: 18px; }
+    .chips { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+    .chip { font: 500 0.82rem/1 var(--sans); color: var(--muted); background: transparent; border: 1px solid var(--border-soft); border-radius: 999px; padding: 0.55rem 0.95rem; cursor: pointer; min-height: 36px; transition: all .15s; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; }
+    .chip:hover { color: var(--text); border-color: var(--border); }
+    .chip:focus-visible, .dpill:focus-visible, .step:focus-visible, .vopen:focus-visible { outline: 2px solid var(--btn-amber); outline-offset: 2px; }
+    .chip[aria-pressed="true"] { color: var(--on-amber); background: linear-gradient(135deg, var(--btn-amber), var(--btn-gold)); border-color: transparent; font-weight: 600; }
+    .chip .n { opacity: 0.6; margin-left: 0.3rem; font-size: 0.75rem; }
+    .area-head { font-family: var(--display); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin: 2.2rem 0 1rem; }
+    .vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .vcard { background: var(--card); border: 1px solid var(--border-soft); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; }
+    .vcard:hover, .vcard:focus-within { border-color: var(--border); transform: translateY(-2px); }
+    .vopen { text-align: left; background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; display: block; width: 100%; border-radius: 14px 14px 0 0; }
+    .thumb { position: relative; aspect-ratio: 16/9; background: radial-gradient(ellipse at 30% 20%, rgba(254,143,8,0.18), transparent 60%), linear-gradient(160deg, var(--surface-1), #090D1F); }
+    .thumb video, .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb .play { position: absolute; inset: 0; display: grid; place-items: center; }
+    .thumb .play span { width: 46px; height: 46px; border-radius: 50%; background: var(--glass); border: 1px solid rgba(254,143,8,0.5); display: grid; place-items: center; color: var(--amber); font-size: 1rem; }
+    .dur { position: absolute; bottom: 0.6rem; right: 0.6rem; font-family: var(--sans); font-size: 0.68rem; background: rgba(0,0,0,0.65); color: #fff; padding: 0.2rem 0.45rem; border-radius: 5px; }
+    .vbody { padding: 0.9rem 1rem 0.4rem; }
+    .vbody h3 { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; margin-bottom: 0.35rem; }
+    .vbody p { font-size: 0.84rem; color: var(--muted); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .dpills { display: flex; gap: 0.35rem; padding: 0.5rem 1rem 1rem; margin-top: auto; }
+    .dpill { font: 500 0.72rem/1 var(--sans); color: var(--muted); background: transparent; border: 1px solid var(--border-soft); border-radius: 999px; padding: 0 0.7rem; min-height: 30px; cursor: pointer; }
+    .dpill:hover { color: var(--text); border-color: var(--border); }
+    .dpill[aria-current="true"] { color: var(--gold); border-color: rgba(254,143,8,0.55); }
+    .sec-sub { font-size: 0.88rem; color: var(--muted); margin: -0.6rem 0 1rem; }
+    .vcard .num { position: absolute; top: 0.6rem; left: 0.6rem; font-family: var(--sans); font-size: 0.7rem; font-weight: 600; background: var(--glass); color: var(--gold); padding: 0.3rem 0.5rem; border-radius: 6px; }
+    .paths { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+    .pathcard { text-align: left; background: var(--card); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.1rem 1.1rem 1rem; color: inherit; font: inherit; cursor: pointer; transition: border-color .2s, transform .2s; }
+    .pathcard:hover { border-color: var(--border); transform: translateY(-2px); }
+    .pathcard:focus-visible { outline: 2px solid var(--btn-amber); outline-offset: 2px; }
+    .pathcard .who { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); }
+    .pathcard h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.015em; margin: 0.35rem 0 0.35rem; }
+    .pathcard p { font-size: 0.84rem; color: var(--muted); line-height: 1.5; }
+    .pathcard .meta { font-family: var(--sans); font-size: 0.72rem; color: var(--muted2); margin-top: 0.7rem; }
+    .pathbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; margin: 0.6rem 0 0.2rem; }
+    .pathbar .area-head { margin: 0; }
+    .empty { text-align: center; color: var(--muted); padding: 4rem 1rem; }
+    /* Player */
+    body.modal-open { overflow: hidden; }
+    dialog.pdlg { margin: auto; padding: 0; border: 1px solid var(--border); border-radius: 18px; background: var(--surface-2); color: var(--text); width: min(1180px, calc(100vw - 2rem)); max-width: none; max-height: calc(100dvh - 2rem); overflow: hidden; }
+    dialog.pdlg::backdrop { background: rgba(3,5,14,0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .player { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(300px, 1fr); max-height: calc(100dvh - 2rem); }
+    .pmain { min-width: 0; background: #000; display: flex; flex-direction: column; justify-content: center; position: relative; }
+    .player video { width: 100%; background: #000; display: block; aspect-ratio: 16/9; }
+    .perr { position: absolute; inset: 0; display: grid; place-content: center; gap: 0.9rem; text-align: center; padding: 1.5rem; background: rgba(0,0,0,0.82); color: #fff; font-size: 0.95rem; }
+    .perr[hidden] { display: none; }
+    .perr .chip { color: #fff; border-color: rgba(255,255,255,0.4); justify-self: center; }
+    .pside { padding: 1.1rem 1.3rem 1.3rem; border-left: 1px solid var(--border-soft); overflow: auto; min-height: 0; }
+    .ptop { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; }
+    .pclose { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-soft); background: var(--ghost); color: var(--text); font-size: 1.25rem; line-height: 1; cursor: pointer; }
+    .pclose:focus-visible { outline: 2px solid var(--btn-amber); outline-offset: 2px; }
+    .pside h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; margin: 0.25rem 0 0.5rem; }
+    .pside p, .pside li { font-size: 0.88rem; color: var(--muted); }
+    .pside ul { margin: 0.4rem 0 0.6rem 1.2rem; }
+    .pside li { margin-bottom: 0.3rem; }
+    .pside h4 { font-size: 0.72rem; font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); font-weight: 500; margin: 1.1rem 0 0.4rem; }
+    .shead { display: flex; align-items: center; justify-content: space-between; margin: 1.1rem 0 0.4rem; }
+    .shead h4 { margin: 0; }
+    .stoggle { font: 500 0.75rem/1 var(--sans); color: var(--muted); background: none; border: 1px solid var(--border-soft); border-radius: 999px; padding: 0 0.7rem; min-height: 30px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .stoggle svg { width: 14px; height: 14px; }
+    .steps { list-style: none; margin: 0; padding: 0; max-height: min(42vh, 360px); overflow: auto; position: relative; border: 1px solid var(--border-soft); border-radius: 12px; }
+    .steps[hidden] { display: none; }
+    .steps li { margin: 0; }
+    .step { display: grid; grid-template-columns: 1.6rem 1fr auto; gap: 0.5rem; align-items: baseline; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--border-soft); padding: 0.6rem 0.8rem; color: var(--muted); font: inherit; font-size: 0.86rem; line-height: 1.4; cursor: pointer; }
+    .steps li:last-child .step { border-bottom: 0; }
+    .step:hover { color: var(--text); background: var(--ghost); }
+    .step .sn { font-family: var(--sans); font-size: 0.72rem; color: var(--muted2); }
+    .step .st { font-family: var(--sans); font-size: 0.72rem; color: var(--muted2); font-variant-numeric: tabular-nums; }
+    .step[aria-current="step"] { color: var(--text); background: var(--amber-light); box-shadow: inset 3px 0 0 var(--btn-amber); }
+    .step[aria-current="step"] .sn, .step[aria-current="step"] .st { color: var(--amber); }
+    .others { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .pactions { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1.1rem; }
+    .pcta { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; margin-top: 1.2rem; padding-top: 1.1rem; border-top: 1px solid var(--border-soft); }
+    .pcta .btn { min-height: 42px; padding: 0.6rem 1.1rem; font-size: 0.9rem; }
+    .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    @media (max-width: 860px) {
+      .player { grid-template-columns: 1fr; overflow: auto; }
+      .pside { border-left: 0; border-top: 1px solid var(--border-soft); overflow: visible; }
+      .steps { max-height: 34vh; }
+      .vwrap { padding: 0 1.25rem 5rem; }
+    }
+    @media (max-width: 640px) {
+      dialog.pdlg { width: 100vw; max-height: 100dvh; height: 100dvh; border-radius: 0; border: 0; margin: 0; }
+      .player { max-height: 100dvh; height: 100dvh; align-content: start; }
+      .pmain { position: sticky; top: 0; z-index: 2; }
+      .search { margin-top: 1.4rem; }
+      .controls { margin-top: 1.6rem; position: static; }
+      .cbar { padding: 0.5rem 1.25rem; gap: 0.5rem; flex-wrap: wrap; }
+      .seg button { padding: 0 0.6rem; font-size: 0.8rem; }
+      .asel { flex: 1; min-width: 0; } .asel select { width: 100%; max-width: none; }
+      .cbar .count { order: 5; width: 100%; margin: 0; font-size: 0.78rem; }
+      .cbar-search { display: none; }
+      .stoggle .tl { display: none; }
+    }
+  </style>
+  <!-- i18n:alternates --><!-- /i18n:alternates -->
+</head>
+<body>
+  <nav>
+    <a href="/commandhq/" class="nav-left" aria-label="CommandHQ home">
+      <img src="/commandhq/media/icon-180.png" alt="" class="nav-logo" />
+      <span class="nav-brand">Command<span>HQ</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="/commandhq/">Home</a></li>
+      <li><a href="/commandhq/features/">Features</a></li>
+      <li><a href="/commandhq/videos/" class="active" aria-current="page">Videos</a></li>
+      <li><a href="/commandhq/pricing/">Pricing</a></li>
+      <li><a href="/commandhq/support/">Support</a></li>
+      <li><a href="/commandhq/privacy/">Privacy</a></li>
+      <li><a href="/commandhq/pricing/" class="nav-cta" data-store data-live-label="Download"><span data-store-label>Coming soon</span></a></li>
+    </ul>
+  </nav>
+
+  <header class="page-intro">
+    <div class="eyebrow">Video guides</div>
+    <h1>See how to do it.</h1>
+    <p class="sub">Short videos recorded on iPhone, iPad and Mac, each with its steps beside it.</p>
+    <label class="search" id="searchbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search, e.g. “Gantt”" aria-label="Search video guides" autocomplete="off" enterkeyhint="search" />
+    </label>
+  </header>
+
+  <div class="controls">
+    <div class="cbar">
+      <div class="seg" id="devices" role="group" aria-label="Device"></div>
+      <div class="asel"><select id="areas" aria-label="Feature area"></select></div>
+      <p class="count" id="count" aria-live="polite">Loading videos…</p>
+      <button type="button" class="cbar-search" id="cbarSearch" aria-label="Search video guides" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    </div>
+  </div>
+
+  <main class="vwrap">
+    <div id="results"></div>
+  </main>
+
+  <dialog class="pdlg" id="modal" aria-labelledby="ptitle">
+    <div class="player">
+      <div class="pmain">
+        <video id="pvideo" controls playsinline preload="metadata"></video>
+        <div class="perr" id="perr" hidden role="alert">
+          <span>This video can’t play right now. Check your connection, then try again.</span>
+          <button class="chip" id="pretry" type="button">Try Again</button>
+        </div>
+      </div>
+      <div class="pside">
+        <div class="ptop">
+          <div>
+            <div class="eyebrow" id="pmeta"></div>
+            <h2 id="ptitle"></h2>
+          </div>
+          <button class="pclose" id="pclose" type="button" aria-label="Close video">×</button>
+        </div>
+        <p id="psummary"></p>
+        <div class="shead">
+          <h4 id="psteps-h">Steps</h4>
+          <button class="stoggle" id="stoggle" type="button" aria-controls="psteps" aria-expanded="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span class="tl">Hide steps</span>
+          </button>
+        </div>
+        <ol class="steps" id="psteps" aria-labelledby="psteps-h"></ol>
+        <div id="pothers-wrap"><h4>On other devices</h4><div class="others" id="pothers"></div></div>
+        <div id="pscen-wrap"><h4>When you’d use it</h4><ul id="pscen"></ul></div>
+        <div class="pactions">
+          <button class="chip" id="pcopy" type="button">Copy link to this video</button>
+          <button class="chip" id="pcopystep" type="button" hidden>Copy link to this step</button>
+          <button class="chip" id="pnext" type="button" hidden>Next video ›</button>
+          <a class="chip" id="ppage" href="/commandhq/videos/">Guide page</a>
+        </div>
+        <div class="pcta">
+          <a href="/commandhq/pricing/" class="btn btn-primary" data-store data-live-label="Get CommandHQ"><span data-store-label>Coming soon</span></a>
+          <a href="/commandhq/features/" class="chip">See all features</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="ftr">
+    <div class="ftr-inner">
+      <div class="ftr-top">
+        <div class="ftr-brand">
+          <a href="/commandhq/" class="ftr-logo" aria-label="CommandHQ home"><img src="/commandhq/media/icon-180.png" alt="" width="36" height="36" loading="lazy"><span>Command<b>HQ</b></span></a>
+          <p class="ftr-tag">See which of your deadlines will slip, and fix the plan while there’s still time.</p>
+          <p class="ftr-plat">iPhone · iPad · Mac · Apple Watch</p>
+          <div class="ftr-social" aria-label="CommandHQ on social media">
+          <a href="https://www.instagram.com/commandhqapp/" rel="me noopener" target="_blank" aria-label="CommandHQ on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+          <a href="https://x.com/commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+          <a href="https://www.threads.com/@commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on Threads" title="Threads"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z"/></svg></a>
+          <a href="https://bsky.app/profile/commandhqapp.bsky.social" rel="me noopener" target="_blank" aria-label="CommandHQ on Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg></a>
+          <a href="https://www.youtube.com/@commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://www.facebook.com/commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+          </div>
+        </div>
+        <div class="ftr-cols" role="navigation" aria-label="Footer">
+          <div class="ftr-col">
+            <h2>Product</h2>
+            <ul>
+              <li><a href="/commandhq/features/">Features</a></li>
+              <li><a href="/commandhq/videos/">Video guides</a></li>
+              <li><a href="/commandhq/pricing/">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="ftr-col">
+            <h2>Support</h2>
+            <ul>
+              <li><a href="/commandhq/support/">Help &amp; FAQ</a></li>
+              <li><a href="mailto:support_commandhq@kridallc.com">Contact us</a></li>
+              <li><a href="/commandhq/press/">Press kit</a></li>
+            </ul>
+          </div>
+          <div class="ftr-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/commandhq/privacy/">Privacy</a></li>
+              <li><a href="/commandhq/terms/">Terms</a></li>
+              <li><a href="#cookie-settings" data-consent-open>Cookie settings</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bottom">
+        <p>© 2026 <a href="/">Krida LLC</a> · Golden, Colorado</p>
+        <p class="ftr-tm">Apple, Mac, iPad, iPhone, Apple Watch, iCloud, Siri and Apple Intelligence are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+      </div>
+    </div>
+  <!-- i18n:switcher --><!-- /i18n:switcher -->
+</footer>
+
+  <script>
+  /* CommandHQ video guides.
+   * catalog.json is GENERATED by the app repo's scripts/videos_publish.py. Never hand-edit it.
+   *   { videoBase, videos: [{ id, device, title, area, duration, summary, scenarios[], steps[],
+   *     moments: [{t, text}], src: "<device>/en/<id>.mp4?v=…", poster?: "<device>/en/<id>.webp?v=…" }],
+   *     texts: { "<English caption>": { de, ja, … } } }
+   * The page groups clips by id: one card per guide, with a button per device.
+   * Thumbnails use poster when present; until then, the clip's frame at 6 s.
+   * Deep links: ?device=ipad&area=Tasks&q=gantt, ?v=mac/plan.replan opens a video, &t=39 starts it at 0:39.
+   */
+  var CATALOG_URL = '/commandhq/videos/catalog.json';
+  var DEVICES = [['all','All devices'],['iphone','iPhone'],['ipad','iPad'],['mac','Mac']];
+  var DEV_ORDER = ['iphone','ipad','mac'];
+  var AREA_ORDER = ['Getting Started','Projects','Tasks','Planning and Time','Portfolio and Views','Canvas','Live Notes','Library','AI'];
+  var DEV_NAME = { iphone: 'iPhone', ipad: 'iPad', mac: 'Mac' };
+  // Search: each typed word also matches these words (start of a word, any field).
+  var SYN = {
+    dependency: ['depend', 'wait for', 'predecessor', 'blocked'], dependencies: ['depend', 'wait for', 'predecessor'], depend: ['wait for'],
+    gantt: ['timeline', 'schedule'], timeline: ['gantt'], schedule: ['calendar', 'gantt', 'date'],
+    timer: ['time tracking', 'track time', 'stopwatch', 'autolog'], meeting: ['live notes', 'transcri', 'record'],
+    record: ['live notes', 'transcri'], transcribe: ['transcri', 'live notes'], notes: ['live notes', 'note'],
+    dark: ['appearance', 'theme'], theme: ['appearance'], color: ['colour', 'appearance'],
+    delete: ['remove', 'trash'], remove: ['delete'], export: ['share', 'pdf', 'print'], share: ['export'],
+    ai: ['assistant', 'briefing', 'ask', 'replan'], forecast: ['deadline', 'finish date'], deadline: ['due', 'forecast'],
+    mindmap: ['mind map'], whiteboard: ['canvas'], canvas: ['whiteboard', 'mind map'],
+    budget: ['cost'], milestone: ['milestones'], subtask: ['subtasks', 'checklist'], todo: ['task'],
+    widget: ['widgets', 'home screen'], watch: ['apple watch'], sync: ['icloud'], icloud: ['sync']
+  };
+
+  // Curated lists (guide ids from catalog.json). Ids missing from the catalog are skipped.
+  var START = ['start.tour', 'start.sample', 'tasks.add', 'plan.planWeek', 'projects.health'];
+  var PATHS = [
+    { id: 'lead', who: 'Leading a project', title: 'Run a big project', text: 'Templates, dependencies, the Gantt, milestones, and the forecast that warns you early.',
+      ids: ['projects.new', 'projects.templates', 'tasks.depend', 'views.gantt', 'views.milestones', 'views.plan', 'projects.health', 'projects.report'] },
+    { id: 'solo', who: 'Working on your own', title: 'Plan your own week', text: 'Capture everything, plan the day and the week, track time and review it on Friday.',
+      ids: ['tasks.inbox', 'tasks.quickAdd', 'tasks.today', 'plan.planDay', 'plan.planWeek', 'plan.timer', 'plan.timesheet', 'plan.weekly'] },
+    { id: 'portfolio', who: 'Many projects at once', title: 'Keep a portfolio in view', text: 'Every project and task in one place, grouped by goal, with a roadmap and a daily briefing.',
+      ids: ['views.portfolio', 'views.portfolioTasks', 'projects.goals', 'views.roadmap', 'views.displayFilter', 'projects.health', 'plan.briefing', 'projects.export'] },
+    { id: 'visual', who: 'Thinking visually', title: 'Plan on a canvas', text: 'Start from a template, add stickies and shapes, build a mind map, then present it.',
+      ids: ['canvas.new', 'canvas.templates', 'canvas.add', 'canvas.mindmap', 'canvas.navigate', 'canvas.present'] }
+  ];
+  function slug(id) { return id.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/\./g, '-').toLowerCase(); }
+
+  var STOP = ['a', 'an', 'the', 'to', 'my', 'of', 'on', 'in', 'for', 'and', 'or', 'how', 'do', 'i', 'can', 'with', 'from'];
+  var state = { device: 'all', area: 'all', q: '', path: '' }, guides = [], byKey = {}, base = '', texts = {}, order = [];
+  var pref = guessDevice();
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function fmt(t) { t = Math.floor(t || 0); return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0'); }
+  function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function guessDevice() {
+    var ua = navigator.userAgent || '';
+    if (/iPhone|iPod/.test(ua) || (/Android/.test(ua) && /Mobile/.test(ua))) return 'iphone';
+    if (/iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) || /Android/.test(ua)) return 'ipad';
+    if (window.matchMedia && matchMedia('(max-width: 600px)').matches) return 'iphone';
+    return 'mac';
+  }
+  // Captions in the page language once translated pages exist (texts from catalog.json); English otherwise.
+  var LANG = (document.documentElement.lang || 'en').toLowerCase();
+  function tr(s) {
+    if (LANG === 'en' || LANG.indexOf('en-') === 0) return s;
+    var m = texts[s]; if (!m) return s;
+    for (var k in m) if (k.toLowerCase() === LANG || k.toLowerCase().split('-')[0] === LANG) return m[k];
+    return s;
+  }
+
+  function load() {
+    fetch(CATALOG_URL, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (c) {
+        base = c.videoBase || ''; texts = c.texts || {};
+        if (!c.texts && !(LANG === 'en' || LANG.indexOf('en-') === 0)) fetch('/commandhq/videos/texts.json').then(function (r) { return r.ok ? r.json() : {}; }).then(function (t) { texts = t.texts || t; }).catch(function () {});
+        var map = {};
+        (c.videos || []).forEach(function (v) {
+          byKey[v.device + '/' + v.id] = v;
+          var g = map[v.id];
+          if (!g) { g = map[v.id] = { id: v.id, title: v.title, area: v.area, summary: v.summary, scenarios: v.scenarios || [], devs: {}, steps: [] }; guides.push(g); }
+          g.devs[v.device] = v;
+          (v.steps || []).forEach(function (s) { if (g.steps.indexOf(s) < 0) g.steps.push(s); });
+        });
+        guides.forEach(function (g) {
+          g._title = norm(g.title); g._sum = norm(g.summary);
+          g._rest = norm([g.area, g.steps.join(' '), g.scenarios.join(' ')].join(' '));
+        });
+        readURL(); buildChips(); render();
+        var p = new URLSearchParams(location.search), k = p.get('v');
+        if (k) openVideo(k, parseFloat(p.get('t')) || 0);
+      })
+      .catch(function () { $('count').textContent = 'The videos couldn’t load. Check your connection and reload the page.'; });
+  }
+
+  function devFor(g) {
+    if (state.device !== 'all' && g.devs[state.device]) return state.device;
+    if (g.devs[pref]) return pref;
+    for (var i = 0; i < DEV_ORDER.length; i++) if (g.devs[DEV_ORDER[i]]) return DEV_ORDER[i];
+  }
+  function areasPresent(list) {
+    var seen = {}; list.forEach(function (g) { seen[g.area] = 1; });
+    return Object.keys(seen).sort(function (a, b) { var ia = AREA_ORDER.indexOf(a), ib = AREA_ORDER.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b); });
+  }
+  function onDevice(g) { return state.device === 'all' || !!g.devs[state.device]; }
+  function buildChips() {
+    var d = $('devices'), a = $('areas'); d.innerHTML = ''; a.innerHTML = '';
+    DEVICES.forEach(function (x) {
+      var b = document.createElement('button'); b.type = 'button';
+      b.textContent = x[0] === 'all' ? 'All' : x[1];
+      b.setAttribute('aria-pressed', String(state.device === x[0]));
+      if (x[0] === 'all') b.setAttribute('aria-label', 'All devices');
+      b.addEventListener('click', function () { state.device = x[0]; state.path = ''; buildChips(); render(); writeURL(); });
+      d.appendChild(b);
+    });
+    var all = document.createElement('option'); all.value = 'all'; all.textContent = 'All areas'; a.appendChild(all);
+    areasPresent(guides).forEach(function (ar) {
+      var n = guides.filter(function (g) { return g.area === ar && onDevice(g); }).length; if (!n) return;
+      var o = document.createElement('option'); o.value = ar; o.textContent = ar + ' (' + n + ')'; a.appendChild(o);
+    });
+    if (![].some.call(a.options, function (o) { return o.value === state.area; })) state.area = 'all';
+    a.value = state.area; a.classList.toggle('on', state.area !== 'all');
+  }
+  $('areas').addEventListener('change', function (e) { state.area = e.target.value; state.path = ''; buildChips(); render(); writeURL(); });
+  function score(g, terms) {
+    var total = 0;
+    for (var i = 0; i < terms.length; i++) {
+      var forms = [terms[i]].concat(SYN[terms[i]] || []), best = 0;
+      forms.forEach(function (f) {
+        var re = new RegExp('(^|[^a-z0-9])' + reEsc(f));
+        var w = f === terms[i] ? 1 : 0.6;
+        if (re.test(g._title)) best = Math.max(best, 6 * w);
+        else if (re.test(g._sum)) best = Math.max(best, 3 * w);
+        else if (re.test(g._rest)) best = Math.max(best, 1 * w);
+      });
+      if (!best) return 0;
+      total += best;
+    }
+    return total;
+  }
+  function filtered() {
+    var terms = norm(state.q).split(/\s+/).filter(function (w) { return w && STOP.indexOf(w) < 0; });
+    var list = guides.filter(function (g) { return onDevice(g) && (state.area === 'all' || g.area === state.area); });
+    if (!terms.length) return { list: list, ranked: false };
+    list = list.map(function (g) { return { g: g, s: score(g, terms) }; }).filter(function (x) { return x.s > 0; })
+      .sort(function (a, b) { return b.s - a.s; }).map(function (x) { return x.g; });
+    return { list: list, ranked: true };
+  }
+  function thumbHTML(v) {
+    if (v.poster) return '<img loading="lazy" decoding="async" alt="" width="640" height="360" src="' + esc(base + v.poster) + '">';
+    return '<video muted playsinline preload="none" tabindex="-1" aria-hidden="true" data-src="' + esc(base + v.src) + '#t=6"></video>';
+  }
+  function card(g) {
+    var dev = devFor(g), v = g.devs[dev];
+    var el = document.createElement('article'); el.className = 'vcard';
+    var avail = DEV_ORDER.filter(function (d) { return g.devs[d]; });
+    el.innerHTML = '<button type="button" class="vopen" aria-label="' + esc(g.title + ', ' + DEV_NAME[dev] + ' video, ' + fmt(v.duration)) + '">' +
+      '<div class="thumb">' + thumbHTML(v) + '<div class="play" aria-hidden="true"><span>▶</span></div><span class="dur" aria-hidden="true">' + fmt(v.duration) + '</span></div>' +
+      '<div class="vbody"><h3>' + esc(g.title) + '</h3><p>' + esc(g.summary) + '</p></div></button>' +
+      '<div class="dpills" role="group" aria-label="' + esc(g.title) + ' on other devices">' + avail.map(function (d) {
+        return '<button type="button" class="dpill" data-d="' + d + '"' + (d === dev ? ' aria-current="true"' : '') + ' aria-label="Watch on ' + DEV_NAME[d] + '">' + DEV_NAME[d] + '</button>';
+      }).join('') + '</div>';
+    el.querySelector('.vopen').addEventListener('click', function () { openVideo(dev + '/' + g.id); });
+    el.querySelectorAll('.dpill').forEach(function (b) { b.addEventListener('click', function () { openVideo(b.dataset.d + '/' + g.id); }); });
+    return el;
+  }
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { var vd = e.target; vd.src = vd.dataset.src; vd.preload = 'metadata'; vd.onerror = function () { vd.remove(); }; io.unobserve(vd); } });
+  }, { rootMargin: '300px' }) : null;
+  function pathById(id) { if (id === 'start') return { id: 'start', title: 'Start here', ids: START }; for (var i = 0; i < PATHS.length; i++) if (PATHS[i].id === id) return PATHS[i]; }
+  function guideById(id) { for (var i = 0; i < guides.length; i++) if (guides[i].id === id) return guides[i]; }
+  function pathGuides(p) { return p.ids.map(guideById).filter(function (g) { return g && onDevice(g); }); }
+  function grid(list, numbered) {
+    var g = document.createElement('div'); g.className = 'vgrid';
+    list.forEach(function (x, i) { var c = card(x); if (numbered) { var n = document.createElement('span'); n.className = 'num'; n.setAttribute('aria-hidden', 'true'); n.textContent = (i + 1) + ' of ' + list.length; c.querySelector('.thumb').appendChild(n); } g.appendChild(c); });
+    return g;
+  }
+  function head(out, text, sub) {
+    var h = document.createElement('h2'); h.className = 'area-head'; h.textContent = text; out.appendChild(h);
+    if (sub) { var p = document.createElement('p'); p.className = 'sec-sub'; p.textContent = sub; out.appendChild(p); }
+  }
+  function setPath(id) { state.path = id; state.q = ''; $('q').value = ''; state.area = 'all'; buildChips(); render(); writeURL(); window.scrollTo({ top: $('results').getBoundingClientRect().top + scrollY - 140, behavior: 'smooth' }); }
+  function render() {
+    var out = $('results'); out.innerHTML = ''; order = [];
+    var P = state.path && pathById(state.path);
+    if (P) {
+      var pl = pathGuides(P);
+      $('count').textContent = pl.length + (pl.length === 1 ? ' guide' : ' guides') + ' in this path';
+      var bar = document.createElement('div'); bar.className = 'pathbar';
+      bar.innerHTML = '<h2 class="area-head">' + esc(P.title) + '</h2>';
+      var play = document.createElement('button'); play.type = 'button'; play.className = 'chip'; play.setAttribute('aria-pressed', 'true'); play.textContent = '▶ Play all';
+      play.onclick = function () { if (pl[0]) openVideo(devFor(pl[0]) + '/' + pl[0].id); };
+      var clr = document.createElement('button'); clr.type = 'button'; clr.className = 'chip'; clr.textContent = 'Show all videos';
+      clr.onclick = function () { setPath(''); };
+      bar.appendChild(play); bar.appendChild(clr); out.appendChild(bar);
+      if (P.text) { var sp = document.createElement('p'); sp.className = 'sec-sub'; sp.style.marginTop = '0.6rem'; sp.textContent = P.text + ' Each video plays the next one when it ends.'; out.appendChild(sp); }
+      out.appendChild(grid(pl, true)); order = pl.slice();
+      observe(out); return;
+    }
+    var r = filtered(), list = r.list;
+    var clips = list.reduce(function (n, g) { return n + (state.device === 'all' ? Object.keys(g.devs).length : 1); }, 0);
+    $('count').textContent = list.length + (list.length === 1 ? ' guide' : ' guides') + ' · ' + clips + (clips === 1 ? ' video' : ' videos') + (state.q ? ' for “' + state.q + '”' : '');
+    if (!list.length) { out.innerHTML = '<div class="empty">No videos match. Try another word or another device, or ask our <a href="/commandhq/support/">support team</a>.</div>'; return; }
+    if (r.ranked) { head(out, 'Best matches'); out.appendChild(grid(list)); order = list.slice(); observe(out); return; }
+    if (state.area === 'all') {
+      var st = pathGuides(pathById('start'));
+      if (st.length) {
+        var sbar = document.createElement('div'); sbar.className = 'pathbar';
+        sbar.innerHTML = '<h2 class="area-head">New to CommandHQ? Start here</h2>';
+        var sp2 = document.createElement('button'); sp2.type = 'button'; sp2.className = 'chip'; sp2.textContent = '▶ Play all ' + st.length;
+        sp2.onclick = function () { state.path = 'start'; writeURL(); render(); openVideo(devFor(st[0]) + '/' + st[0].id); };
+        sbar.appendChild(sp2); out.appendChild(sbar);
+        var s3 = document.createElement('p'); s3.className = 'sec-sub'; s3.style.marginTop = '0.6rem'; var ss = st.reduce(function (n, g) { return n + (g.devs[devFor(g)].duration || 0); }, 0); s3.textContent = st.length + ' short videos, about ' + Math.max(1, Math.round(ss / 60)) + ' minutes in all.'; out.appendChild(s3);
+        out.appendChild(grid(st, true));
+      }
+      head(out, 'Learning paths', 'Short playlists for the way you work. Each video plays the next one.');
+      var pw = document.createElement('div'); pw.className = 'paths';
+      PATHS.forEach(function (p) {
+        var pg = pathGuides(p); if (pg.length < 3) return;
+        var secs = pg.reduce(function (n, g) { return n + (g.devs[devFor(g)].duration || 0); }, 0);
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'pathcard';
+        b.innerHTML = '<div class="who">' + esc(p.who) + '</div><h3>' + esc(p.title) + '</h3><p>' + esc(p.text) + '</p><div class="meta">' + pg.length + ' videos · about ' + Math.max(1, Math.round(secs / 60)) + ' min</div>';
+        b.onclick = function () { setPath(p.id); };
+        pw.appendChild(b);
+      });
+      out.appendChild(pw);
+    }
+    var groups = {}; list.forEach(function (g) { (groups[g.area] = groups[g.area] || []).push(g); });
+    areasPresent(list).forEach(function (ar) { head(out, ar + ' · ' + groups[ar].length); out.appendChild(grid(groups[ar])); order = order.concat(groups[ar]); });
+    observe(out);
+  }
+  function observe(out) { out.querySelectorAll('video[data-src]').forEach(function (vd) { if (io) io.observe(vd); }); }
+
+  /* ---------- Player ---------- */
+  var dlg = $('modal'), vid = $('pvideo'), cur = null, curStep = -1, lastFocus = null, userScrolledAt = 0, pendingT = 0;
+  var stepsHidden = store('chq.steps.hidden') === '1';
+  function applyStepsToggle() {
+    $('psteps').hidden = stepsHidden;
+    $('stoggle').setAttribute('aria-expanded', String(!stepsHidden));
+    $('stoggle').querySelector('.tl').textContent = stepsHidden ? 'Show steps' : 'Hide steps';
+    $('stoggle').setAttribute('aria-label', stepsHidden ? 'Show steps' : 'Hide steps');
+  }
+  $('stoggle').onclick = function () { stepsHidden = !stepsHidden; store('chq.steps.hidden', stepsHidden ? '1' : '0'); applyStepsToggle(); };
+  applyStepsToggle();
+  ['wheel', 'touchmove', 'pointerdown', 'keydown'].forEach(function (ev) { $('psteps').addEventListener(ev, function () { userScrolledAt = Date.now(); }, { passive: true }); });
+
+  function moments(v) {
+    if (v.moments && v.moments.length) return v.moments;
+    return (v.steps || []).filter(function (s, i, a) { return a.indexOf(s) === i; }).map(function (s) { return { text: s }; });
+  }
+  function seek(t) {
+    $('perr').hidden = true;
+    var go = function () { try { vid.currentTime = Math.max(0, t - 0.3); } catch (e) {} var p = vid.play(); if (p && p.catch) p.catch(function () {}); };
+    if (vid.readyState >= 1) go(); else vid.addEventListener('loadedmetadata', go, { once: true });
+  }
+  function setCurrent(i) {
+    if (i === curStep) return;
+    curStep = i;
+    var rows = $('psteps').querySelectorAll('.step');
+    rows.forEach(function (r, j) { if (j === i) r.setAttribute('aria-current', 'step'); else r.removeAttribute('aria-current'); });
+    var m = cur && moments(cur)[i];
+    $('pcopystep').hidden = !(m && m.t != null);
+    if (m && m.t != null) $('pcopystep').textContent = 'Copy link to step ' + (i + 1);
+    var row = rows[i], box = $('psteps');
+    if (!row || stepsHidden || Date.now() - userScrolledAt < 2500) return;
+    var top = row.offsetTop, bottom = top + row.offsetHeight;
+    if (top < box.scrollTop || bottom > box.scrollTop + box.clientHeight) box.scrollTo({ top: Math.max(0, top - 8), behavior: 'smooth' });
+  }
+  vid.addEventListener('timeupdate', function () {
+    if (!cur) return;
+    var ms = moments(cur), t = vid.currentTime + 0.05, i = -1;
+    for (var j = 0; j < ms.length; j++) if (ms[j].t != null && ms[j].t <= t) i = j;
+    setCurrent(i);
+  });
+  vid.addEventListener('error', function () { if (dlg.open && vid.getAttribute('src')) $('perr').hidden = false; });
+  vid.addEventListener('playing', function () { $('perr').hidden = true; });
+  $('pretry').onclick = function () { var t = vid.currentTime || pendingT; $('perr').hidden = true; vid.src = base + cur.src; vid.load(); seek(t ? t + 0.3 : 0); };
+
+  function nextGuide() {
+    if (!cur) return null;
+    var i = -1; for (var j = 0; j < order.length; j++) if (order[j].id === cur.id) i = j;
+    return i >= 0 && i < order.length - 1 ? order[i + 1] : null;
+  }
+  function copy(btn, url, label) {
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function () {
+      btn.textContent = 'Link copied'; setTimeout(function () { btn.textContent = label(); }, 1500);
+    }).catch(function () { prompt('Link:', url); });
+  }
+  function link(v, t) { return location.origin + '/commandhq/videos/?v=' + encodeURIComponent(v.device + '/' + v.id).replace('%2F', '/') + (t ? '&t=' + Math.floor(t) : ''); }
+
+  function openVideo(key, t) {
+    var v = byKey[key]; if (!v) return;
+    var g = guides.filter(function (x) { return x.id === v.id; })[0];
+    if (!dlg.open) lastFocus = document.activeElement;
+    cur = v; curStep = -1; pendingT = t || 0;
+    $('pmeta').textContent = DEV_NAME[v.device] + ' · ' + v.area + ' · ' + fmt(v.duration);
+    $('ptitle').textContent = v.title; $('psummary').textContent = v.summary || '';
+    $('psteps').innerHTML = moments(v).map(function (m, i) {
+      var txt = tr(m.text);
+      return '<li><button type="button" class="step"' + (m.t == null ? ' disabled' : '') + ' data-i="' + i + '" aria-label="Step ' + (i + 1) + ': ' + esc(txt) + (m.t != null ? ', at ' + fmt(m.t) : '') + '">' +
+        '<span class="sn" aria-hidden="true">' + (i + 1) + '</span><span aria-hidden="true">' + esc(txt) + '</span><span class="st" aria-hidden="true">' + (m.t != null ? fmt(m.t) : '') + '</span></button></li>';
+    }).join('');
+    $('psteps').scrollTop = 0;
+    $('psteps').querySelectorAll('.step').forEach(function (b) { b.onclick = function () { var m = moments(cur)[+b.dataset.i]; if (m.t != null) { seek(m.t); setCurrent(+b.dataset.i); } }; });
+    $('pcopystep').hidden = true;
+    $('pscen').innerHTML = (v.scenarios || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
+    $('pscen-wrap').hidden = !(v.scenarios || []).length;
+    var others = DEV_ORDER.filter(function (d) { return d !== v.device && g.devs[d]; });
+    $('pothers').innerHTML = ''; $('pothers-wrap').hidden = !others.length;
+    others.forEach(function (d) { var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = DEV_NAME[d]; b.setAttribute('aria-label', 'Watch on ' + DEV_NAME[d]); b.onclick = function () { openVideo(d + '/' + v.id); }; $('pothers').appendChild(b); });
+    var nx = nextGuide(); $('pnext').hidden = !nx;
+    if (nx) { $('pnext').textContent = 'Next: ' + nx.title + ' ›'; $('pnext').onclick = function () { var d = nx.devs[v.device] ? v.device : devFor(nx); openVideo(d + '/' + nx.id); }; }
+    $('pcopy').onclick = function () { copy($('pcopy'), link(v), function () { return 'Copy link to this video'; }); };
+    $('pcopystep').onclick = function () { var m = moments(cur)[curStep]; if (m) copy($('pcopystep'), link(cur, m.t), function () { return 'Copy link to step ' + (curStep + 1); }); };
+    $('ppage').href = '/commandhq/videos/' + slug(v.id) + '/?d=' + v.device;
+    [].slice.call(vid.querySelectorAll('track')).forEach(function (t) { t.remove(); });
+    var tk = document.createElement('track'); tk.kind = 'chapters'; tk.srclang = 'en'; tk.label = 'Steps'; tk.src = '/commandhq/videos/' + slug(v.id) + '/' + v.device + '.vtt'; vid.appendChild(tk);
+    cancelAuto();
+    $('perr').hidden = true;
+    vid.src = base + v.src;
+    if (pendingT) seek(pendingT); else { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
+    if (!dlg.open) { dlg.showModal(); document.body.classList.add('modal-open'); }
+    $('pclose').focus();
+    var q = new URLSearchParams(location.search); q.set('v', v.device + '/' + v.id); if (pendingT) q.set('t', Math.floor(pendingT)); else q.delete('t');
+    history.replaceState(null, '', '?' + q.toString().replace(/%2F/g, '/'));
+  }
+  function closeVideo() { if (dlg.open) dlg.close(); }
+  dlg.addEventListener('close', function () {
+    cancelAuto(); cur = null; vid.pause(); vid.removeAttribute('src'); vid.load(); $('perr').hidden = true;
+    document.body.classList.remove('modal-open');
+    var p = new URLSearchParams(location.search); p.delete('v'); p.delete('t');
+    history.replaceState(null, '', p.toString() ? '?' + p.toString() : location.pathname);
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  });
+  $('pclose').onclick = closeVideo;
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) closeVideo(); });
+  var autoT = null, autoLabel = '';
+  function cancelAuto() { if (autoT) { clearInterval(autoT); autoT = null; $('pnext').textContent = autoLabel; } }
+  vid.addEventListener('ended', function () {
+    if ($('pnext').hidden) return;
+    $('pnext').focus();
+    if (!state.path) return;
+    var n = 4; autoLabel = $('pnext').textContent;
+    $('pnext').textContent = 'Next in ' + n + '… ' + autoLabel;
+    autoT = setInterval(function () { n--; if (n <= 0) { cancelAuto(); $('pnext').click(); } else $('pnext').textContent = 'Next in ' + n + '… ' + autoLabel; }, 1000);
+  });
+  ['play', 'seeking'].forEach(function (ev) { vid.addEventListener(ev, cancelAuto); });
+  dlg.addEventListener('pointerdown', function (e) { if (e.target !== $('pnext')) cancelAuto(); });
+  dlg.addEventListener('keydown', function (e) { if (e.key !== 'Enter' && e.key !== ' ') cancelAuto(); });
+
+  function readURL() {
+    var p = new URLSearchParams(location.search);
+    if (p.get('device') && DEV_NAME[p.get('device')]) state.device = p.get('device');
+    if (p.get('area')) state.area = p.get('area');
+    if (p.get('q')) { state.q = p.get('q'); $('q').value = state.q; }
+    if (p.get('path') && pathById(p.get('path'))) state.path = p.get('path');
+  }
+  function writeURL() {
+    var p = new URLSearchParams(location.search);
+    ['device', 'area'].forEach(function (k) { if (state[k] !== 'all') p.set(k, state[k]); else p.delete(k); });
+    if (state.q) p.set('q', state.q); else p.delete('q');
+    if (state.path) p.set('path', state.path); else p.delete('path');
+    history.replaceState(null, '', p.toString() ? '?' + p.toString().replace(/%2F/g, '/') : location.pathname);
+  }
+  var tmr; $('q').addEventListener('input', function (e) { clearTimeout(tmr); tmr = setTimeout(function () { state.q = e.target.value.trim(); if (state.q) state.path = ''; render(); writeURL(); }, 150); });
+  // The bar's search button appears once the header search has scrolled away; it brings the search back.
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { $('cbarSearch').classList.toggle('show', !es[0].isIntersecting); }, { rootMargin: '-60px 0px 0px 0px' }).observe($('searchbox'));
+  $('cbarSearch').addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(function () { $('q').focus({ preventScroll: true }); }, 350); });
+  load();
+  </script>
+</body>
+</html>

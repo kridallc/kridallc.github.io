@@ -89,6 +89,11 @@
       .toc { grid-template-columns: 1fr; }
       .summary-card { padding: 1.25rem; }
     }
+      /* touch targets + small-phone fixes (2026-11-19) */
+    @media (max-width: 600px), (pointer: coarse) {
+      .footer-links a { display: inline-block; padding: 0.6rem 0.25rem; }
+      .toc a { display: inline-block; padding: 0.45rem 0; }
+    }
   </style>
   <script src="/crystalroom/consent.js"></script>
 </head>
@@ -99,7 +104,7 @@
       <img src="/icon_CR.png" alt="CrystalRoom" class="nav-logo" />
       <span class="nav-brand">Crystal<span>Room</span></span>
     </a>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">

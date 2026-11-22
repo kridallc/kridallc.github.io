@@ -557,7 +557,7 @@
       <img src="/icon_CR.png" alt="CrystalRoom" class="nav-logo" />
       <span class="nav-brand">Crystal<span>Room</span></span>
     </a>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">

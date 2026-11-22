@@ -1,0 +1,5193 @@
+{
+ "00486ce8ef15": {
+  "en": "Siri and Shortcuts",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "00b2aad45d07": {
+  "en": "Some",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "00c842013878": {
+  "en": "Think it through.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "0154b992f49a": {
+  "en": "Record. Transcribe on-device.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "01d2aefd7f81": {
+  "en": "Rarely",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "036b18f02ab5": {
+  "en": "Portfolio",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "038b1535bf30": {
+  "en": "Your OpenAI key",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "05c8be3c5f8c": {
+  "en": "iPhone, iPhone Duo, iPad or Mac on its own. A few extras are Mac-only, such as Autolog and the menu-bar timer. Free with one project.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "07bb05035bfb": {
+  "en": "The roadmap in your pocket.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "092330c899ff": {
+  "en": "To-do apps track what's due. Team tools are built for many people and the cloud. CommandHQ is the project manager for one, on your own devices.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "0c78df4870cc": {
+  "en": "Switching takes minutes",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "0dea647a16fe": {
+  "en": "Why switch",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "10f0abc63d94": {
+  "en": "Live Notes: record a lecture, get an on-device transcript",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "11d1cc939e09": {
+  "en": "You approve every schedule change",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "1353b3a63b96": {
+  "en": "Client-ready status reports as PDF or HTML",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "14bb9c65e91f": {
+  "en": "A Daily Briefing of what's overdue and at risk",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "16855a5a554e": {
+  "en": "Forecasts",
+  "kind": "text",
+  "pages": [
+   "features/index.html",
+   "support/index.html"
+  ]
+ },
+ "17eab4422812": {
+  "en": "Every view on iPhone and iPad; a few extras, such as Autolog, are Mac-only",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "1cc667dcff66": {
+  "en": "Zotero, EndNote, BibTeX, RIS",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "1f372e8fe970": {
+  "en": "Mind map from text",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "2171c532a7ca": {
+  "en": "▶ Watch the video guides",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "226b625aa0e6": {
+  "en": "Thesis, grant and course milestones on a timeline (Gantt)",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "23657c50c0b1": {
+  "en": "Timesheets export to your invoicing tool; CommandHQ doesn’t send invoices itself",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "24be61285e09": {
+  "en": "Views",
+  "kind": "attr:aria-label",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "284dfbed929a": {
+  "en": "CommandHQ",
+  "kind": "text",
+  "pages": [
+   "features/index.html",
+   "press/index.html"
+  ]
+ },
+ "32e55ab54224": {
+  "en": "Milestone forecasts before a launch slips",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "343a8132091e": {
+  "en": "Mostly web",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "353603282b23": {
+  "en": "Calendar and Reminders",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "36b5d6c8d1ed": {
+  "en": "The whole app, on any one device.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "372fd70d1a25": {
+  "en": "Founders and indie makers",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "37630f8a361e": {
+  "en": "Widgets and Control Center",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "37c494b87931": {
+  "en": "⌃⌥⌘Space Quick Entry",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "380adc200f96": {
+  "en": "Who it's for",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "389554673091": {
+  "en": "Kanban",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "3ae146607d0b": {
+  "en": "Built for one person running many projects.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "3ffe7ececc7e": {
+  "en": "Voice Control on Mac, iPad and iPhone",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "403cd706d4f2": {
+  "en": "Moves things for you",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "410b93f140f5": {
+  "en": "Features — CommandHQ",
+  "kind": "attr:content",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "41b634ed2413": {
+  "en": "Add-ons",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "461db07185d5": {
+  "en": "One plan. <em>Every view.</em>",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "466fc492747c": {
+  "en": "Keep",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "4bd507319c55": {
+  "en": "Timers, billable rates and timesheets (CSV)",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "4c19a1d88c34": {
+  "en": "Lists, some boards",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "4d75d43c4b54": {
+  "en": "Ollama",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "4ef1f7cc82b4": {
+  "en": "CommandHQ Portfolio view on the Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "500e560bb49e": {
+  "en": "Works on just an iPhone or iPad",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "516647d6b0e6": {
+  "en": "CommandHQ Roadmap view on the Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "520e3478e671": {
+  "en": "Mind map on an iPad canvas",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "52a8d5d7d8ec": {
+  "en": "See pricing",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "53a4b7d77eb4": {
+  "en": "Spotlight and ⌘K",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "548673aa19f2": {
+  "en": "A Library for papers, with Zotero, EndNote, BibTeX and RIS import",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "564351ab36a8": {
+  "en": "Screens were audited on Mac, iPad and iPhone in several languages, not just in theory.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "5c3139e0fef5": {
+  "en": "Roadmap on iPhone",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "5c35de972f1f": {
+  "en": "Live Notes with transcripts",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "5c57dd48151c": {
+  "en": "Live Activity and Dynamic Island for the running timer",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "6141b3e368f0": {
+  "en": "Honest time",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "6184df892b73": {
+  "en": "Timesheets (CSV), billable rates",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "61a26ed06253": {
+  "en": "Your day, briefed.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "649721e5cb9a": {
+  "en": "Auto-schedulers",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "64c41fa35008": {
+  "en": "Think",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "64dc2594048c": {
+  "en": "Native on iPhone, iPad, Mac and Watch",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "6591c14d8fab": {
+  "en": "A home renovation, a side project and a job, side by side",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "6602bb43824e": {
+  "en": "Focus Mode",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "6893983dbcbb": {
+  "en": "CommandHQ Kanban view on the Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "6b1d299f83ea": {
+  "en": "To-do apps",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "6cd599d83909": {
+  "en": "Between a to-do list and a team tool.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7041e76a0f4b": {
+  "en": "CommandHQ on MacBook, iPad, iPhone, Apple Watch and iPhone Duo",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "71d4065e31df": {
+  "en": "Gantt chart on iPad",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7272d10dd9fa": {
+  "en": "Planned vs actual, every block.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "729af5c0179e": {
+  "en": "Equations, tables, media",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "73b72e2f28a2": {
+  "en": "And the rest",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "76f205bbd0e1": {
+  "en": "Autolog on the Mac",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "772a4bcb6564": {
+  "en": "Capture",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7824964e9255": {
+  "en": "Team project tools",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "78b3a4c77510": {
+  "en": "Recurring tasks and subtasks",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "78e2dd6ede60": {
+  "en": "General categories, not specific products; individual apps differ. Privacy labels as shown on App Store product pages, November 2026.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7944a0e384c1": {
+  "en": "CommandHQ Canvas view on the Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "797ffb7248f4": {
+  "en": "Weekly Digest: plan vs results",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "79a02a09e482": {
+  "en": "Home Screen, Lock Screen and desktop widgets",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7a72ee3ba6ee": {
+  "en": "Daily Briefing on iPhone",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7bb2ee60f7c8": {
+  "en": "Actual",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7d416dc685de": {
+  "en": "Timeline (Gantt), board (Kanban), list, calendar",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7ef0a6be908d": {
+  "en": "Planned vs actual hours, per project",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "7f2d802e91ff": {
+  "en": "Not a companion app",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "8119e7f319c9": {
+  "en": "Roadmap",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "82e9957c39d2": {
+  "en": "Plan My Day, Plan My Week",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "849bb725b856": {
+  "en": "iPad",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "88218394e4aa": {
+  "en": "Goals above projects",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "898fd58c054c": {
+  "en": "Your Anthropic key",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "8a67281a5971": {
+  "en": "App Store privacy label: “Data Not Collected”",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "8c44f5f5bcf4": {
+  "en": "Optional. Only when you ask.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "8e1a3f509564": {
+  "en": "Pay once option",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "8e9d1994997f": {
+  "en": "A Library for files and papers",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "8fde48f31aff": {
+  "en": "Subscription",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "93f3dc2feeff": {
+  "en": "Freelancers and consultants",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "940a179c898f": {
+  "en": "Varies",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "966f6f16d434": {
+  "en": "Snapshots and restore preview",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "97f2142cbb71": {
+  "en": "iPhone",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "98162a7cafbf": {
+  "en": "Gantt",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "9ae22553489b": {
+  "en": "Apple Pencil, ink to text",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "9b6058a9f608": {
+  "en": "Status reports, PDF and HTML",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "9cbe42aaff60": {
+  "en": "Planned",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "a017981162ae": {
+  "en": "Larger Text on iPhone and iPad",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "a22381dbbf16": {
+  "en": "Usable by everyone, tested on real devices.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "a3f80b87a456": {
+  "en": "Canvas",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "aa30c3b7512f": {
+  "en": "Apple Pencil on iPad: handwriting, ink to text, sketches",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ab72492f43bb": {
+  "en": "Quick capture from any app, and one search box for everything",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "adab5090ac6a": {
+  "en": "Calendar",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ae2f98a099fe": {
+  "en": "Plan",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "aec1e7800b40": {
+  "en": "CommandHQ features: forecasts, Gantt, Kanban, time tracking, canvases",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "b1c5a7af06ba": {
+  "en": "Track",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "b35bcde6d834": {
+  "en": "Portfolio with projects at risk and projected finish dates",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "b3f2d3bb8c5b": {
+  "en": "Capture from any app.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "b8673b4463a2": {
+  "en": "Infinite canvases (whiteboards)",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "bbd19e475da7": {
+  "en": "CommandHQ Dashboard view on the Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "be36d64172a1": {
+  "en": "Apple Intelligence",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "c05911ccaff3": {
+  "en": "Sufficient contrast",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "c1903337202d": {
+  "en": "No account, no in-app analytics, no server that receives your data.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "c2ed33cc6989": {
+  "en": "Everything else, at a glance.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "c357cfa3ea17": {
+  "en": "Then back to work.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "c6d2a3fc25ef": {
+  "en": "Never colour alone: status, priority and lateness also use shapes, words and symbols",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ce39351b5e11": {
+  "en": "Forecasts and replanning, Gantt, Kanban, calendar time-blocking, time tracking, canvases, Live Notes, a Library and optional AI, on iPhone, iPad and Mac, with an Apple Watch app for today's tasks and timers.",
+  "kind": "attr:content",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ce5b882b16c9": {
+  "en": "Share sheet from any app",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d246c6beb74a": {
+  "en": "Health, pace and what’s next, per project",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d3d51292b865": {
+  "en": "iPhone Duo: the layout opens up to the big inner screen, with every view at full size",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d4186385c209": {
+  "en": "Spot what’s slipping, early.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d5a988f1b560": {
+  "en": "Planned vs actual time, timesheets",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d660049bc1f2": {
+  "en": "Accessibility",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d76579289233": {
+  "en": "Timeline (Gantt), board (Kanban), roadmap and calendar on the same plan",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d77eac1ea2d9": {
+  "en": "Apple Watch: today's tasks, timers, complications, and a warning when a milestone this week is likely to be late",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d7f31637729e": {
+  "en": "Bring your tasks with you.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d8210aa54f1a": {
+  "en": "CommandHQ isn't a Mac app with a phone add-on. An iPhone or an iPad on its own runs the full app: timelines (Gantt), forecasts, canvases (whiteboards), Live Notes, timers, the Library and AI. CommandHQ is for Apple devices only: there’s no Windows, Android or web version. Add more devices whenever you like, and they stay in step through your own iCloud.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d87f47b47e4d": {
+  "en": "Dashboard",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d8cd7ffc08b3": {
+  "en": "If your week is several projects with real deadlines and nobody else keeping track, this is for you.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "d927756fd9db": {
+  "en": "Switch the view and the plan stays the same. Try it.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "dede3f8a9ed7": {
+  "en": "AI you choose",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e02a7729c7ac": {
+  "en": "No account; your plans never touch the developer’s servers",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e2d122032c25": {
+  "en": "CommandHQ Gantt view on the Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e48631f04a6f": {
+  "en": "iCloud sync, no account",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e5be1a3ef4f9": {
+  "en": "Built for one person today: no shared workspaces, comments or assignees. A team version may come later as a separate product; it wouldn’t be part of Lifetime or current Pro plans. <a href=\"/commandhq/pricing/#faq-teams\">More about teams →</a>",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e5d9e339071b": {
+  "en": "Canvases (whiteboards), mind maps and a reference Library",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e7fca2e4fd0d": {
+  "en": "data collected by the app.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e80ad73540a6": {
+  "en": "A real Gantt, on iPad.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e81e0112eb17": {
+  "en": "Anyone juggling several projects",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "e841db62ab3b": {
+  "en": "VoiceOver: controls named, the Gantt read row by row",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ea6c9768526b": {
+  "en": "Researchers and students",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "eaed56ec84ae": {
+  "en": "Daily Briefing",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ed03c68d9c34": {
+  "en": "Partly",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ed665502df5b": {
+  "en": "Canvas (whiteboard)",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "edb94cacb8db": {
+  "en": "Milestone forecasts from your real pace",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "edbc1b8c0813": {
+  "en": "Milestones and dependencies",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "f2d675af1d73": {
+  "en": "The whole app, on whatever you have.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "f3721af23d81": {
+  "en": "Every product on one roadmap and portfolio",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "f4c454404f8a": {
+  "en": "Dark Mode and Reduced Motion",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "f56ece0ed343": {
+  "en": "✓ Lifetime",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "f59732028aed": {
+  "en": "Timers on tasks and blocks",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "f6003404347e": {
+  "en": "Present mode, PDF decks",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "f8b972b4242b": {
+  "en": "Import a <strong style=\"color:var(--text)\">Todoist</strong> project export, <strong style=\"color:var(--text)\">Apple Reminders</strong>, any <strong style=\"color:var(--text)\">CSV</strong> or <strong style=\"color:var(--text)\">TaskPaper</strong> file, and references from <strong style=\"color:var(--text)\">Zotero, EndNote, BibTeX or RIS</strong>. Leaving is just as easy: your projects are plain files, with CSV, PDF and HTML export.",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "fbc02ea205a5": {
+  "en": "Per-seat subscription",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "fe3d1d3c2017": {
+  "en": "Templates and playbooks",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "ff93a350d2c1": {
+  "en": "Live Notes",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "fff334204acd": {
+  "en": "Menu-bar timer, Live Activity",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
+ "012161cf3072": {
+  "en": "Your plans stay yours.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "0181a3b1b97b": {
+  "en": "A Kanban board on iPhone",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "018514a3d58a": {
+  "en": "Timeline",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "025b7c34d81f": {
+  "en": "VoiceOver and Voice Control throughout",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "033cfafbeea8": {
+  "en": "CommandHQ on YouTube",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "056d1792ca41": {
+  "en": "Screenshot, full size",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "0737c22d3bfa": {
+  "en": "complete",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "08caa81e82f2": {
+  "en": "View this screenshot full size",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "09e0c12928cc": {
+  "en": "The Gantt on Mac, iPad and Duo, milestones on the iPhone roadmap, and today’s planned time on your Watch.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "0a8e28821211": {
+  "en": "→ Steady",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "0ca46c9b8878": {
+  "en": "CommandHQ checks every deadline against the pace you actually work, shows planned vs actual time, and helps you fix the plan while there’s still time. iPhone, iPad and Mac. No account; your plans never touch our servers.",
+  "kind": "attr:content",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "0f443e76af14": {
+  "en": "Press kit",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "0fe19eab28e9": {
+  "en": "Program locked",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "1116f5c2a43b": {
+  "en": "iPhone, iPad, Mac and Watch",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "120a4b06bc20": {
+  "en": "Replan My Week around the meetings you already have",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "130af20fe8ad": {
+  "en": "Enlarged project card: Event Plan, At Risk. Its next milestone, Program locked, is likely about 6 days late. Likely finish January 12. Pace 1.4 tasks a week, steady. 15 percent complete, 2 active, 1 overdue. Program locked due in 19 days.",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "13e97916504a": {
+  "en": "<span>Lifetime</span><strong data-offer>$69.99</strong><strong data-after-offer hidden>$99.99</strong><em data-offer>Through Dec 15, then $99.99</em><em data-after-offer hidden>Pay once</em>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "13f8acba01aa": {
+  "en": "Watch it work",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "16154c36835f": {
+  "en": "<span class=\"pc-dot sm\"></span>At Risk",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "16bc05688e68": {
+  "en": "The app collects nothing: no account, no server that receives your data",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "17b401703699": {
+  "en": "Made by Krida LLC, an independent studio in Golden, Colorado.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "1ad458cefd95": {
+  "en": "One task through CommandHQ",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "1c4b368b03d6": {
+  "en": "Real screenshots from the Mac app, in order. Click or tap one to see it full size. The same journey works on iPhone and iPad.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "1e83d2c4639e": {
+  "en": "The Software Release dashboard on a Mac: progress, pace and forecast",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "20410892170d": {
+  "en": "iPhone · iPad · Mac · Apple Watch",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "23807aa75e53": {
+  "en": "A Kanban board on a Mac: To Do, In Progress, Blocked and Done",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "25772b5aaade": {
+  "en": "Accessible",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "26c01e70a337": {
+  "en": "Footer",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "28fb457a9f24": {
+  "en": "The Daily Briefing on iPad, iPhone and Duo, the project dashboard on Mac, and today’s list on your Watch, with any late-milestone warning.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "2a979503813a": {
+  "en": "<strong>Launch offer:</strong><span class=\"ob-long\"> CommandHQ Pro</span> Lifetime <strong>$69.99</strong> until Dec 15<span class=\"ob-long\">, then $99.99</span>.<a href=\"/commandhq/pricing/\">See pricing →</a>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "2b3c5ee2650a": {
+  "en": "Apple Watch Timer: Accessibility pass running at 37:48, with a Pause button",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "2bb6b986c5d6": {
+  "en": "active",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "307c8ccc65c2": {
+  "en": "CommandHQ — Project planner that shows which deadlines will slip",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "35083e1ec1c5": {
+  "en": "Command<b>HQ</b>",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "35fd1fbf0dc4": {
+  "en": "CommandHQ home",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "3b17001f9241": {
+  "en": "Calendar week view: “Write the launch email” planned for Wednesday at 10:00 AM",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "3c2b9442ca4f": {
+  "en": "A Gantt chart on a Mac, with dependency arrows between tasks",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "3cac7013d0b1": {
+  "en": "Our promises",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "3deb75664ad5": {
+  "en": "Apple, Mac, iPad, iPhone, Apple Watch, iCloud, Siri and Apple Intelligence are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "3e761252b3ff": {
+  "en": "Likely finish Jan 12",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "3eb3fc4695f6": {
+  "en": "The milestone roadmap on iPhone",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "41aa6dfcc440": {
+  "en": "Event Plan",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "4515b6c7b780": {
+  "en": "Your day",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "479e352fed61": {
+  "en": "Watch the videos",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html"
+  ]
+ },
+ "4832e45812a2": {
+  "en": "Contact us",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "4de38d65c58e": {
+  "en": "1.4 tasks/wk",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "5585334a9cd0": {
+  "en": "Views across devices",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "558865a16feb": {
+  "en": "YouTube",
+  "kind": "attr:title",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "560bb1628524": {
+  "en": "Native on iPhone, iPad, Mac and Apple Watch",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "562f650aa419": {
+  "en": "<b>Timed</b><span>Press <strong>▶</strong> on the block, and the timer runs.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "56b71e89fb10": {
+  "en": "Videos",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "5721bbef40b2": {
+  "en": "Instagram",
+  "kind": "attr:title",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "57f5f5efbc59": {
+  "en": "Menu",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "59340ba580c0": {
+  "en": "Board and ideas",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "5ac4c629a2b2": {
+  "en": "Free to start. Pro when you're ready.",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "pricing/index.html"
+  ]
+ },
+ "5c3dc8fb7a9e": {
+  "en": "The real Portfolio on a Mac. Enlarged: Event Plan’s next milestone, “Program locked”, is likely about 6 days late, so you can act now. The finish date is an estimate, not a promise: each milestone also gets a likely range, which narrows as its deadline gets closer.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "5cf54bab0d89": {
+  "en": "<b>On the board</b><span>The same task is the first card in <strong>To Do</strong>. Click it for its details.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "5f7ffe12ce46": {
+  "en": "The project planner for people running several projects",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "5f8674090cc9": {
+  "en": "Apple Watch Today list: an overdue task, then the milestones due this week",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "60ab790e5aaf": {
+  "en": "One plan",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "64a0b8bb1469": {
+  "en": "Data Not Collected",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "67c1d5ae4dc2": {
+  "en": "When a date drifts",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "6be0d91c250f": {
+  "en": "CommandHQ on social media",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "70f103b3149a": {
+  "en": "Your real pace, tested on 30,000+ milestones from over a million tasks.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "70f8bb9a8a53": {
+  "en": "Home",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "7122876ade43": {
+  "en": "Time view: Planned vs Worked, planned 1 hour, worked 1 hour 20 minutes, 133% of plan",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "717968b2c776": {
+  "en": "<strong>Count the work.</strong> The open tasks due before each milestone.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "719417ff5f47": {
+  "en": "Which of your deadlines <em>will slip?</em>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "71ce65e2b28d": {
+  "en": "In the screenshot: a 1-hour block that passed unworked comes off the calendar, and its work returns as two 30-minute sessions in time you really have free.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "737090b1119d": {
+  "en": "Replan proposes a new schedule that fits your real free time. Every change is a checkbox: keep what you like, uncheck the rest. Nothing changes until you apply it, and one click undoes it.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "785145f1473a": {
+  "en": "Video guides",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "78bb6eb3e4e4": {
+  "en": "Replan milestone dates to match your real pace",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "79768dc84bd1": {
+  "en": "The Software Release dashboard: Task Breakdown shows 6 to do and 16 tasks in total",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "7a6db9cbd88e": {
+  "en": "A mind map on iPhone Duo",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "7d35e05903f3": {
+  "en": "The Replan My Week sheet: each proposed change listed with a checkbox, nothing written until you apply",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "7dc937c97d23": {
+  "en": "<strong>Data Not Collected.</strong>The app collects nothing: no account, no in-app analytics, and no server that receives your data. Projects live in plain files on your devices and, with sync on, in your own iCloud. Using it for work? Turn iCloud Sync off in Settings to keep everything on one device, and check your employer’s rules on where work data may live. <a href=\"/commandhq/privacy/\" class=\"tap\">Privacy policy →</a>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "7e1c35448956": {
+  "en": "The Daily Briefing on iPad: what is due today and what needs attention",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "822f7daf0554": {
+  "en": "<strong>Your data outlives the app.</strong>If CommandHQ ever stopped, you would keep every project and could read it anywhere.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "824c6b8d58a3": {
+  "en": "The Launch Week canvas: the sticky “Write the launch email” in Wednesday’s column, now marked as a task",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "82da67b21124": {
+  "en": "Facebook",
+  "kind": "attr:title",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "8431395b5208": {
+  "en": "CommandHQ on X",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "844f8b21c8ea": {
+  "en": "CommandHQ on Instagram",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "887df5511972": {
+  "en": "<b>The forecast moves</b><span>Mark it done: <strong>38% → 44%</strong> complete, pace 1.9 → 2.2 tasks a week, and the projected finish moves from Dec 30 to Dec 21.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "8a3a91d4bc1c": {
+  "en": "The whole app on iPhone, iPhone Duo, iPad and Mac, not a cut-down companion. On Apple Watch, today’s tasks, your timer and a warning when a milestone this week is likely to be late. Turn on iCloud Sync and the same projects stay in step everywhere.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "8a3f380ff948": {
+  "en": "On every Apple device you use.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "8a4d3cabd366": {
+  "en": "Fix the plan before it’s late.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "8b2466d0080a": {
+  "en": "<span>Pro</span><strong>$39.99<small>/year</small></strong><em>or $5.99/month · 14-day free trial</em>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "8e79fbbad693": {
+  "en": "How forecasts are calculated →",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "902c91d94e0f": {
+  "en": "Legal",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "95b0fbc95565": {
+  "en": "Next milestone: about 6 days late",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "9e0cba87adec": {
+  "en": "Cookie settings",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "9e14a8c91ed0": {
+  "en": "<strong>Lifetime means lifetime.</strong>Features are never taken away from Lifetime owners, for as long as we offer CommandHQ. A real person answers support email.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "9e54d6be8fec": {
+  "en": "See which of your deadlines will slip, and fix the plan while there’s still time.",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "9fa0a32ca4ae": {
+  "en": "Help &amp; FAQ",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "9fe04e03a011": {
+  "en": "<b>Planned vs actual</b><span>The Time view tells the truth: <strong>planned 1h, worked 1h 20m</strong>, 133% of plan.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "a0d9bbad5f93": {
+  "en": "Pricing",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "a19d16d4051f": {
+  "en": "The Daily Briefing on iPhone Duo, partly open",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "a55a275aa676": {
+  "en": "Terms",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "a733b809d2f1": {
+  "en": "Active",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "aa925f1bbb51": {
+  "en": "A mind map on an iPad canvas",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "ad1c5cee6c1e": {
+  "en": "<span>Free</span><strong>$0</strong><em>One project with forecasts, forever</em>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "b031473b7ef5": {
+  "en": "CommandHQ — Which of your deadlines will slip?",
+  "kind": "attr:content",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "b15fdbb4648e": {
+  "en": "Save a plan and compare it with what actually happened",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "b50aa3901a5b": {
+  "en": "The Daily Briefing on iPhone",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "b6fcfb42d220": {
+  "en": "A Gantt chart on iPad, week view",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "b7dc0615fda2": {
+  "en": "One purchase covers iPhone, iPad, Mac and Apple Watch. Subscriptions renew until cancelled; full terms on the pricing page. <a href=\"/commandhq/pricing/\" class=\"more-link\">Compare plans →</a>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "b848361be0ee": {
+  "en": "CommandHQ on Facebook",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "ba2fff4051e9": {
+  "en": "overdue",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "baa2c869b20e": {
+  "en": "12 languages",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html"
+  ]
+ },
+ "bb12e8aaaecc": {
+  "en": "Threads",
+  "kind": "attr:title",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "bb617e9fbb74": {
+  "en": "<strong>AI only when you ask.</strong>On-device, Ollama on your Mac, or your own key. Settings shows exactly what gets sent.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "bbfa773e5a63": {
+  "en": "Close",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "c084c76a744c": {
+  "en": "<b>An idea on a canvas</b><span>Put a sticky in Wednesday’s column and choose <strong>Make Task</strong>. It’s a real task now, due that day.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "c0ba02f1fd0e": {
+  "en": "<strong class=\"sub-lead\">Your plan has dates. Your work has a pace.</strong> CommandHQ checks one against the other, and helps you fix the plan while there’s still time.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "c3ebd52dbbea": {
+  "en": "CommandHQ on a Mac: the Portfolio, nine projects, each with its status and forecast",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "cccc5bcfe12f": {
+  "en": "<b>On the timeline</b><span>Make “Submit for review” depend on it, and the <strong>Gantt</strong> draws the arrow.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "ce05f9ed9952": {
+  "en": "Everything connected.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "cf01481f626d": {
+  "en": "Privacy",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "d0a1f3d510a1": {
+  "en": "Works on its own on iPhone, iPad or Mac, with Apple Watch alongside. No account, and your plans never touch our servers.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "d105ab606da8": {
+  "en": "Kanban: “Write the launch email” first in To Do, with its details open",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "d121140cfdad": {
+  "en": "Follow one task, “Write the launch email”, through CommandHQ. Nothing is copied from app to app: it’s the same task everywhere, so every view stays in step.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "d19c1b2e4dc8": {
+  "en": "One purchase",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "d247dd39aacc": {
+  "en": "<span aria-hidden=\"true\">▶</span> 30-second demo",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "d4049e4f0b55": {
+  "en": "The Software Release Gantt on iPhone Duo",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "d44e29ef4d8f": {
+  "en": "<strong>Measure your pace.</strong> How fast you actually finish tasks, and how much new work keeps arriving.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "d7250e5f16ac": {
+  "en": "CommandHQ on Threads",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "d7c8c4255813": {
+  "en": "<strong>Give a range, and how sure it is.</strong> A likely finish window for every milestone, narrow when the deadline is close and wider when it’s far off, with a confidence level that says when there isn’t enough history yet.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "daf16c03e6c3": {
+  "en": "Bluesky",
+  "kind": "attr:title",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "dd3b86d1ef21": {
+  "en": "Product",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "df60313fbf82": {
+  "en": "CommandHQ on Bluesky",
+  "kind": "attr:aria-label",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "e033a6c848ba": {
+  "en": "<b>Planned into your week</b><span>Drag it into the <strong>calendar</strong>: planned for 10:00 AM, beside your other work.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e0ec27c9565b": {
+  "en": "How forecasts work",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e0f725eb5192": {
+  "en": "Every Apple device",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e1d715662d3b": {
+  "en": "© 2026 <a href=\"/\">Krida LLC</a> · Golden, Colorado",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "e32bdb7e4588": {
+  "en": "Apple Watch Today: the planned 11:05 AM block marked Now, its timer running",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e4115be258db": {
+  "en": "Coming soon",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "e6e086d92986": {
+  "en": "Gantt, month view: an arrow from “Write the launch email” to “Submit for review”",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e85485902969": {
+  "en": "Software Release dashboard after: 7 of 16 tasks complete, 44%, 2.2 tasks a week, projected finish Dec 21",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e8f1e351ce86": {
+  "en": "Preview first, apply what you choose, undo anytime",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e978afbfd588": {
+  "en": "iPhone · iPad · Mac · Apple Watch · Free to start",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "e99cd9a3f293": {
+  "en": "Kanban on Mac and iPhone, mind maps on iPad and Duo, and a timer on your Watch.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "ee0ca048fd6e": {
+  "en": "The calendar block recording time, with its stop button",
+  "kind": "attr:alt",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "ef6dffaeb16e": {
+  "en": "<b>Counted in the project</b><span>The project dashboard picks it up at once: <strong>16 tasks, 6 to do</strong>.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "f0ed7f79f948": {
+  "en": "Deadline forecasts from the pace you actually work, planned vs actual time, and replans you approve. iPhone, iPad and Mac. No account; your plans never touch our servers.",
+  "kind": "attr:content",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "f32d5a3b17e6": {
+  "en": "Support",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "fa6ddb452b87": {
+  "en": "Command<span>HQ</span>",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "fc338f87a058": {
+  "en": "Features",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "018c3796c32e": {
+  "en": "Portfolio on Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "0d117e6842af": {
+  "en": "What makes it different",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "0f5d526ea48b": {
+  "en": "Device lineup<br /><small>WebP · 1920 px</small>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "12e21f532366": {
+  "en": "<strong>Private by design.</strong> Plain files in your own iCloud, “Data Not Collected”, AI only when you ask.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "20e338624cee": {
+  "en": "Assets",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "2a15bfdbc0e4": {
+  "en": "Krida LLC, an independent app studio in Golden, Colorado",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "2e8a57cc5c47": {
+  "en": "Website",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "390a38c49460": {
+  "en": "Fact sheet",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "396c2137a0b5": {
+  "en": "Short description",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "3e8248e32edf": {
+  "en": "Price",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "41a575086b73": {
+  "en": "Social",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "4863bd7c9077": {
+  "en": "Social card<br /><small>JPG · 1200×630</small>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "51d9934555e2": {
+  "en": "Audience",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "57f6dcedb17b": {
+  "en": "One line",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "599d0f424006": {
+  "en": "About the developer",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "59e093ecc3e3": {
+  "en": "@commandhqapp on <a href=\"https://www.instagram.com/commandhqapp/\" rel=\"noopener\">Instagram</a>, <a href=\"https://x.com/commandhqapp\" rel=\"noopener\">X</a>, <a href=\"https://www.threads.com/@commandhqapp\" rel=\"noopener\">Threads</a>, <a href=\"https://bsky.app/profile/commandhqapp.bsky.social\" rel=\"noopener\">Bluesky</a>, <a href=\"https://www.youtube.com/@commandhqapp\" rel=\"noopener\">YouTube</a>, <a href=\"https://www.facebook.com/commandhqapp\" rel=\"noopener\">Facebook</a>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "613fa61067ce": {
+  "en": "<strong>Forecasts and replans you approve.</strong> Dates come from actual pace, as a likely range with a stated confidence level. CommandHQ never quietly reschedules your week.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "6242a09d099d": {
+  "en": "Mac · Canvas<br /><small>WebP · 1600 px</small>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "6eb499f0cf08": {
+  "en": "Press Kit — CommandHQ",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "7290e0d7d65f": {
+  "en": "Mac · Portfolio<br /><small>WebP · 1600 px</small>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "778e9d6e1f34": {
+  "en": "CommandHQ manages the project, not just the list. It connects tasks, milestones, calendar time and canvases for people running several projects on their own. It forecasts milestone dates from your real pace, flags what is at risk, and lets you preview and approve a revised plan. Gantt, Kanban, Roadmap, time-blocking, timers and timesheets, mind-map canvases, Live Notes and optional AI (Apple Intelligence, Ollama, or your own key) are all there on an iPhone or iPad alone, or on a Mac, and sync through your own iCloud when you use several.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "78f61cefc234": {
+  "en": "kridallc.com/commandhq",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "7d1356a4749a": {
+  "en": "Everything you need to write about CommandHQ. Review codes for Lifetime are available: email <a href=\"mailto:support_commandhq@kridallc.com?subject=Press%20%E2%80%94%20CommandHQ\">support_commandhq@kridallc.com</a> with “Press” in the subject.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "7e08ebec5e6f": {
+  "en": "Developer",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "80eb7568bafd": {
+  "en": "Need full-resolution screenshots, App Store screenshots or the feature videos? Email us and we’ll send a download link the same day.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "84aff1e2996e": {
+  "en": "Krida LLC is an independent app studio in Golden, Colorado, founded in 2022. Krida makes apps for Apple Vision Pro, iPhone, iPad, Android and Mac. CommandHQ began as the tool built to run Krida’s own projects, and the studio still uses it every day.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "84ddb865d9e6": {
+  "en": "Free to use in coverage of CommandHQ. Please don’t alter the icon.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "8583be59f1f8": {
+  "en": "November 21, 2026 · worldwide",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "86f48c2c7b16": {
+  "en": "App icon<br /><small>PNG · 512 px</small>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "886572bac36a": {
+  "en": "<strong>CommandHQ tells you honestly whether your deadlines are realistic.</strong> It’s a native project manager for iPhone, iPad and Mac, with an Apple Watch app for today’s tasks, timers and late-milestone warnings, that checks deadlines against your real pace, shows planned vs actual time, and lets you approve a revised plan, with no account and no server that receives your data.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "947e2a74941b": {
+  "en": "CommandHQ press kit: fact sheet, descriptions, studio bio, app icon, device lineup, screenshots and videos. Review codes on request.",
+  "kind": "attr:content",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "95cb208a281d": {
+  "en": "<strong>Planned vs actual time.</strong> Calendar blocks, timers and an optional Mac Autolog show where the time really went.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "9cf0e4f11926": {
+  "en": "Free with one project. CommandHQ Pro: $5.99/month or $39.99/year (14-day free trial), or $99.99 Lifetime. Launch price: Lifetime $69.99 through December 15.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "9e80e8a099e9": {
+  "en": "Device lineup",
+  "kind": "attr:alt",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "a427eb108ee8": {
+  "en": "CommandHQ for press",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "abde7a74c8a0": {
+  "en": "App icon",
+  "kind": "attr:alt",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "ac1a42f5ac9a": {
+  "en": "Platforms",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "b0b9c8a32bd4": {
+  "en": "<strong>Complete on iPhone, iPad and Mac.</strong> Not a Mac app with a phone companion: an iPhone or iPad on its own runs the whole app (a few extras, such as Autolog, are Mac-only), and on iPhone Duo it opens up to the full inner screen.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "b4da12957612": {
+  "en": "CommandHQ Press Kit",
+  "kind": "attr:content",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "b9c4f81dbac5": {
+  "en": "One person running several projects. No team features today; a possible future team product would be sold separately.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "ba536999186b": {
+  "en": "Mac · Gantt<br /><small>WebP · 1600 px</small>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "ba8ee5aea527": {
+  "en": "Social card",
+  "kind": "attr:alt",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "cd561893bc80": {
+  "en": "Gantt on Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "d41f56cea1ac": {
+  "en": "Release",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "db07be184479": {
+  "en": "Languages",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "e40f266f1549": {
+  "en": "App Store label “Data Not Collected”. No account, no in-app analytics, no company server.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "f04162def57b": {
+  "en": "Krida LLC · <a href=\"mailto:support_commandhq@kridallc.com?subject=Press%20%E2%80%94%20CommandHQ\">support_commandhq@kridallc.com</a> · <a href=\"https://kridallc.com\">kridallc.com</a>",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "f45732be4213": {
+  "en": "iPhone, iPhone Duo and iPad (iOS / iPadOS 18+), Mac (macOS 15+), Apple Watch. Each device runs the full app on its own. Universal purchase.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "f69741a3ddf2": {
+  "en": "<strong>Deeply Apple-native.</strong> Liquid Glass, menu bar, Quick Entry, Shortcuts, widgets, Live Activities, Watch complications, Apple Pencil, and VoiceOver and Voice Control throughout.",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "f922ada84f0e": {
+  "en": "Canvas mind map on Mac",
+  "kind": "attr:alt",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "fc4a695f02a8": {
+  "en": "App",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "fd9cdaf65d27": {
+  "en": "12: English, German, French, Spanish, Italian, Dutch, Polish, Portuguese (Brazil), Japanese, Korean, Chinese (Simplified and Traditional)",
+  "kind": "text",
+  "pages": [
+   "press/index.html"
+  ]
+ },
+ "000cdf1a9f75": {
+  "en": "<strong>Launch offer:</strong> CommandHQ Pro Lifetime <strong>$69.99</strong> through December 15, then $99.99.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "03688ba6aa34": {
+  "en": "FAQ",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "0725aa83c45d": {
+  "en": "What exactly does Lifetime include?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "09f13b9c1472": {
+  "en": "How does the launch price work?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "135168683b9c": {
+  "en": "Not today. CommandHQ is built for one person running several projects: freelancers, founders, researchers, students and makers. It has no shared workspaces, comments or assignees. We may offer a team version in the future. If we do, it will be a separate product with its own pricing, and it won’t be included in Lifetime or the current Pro plans. Everything you have for one person, including every future Pro update, stays yours.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html",
+   "support/index.html"
+  ]
+ },
+ "160fddb29c5c": {
+  "en": "Family Sharing",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "20b6739f1050": {
+  "en": "Is it for teams?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "246baa3d9901": {
+  "en": "CommandHQ is free with one project. Pro is $5.99/month or $39.99/year with a 14-day free trial, or $99.99 Lifetime ($69.99 launch price through December 15).",
+  "kind": "attr:content",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "2502483d832c": {
+  "en": "Forever",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "27ef750764cf": {
+  "en": "Lifetime is $69.99 until December 15, 2026, then $99.99. Buy it during that time and it’s yours for good at $69.99.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "33c7133a4130": {
+  "en": "Gantt, saved plans and one-click Replan",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "3613e9d7afa6": {
+  "en": "Plans and purchases",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "3bd4c0842d10": {
+  "en": "Deadline forecasts",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "433944f09619": {
+  "en": "No subscription",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "46924e5eed42": {
+  "en": "Canvas editing, templates and playbooks",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "46b86a2c7ffd": {
+  "en": "Free gives you the Inbox plus one project with unlimited tasks, List, Kanban and calendar views, deadline forecasts, the Library, reminders, iCloud sync, widgets and the Apple Watch app; canvases can be viewed, presented and exported. Pro adds unlimited projects, Gantt and saved plans, one-click Replan, time reports and timesheets, canvas editing, the PDF reader, sources and citations, templates, status reports, PDF export and AI.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "46cafdeee20b": {
+  "en": "$39.99<small>/year</small>",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "48c7d5e652ab": {
+  "en": "Does one purchase cover all my devices?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "48d143d4ef96": {
+  "en": "Launch offer",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "4a63264c0cb3": {
+  "en": "Time reports, timesheets and billable rates",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "4f692d418538": {
+  "en": "Nothing is hidden or deleted. Your Inbox and one project you choose stay editable; the rest stay readable, searchable and exportable, and you can still complete tasks. Resubscribe and everything unlocks again.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "5079ca2d1b33": {
+  "en": "What happens if my subscription ends?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "55e94abbe7c8": {
+  "en": "Every Pro feature of CommandHQ, including future Pro updates, on all your devices, paid once. It doesn’t include separately sold apps, a possible future team product, services that would run on a server, or what third-party AI providers charge you.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "59dcaebf1bed": {
+  "en": "Pay once",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "65acc4e0d8ae": {
+  "en": "Everything in Free, plus:",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "6e1940cb7ba6": {
+  "en": "One purchase unlocks Pro on Mac, iPad, iPhone and Apple Watch. Family Sharing on Yearly and Lifetime.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "6e6319e66c0d": {
+  "en": "<s><span class=\"sr\">$99.99 from December 16; </span><span aria-hidden=\"true\">$99.99</span></s><span class=\"sr\">launch price until then: </span>$69.99",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "706bc64c2bba": {
+  "en": "Questions about buying",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "75f527181b57": {
+  "en": "Free",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "7a744cc4746a": {
+  "en": "Future Pro updates included",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "7b728a319647": {
+  "en": "All your Apple devices",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "82553a1bbc45": {
+  "en": "Canvases to view, present and export",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "85d3bf2f12e5": {
+  "en": "US prices; other countries are priced by the App Store. Subscriptions renew automatically unless cancelled at least 24 hours before the period ends; manage them in your Apple Account. Lifetime covers all Pro features of CommandHQ, including future Pro updates, for as long as we offer CommandHQ; it doesn't include separately sold apps or the cost of third-party AI providers. CommandHQ runs no AI service: AI needs Apple Intelligence, Ollama or your own key.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "8680a16f58ff": {
+  "en": "Reminders, iCloud sync and widgets",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "8ce14bd3d7ef": {
+  "en": "PDF reader, sources and citations",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "9e71824399ab": {
+  "en": "Pro Yearly <span class=\"save\">Save 44%</span>",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "a408e8c275c1": {
+  "en": "Pricing — CommandHQ",
+  "kind": "attr:content",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "afe198ecf1ee": {
+  "en": "Is there a free trial?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "b2e98696f37e": {
+  "en": "Apple Watch app",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "baae5562bb20": {
+  "en": "Yes. Pro or Lifetime unlocks CommandHQ on every iPhone, iPad, Mac and Apple Watch signed in to the same Apple Account. Family Sharing works on Yearly and Lifetime.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "bcfe66679070": {
+  "en": "Status reports, PDF export and AI",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "c5a6f830da47": {
+  "en": "Inbox plus one project, unlimited tasks",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "cbfd44d9c70c": {
+  "en": "Teams",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html",
+   "support/index.html"
+  ]
+ },
+ "d1ceee6572a6": {
+  "en": "What’s free, and what needs Pro?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "d5cc40d04eb6": {
+  "en": "Yes. Buy Lifetime in Settings › CommandHQ Pro, then cancel your subscription in your Apple Account so it doesn’t renew. Apple handles any refund request at reportaproblem.apple.com.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "da59c5ca4c1f": {
+  "en": "I subscribed. Can I switch to Lifetime?",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "da7f0d532018": {
+  "en": "More questions about devices, sync, privacy or recording? <a href=\"/commandhq/support/#faq\">See the Support FAQ →</a>",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "dcf777f0f5ab": {
+  "en": "Everything in Pro, paid once:",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "dd3308289792": {
+  "en": "or Pro Monthly at $5.99/month · one 14-day trial on either plan",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "e18fed2638ec": {
+  "en": "List, Kanban and calendar",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "e2c017512630": {
+  "en": "CommandHQ pricing: free plan, 14-day trial, Lifetime",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "e313ce9da146": {
+  "en": "Pay once. Launch price through December 15, then $99.99",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "f0e8ef83fed6": {
+  "en": "New subscribers get one 14-day free trial, on Monthly or Yearly. Lifetime has no trial, but the Free plan lets you use CommandHQ with one project for as long as you like before you decide.",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "f8fc7b3090fe": {
+  "en": "Lifetime <span class=\"save\" data-offer>Save 30%</span>",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "faca00975daf": {
+  "en": "The Library for files, PDFs and notes",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "fe488690362a": {
+  "en": "Unlimited projects",
+  "kind": "text",
+  "pages": [
+   "pricing/index.html"
+  ]
+ },
+ "0319eb119748": {
+  "en": "<strong>Link previews:</strong> when you add a link, the app may load that web page to show its title and image, as Safari would.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "04c04dfd51d0": {
+  "en": "Google Analytics",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "05010688b47a": {
+  "en": "Recordings, transcripts and anything else you capture about other people (meeting participants, clients, contacts in your tasks) stay on your devices and in your own iCloud. We never receive them. For that information you, not Krida, decide how it is collected and used. Under laws such as the GDPR that makes you its controller, and you are responsible for giving any notice and getting any consent the law requires before you record. See <a href=\"/commandhq/terms/#recording\">Recording and transcription</a> in our Terms.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "0c4d83327630": {
+  "en": "<strong>Autolog</strong> (Mac only, optional) notes which app is in front so it can suggest time sessions at the end of the day. It doesn’t record your screen, stays on your Mac, never syncs, and never writes anything without your confirmation.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "0f5a2604e43f": {
+  "en": "<strong>Camera and photos:</strong> to add pictures, scans and video to canvases and the Library.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "0ff191e5859e": {
+  "en": "Purchases are handled by Apple. We never see your payment details.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "101711ace0e4": {
+  "en": "We will post any change to this policy at this address with a new effective date. If we ever add a feature that changes what data leaves your device, we will update this policy and the App Store privacy label before that feature ships.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "103774fe61e8": {
+  "en": "<strong>Calendars and Reminders:</strong> to show meetings beside planned work, publish planned blocks to a “CommandHQ” calendar if you choose, and import or send reminders you pick. The app never deletes anything in Reminders.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "1247c1b7b6c7": {
+  "en": "Part 3 · Both",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "14e819e05c1b": {
+  "en": "Krida never uses your data to train AI models. We don’t receive it. If you use your own Anthropic or OpenAI key, that provider’s policy decides whether it may use your requests. Check its settings.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "15225baac48f": {
+  "en": "Definitions",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "157f695b4194": {
+  "en": "<strong>iCloud sync (optional):</strong> when you turn it on, the app stores and syncs your data in your own iCloud account using Apple’s iCloud services. Apple handles that data under <a href=\"https://www.apple.com/legal/privacy/\" target=\"_blank\" rel=\"noopener\">Apple’s Privacy Policy</a>. We have no access to it.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "19d630625b0f": {
+  "en": "<strong>Ollama:</strong> runs locally on your Mac, if you have installed it yourself. CommandHQ only connects to the Ollama server you run; Ollama and the models you choose are separate software with their own terms. If you point CommandHQ at an Ollama server on another computer, your requests go to that computer.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "1d6d97874a96": {
+  "en": "Where your data lives",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "1e7c111b9df5": {
+  "en": "<strong>Elsewhere:</strong> analytics is on by default and you can turn it off.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "2dc70aa7c68c": {
+  "en": "AI features run only when you open one or ask a question. You choose the provider:",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "2eedd9e84b91": {
+  "en": "If you record meetings, the recordings and transcripts stay with you, unless you choose to send a voice note to OpenAI for transcription (see AI features). Getting participants’ consent is your responsibility.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "3269999186a0": {
+  "en": "<strong>EU, EEA, UK and Switzerland:</strong> analytics runs only after you choose Accept.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "364a49d25bc0": {
+  "en": "AI features (optional)",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "3864a0dd0ea3": {
+  "en": "We do not sell or share personal information, or use it for targeted advertising, as those terms are defined in California’s CCPA/CPRA and similar US state laws. The App collects no personal information. For the Website, you can opt out of analytics at any time in <a href=\"#cookie-settings\" data-consent-open>Cookie settings</a>, and our site honors Global Privacy Control signals by treating them as an opt-out. You may ask us what Website data relates to you, or ask us to delete it, and we won’t treat you differently for asking.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "44c7683767ac": {
+  "en": "<strong>Backups and snapshots:</strong> stay on your device, or in a folder you choose.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "46badb7fd6ef": {
+  "en": "Privacy Policy for CommandHQ by Krida LLC. The app collects no data: no account, no analytics, and no server that receives your data. This website uses Google Analytics with consent in the EU and UK.",
+  "kind": "attr:content",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "4b4e7f08c56e": {
+  "en": "Krida LLC, Golden, Colorado, U.S.A. · <a href=\"mailto:support_commandhq@kridallc.com\">support_commandhq@kridallc.com</a>",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "4e1a08450184": {
+  "en": "The app asks for a permission only when you use the feature that needs it, and you can change it at any time in your device’s Settings:",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "54c7760020ae": {
+  "en": "Change your choice any time with <a href=\"#cookie-settings\" data-consent-open>Cookie settings</a>, linked in every page’s footer.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "54f3f30881b3": {
+  "en": "Krida is based in the United States. Website analytics may be processed in the US by Google under the safeguards described above. App data is stored on your devices and in iCloud under Apple’s terms, not by us.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "5c28a68396ec": {
+  "en": "Crash reports",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "5ca62d2a8961": {
+  "en": "The CommandHQ app <strong>collects no data</strong>. Its App Store privacy label is “Data Not Collected”.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "5cac9a1aa784": {
+  "en": "Network requests the app makes for you",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "5f5fdbf6928f": {
+  "en": "No AI training",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "62132e24da40": {
+  "en": "US state privacy rights",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "66462979486f": {
+  "en": "If you contact support, we receive your email address and whatever you send, such as screenshots. We use it only to reply, and delete it when it is no longer needed.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "669f372ede52": {
+  "en": "Privacy Policy — CommandHQ",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "6dada3ee70d2": {
+  "en": "When you email us",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "741f65881b06": {
+  "en": "CommandHQ · Developed by Krida LLC · Effective date: November 17, 2026",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "750cd8ecb086": {
+  "en": "<strong>Personal Data:</strong> information that identifies, or can identify, a person.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "77aa4a53675d": {
+  "en": "CommandHQ is rated 4+ and collects no data from anyone, of any age. The Website is not directed at children.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "77b8a5b0e37d": {
+  "en": "<strong>App:</strong> CommandHQ for macOS, iOS, iPadOS and watchOS, including its widgets and extensions.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "783cf44304ce": {
+  "en": "<strong>Apple Intelligence:</strong> runs on your device where available.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "7d19dcfce0b2": {
+  "en": "We don’t sell or share personal information.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "813647b094cd": {
+  "en": "Your projects are files on your devices and, if you turn on sync, in <strong>your own iCloud</strong>. We cannot see them.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "86555c12ea68": {
+  "en": "Last updated: November 17, 2026 · © 2026 Krida LLC",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "8766cde61214": {
+  "en": "Hosting",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "883b104d8eec": {
+  "en": "Nothing. CommandHQ does not transmit Personal Data or usage data to us or to any partner of ours. It contains no analytics, advertising or tracking SDKs, and there is no CommandHQ account. No server of ours receives your data; the only one, videos.kridallc.com, sends out guide videos (see below).",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "8aa57de6dce6": {
+  "en": "Changes",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "98c2f3a934e1": {
+  "en": "<strong>Website:</strong> kridallc.com/commandhq and its subpages.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "9a848662cbdb": {
+  "en": "<strong>Anthropic or OpenAI with your own API key:</strong> the text you ask about (for example a task list or a project description) is sent directly from your device to that provider. The first time, the app names the provider and asks your permission; nothing is sent until you allow it, and you can revoke it in AI Settings. If you choose OpenAI, a voice note can also be sent to OpenAI for transcription (on devices that can’t transcribe it themselves); the recording itself then goes to OpenAI, again only after you allow it. We are not involved, and that provider’s privacy policy applies. Your key is stored in your Keychain (synced with iCloud Keychain only if you turn that on). AI Settings in the app shows what gets sent.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "9ba84a398f4e": {
+  "en": "CommandHQ Pro is sold through Apple’s App Store. Apple processes payments and manages subscriptions. Your device checks your purchase with Apple directly; we receive no payment information. We receive only the aggregated sales reports Apple gives every developer.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "9c3518d35d1d": {
+  "en": "<strong>Microphone, audio capture and speech recognition:</strong> to record voice notes and meetings. Transcription runs on your device, unless you choose OpenAI transcription for a voice note.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "9d7acd70f227": {
+  "en": "Device permissions",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "9db108ba6b7f": {
+  "en": "Privacy Policy",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "a897de60ab05": {
+  "en": "<strong>Apple Watch:</strong> receives a snapshot from your iPhone and sends your actions back to it.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "adf4c6ba8513": {
+  "en": "AI is optional. On-device AI stays on your device. If you add your own Anthropic or OpenAI key, what you send goes to that provider, under their policy. We never train AI on your data.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "aff28c2cb319": {
+  "en": "This Website",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "b2aa0e43451d": {
+  "en": "We use Google Analytics 4 to see which pages are viewed, the approximate region of visitors and the type of device and browser, and how the site is used: which guide videos are played and how far, the words typed into the video search, which FAQ questions are opened, and which App Store and social media buttons are clicked. None of this identifies you, and none of it is linked to the app. It sets first-party cookies named",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "b37456c4530b": {
+  "en": "Contact",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "b97b7a442aaf": {
+  "en": "No account, no sign-in, no analytics, no advertising, and no server that receives your data. Our only server sends out the in-app guide videos.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "ba0ad029acfe": {
+  "en": "If you have chosen to share analytics with app developers in your device settings, Apple may give us anonymous crash reports and diagnostics. You control this in Settings › Privacy & Security › Analytics & Improvements.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "c32b5f9b1ec4": {
+  "en": "<strong>Look Up Details</strong> (Library, off by default): when you turn it on and agree, the app sends a DOI to Crossref (api.crossref.org) or an ISBN to Open Library (openlibrary.org) to fill in a reference’s details.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "c3b6b24b7faa": {
+  "en": "International users",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "c5d2c6733451": {
+  "en": "<strong>We, us, our:</strong> Krida LLC, Golden, Colorado, U.S.A. For the GDPR, Krida LLC is the data controller for this Website.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "c9ff734827ea": {
+  "en": "This website uses Google Analytics. In the EU and UK it runs only if you accept. Change your choice any time in <a href=\"#cookie-settings\" data-consent-open>Cookie settings</a>.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "cffa50a32cb1": {
+  "en": "and",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "d72a6e8f7e8b": {
+  "en": "<strong>AI providers</strong> you configured yourself (see above).",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "d748e86035c1": {
+  "en": "Your projects, tasks, canvases, Library items, recordings and settings are stored on your device. Project data is kept as plain, readable files.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "dcd4201ac466": {
+  "en": "Part 2 · This website",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "dcf75191c585": {
+  "en": "Children",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "e71102d544b3": {
+  "en": "Your rights",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "e879b05f2338": {
+  "en": "Google LLC processes this data for us and is certified under the EU–U.S. Data Privacy Framework and its UK and Swiss extensions. See <a href=\"https://policies.google.com/technologies/partner-sites\" target=\"_blank\" rel=\"noopener\">how Google uses information from sites that use its services</a>.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "eae62e6bdaea": {
+  "en": "What the app collects",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "ecc508c3136b": {
+  "en": "The Website is separate from the app: nothing you do in the app is linked to your visits here.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "ef13c3725360": {
+  "en": "The Website is hosted on GitHub Pages and may use Cloudflare to deliver media; the videos on the Website are delivered by Cloudflare from videos.kridallc.com. These providers receive your IP address and browser details to deliver pages and protect against abuse.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "f1c3bf1006e1": {
+  "en": "Because the app sends us no Personal Data, there is no app data for us to access, correct or delete; you control all of it on your devices and in your iCloud. For the Website, our legal basis for analytics in the EEA, UK and Switzerland is consent, which you can withdraw at any time. You may ask about or ask us to delete data from your visits by emailing us, and you may complain to your local data protection authority.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "f25ae89232b3": {
+  "en": "<strong>Guide videos:</strong> the in-app guide downloads a list of its videos from videos.kridallc.com at most once a day, and only when the guide shows an entry, never at launch. When you tap Watch, the app streams that one video from the same address; nothing loads before the tap. These requests carry no identifier, account, cookie or app data. The videos are stored with Cloudflare (R2), which only sends files out and receives nothing from the app. Like any web server, Cloudflare sees your IP address and the request in order to deliver the video; we don’t use the video server to identify anyone. Offline, or when no list is available, there is no Watch button.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "f60f0fb5285e": {
+  "en": ". We do not use analytics for advertising, and advertising storage is disabled.",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "f7dd5c66e939": {
+  "en": "The short version",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html",
+   "terms/index.html"
+  ]
+ },
+ "fc42d548f9f5": {
+  "en": "Part 1 · The CommandHQ app",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "fea01e96c926": {
+  "en": "Recordings and other people’s information",
+  "kind": "text",
+  "pages": [
+   "privacy/index.html"
+  ]
+ },
+ "0253dc1ce5ed": {
+  "en": "Report a bug or suggest a feature",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "09a428f93ec0": {
+  "en": "Requirements",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "0a422023657b": {
+  "en": "How do I turn on AI?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "10575719e318": {
+  "en": "How are forecasts calculated?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "1233efb584c1": {
+  "en": "Why can’t I see my meetings?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "13e5b1585ac0": {
+  "en": "Low Power Mode and poor connections can delay iCloud. If it is still stuck after a few minutes, email us with both devices’ versions.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "17cdf6cc122a": {
+  "en": "What’s the fastest way to learn the app?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "1b9ee8253327": {
+  "en": "On your device, using Apple’s speech recognition, in the languages your device supports. Nothing is sent to us. The one exception is your choice: if you choose OpenAI as your AI and a device can’t transcribe a voice note itself, CommandHQ can send that recording to OpenAI, only after asking your permission.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "22aa25317793": {
+  "en": "Open Settings › AI and pick a provider: Apple Intelligence (on supported devices, no setup), Ollama (you install Ollama from ollama.com and download a model yourself; CommandHQ only connects to it, and each model’s license is yours to follow), or Anthropic or OpenAI with your own API key. AI features are part of Pro.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "231f3a1855db": {
+  "en": "No. CommandHQ is complete on an iPhone (including iPhone Duo, folded or open) or an iPad on its own, and on a Mac. Apple Watch works with the iPhone app. A few things only make sense on a Mac and live there: Autolog, local AI with Ollama, recording both sides of a call, the menu-bar timer and the ⌃⌥⌘Space hotkey.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "240000ad7cfa": {
+  "en": "We usually reply within one business day. Include your device, OS version, the CommandHQ version and, if you can, a screenshot. Please don’t send project files unless we ask.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "249b8c74b145": {
+  "en": "Is there a Windows, Android or web version?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "29d4975cebde": {
+  "en": "Does CommandHQ charge for AI or see my prompts?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "32e74c08b541": {
+  "en": "CommandHQ keeps automatic snapshots and can also write backups to a folder you choose (Backup in Settings). Restore shows a preview first and keeps a safety copy of your current data, labelled with the date, before it changes anything.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "3d30ab4aef60": {
+  "en": "support_commandhq@<wbr>kridallc.com",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "40567a5d8415": {
+  "en": "Questions, answered",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "46e081fb5c69": {
+  "en": "No. There is no CommandHQ account or company server. Your projects live in plain files and sync through your own iCloud.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "47e4dd6d9dd2": {
+  "en": "Yes. iCloud Sync is a switch in Settings on each device. With it off, your projects stay only on that device; you can still back up to a folder you choose. If you use CommandHQ for work, check your employer’s rules on where work data may be stored.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "490b82b05fbf": {
+  "en": "How do I sync between Mac, iPhone and iPad?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "4c00cacf3311": {
+  "en": "Short videos show how to use CommandHQ on iPhone, iPad and Mac. Search for what you want to do, or filter by device. We’re adding new videos for each device as they’re ready, so check back if the one you need isn’t there yet.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "4de7bd54ec6d": {
+  "en": "Questions about plans, trials or Lifetime?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "54885aa25b6f": {
+  "en": "No questions match. <a href=\"mailto:support_commandhq@kridallc.com\">Email us</a> and we’ll help.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "54ab7228c54c": {
+  "en": "Yes. Your projects are files on your device, so you can plan, track time and take notes with no connection. Changes sync when you’re back online. AI from Anthropic or OpenAI needs a connection; on-device Apple Intelligence doesn’t.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "551efde3361b": {
+  "en": "<strong>Apple Watch</strong>Installed with the iPhone app",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "560040c54a3b": {
+  "en": "AI",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "582847e0b07e": {
+  "en": "Can I see my Google or Outlook calendar?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "5b23de6d658a": {
+  "en": "<strong>Languages</strong>English, German, French, Spanish, Italian, Dutch, Polish, Portuguese (Brazil), Japanese, Korean, Chinese (Simplified and Traditional)",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "5b49fe747ad3": {
+  "en": "Search questions, e.g. “sync”, “refund”, “offline”",
+  "kind": "attr:placeholder",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "5c3e1fa9312b": {
+  "en": "Can I keep everything on one device?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "5dd44013f836": {
+  "en": "How do I cancel or get a refund?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "5e54fa893a0c": {
+  "en": "Yes. CommandHQ imports CSV, TaskPaper and Apple Reminders, including Todoist project exports, so your tasks come across from most apps. The Library also imports references from Zotero, EndNote, BibTeX and RIS.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "5e949f247e91": {
+  "en": "Sync, data and privacy",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "612834f9a349": {
+  "en": "Sign in to the same Apple Account on each device with iCloud Drive turned on, then switch on iCloud Sync in CommandHQ’s Settings on each device (it is off for a new install on iPhone and iPad). Use Sync Now to check at any time. Apple Watch syncs through your iPhone.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "635bf75b7a4b": {
+  "en": "Do I need an account?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "64fa47391de4": {
+  "en": "What is Autolog?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "666ef1ee94a0": {
+  "en": "<strong>Mac</strong>macOS 15 or later",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "671f1eadf614": {
+  "en": "We tested the forecasting on more than 30,000 real-world milestones from a dataset of over a million tasks, drawn from external sources. Every result was checked on projects the forecast had never seen, across more than a hundred repeated trials with different sample sizes, and across solo, small-team and large-team projects, from short deadlines to long-running milestones.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "69dae401504b": {
+  "en": "▶&nbsp; Browse the video guides",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "6c374cd98d36": {
+  "en": "No. CommandHQ runs no AI service. Requests go from your device to the provider you chose, and any API charges are between you and that provider. AI Settings shows what gets sent.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "6c4e94f10417": {
+  "en": "Purchases",
+  "kind": "text",
+  "pages": [
+   "support/index.html",
+   "privacy/index.html"
+  ]
+ },
+ "719fd43c78a7": {
+  "en": "Always. Projects are plain, readable files, and you can export CSV (free), PDF and HTML reports, timesheets and canvases as PNG or PDF.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "76e7a3a3f9c2": {
+  "en": "Getting started",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "7948bcc6b3c8": {
+  "en": "Email <a href=\"mailto:support_commandhq@kridallc.com\">support_commandhq@kridallc.com</a>. Every message is read, and the roadmap is shaped by what you send.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "797547f4547f": {
+  "en": "You keep everything. Projects are plain, readable files in your own iCloud, and you can export CSV, PDF and HTML at any time. The app keeps working on your devices as installed.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "7c530220fd86": {
+  "en": "Is my data encrypted?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "7da556bbbf35": {
+  "en": "A change isn’t showing on my other device.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "7f5057f01e0e": {
+  "en": "Can I get my data out?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "825dd16ce487": {
+  "en": "⌘1 to ⌘5: Dashboard, Kanban, Gantt, Time, Canvas",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "8891a46b3c47": {
+  "en": "Choose “Explore with the guided tour” when you first open CommandHQ, or later choose Restore Sample Project (in the menu bar on the Mac, in Settings on iPhone and iPad, or from ⌘K). The sample project has realistic data in every view. Many features in the in-app guide have a short “Watch” video, in English.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "8e2ba6d8eb10": {
+  "en": "Which languages does it speak?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "90ebf8c2f6ea": {
+  "en": "Open Settings › CommandHQ Pro › Restore Purchases on that device, signed in with the Apple Account you bought with. One purchase covers Mac, iPhone, iPad and Watch. Family Sharing works on Yearly and Lifetime.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9208d26a25b0": {
+  "en": "CommandHQ needs Calendar access to show meetings beside planned work. Turn it on in System Settings › Privacy &amp; Security › Calendars (Mac) or Settings › Privacy &amp; Security › Calendars (iPhone and iPad).",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "94da2b8b5745": {
+  "en": "Do I need permission to record a meeting or lecture?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9589d9470eda": {
+  "en": "Prefer to watch?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "96fdf4b30f2c": {
+  "en": "CommandHQ support and FAQ: sync, purchases, AI, backups",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9851bfcf5d99": {
+  "en": "Often, yes. Recording laws differ by country and by US state, and many places require every participant’s consent. Always tell people you are recording and get their permission before you start; it is your responsibility, as our <a href=\"/commandhq/terms/#recording\">Terms</a> explain. Recordings and transcripts stay on your devices and in your iCloud; we never receive them.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9b98e1a0008e": {
+  "en": "Recording",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9bec591e20da": {
+  "en": "How do I back up or restore?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9db266d1d1fe": {
+  "en": "Where does transcription happen?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9dc60888db4e": {
+  "en": "Help for CommandHQ on Mac, iPad, iPhone and Apple Watch: sync, purchases, AI setup, importing, backups and contact.",
+  "kind": "attr:content",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9f3a7663cd2b": {
+  "en": "<strong>iPhone, iPhone Duo and iPad</strong>iOS / iPadOS 18 or later",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9f8e61f1b756": {
+  "en": "⌃⌥⌘Space: Quick Entry from any app",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "9fd6893636c4": {
+  "en": "What keyboard shortcuts should I know on the Mac?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "a4f82c5e690b": {
+  "en": "Your projects are stored in your iCloud Drive, which Apple encrypts in transit and on its servers. If you turn on Advanced Data Protection for your Apple Account, iCloud Drive is end-to-end encrypted, so only your devices can read it.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "a6d95f39f78f": {
+  "en": "Do I need a Mac?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "adfc9cd4e8fd": {
+  "en": "See the <a href=\"/commandhq/pricing/#faq\">Pricing FAQ</a>: what’s free and what needs Pro, the free trial, what Lifetime includes, the launch price, switching to Lifetime, and what happens when a subscription ends.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "bafbec3a6a53": {
+  "en": "Answers to common questions, and a real person when you need one.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "be4a7cc6d051": {
+  "en": "Time and calendar",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "c184b7485e59": {
+  "en": "Each device runs the full app on its own; you don’t need a Mac. Mac-only by nature: Autolog, local AI with Ollama, recording both sides of a call, the menu-bar timer and the ⌃⌥⌘Space hotkey. Some features need newer software or hardware: Apple Intelligence features need a device that supports Apple Intelligence; Liquid Glass appears on macOS Tahoe and iOS 26 or later.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "c47ae15370cf": {
+  "en": "Help",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "c6fc5dbdf6de": {
+  "en": "I bought Pro but a device still shows the free plan.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "cc5bf715c181": {
+  "en": "Can my team use CommandHQ together?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "d38a97204259": {
+  "en": "No. CommandHQ is for Apple devices only: iPhone, iPad, Mac and Apple Watch. There is no Windows, Android or web app, and no plans for one today.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "d3eca824debc": {
+  "en": "Email us",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "dc07bf2f4017": {
+  "en": "CommandHQ Support",
+  "kind": "attr:content",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "dcfcfc06dc47": {
+  "en": "⌘T: Today",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "dfc2bb9cae19": {
+  "en": "Yes, if you add that account to Apple’s Calendar on your device. CommandHQ shows every calendar the Calendar app has, beside your planned work.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "dfe112a02298": {
+  "en": "Check that both devices use the same Apple Account and that iCloud Drive has space.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "e269d7a13391": {
+  "en": "⌘K: jump to any project, task, view or setting",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "e4fdeb82be18": {
+  "en": "What if CommandHQ ever stops?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "e73588eef136": {
+  "en": "CommandHQ looks at how fast you actually finish tasks, how much new work keeps arriving, and what’s due before each milestone. From that, every milestone gets a likely finish date and a range: narrow when the deadline is close, wider when it’s far off. Confidence starts low for a new project and grows as you work. All of it is calculated on your device, and nothing leaves it.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "e7608e1e42ee": {
+  "en": "Can I import my tasks from another app?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "eac3a548a3b8": {
+  "en": "Does it work offline?",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "ee0132c8fa27": {
+  "en": "Open CommandHQ on both devices and press Sync Now (⌘R on the Mac).",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "f3934f4e9b5f": {
+  "en": "Search questions",
+  "kind": "attr:aria-label",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "f9cd20006576": {
+  "en": "12: English, German, French, Spanish, Italian, Dutch, Polish, Portuguese (Brazil), Japanese, Korean, and Chinese (Simplified and Traditional). CommandHQ follows your device’s language, or you can choose one in Settings.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "fecbba9597cb": {
+  "en": "A Mac-only option that notes which app is in front so the end-of-day Reconcile sheet can suggest time sessions you forgot to track. It never records your screen, never syncs and never writes anything until you confirm.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "ff31a03d88d8": {
+  "en": "Subscriptions are managed by Apple: on iPhone or iPad go to Settings › your name › Subscriptions; on the Mac open the App Store › your account › Account Settings › Subscriptions. Refunds are requested from Apple at <a href=\"https://reportaproblem.apple.com\" target=\"_blank\" rel=\"noopener\">reportaproblem.apple.com</a>.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "009a7b91ce1d": {
+  "en": "Acceptable use",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "0399ae176d8b": {
+  "en": "18. Governing law",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "087060aa5f89": {
+  "en": "Changes to the app",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "09a04616aac6": {
+  "en": "Krida LLC, Golden, Colorado, USA · <a href=\"mailto:support_commandhq@kridallc.com\">support_commandhq@kridallc.com</a>",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "09f61b12eadd": {
+  "en": "9. Autolog (Mac)",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "0acd15f716f4": {
+  "en": "We may update, change or stop offering features or the App. If we stop offering the App, it will keep working on your devices as installed, and your data stays in plain files you can export. We may update these Terms; the new version applies from the effective date shown at the top of this page. If a change materially reduces your rights, we will point it out in the App or in the release notes.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "0d7d5de9ee24": {
+  "en": "Our total liability for all claims relating to the App, the Website and these Terms is limited to the greater of (a) the amount you paid for CommandHQ in the 12 months before the claim arose and (b) US$50.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "133b232baeb3": {
+  "en": "17. Indemnity",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "14edd17d31a1": {
+  "en": "Recording and transcription run on your device under your control. Krida does not receive, listen to, store or use your recordings or transcripts.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "1979dc1d3025": {
+  "en": "7. AI features",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "19c278b74ff6": {
+  "en": "Our intellectual property",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "1a88d572e1f7": {
+  "en": "Krida is not responsible or liable for any recording you make, or for your failure to give notice or obtain consent. If a claim is brought against Krida because of a recording you made, section 17 (Indemnity) applies.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "1ad3f87e88a8": {
+  "en": "6. Recording and transcription",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "1ad9b186b522": {
+  "en": "<strong>Refunds</strong> are handled by Apple under its policies, at <a href=\"https://reportaproblem.apple.com\" target=\"_blank\" rel=\"noopener\">reportaproblem.apple.com</a>. We can’t issue refunds ourselves.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "1c9487cd76fd": {
+  "en": "To the extent the law allows, you will defend and indemnify Krida against claims, losses and costs (including reasonable legal fees) brought by third parties that arise from Your Content, your recordings or transcripts, your failure to obtain any required notice or consent, your use of third-party services through the App, or your breach of these Terms or of the law.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "1dcc1437baae": {
+  "en": "14. Changes to the App and these Terms",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "2b58873393c0": {
+  "en": "License and Apple’s EULA",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "2ba410ff02a0": {
+  "en": "The App, its design, code, sample content, guide videos, the CommandHQ name and icon and the Krida name and logo belong to Krida or its licensors. These Terms don’t give you any right to use them except to use the App as intended. Content and data in the App’s sample project are illustrative only.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "337475b3a177": {
+  "en": "13. Feedback and beta versions",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "3afa537cbfb3": {
+  "en": "If you send us ideas or feedback, we may use them without owing you anything. Beta and TestFlight versions are for testing. They may contain bugs, lose data, or change or stop at any time, so back up your work before you use one.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "3ce28caa6486": {
+  "en": "Terms of Use for CommandHQ by Krida LLC: license, purchases, your content, recording consent, AI, third-party services, disclaimers and liability.",
+  "kind": "attr:content",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "41a64ef57324": {
+  "en": "<strong>Teams:</strong> CommandHQ is designed for one person. If we offer a multi-person or team product in the future, it will be a separate product with its own pricing and terms, and it is not included in Lifetime or in current Pro subscriptions. This never reduces what Lifetime includes for one person.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "41af96ff9152": {
+  "en": "AI output can be inaccurate, incomplete or out of date. Review suggested tasks, plans, summaries and other changes before you accept them; the App shows action cards you approve, and you can undo them.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "432840b8ca4f": {
+  "en": "Forecasts, AI output, transcripts and time reports can be wrong. Check them before you rely on them.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "4676ad8df95e": {
+  "en": "Governing law",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "4c78b793a06b": {
+  "en": "Forecasts, time and billing",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "4e4e2cc0cadb": {
+  "en": "16. Limitation of liability",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "4f105f0fa39f": {
+  "en": "Krida never uses Your Content to train AI models. We don’t receive it.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "510e58129aea": {
+  "en": "Your projects, files and recordings are yours, and you are responsible for them, including keeping backups.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "54798cf142c0": {
+  "en": "CommandHQ · Krida LLC · Effective date: November 16, 2026",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "59f0c687f256": {
+  "en": "AI features",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "5b580af30376": {
+  "en": "Nothing in these Terms limits liability that cannot be limited by law, such as liability for fraud, or for death or personal injury caused by negligence. If you are a consumer in the EU, the UK or another place with mandatory consumer protections, you keep those rights.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "5d3d0f655b03": {
+  "en": "Indemnity",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "5f1c1446249b": {
+  "en": "You are also responsible for how you store, use and share recordings and transcripts, including any personal information about other people they contain, and for following any policies of your employer, school, client or meeting platform.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "60f913c27231": {
+  "en": "11. Acceptable use",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "65f6b145117a": {
+  "en": "4. CommandHQ Pro and purchases",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "6b696ac6182c": {
+  "en": "3. Who may use it",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "6bc1d934428c": {
+  "en": "<strong>If a subscription ends,</strong> nothing is deleted. Your Inbox and one project you choose stay editable, and everything else stays readable, searchable and exportable.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "6c7a10e81436": {
+  "en": "You are responsible for Your Content. That includes having the rights to anything you import or attach, and keeping your own backups. The App’s automatic snapshots, backup folders and iCloud sync reduce the risk of loss, but they are not a guarantee. Sync and storage depend on Apple’s services and your devices, which we don’t control.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "6c97ab347567": {
+  "en": "Feedback and beta versions",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "6e2f7186bfb0": {
+  "en": "The App works with services run by others, including Apple (iCloud, Calendar, Reminders, Siri, Apple Intelligence, the App Store), the AI providers you choose, Ollama and the models you run with it, and, when you turn on Look Up Details, Crossref and Open Library. Link previews load the websites you link to. Those services are governed by their own terms and privacy policies. We don’t control them and aren’t responsible for their availability, content or actions.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "7153c892a87a": {
+  "en": "The App can record audio from your microphone and, on the Mac, the sound of a call or meeting, and transcribe it on your device. Recording other people is regulated by law, and the rules differ between countries and between US states. Some places allow a recording when one participant consents. Many, including several US states, require <strong>every participant’s consent</strong>. Some also require notice at the start of the recording.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "71efce79e4c7": {
+  "en": "The app is provided “as is”, and our liability is limited as far as the law allows.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "72d78b9e0ae1": {
+  "en": "20. Contact",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "7343a6c2bb96": {
+  "en": "19. General",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "76fa3614ef29": {
+  "en": "12. Our intellectual property",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "7ad1646736a5": {
+  "en": "Autolog",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "7c8ae6c35292": {
+  "en": "To the fullest extent the law allows, Krida and its members, employees and contractors are not liable for any indirect, incidental, special, consequential or punitive damages, or for lost profits, revenue, data, goodwill or business opportunities, arising from or related to the App, the Website or these Terms, even if advised of the possibility. This includes loss arising from data loss or sync problems, missed deadlines, reliance on forecasts, AI output, transcripts or time reports, recordings you make, and third-party services.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "811a2713cd15": {
+  "en": "<strong>No waiver:</strong> if we don’t enforce a term right away, we can still enforce it later.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "871d2b6d2f42": {
+  "en": "Third-party services",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "8ee980eb307f": {
+  "en": "Last updated: November 16, 2026 · © 2026 Krida LLC",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "9239ee2cda84": {
+  "en": "General",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "9624fa34779a": {
+  "en": "Everything you create or add in the App, including projects, tasks, notes, canvases, files, recordings and transcripts (“Your Content”), belongs to you. We claim no rights in it. Because the App has no CommandHQ server, we never receive Your Content and cannot see, recover or delete it for you.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "97738411d629": {
+  "en": "Terms of Use",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "97758d69df60": {
+  "en": "As the Standard EULA states, these Terms are between you and Krida, not Apple. Apple is not responsible for the App, its maintenance or support, or any claim about it, and Apple and its subsidiaries are third-party beneficiaries who may enforce these Terms against you.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "980e0989060b": {
+  "en": "<strong>Entire agreement:</strong> these Terms, the Standard EULA and our <a href=\"/commandhq/privacy/\">Privacy Policy</a> are the whole agreement about the App.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "9901e9793667": {
+  "en": "<strong>Free plan:</strong> the Inbox and one project, with the features described on our website and in the App. We may change what the free plan includes, but we won’t remove access to data you created.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "9b67995a519d": {
+  "en": "Nothing on this page is legal advice. If you are unsure what the law requires, ask a lawyer before you record.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "9c612e1e4944": {
+  "en": "15. Disclaimer of warranties",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "9f58fe6c3401": {
+  "en": "<strong>Severability:</strong> if part of these Terms is unenforceable, the rest still applies.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "9f948d7bbd55": {
+  "en": "8. Forecasts, time and billing",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "a4539f5f66e4": {
+  "en": "Forecasts, likely ranges, confidence levels, health scores, replans, Plan My Day and Plan My Week are estimates based on the data you enter. They are planning aids, not promises, and real outcomes can differ.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "a528bc47c966": {
+  "en": "CommandHQ runs no AI service. When you use your own key, your request goes directly from your device to that provider. Your relationship with the provider, including its terms, privacy policy, content rules and charges, is between you and the provider.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "a8ce8b1ab765": {
+  "en": "Don’t send content to a third-party provider that you aren’t allowed to share, such as confidential client material or other people’s personal information, unless you have the right to do so.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "aafb844ea557": {
+  "en": "CommandHQ Pro and purchases",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "ad2dc3015eb8": {
+  "en": "<strong>Lifetime</strong> is a one-time purchase. It unlocks every Pro feature of CommandHQ, including future Pro updates, for as long as we offer the App, on all your devices using the same Apple Account. It does not include separately sold apps, services we might run on a server, or the cost of third-party AI providers.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "b1a6f886289a": {
+  "en": "Limitation of liability",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "b59930b00dca": {
+  "en": "2. License and Apple’s EULA",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "bbe98980b668": {
+  "en": "You agree not to use the App to break the law or infringe anyone’s rights, including privacy, recording, wiretapping, data protection and intellectual property laws. You also agree not to reverse engineer, decompile or modify the App except as the law expressly allows, or to get around its purchase checks.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "bc43aee5914e": {
+  "en": "5. Your content",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "bcef88ac0307": {
+  "en": "<strong>If you record people, getting their permission is your responsibility.</strong> Recording laws differ by place, and many require everyone’s consent.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "bd014d25d3e2": {
+  "en": "<strong>Export:</strong> you confirm you are not in a country under a US embargo or on a US government list of prohibited or restricted parties, as described in the Standard EULA.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "bfd102c0bd06": {
+  "en": "<strong>Prices and offers:</strong> prices are set in the App Store and may change. A change never affects a period you already paid for. Launch prices and promotional offers end on the date shown.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "c11514a6ffac": {
+  "en": "Your content",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "c3eacd8b01f6": {
+  "en": "Even where the law doesn’t require it, we strongly recommend telling everyone you are recording and why, and stopping if anyone objects.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "c7f4fb96ed27": {
+  "en": "To the fullest extent the law allows, the App and the Website are provided “as is” and “as available”, without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, accuracy, non-infringement, or that the App will be uninterrupted, error-free or free of data loss. The Standard EULA’s warranty terms also apply. Some places don’t allow these exclusions; there, they apply only as far as the law permits.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "c8fee8eabe07": {
+  "en": "Agreement",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "c9306c11a657": {
+  "en": "<strong>Monthly and Yearly</strong> are auto-renewing subscriptions sold by Apple, with a 14-day free trial for eligible new subscribers. Payment is charged to your Apple Account. A subscription renews unless you cancel at least 24 hours before the end of the current period. Manage or cancel it in your Apple Account under Subscriptions.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "c9898710af54": {
+  "en": "These Terms of Use (“Terms”) are an agreement between you and Krida LLC, a Colorado limited liability company (“Krida”, “we”, “us”). They cover the CommandHQ apps for Mac, iPhone, iPad and Apple Watch, with their widgets and extensions (the “App”), and the website at kridallc.com/commandhq (the “Website”). By downloading or using the App you accept these Terms. If you don’t accept them, don’t use the App.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "ca4e77c6adcd": {
+  "en": "You may use the App if you can form a binding contract where you live, or with the permission of a parent or guardian. If you use the App for an organization, you confirm you are allowed to accept these Terms for it.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "ca5468bec1e6": {
+  "en": "Who may use it",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "cd2e5fefb31d": {
+  "en": "The App is licensed, not sold, to you under Apple’s <a href=\"https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\" target=\"_blank\" rel=\"noopener\">Licensed Application End User License Agreement</a> (the “Standard EULA”). These Terms add to the Standard EULA; if they conflict, the Standard EULA wins on the points it covers.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "d275143586f4": {
+  "en": "10. Third-party services",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "d33ae8ef8def": {
+  "en": "Disclaimer of warranties",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "d41c7a97a22b": {
+  "en": "You license CommandHQ under Apple’s Standard EULA plus these terms. Apple handles payments and refunds.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "d8eef3935b9e": {
+  "en": "Autolog is optional. When you turn it on, it notes which app is in front on your own Mac so it can suggest time sessions. It does not record your screen and stays on that Mac. Use it only on a computer you are allowed to use this way. If it is a work computer, follow your employer’s policies.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "d9dffbe0eea5": {
+  "en": "<strong>Family Sharing</strong> applies to Yearly and Lifetime where Apple supports it.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "daa2edae3a91": {
+  "en": "Timers, timesheets, billable rates and reports are tools to help you keep records. You are responsible for checking the figures before you use them to bill clients, pay people, report hours or meet any legal, tax or contractual obligation. The App is not accounting, payroll, legal or tax software, and nothing in it is professional advice.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "e19a57d43872": {
+  "en": "Recording and transcription",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "e912867d7da0": {
+  "en": "AI features are optional and run only when you use them. You choose the provider: Apple Intelligence on your device, Ollama on your own Mac, or Anthropic or OpenAI using your own API key.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "ef4de3a9ab7b": {
+  "en": "Third-party services you connect (iCloud, AI providers) have their own terms. If you use Ollama, installing and running it, and following each model’s license, is up to you; CommandHQ only connects to it.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "f0ba5d3866c5": {
+  "en": "1. Agreement",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "f4883b9cca53": {
+  "en": "Terms of Use — CommandHQ",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "f542a6817f78": {
+  "en": "<strong>Assignment:</strong> you may not transfer these Terms; we may transfer them with our business.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "f77c86a114d1": {
+  "en": "<strong>You alone decide when to record, and you are solely responsible</strong> for finding out what the law requires where you and every participant are, and for giving any notice and getting any consent it requires before you start.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "fc3312f35842": {
+  "en": "<strong>Ollama:</strong> CommandHQ only provides a connection to an Ollama server that you run. Installing, configuring, updating, securing and running Ollama, and choosing, downloading and using any model through it, are entirely your responsibility. Ollama is separate software, not made, distributed or supported by Krida. Its own terms apply, and each model you download is governed by the license and usage terms its publisher sets, which may restrict commercial or other uses. You are responsible for following them. Krida makes no promise about Ollama or any model: their availability, performance, output, security, or effect on your Mac.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "fdefbcd6dc28": {
+  "en": "These Terms are governed by the laws of the State of Colorado, USA, without regard to conflict-of-law rules. Disputes will be decided by the state or federal courts located in Colorado, and you and Krida consent to their jurisdiction. If you are a consumer living outside the US, you also keep the protection of the mandatory laws of your country and may bring claims in your local courts where the law gives you that right.",
+  "kind": "text",
+  "pages": [
+   "terms/index.html"
+  ]
+ },
+ "0c0e68a66442": {
+  "en": "This video can’t play right now. Check your connection, then try again.",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "110c0b4b66b5": {
+  "en": "Short videos recorded on iPhone, iPad and Mac, each with its steps beside it.",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "20d61918089f": {
+  "en": "Copy link to this video",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "259e77b1ec3b": {
+  "en": "Video guides — CommandHQ",
+  "kind": "attr:content",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "3bea5c29c3d3": {
+  "en": "Hide steps",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "3ddd39f048ee": {
+  "en": "Feature area",
+  "kind": "attr:aria-label",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "56f86055615c": {
+  "en": "On other devices",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "6c5e49590817": {
+  "en": "Short video guides for many CommandHQ features on iPhone, iPad and Mac.",
+  "kind": "attr:content",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "6f87b3d0cf90": {
+  "en": "Copy link to this step",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "7724494e84aa": {
+  "en": "Loading videos…",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "88ae7e182b0a": {
+  "en": "See all features",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "91e08c493768": {
+  "en": "Close video",
+  "kind": "attr:aria-label",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "938b0964021e": {
+  "en": "Short video guides for many CommandHQ features on iPhone, iPad and Mac. Search, or filter by device and feature area.",
+  "kind": "attr:content",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "9f211e4f72e3": {
+  "en": "Guide page",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "a5a74a6df092": {
+  "en": "Device",
+  "kind": "attr:aria-label",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "bce06414177f": {
+  "en": "Search",
+  "kind": "attr:title",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "c3f4b8137f76": {
+  "en": "Next video ›",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "cdde4f20ba31": {
+  "en": "Steps",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "cef2fe093b68": {
+  "en": "Try Again",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "d42f48838e50": {
+  "en": "When you’d use it",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "d8c5903aee70": {
+  "en": "Search, e.g. “Gantt”",
+  "kind": "attr:placeholder",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "d9c0208df41e": {
+  "en": "See how to do it.",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "ebf26d1a410d": {
+  "en": "CommandHQ video guides: short how-to videos for iPhone, iPad and Mac",
+  "kind": "text",
+  "pages": [
+   "videos/index.html"
+  ]
+ },
+ "ee2228c6222f": {
+  "en": "Search video guides",
+  "kind": "attr:aria-label",
+  "pages": [
+   "videos/index.html"
+  ]
+ }
+}

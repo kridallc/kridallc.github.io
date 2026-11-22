@@ -62,6 +62,12 @@
     footer p{font-size:0.75rem;color:rgba(255,255,255,0.18);text-align:center;}
     @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
     @media(max-width:680px){nav{padding:0 1.25rem;}.nav-toggle{display:flex;}.nav-links{display:none;position:absolute;top:58px;left:0;right:0;background:rgba(4,9,15,0.98);border-bottom:1px solid var(--border);flex-direction:column;padding:1rem 1.25rem;gap:0.25rem;}.nav-links.open{display:flex;}main{padding:3rem 1.25rem 5rem;}}
+      /* touch targets + small-phone fixes (2026-11-19) */
+    @media (max-width: 600px), (pointer: coarse) {
+      .footer-links a { display: inline-block; padding: 0.6rem 0.25rem; }
+      .toc a { display: inline-block; padding: 0.45rem 0; }
+    }
+    @media (max-width: 600px) { .contact-email { display: inline-block; max-width: 100%; text-align: center; overflow-wrap: anywhere; } }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
@@ -72,7 +78,7 @@
       <img src="/icon_BB.png" alt="BeachBaskit" class="nav-logo" />
       <span class="nav-brand">Beach<span>Baskit</span></span>
     </a>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="/beachbaskit/">Home</a></li>
       <li><a href="/beachbaskit/support/" class="active">Support</a></li>
@@ -92,7 +98,7 @@
     <div class="contact-card">
       <h2>Contact Krida LLC</h2>
       <p>Email is the fastest way to reach us. Please include your account email, device type, and a description of your issue.</p>
-      <a href="mailto:support@beachbaskit.com" class="contact-email">✉️ &nbsp;support@beachbaskit.com</a>
+      <a href="mailto:support@beachbaskit.com" class="contact-email">✉️ &nbsp;support@<wbr>beachbaskit.com</a>
     </div>
 
     <div class="delete-card">
@@ -156,12 +162,12 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I can't sign in — what should I do?</div>
-        <div class="faq-a">Try signing out and back in with your Google or Apple account. Make sure you're using the same sign-in method you registered with. If the issue persists, email <a href="mailto:support@beachbaskit.com">support@beachbaskit.com</a> with your account email and device details.</div>
+        <div class="faq-a">Try signing out and back in with your Google or Apple account. Make sure you're using the same sign-in method you registered with. If the issue persists, email <a href="mailto:support@beachbaskit.com">support@<wbr>beachbaskit.com</a> with your account email and device details.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I report a user?</div>
-        <div class="faq-a">You can report inappropriate behavior through the app or by emailing <a href="mailto:support@beachbaskit.com">support@beachbaskit.com</a>. Include as much detail as possible — screenshots of chat, order ID, and a description of what happened. We take reports seriously and take enforcement action where warranted.</div>
+        <div class="faq-a">You can report inappropriate behavior through the app or by emailing <a href="mailto:support@beachbaskit.com">support@<wbr>beachbaskit.com</a>. Include as much detail as possible — screenshots of chat, order ID, and a description of what happened. We take reports seriously and take enforcement action where warranted.</div>
       </div>
     </div>
   </main>

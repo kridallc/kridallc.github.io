@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="canonical" href="https://kridallc.com/about/" />
+  <link rel="canonical" href="https://kridallc.com/about" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Krida LLC</title>
   <meta name="description" content="The story, research background, and work behind Krida LLC — founded by a computational physicist turned software developer." />
@@ -862,15 +862,15 @@
       <div class="section-heading">A Decade of Published Science</div>
       <div class="stat-row">
         <div class="stat-pill">
-          <div class="stat-pill-num" data-target="14" data-decimals="0" data-suffix="">0</div>
+          <div class="stat-pill-num" data-target="14" data-decimals="0" data-suffix="">14</div>
           <div class="stat-pill-label">Publications</div>
         </div>
         <div class="stat-pill">
-          <div class="stat-pill-num" data-target="1224" data-decimals="0" data-suffix="" data-comma="true">0</div>
+          <div class="stat-pill-num" data-target="1280" data-decimals="0" data-suffix="" data-comma="true">1,280</div>
           <div class="stat-pill-label">Citations</div>
         </div>
         <div class="stat-pill">
-          <div class="stat-pill-num" data-target="14" data-decimals="0" data-suffix="">0</div>
+          <div class="stat-pill-num" data-target="14" data-decimals="0" data-suffix="">14</div>
           <div class="stat-pill-label">h-index</div>
         </div>
       </div>
@@ -890,7 +890,7 @@
             <div class="pub-authors">MM Islam, A Ostadhossein, O Borodin, AT Yeates, WW Tipton, RG Hennig, N Kumar et al.</div>
             <div class="pub-journal">Physical Chemistry Chemical Physics, 17(5), 3383–3393 · 2015</div>
           </div>
-          <div class="pub-citations"><span data-target="208" data-decimals="0" data-suffix="">0</span>cited by</div>
+          <div class="pub-citations"><span data-target="219" data-decimals="0" data-suffix="">219</span>cited by</div>
         </div>
 
         <div class="pub-item reveal tilt-card">
@@ -900,7 +900,7 @@
             <div class="pub-authors">SY Kim, N Kumar, P Persson, J Sofo, ACT Van Duin, JD Kubicki</div>
             <div class="pub-journal">Langmuir, 29(25), 7838–7846 · 2013</div>
           </div>
-          <div class="pub-citations"><span data-target="151" data-decimals="0" data-suffix="">0</span>cited by</div>
+          <div class="pub-citations"><span data-target="161" data-decimals="0" data-suffix="">161</span>cited by</div>
         </div>
 
         <div class="pub-item reveal tilt-card">
@@ -910,7 +910,7 @@
             <div class="pub-authors">N Kumar, K Leung, DJ Siegel</div>
             <div class="pub-journal">Journal of The Electrochemical Society, 161(8) · 2014 · Invited</div>
           </div>
-          <div class="pub-citations"><span data-target="98" data-decimals="0" data-suffix="">0</span>cited by</div>
+          <div class="pub-citations"><span data-target="107" data-decimals="0" data-suffix="">107</span>cited by</div>
         </div>
 
         <div class="pub-item reveal tilt-card">
@@ -920,7 +920,7 @@
             <div class="pub-authors">Y Ming, N Kumar, DJ Siegel</div>
             <div class="pub-journal">ACS Omega, 2(8), 4921–4928 · 2017</div>
           </div>
-          <div class="pub-citations"><span data-target="98" data-decimals="0" data-suffix="">0</span>cited by</div>
+          <div class="pub-citations"><span data-target="107" data-decimals="0" data-suffix="">107</span>cited by</div>
         </div>
 
         <div class="pub-item reveal tilt-card">
@@ -930,7 +930,7 @@
             <div class="pub-authors">H Park, N Kumar, M Melander, T Vegge, JM Garcia Lastra, DJ Siegel</div>
             <div class="pub-journal">Chemistry of Materials, 30(3), 915–928 · 2018</div>
           </div>
-          <div class="pub-citations"><span data-target="44" data-decimals="0" data-suffix="">0</span>cited by</div>
+          <div class="pub-citations"><span data-target="46" data-decimals="0" data-suffix="">46</span>cited by</div>
         </div>
 
         <div class="pub-item reveal tilt-card">
@@ -940,7 +940,7 @@
             <div class="pub-authors">N Kumar, DJ Siegel</div>
             <div class="pub-journal">Journal of Physical Chemistry Letters, 7(5), 874–881 · 2016</div>
           </div>
-          <div class="pub-citations"><span data-target="64" data-decimals="0" data-suffix="">0</span>cited by</div>
+          <div class="pub-citations"><span data-target="68" data-decimals="0" data-suffix="">68</span>cited by</div>
         </div>
 
       </div>
@@ -1219,7 +1219,10 @@
         requestAnimationFrame(step);
       }
 
-      if (!('IntersectionObserver' in window)) { els.forEach(animate); return; }
+      if (reduceMotion || !('IntersectionObserver' in window)) return;   // the real numbers are already in the page
+      els.forEach(function (el) {   // count up from 0 when scrolled into view
+        el.textContent = format(0, parseInt(el.getAttribute('data-decimals') || '0', 10), el.getAttribute('data-comma') === 'true', el.getAttribute('data-suffix') || '');
+      });
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {

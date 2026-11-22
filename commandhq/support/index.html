@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommandHQ support and FAQ: sync, purchases, AI, backups</title>
+  <meta name="description" content="Help for CommandHQ on Mac, iPad, iPhone and Apple Watch: sync, purchases, AI setup, importing, backups and contact." />
+  <link rel="canonical" href="https://kridallc.com/commandhq/support/" />
+  <link rel="icon" type="image/png" href="/commandhq/media/icon-180.png" />
+  <meta property="og:title" content="CommandHQ Support" />
+  <meta property="og:image" content="https://kridallc.com/commandhq/media/og-2026-11.jpg" />
+  <link rel="stylesheet" href="/commandhq/site.css?v=20261119c" />
+  <script src="/commandhq/consent.js?v=20261117a"></script>
+  <script src="/commandhq/store.js?v=20261117a"></script>
+  <style>
+    .contact { background: linear-gradient(135deg, var(--surface-1), var(--surface-2)); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; margin-bottom: 2.5rem; }
+    .contact h2 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .contact p { color: var(--muted); font-size: 0.92rem; margin-bottom: 1rem; }
+    .reqs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin: 0.5rem 0 1rem; }
+    .reqs div { background: var(--card); border: 1px solid var(--border-soft); border-radius: 10px; padding: 0.8rem 1rem; font-size: 0.88rem; color: var(--muted); }
+    .reqs strong { display: block; color: var(--text); }
+    details { border-bottom: 1px solid var(--border-soft); padding: 1rem 0; }
+    summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    summary::after { content: "+"; color: var(--amber); font-size: 1.25rem; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details { padding: 0.35rem 0; }
+    summary { min-height: 44px; align-items: center; padding: 0.55rem 0; }
+    details > :last-child:not(summary) { margin-bottom: 0.7rem; }
+    details p, details li { color: var(--muted); font-size: 0.92rem; }
+    details p { margin-top: 0.6rem; }
+    details ul { margin: 0.5rem 0 0 1.2rem; }
+    details ol { margin: 0.5rem 0 0 1.4rem; list-style: decimal; }
+    details ol li { margin-bottom: 0.35rem; }
+    .group { font-family: var(--sans); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); margin: 2.4rem 0 0.2rem; }
+    @media (max-width: 600px) { .reqs { grid-template-columns: 1fr; } }
+  </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How are forecasts calculated?", "acceptedAnswer": {"@type": "Answer", "text": "CommandHQ looks at how fast you actually finish tasks, how much new work keeps arriving, and what’s due before each milestone. From that, every milestone gets a likely finish date and a range: narrow when the deadline is close, wider when it’s far off. Confidence starts low for a new project and grows as you work. All of it is calculated on your device, and nothing leaves it. We tested the forecasting on more than 30,000 real-world milestones from a dataset of over a million tasks, drawn from external sources. Every result was checked on projects the forecast had never seen, across more than a hundred repeated trials with different sample sizes, and across solo, small-team and large-team projects, from short deadlines to long-running milestones."}}, {"@type": "Question", "name": "What’s the fastest way to learn the app?", "acceptedAnswer": {"@type": "Answer", "text": "Choose “Explore with the guided tour” when you first open CommandHQ, or later choose Restore Sample Project (in the menu bar on the Mac, in Settings on iPhone and iPad, or from ⌘K). The sample project has realistic data in every view. Many features in the in-app guide have a short “Watch” video, in English."}}, {"@type": "Question", "name": "Do I need a Mac?", "acceptedAnswer": {"@type": "Answer", "text": "No. CommandHQ is complete on an iPhone (including iPhone Duo, folded or open) or an iPad on its own, and on a Mac. Apple Watch works with the iPhone app. A few things only make sense on a Mac and live there: Autolog, local AI with Ollama, recording both sides of a call, the menu-bar timer and the ⌃⌥⌘Space hotkey."}}, {"@type": "Question", "name": "Is there a Windows, Android or web version?", "acceptedAnswer": {"@type": "Answer", "text": "No. CommandHQ is for Apple devices only: iPhone, iPad, Mac and Apple Watch. There is no Windows, Android or web app, and no plans for one today."}}, {"@type": "Question", "name": "Can I keep everything on one device?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. iCloud Sync is a switch in Settings on each device. With it off, your projects stay only on that device; you can still back up to a folder you choose. If you use CommandHQ for work, check your employer’s rules on where work data may be stored."}}, {"@type": "Question", "name": "Can I import my tasks from another app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. CommandHQ imports CSV, TaskPaper and Apple Reminders, including Todoist project exports, so your tasks come across from most apps. The Library also imports references from Zotero, EndNote, BibTeX and RIS."}}, {"@type": "Question", "name": "What keyboard shortcuts should I know on the Mac?", "acceptedAnswer": {"@type": "Answer", "text": "⌃⌥⌘Space: Quick Entry from any app ⌘K: jump to any project, task, view or setting ⌘1 to ⌘5: Dashboard, Kanban, Gantt, Time, Canvas ⌘T: Today"}}, {"@type": "Question", "name": "Which languages does it speak?", "acceptedAnswer": {"@type": "Answer", "text": "12: English, German, French, Spanish, Italian, Dutch, Polish, Portuguese (Brazil), Japanese, Korean, and Chinese (Simplified and Traditional). CommandHQ follows your device’s language, or you can choose one in Settings."}}, {"@type": "Question", "name": "How do I sync between Mac, iPhone and iPad?", "acceptedAnswer": {"@type": "Answer", "text": "Sign in to the same Apple Account on each device with iCloud Drive turned on, then switch on iCloud Sync in CommandHQ’s Settings on each device (it is off for a new install on iPhone and iPad). Use Sync Now to check at any time. Apple Watch syncs through your iPhone."}}, {"@type": "Question", "name": "A change isn’t showing on my other device.", "acceptedAnswer": {"@type": "Answer", "text": "Check that both devices use the same Apple Account and that iCloud Drive has space. Open CommandHQ on both devices and press Sync Now (⌘R on the Mac). Low Power Mode and poor connections can delay iCloud. If it is still stuck after a few minutes, email us with both devices’ versions."}}, {"@type": "Question", "name": "Does it work offline?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your projects are files on your device, so you can plan, track time and take notes with no connection. Changes sync when you’re back online. AI from Anthropic or OpenAI needs a connection; on-device Apple Intelligence doesn’t."}}, {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no CommandHQ account or company server. Your projects live in plain files and sync through your own iCloud."}}, {"@type": "Question", "name": "Is my data encrypted?", "acceptedAnswer": {"@type": "Answer", "text": "Your projects are stored in your iCloud Drive, which Apple encrypts in transit and on its servers. If you turn on Advanced Data Protection for your Apple Account, iCloud Drive is end-to-end encrypted, so only your devices can read it."}}, {"@type": "Question", "name": "How do I back up or restore?", "acceptedAnswer": {"@type": "Answer", "text": "CommandHQ keeps automatic snapshots and can also write backups to a folder you choose (Backup in Settings). Restore shows a preview first and keeps a safety copy of your current data, labelled with the date, before it changes anything."}}, {"@type": "Question", "name": "Can I get my data out?", "acceptedAnswer": {"@type": "Answer", "text": "Always. Projects are plain, readable files, and you can export CSV (free), PDF and HTML reports, timesheets and canvases as PNG or PDF."}}, {"@type": "Question", "name": "What if CommandHQ ever stops?", "acceptedAnswer": {"@type": "Answer", "text": "You keep everything. Projects are plain, readable files in your own iCloud, and you can export CSV, PDF and HTML at any time. The app keeps working on your devices as installed."}}, {"@type": "Question", "name": "I bought Pro but a device still shows the free plan.", "acceptedAnswer": {"@type": "Answer", "text": "Open Settings › CommandHQ Pro › Restore Purchases on that device, signed in with the Apple Account you bought with. One purchase covers Mac, iPhone, iPad and Watch. Family Sharing works on Yearly and Lifetime."}}, {"@type": "Question", "name": "How do I cancel or get a refund?", "acceptedAnswer": {"@type": "Answer", "text": "Subscriptions are managed by Apple: on iPhone or iPad go to Settings › your name › Subscriptions; on the Mac open the App Store › your account › Account Settings › Subscriptions. Refunds are requested from Apple at reportaproblem.apple.com ."}}, {"@type": "Question", "name": "Questions about plans, trials or Lifetime?", "acceptedAnswer": {"@type": "Answer", "text": "See the Pricing FAQ : what’s free and what needs Pro, the free trial, what Lifetime includes, the launch price, switching to Lifetime, and what happens when a subscription ends."}}, {"@type": "Question", "name": "How do I turn on AI?", "acceptedAnswer": {"@type": "Answer", "text": "Open Settings › AI and pick a provider: Apple Intelligence (on supported devices, no setup), Ollama (you install Ollama from ollama.com and download a model yourself; CommandHQ only connects to it, and each model’s license is yours to follow), or Anthropic or OpenAI with your own API key. AI features are part of Pro."}}, {"@type": "Question", "name": "Does CommandHQ charge for AI or see my prompts?", "acceptedAnswer": {"@type": "Answer", "text": "No. CommandHQ runs no AI service. Requests go from your device to the provider you chose, and any API charges are between you and that provider. AI Settings shows what gets sent."}}, {"@type": "Question", "name": "Do I need permission to record a meeting or lecture?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes. Recording laws differ by country and by US state, and many places require every participant’s consent. Always tell people you are recording and get their permission before you start; it is your responsibility, as our Terms explain. Recordings and transcripts stay on your devices and in your iCloud; we never receive them."}}, {"@type": "Question", "name": "Where does transcription happen?", "acceptedAnswer": {"@type": "Answer", "text": "On your device, using Apple’s speech recognition, in the languages your device supports. Nothing is sent to us. The one exception is your choice: if you choose OpenAI as your AI and a device can’t transcribe a voice note itself, CommandHQ can send that recording to OpenAI, only after asking your permission."}}, {"@type": "Question", "name": "Why can’t I see my meetings?", "acceptedAnswer": {"@type": "Answer", "text": "CommandHQ needs Calendar access to show meetings beside planned work. Turn it on in System Settings › Privacy & Security › Calendars (Mac) or Settings › Privacy & Security › Calendars (iPhone and iPad)."}}, {"@type": "Question", "name": "Can I see my Google or Outlook calendar?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if you add that account to Apple’s Calendar on your device. CommandHQ shows every calendar the Calendar app has, beside your planned work."}}, {"@type": "Question", "name": "What is Autolog?", "acceptedAnswer": {"@type": "Answer", "text": "A Mac-only option that notes which app is in front so the end-of-day Reconcile sheet can suggest time sessions you forgot to track. It never records your screen, never syncs and never writes anything until you confirm."}}, {"@type": "Question", "name": "Can my team use CommandHQ together?", "acceptedAnswer": {"@type": "Answer", "text": "Not today. CommandHQ is built for one person running several projects: freelancers, founders, researchers, students and makers. It has no shared workspaces, comments or assignees. We may offer a team version in the future. If we do, it will be a separate product with its own pricing, and it won’t be included in Lifetime or the current Pro plans. Everything you have for one person, including every future Pro update, stays yours."}}]}</script>
+  <!-- i18n:alternates --><!-- /i18n:alternates -->
+</head>
+<body>
+  <nav>
+    <a href="/commandhq/" class="nav-left" aria-label="CommandHQ home">
+      <img src="/commandhq/media/icon-180.png" alt="" class="nav-logo" />
+      <span class="nav-brand">Command<span>HQ</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="/commandhq/">Home</a></li>
+      <li><a href="/commandhq/features/">Features</a></li>
+      <li><a href="/commandhq/videos/">Videos</a></li>
+      <li><a href="/commandhq/pricing/">Pricing</a></li>
+      <li><a href="/commandhq/support/" class="active" aria-current="page">Support</a></li>
+      <li><a href="/commandhq/privacy/">Privacy</a></li>
+      <li><a href="/commandhq/pricing/" class="nav-cta" data-store data-live-label="Download"><span data-store-label>Coming soon</span></a></li>
+    </ul>
+  </nav>
+  <main class="doc">
+    <div class="page-hero">
+      <div class="eyebrow">Help</div>
+      <h1>CommandHQ Support</h1>
+      <p class="meta">Answers to common questions, and a real person when you need one.</p>
+    </div>
+
+    <div class="contact">
+      <h2>Email us</h2>
+      <p>We usually reply within one business day. Include your device, OS version, the CommandHQ version and, if you can, a screenshot. Please don’t send project files unless we ask.</p>
+      <a class="btn btn-primary" href="mailto:support_commandhq@kridallc.com?subject=CommandHQ%20support&amp;body=Device%3A%0AOS%20version%3A%0ACommandHQ%20version%3A%0AWhat%20happened%3A%0ASteps%20to%20reproduce%3A%0A"><span class="btn-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>support_commandhq@<wbr>kridallc.com</a>
+    </div>
+
+    <div class="contact" style="margin-top:-1rem">
+      <h2>Prefer to watch?</h2>
+      <p>Short videos show how to use CommandHQ on iPhone, iPad and Mac. Search for what you want to do, or filter by device. We’re adding new videos for each device as they’re ready, so check back if the one you need isn’t there yet.</p>
+      <a class="btn btn-ghost" href="/commandhq/videos/">▶&nbsp; Browse the video guides</a>
+    </div>
+
+    <div class="content">
+      <h2 id="requirements">Requirements</h2>
+      <div class="reqs">
+        <div><strong>Mac</strong>macOS 15 or later</div>
+        <div><strong>iPhone, iPhone Duo and iPad</strong>iOS / iPadOS 18 or later</div>
+        <div><strong>Apple Watch</strong>Installed with the iPhone app</div>
+        <div><strong>Languages</strong>English, German, French, Spanish, Italian, Dutch, Polish, Portuguese (Brazil), Japanese, Korean, Chinese (Simplified and Traditional)</div>
+      </div>
+      <p>Each device runs the full app on its own; you don’t need a Mac. Mac-only by nature: Autolog, local AI with Ollama, recording both sides of a call, the menu-bar timer and the ⌃⌥⌘Space hotkey. Some features need newer software or hardware: Apple Intelligence features need a device that supports Apple Intelligence; Liquid Glass appears on macOS Tahoe and iOS 26 or later.</p>
+    </div>
+
+    <h2 class="faq-title" id="faq">Questions, answered</h2>
+    <label class="faq-search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="faqq" type="search" placeholder="Search questions, e.g. “sync”, “refund”, “offline”" aria-label="Search questions" autocomplete="off" /></label>
+    <p class="faq-none" id="faqnone" hidden>No questions match. <a href="mailto:support_commandhq@kridallc.com">Email us</a> and we’ll help.</p>
+    <div class="faq-sec">
+    <div class="group">Getting started</div>
+    <details><summary>What’s the fastest way to learn the app?</summary><p>Choose “Explore with the guided tour” when you first open CommandHQ, or later choose Restore Sample Project (in the menu bar on the Mac, in Settings on iPhone and iPad, or from ⌘K). The sample project has realistic data in every view. Many features in the in-app guide have a short “Watch” video, in English.</p></details>
+    <details><summary>Do I need a Mac?</summary><p>No. CommandHQ is complete on an iPhone (including iPhone Duo, folded or open) or an iPad on its own, and on a Mac. Apple Watch works with the iPhone app. A few things only make sense on a Mac and live there: Autolog, local AI with Ollama, recording both sides of a call, the menu-bar timer and the ⌃⌥⌘Space hotkey.</p></details>
+    <details><summary>Is there a Windows, Android or web version?</summary><p>No. CommandHQ is for Apple devices only: iPhone, iPad, Mac and Apple Watch. There is no Windows, Android or web app, and no plans for one today.</p></details>
+    <details><summary>Can I keep everything on one device?</summary><p>Yes. iCloud Sync is a switch in Settings on each device. With it off, your projects stay only on that device; you can still back up to a folder you choose. If you use CommandHQ for work, check your employer’s rules on where work data may be stored.</p></details>
+    <details><summary>Can I import my tasks from another app?</summary><p>Yes. CommandHQ imports CSV, TaskPaper and Apple Reminders, including Todoist project exports, so your tasks come across from most apps. The Library also imports references from Zotero, EndNote, BibTeX and RIS.</p></details>
+    <details><summary>What keyboard shortcuts should I know on the Mac?</summary><ul><li>⌃⌥⌘Space: Quick Entry from any app</li><li>⌘K: jump to any project, task, view or setting</li><li>⌘1 to ⌘5: Dashboard, Kanban, Gantt, Time, Canvas</li><li>⌘T: Today</li></ul></details>
+    <details><summary>Which languages does it speak?</summary><p>12: English, German, French, Spanish, Italian, Dutch, Polish, Portuguese (Brazil), Japanese, Korean, and Chinese (Simplified and Traditional). CommandHQ follows your device’s language, or you can choose one in Settings.</p></details>
+    </div>
+
+    <div class="faq-sec">
+    <div class="group">Forecasts</div>
+    <details id="forecasts"><summary>How are forecasts calculated?</summary><p>CommandHQ looks at how fast you actually finish tasks, how much new work keeps arriving, and what’s due before each milestone. From that, every milestone gets a likely finish date and a range: narrow when the deadline is close, wider when it’s far off. Confidence starts low for a new project and grows as you work. All of it is calculated on your device, and nothing leaves it.</p><p>We tested the forecasting on more than 30,000 real-world milestones from a dataset of over a million tasks, drawn from external sources. Every result was checked on projects the forecast had never seen, across more than a hundred repeated trials with different sample sizes, and across solo, small-team and large-team projects, from short deadlines to long-running milestones.</p></details>
+    </div>
+
+    <div class="faq-sec">
+    <div class="group">Sync, data and privacy</div>
+    <details><summary>How do I sync between Mac, iPhone and iPad?</summary><p>Sign in to the same Apple Account on each device with iCloud Drive turned on, then switch on iCloud Sync in CommandHQ’s Settings on each device (it is off for a new install on iPhone and iPad). Use Sync Now to check at any time. Apple Watch syncs through your iPhone.</p></details>
+    <details><summary>A change isn’t showing on my other device.</summary><ul><li>Check that both devices use the same Apple Account and that iCloud Drive has space.</li><li>Open CommandHQ on both devices and press Sync Now (⌘R on the Mac).</li><li>Low Power Mode and poor connections can delay iCloud. If it is still stuck after a few minutes, email us with both devices’ versions.</li></ul></details>
+    <details><summary>Does it work offline?</summary><p>Yes. Your projects are files on your device, so you can plan, track time and take notes with no connection. Changes sync when you’re back online. AI from Anthropic or OpenAI needs a connection; on-device Apple Intelligence doesn’t.</p></details>
+    <details><summary>Do I need an account?</summary><p>No. There is no CommandHQ account or company server. Your projects live in plain files and sync through your own iCloud.</p></details>
+    <details><summary>Is my data encrypted?</summary><p>Your projects are stored in your iCloud Drive, which Apple encrypts in transit and on its servers. If you turn on Advanced Data Protection for your Apple Account, iCloud Drive is end-to-end encrypted, so only your devices can read it.</p></details>
+    <details><summary>How do I back up or restore?</summary><p>CommandHQ keeps automatic snapshots and can also write backups to a folder you choose (Backup in Settings). Restore shows a preview first and keeps a safety copy of your current data, labelled with the date, before it changes anything.</p></details>
+    <details><summary>Can I get my data out?</summary><p>Always. Projects are plain, readable files, and you can export CSV (free), PDF and HTML reports, timesheets and canvases as PNG or PDF.</p></details>
+    <details><summary>What if CommandHQ ever stops?</summary><p>You keep everything. Projects are plain, readable files in your own iCloud, and you can export CSV, PDF and HTML at any time. The app keeps working on your devices as installed.</p></details>
+    </div>
+
+    <div class="faq-sec">
+    <div class="group">Purchases</div>
+    <details><summary>I bought Pro but a device still shows the free plan.</summary><p>Open Settings › CommandHQ Pro › Restore Purchases on that device, signed in with the Apple Account you bought with. One purchase covers Mac, iPhone, iPad and Watch. Family Sharing works on Yearly and Lifetime.</p></details>
+    <details><summary>How do I cancel or get a refund?</summary><p>Subscriptions are managed by Apple: on iPhone or iPad go to Settings › your name › Subscriptions; on the Mac open the App Store › your account › Account Settings › Subscriptions. Refunds are requested from Apple at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p></details>
+    <details><summary>Questions about plans, trials or Lifetime?</summary><p>See the <a href="/commandhq/pricing/#faq">Pricing FAQ</a>: what’s free and what needs Pro, the free trial, what Lifetime includes, the launch price, switching to Lifetime, and what happens when a subscription ends.</p></details>
+    </div>
+
+    <div class="faq-sec">
+    <div class="group">AI</div>
+    <details><summary>How do I turn on AI?</summary><p>Open Settings › AI and pick a provider: Apple Intelligence (on supported devices, no setup), Ollama (you install Ollama from ollama.com and download a model yourself; CommandHQ only connects to it, and each model’s license is yours to follow), or Anthropic or OpenAI with your own API key. AI features are part of Pro.</p></details>
+    <details><summary>Does CommandHQ charge for AI or see my prompts?</summary><p>No. CommandHQ runs no AI service. Requests go from your device to the provider you chose, and any API charges are between you and that provider. AI Settings shows what gets sent.</p></details>
+    </div>
+
+    <div class="faq-sec">
+    <div class="group">Recording</div>
+    <details><summary>Do I need permission to record a meeting or lecture?</summary><p>Often, yes. Recording laws differ by country and by US state, and many places require every participant’s consent. Always tell people you are recording and get their permission before you start; it is your responsibility, as our <a href="/commandhq/terms/#recording">Terms</a> explain. Recordings and transcripts stay on your devices and in your iCloud; we never receive them.</p></details>
+    <details><summary>Where does transcription happen?</summary><p>On your device, using Apple’s speech recognition, in the languages your device supports. Nothing is sent to us. The one exception is your choice: if you choose OpenAI as your AI and a device can’t transcribe a voice note itself, CommandHQ can send that recording to OpenAI, only after asking your permission.</p></details>
+    </div>
+
+    <div class="faq-sec">
+    <div class="group">Time and calendar</div>
+    <details><summary>Why can’t I see my meetings?</summary><p>CommandHQ needs Calendar access to show meetings beside planned work. Turn it on in System Settings › Privacy &amp; Security › Calendars (Mac) or Settings › Privacy &amp; Security › Calendars (iPhone and iPad).</p></details>
+    <details><summary>Can I see my Google or Outlook calendar?</summary><p>Yes, if you add that account to Apple’s Calendar on your device. CommandHQ shows every calendar the Calendar app has, beside your planned work.</p></details>
+    <details><summary>What is Autolog?</summary><p>A Mac-only option that notes which app is in front so the end-of-day Reconcile sheet can suggest time sessions you forgot to track. It never records your screen, never syncs and never writes anything until you confirm.</p></details>
+    </div>
+
+    <div class="faq-sec">
+    <div class="group">Teams</div>
+    <details><summary>Can my team use CommandHQ together?</summary><p>Not today. CommandHQ is built for one person running several projects: freelancers, founders, researchers, students and makers. It has no shared workspaces, comments or assignees. We may offer a team version in the future. If we do, it will be a separate product with its own pricing, and it won’t be included in Lifetime or the current Pro plans. Everything you have for one person, including every future Pro update, stays yours.</p></details>
+    </div>
+
+    <div class="content" style="margin-top:3rem">
+      <h2>Report a bug or suggest a feature</h2>
+      <p>Email <a href="mailto:support_commandhq@kridallc.com">support_commandhq@kridallc.com</a>. Every message is read, and the roadmap is shaped by what you send.</p>
+    </div>
+  </main>
+  <footer class="ftr">
+    <div class="ftr-inner">
+      <div class="ftr-top">
+        <div class="ftr-brand">
+          <a href="/commandhq/" class="ftr-logo" aria-label="CommandHQ home"><img src="/commandhq/media/icon-180.png" alt="" width="36" height="36" loading="lazy"><span>Command<b>HQ</b></span></a>
+          <p class="ftr-tag">See which of your deadlines will slip, and fix the plan while there’s still time.</p>
+          <p class="ftr-plat">iPhone · iPad · Mac · Apple Watch</p>
+          <div class="ftr-social" aria-label="CommandHQ on social media">
+          <a href="https://www.instagram.com/commandhqapp/" rel="me noopener" target="_blank" aria-label="CommandHQ on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+          <a href="https://x.com/commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+          <a href="https://www.threads.com/@commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on Threads" title="Threads"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z"/></svg></a>
+          <a href="https://bsky.app/profile/commandhqapp.bsky.social" rel="me noopener" target="_blank" aria-label="CommandHQ on Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg></a>
+          <a href="https://www.youtube.com/@commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://www.facebook.com/commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+          </div>
+        </div>
+        <div class="ftr-cols" role="navigation" aria-label="Footer">
+          <div class="ftr-col">
+            <h2>Product</h2>
+            <ul>
+              <li><a href="/commandhq/features/">Features</a></li>
+              <li><a href="/commandhq/videos/">Video guides</a></li>
+              <li><a href="/commandhq/pricing/">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="ftr-col">
+            <h2>Support</h2>
+            <ul>
+              <li><a href="/commandhq/support/">Help &amp; FAQ</a></li>
+              <li><a href="mailto:support_commandhq@kridallc.com">Contact us</a></li>
+              <li><a href="/commandhq/press/">Press kit</a></li>
+            </ul>
+          </div>
+          <div class="ftr-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/commandhq/privacy/">Privacy</a></li>
+              <li><a href="/commandhq/terms/">Terms</a></li>
+              <li><a href="#cookie-settings" data-consent-open>Cookie settings</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bottom">
+        <p>© 2026 <a href="/">Krida LLC</a> · Golden, Colorado</p>
+        <p class="ftr-tm">Apple, Mac, iPad, iPhone, Apple Watch, iCloud, Siri and Apple Intelligence are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+      </div>
+    </div>
+  <!-- i18n:switcher --><!-- /i18n:switcher -->
+</footer>
+  <script>
+  (function () {
+    var q = document.getElementById('faqq'); if (!q) return;
+    var secs = [].slice.call(document.querySelectorAll('.faq-sec')), none = document.getElementById('faqnone');
+    function norm(t) { return (t || '').toLowerCase(); }
+    q.addEventListener('input', function () {
+      var terms = norm(q.value).split(/\s+/).filter(Boolean), any = false;
+      secs.forEach(function (sec) {
+        var shown = 0;
+        sec.querySelectorAll('details').forEach(function (d) {
+          var ok = terms.every(function (t) { return norm(d.textContent).indexOf(t) >= 0; });
+          d.hidden = !ok; if (ok) shown++; d.open = !!terms.length && ok && shown <= 3;
+        });
+        sec.hidden = !shown; if (shown) any = true;
+      });
+      none.hidden = any;
+    });
+  })();
+  </script>
+</body>
+</html>

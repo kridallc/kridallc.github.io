@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kridallc.com/sitemap.xml
+Sitemap: https://kridallc.com/commandhq/videos/sitemap.xml

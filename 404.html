@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Page not found — Krida LLC</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #080c14; --card: rgba(13, 18, 32, 0.8); --accent: #4f8ef7; --text: #e8edf5; --muted: #7a8ba8; --border: rgba(79, 142, 247, 0.15); }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; line-height: 1.6;
+      background-image: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(79, 142, 247, 0.14), transparent 70%); }
+    header { padding: 1.4rem 2rem; }
+    .logo { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--text); text-decoration: none; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; }
+    .logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .logo span { color: var(--accent); }
+    main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem 1.5rem 4rem; }
+    .code { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; }
+    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.9rem; }
+    p.lead { color: var(--muted); max-width: 32rem; margin-bottom: 2.2rem; }
+    .apps { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; width: 100%; max-width: 46rem; margin-bottom: 2rem; }
+    .apps a[hidden] { display: none; }
+    .apps a { display: flex; align-items: center; gap: 0.7rem; padding: 0.8rem 0.9rem; min-height: 56px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.95rem; text-align: left; flex: 0 1 172px; transition: border-color 0.2s, transform 0.2s; }
+    .apps a:hover, .apps a:focus-visible { border-color: rgba(79, 142, 247, 0.5); transform: translateY(-2px); outline: none; }
+    .apps img { width: 32px; height: 32px; border-radius: 8px; flex: 0 0 auto; }
+    .apps .hq { border-color: rgba(254, 143, 8, 0.45); }
+    .home { display: inline-flex; align-items: center; min-height: 44px; padding: 0.7rem 1.4rem; border-radius: 10px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 500; }
+    .home:hover { background: #3b7be6; }
+    footer { text-align: center; color: var(--muted); font-size: 0.8rem; padding: 1.5rem; }
+    @media (max-width: 520px) { .apps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+    @media (prefers-reduced-motion: reduce) { .apps a { transition: none; } .apps a:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/"><img src="/logo_square.jpg" alt="" width="34" height="34" />Krida <span>LLC</span></a>
+  </header>
+  <main>
+    <div class="code">404 · Page not found</div>
+    <h1>This page doesn’t exist.</h1>
+    <p class="lead">The link may be old or mistyped. Here’s where you can go instead.</p>
+    <nav class="apps" aria-label="Krida apps">
+      <a class="hq" id="hq" href="/commandhq/" hidden><img src="/commandhq/media/icon-180.png" alt="" width="32" height="32" />CommandHQ</a>
+      <a href="/mathsdash/"><img src="/icon_MD.jpeg" alt="" width="32" height="32" />Maths Dash</a>
+      <a href="/crystalroom/"><img src="/icon_CR.png" alt="" width="32" height="32" />CrystalRoom</a>
+      <a href="/swarmdodge/"><img src="/icon_SD.png" alt="" width="32" height="32" />Swarm Dodge</a>
+      <a href="/beachbaskit/"><img src="/icon_BB.png" alt="" width="32" height="32" />BeachBaskit</a>
+    </nav>
+    <a class="home" href="/">Go to the Krida home page</a>
+  </main>
+  <footer>© 2026 Krida LLC · Golden, Colorado</footer>
+  <script>
+    // Someone who mistyped a CommandHQ address gets CommandHQ first.
+    if (/^\/commandhq(\/|$)/i.test(location.pathname)) document.getElementById('hq').hidden = false;
+  </script>
+</body>
+</html>

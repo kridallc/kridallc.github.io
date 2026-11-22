@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="canonical" href="https://kridallc.com/links/links/" />
+  <link rel="canonical" href="https://kridallc.com/links/links" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krida LLC — Links</title>
   <meta name="description" content="Apps, social profiles, and contact info for Krida LLC — an independent app studio building across spatial computing, science, gaming, and consumer tech." />
@@ -427,6 +427,12 @@
     /* RESPONSIVE */
     @media (max-width: 360px) {
       .apps-grid { grid-template-columns: 1fr; }
+    }
+      /* touch targets + small-phone fixes (2026-11-19) */
+    @media (pointer: coarse) {
+      .store-btn { min-height: 36px; font-size: 0.74rem; }
+      .store-btns { gap: 0.4rem; }
+      .footer a { display: inline-block; padding: 0.5rem 0.25rem; }
     }
   </style>
 

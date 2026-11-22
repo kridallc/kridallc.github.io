@@ -151,6 +151,11 @@
       .contact-grid{grid-template-columns:1fr;}
       .deletion-section{padding:1.25rem;}
     }
+      /* touch targets + small-phone fixes (2026-11-19) */
+    @media (max-width: 600px), (pointer: coarse) {
+      .footer-links a { display: inline-block; padding: 0.6rem 0.25rem; }
+      .toc a { display: inline-block; padding: 0.45rem 0; }
+    }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
@@ -161,7 +166,7 @@
       <img src="/icon_MD.jpeg" alt="Maths Dash" class="nav-logo" />
       <span class="nav-brand">Maths<span>Dash</span></span>
     </a>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">

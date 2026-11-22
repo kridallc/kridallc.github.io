@@ -1,0 +1,23 @@
+{
+  "site_root": "..",
+  "base": "commandhq",
+  "origin": "https://kridallc.com",
+  "pages": [
+    "index.html",
+    "features/index.html",
+    "pricing/index.html",
+    "support/index.html",
+    "videos/index.html",
+    "privacy/index.html",
+    "terms/index.html",
+    "press/index.html"
+  ],
+  "languages": [],
+  "language_names": {
+    "de": "Deutsch", "fr": "Français", "es": "Español", "it": "Italiano", "nl": "Nederlands",
+    "pl": "Polski", "pt-BR": "Português (Brasil)", "ja": "日本語", "ko": "한국어",
+    "zh-Hans": "简体中文", "zh-Hant": "繁體中文"
+  },
+  "model": "claude-sonnet-5-5",
+  "glossary": {}
+}

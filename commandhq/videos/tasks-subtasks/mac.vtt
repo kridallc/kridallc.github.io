@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:04.600 --> 00:00:08.100
+In a project, go down to its tasks
+
+2
+00:00:08.100 --> 00:00:11.600
+Right-click the task
+
+3
+00:00:11.600 --> 00:00:15.300
+Edit Task…
+
+4
+00:00:15.300 --> 00:00:19.800
+Down to Subtasks
+
+5
+00:00:19.800 --> 00:00:24.200
+Under Subtasks, type a step
+
+6
+00:00:24.200 --> 00:00:27.800
+Return adds it
+
+7
+00:00:27.800 --> 00:00:34.100
+Tick a step off when it's done
+
+8
+00:00:34.100 --> 00:00:36.600
+The task counts them: 1 of 3 done
+
+9
+00:00:36.600 --> 00:00:39.300
+Back in the project…
+
+10
+00:00:39.300 --> 00:00:48.800
+…the task's row shows the count too

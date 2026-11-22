@@ -55,6 +55,12 @@
     footer p{font-size:0.75rem;color:rgba(255,255,255,0.18);text-align:center;}
     @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
     @media(max-width:680px){nav{padding:0 1.25rem;}.nav-toggle{display:flex;}.nav-links{display:none;position:absolute;top:58px;left:0;right:0;background:rgba(4,9,15,0.98);border-bottom:1px solid var(--border);flex-direction:column;padding:1rem 1.25rem;gap:0.25rem;}.nav-links.open{display:flex;}main{padding:3rem 1.25rem 5rem;}}
+      /* touch targets + small-phone fixes (2026-11-19) */
+    @media (max-width: 600px), (pointer: coarse) { .toc-card ol li a { display: inline-block; padding: 0.45rem 0; } .toc-card ol li { margin-bottom: 0; } }
+    @media (max-width: 600px), (pointer: coarse) {
+      .footer-links a { display: inline-block; padding: 0.6rem 0.25rem; }
+      .toc a { display: inline-block; padding: 0.45rem 0; }
+    }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8CX00NGGY"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F8CX00NGGY');</script>
@@ -65,7 +71,7 @@
       <img src="/icon_BB.png" alt="BeachBaskit" class="nav-logo" />
       <span class="nav-brand">Beach<span>Baskit</span></span>
     </a>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="/beachbaskit/">Home</a></li>
       <li><a href="/beachbaskit/support/">Support</a></li>

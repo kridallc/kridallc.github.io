@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommandHQ — Project planner that shows which deadlines will slip</title>
+  <meta name="description" content="CommandHQ checks every deadline against the pace you actually work, shows planned vs actual time, and helps you fix the plan while there’s still time. iPhone, iPad and Mac. No account; your plans never touch our servers." />
+  <link rel="canonical" href="https://kridallc.com/commandhq/" />
+  <link rel="icon" type="image/png" href="/commandhq/media/icon-180.png" />
+  <link rel="apple-touch-icon" href="/commandhq/media/icon-180.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kridallc.com/commandhq/" />
+  <meta property="og:title" content="CommandHQ — Which of your deadlines will slip?" />
+  <meta property="og:description" content="Deadline forecasts from the pace you actually work, planned vs actual time, and replans you approve. iPhone, iPad and Mac. No account; your plans never touch our servers." />
+  <meta property="og:image" content="https://kridallc.com/commandhq/media/og-2026-11.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://kridallc.com/commandhq/media/og-2026-11.jpg" />
+  <link rel="stylesheet" href="/commandhq/site.css?v=20261119c" />
+  <script src="/commandhq/consent.js?v=20261117a"></script>
+  <script src="/commandhq/journey.js?v=20261116f" defer></script>
+  <script src="/commandhq/store.js?v=20261117a"></script>
+  <script src="/commandhq/wordmark.js?v=20261116f" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CommandHQ",
+    "operatingSystem": "macOS 15, iOS 18, iPadOS 18, watchOS",
+    "applicationCategory": "BusinessApplication",
+    "description": "Project manager for Mac, iPad and iPhone, with an Apple Watch app for today's tasks, timers and late-milestone warnings: Gantt, Kanban, calendar time-blocking, forecasts, time tracking, canvases and optional AI. No account, no company server.",
+    "author": { "@type": "Organization", "name": "Krida LLC", "url": "https://kridallc.com" },
+    "sameAs": ["https://www.instagram.com/commandhqapp/", "https://x.com/commandhqapp", "https://www.threads.com/@commandhqapp", "https://bsky.app/profile/commandhqapp.bsky.social", "https://www.youtube.com/@commandhqapp", "https://www.facebook.com/commandhqapp"],
+    "offers": [
+      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "CommandHQ Pro Monthly", "price": "5.99", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "CommandHQ Pro Yearly", "price": "39.99", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "CommandHQ Pro Lifetime (launch price)", "price": "69.99", "priceCurrency": "USD", "priceValidUntil": "2026-12-15" },
+      { "@type": "Offer", "name": "CommandHQ Pro Lifetime", "price": "99.99", "priceCurrency": "USD", "validFrom": "2026-12-16" }
+    ]
+  }
+  </script>
+
+
+  <style>
+    /* Device stage: real screenshots in drawn frames; one scene shown at a time. */
+    .devstage { overflow: hidden; padding-bottom: 4.5rem; }
+    .ds-head { text-align: center; max-width: 760px; margin: 0 auto; }
+    .ds-head .sub { margin-left: auto; margin-right: auto; }
+    .ds-tabs { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin: 1.8rem 0 2.2rem; }
+    .ds-tab { position: relative; overflow: hidden; font: 600 0.88rem/1 var(--sans); color: var(--muted); background: var(--card); border: 1px solid var(--border-soft); border-radius: 999px; padding: 0 1.15rem; min-height: 42px; cursor: pointer; transition: color .2s, border-color .2s; }
+    .ds-tab:hover { color: var(--text); border-color: var(--border); }
+    .ds-tab[aria-selected="true"] { color: var(--text); border-color: rgba(254,143,8,0.6); }
+    .ds-tab:focus-visible { outline: 2px solid var(--btn-amber); outline-offset: 2px; }
+    .ds-prog { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: linear-gradient(90deg, var(--btn-amber), var(--btn-gold)); }
+    .devstage.is-auto .ds-tab[aria-selected="true"] .ds-prog { animation: dsprog var(--ds-dwell, 5.5s) linear forwards; }
+    .devstage.is-paused .ds-prog { animation-play-state: paused !important; }
+    @keyframes dsprog { to { width: 100%; } }
+    .ds-stage { position: relative; max-width: 1120px; margin: 0 auto; aspect-ratio: 1120 / 690; }
+    .ds-stage::before { content: ""; position: absolute; inset: 8% 10% -4%; background: radial-gradient(ellipse at 50% 55%, rgba(254,143,8,0.22), transparent 65%); filter: blur(30px); pointer-events: none; }
+    .ds-dev { position: absolute; transform: translate3d(var(--px, 0), var(--py, 0), 0); transition: transform .5s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+    .ds-screen { position: relative; overflow: hidden; background: #000; }
+    .ds-shot { position: absolute; inset: 0; opacity: 0; transform: scale(1.02); transition: opacity .7s ease, transform 1.2s cubic-bezier(.2,.7,.2,1); }
+    .ds-shot.is-on { opacity: 1; transform: none; }
+    .ds-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; color: transparent; font-size: 0; }
+    /* Mac: a laptop screen with a thin base */
+    .ds-mac { left: 11%; top: 0; width: 78%; z-index: 1; }
+    .ds-mac .ds-screen { aspect-ratio: 1600 / 1039; border: 9px solid #0b0c10; border-bottom-width: 14px; border-radius: 14px 14px 4px 4px; box-shadow: 0 0 0 2px #c3c6cd, 0 0 0 3px rgba(0,0,0,0.12), 0 30px 60px rgba(0,0,0,0.40); }
+    /* The base, seen slightly from above: keyboard and trackpad in perspective */
+    .ds-base { position: relative; margin: 0 -8%; padding-bottom: 11%; perspective: 2400px; perspective-origin: 50% -30%; }
+    /* Silver MacBook: aluminium deck, black keys in a dark well, aluminium trackpad */
+    .ds-deck { position: absolute; left: 0; right: 0; top: 0; padding-bottom: 60%; transform-origin: 50% 0; transform: rotateX(76deg); border-radius: 0 0 22px 22px; background: linear-gradient(180deg, #e9eaee 0%, #dcdee3 50%, #cfd2d8 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -4px 0 #a9adb5, 0 0 0 1px rgba(0,0,0,0.08); }
+    .ds-deck::before { content: ""; position: absolute; left: 50%; top: 0; width: 18%; height: 2.5%; transform: translateX(-50%); background: linear-gradient(180deg, #b8bcc4, #cdd0d6); border-radius: 0 0 10px 10px; }
+    /* Backlit keyboard: 14 x 6 black keys, light leaking round each key, a glowing legend on each */
+    .ds-kb { position: absolute; left: 8%; right: 8%; top: 5%; height: 48%; border-radius: 6px; background-color: #1a1b1f;
+      --cell: calc(100% / 15) calc(100% / 6);
+      background-image:
+        radial-gradient(ellipse 11% 9% at 50% 46%, rgba(236,241,255,0.85), rgba(236,241,255,0) 100%),
+        linear-gradient(90deg, rgba(190,205,255,0.16) 0 3%, #0c0d0f 3% 4.5%, transparent 4.5% 95.5%, #0c0d0f 95.5% 97%, rgba(190,205,255,0.16) 97%),
+        linear-gradient(180deg, rgba(190,205,255,0.16) 0 4%, #0c0d0f 4% 6%, transparent 6% 94%, #0c0d0f 94% 96%, rgba(190,205,255,0.16) 96%),
+        linear-gradient(180deg, #24252a, #18191c);
+      background-size: var(--cell), var(--cell), var(--cell), var(--cell);
+      box-shadow: 0 0 0 3px #c4c7ce, 0 0 10px rgba(170,190,255,0.14), inset 0 0 0 1px rgba(0,0,0,0.5); }
+    .ds-kb::after { content: ""; position: absolute; left: calc(100% / 15 * 4.5); width: calc(100% / 15 * 6); bottom: 0; height: calc(100% / 6); background: linear-gradient(180deg, #24252a, #18191c); box-shadow: inset 0 0 0 1px #0c0d0f, 0 0 0 1px rgba(190,205,255,0.16); border-radius: 2px; }
+    .ds-tp { position: absolute; left: 31%; width: 38%; top: 59%; height: 34%; border-radius: 8px; background: linear-gradient(180deg, #e2e4e8, #d6d9de); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.8); }
+    /* Mac: Apple's MacBook Pro 14-inch (silver) product bezel; the screen sits in its opening */
+    .ds-mbp { position: relative; aspect-ratio: 3806 / 2296; filter: drop-shadow(0 28px 40px rgba(0,0,0,0.35)); }
+    .ds-mac .ds-mbp .ds-screen { position: absolute; left: 10.1%; top: 2.1%; width: 79.8%; height: 86%; aspect-ratio: auto; border: 0; border-radius: 0.6% / 1%; box-shadow: none; background: #000; }
+    .ds-mac .ds-mbp .ds-shot { top: 3.7%; }
+    .ds-mac .ds-mbp .ds-screen { background: #000; } /* full-screen app: macOS keeps the notch row black */
+    .ds-frame { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+    /* Apple Watch: Apple's Series 11 46 mm product image; the screenshot sits in its display */
+    .ds-aw { position: relative; aspect-ratio: 521 / 849; filter: drop-shadow(0 18px 26px rgba(0,0,0,0.35)); }
+    .ds-watch .ds-aw .ds-screen { position: absolute; left: 7.47%; top: 20.43%; width: 80.65%; height: 59.02%; aspect-ratio: auto; border: 0; border-radius: 22%/18%; box-shadow: none; background: #000; }
+    .ds-ap-ipad { position: relative; aspect-ratio: 640 / 900; filter: drop-shadow(0 24px 34px rgba(0,0,0,0.35)); }
+    .ds-ipad .ds-ap .ds-screen { position: absolute; left: 4.61%; top: 3.44%; width: 90.57%; height: 93.26%; aspect-ratio: auto; border: 0 !important; border-radius: 4%/3%; box-shadow: none; background: #000; }
+    .ds-ap-iphone { position: relative; aspect-ratio: 437 / 900; filter: drop-shadow(0 24px 34px rgba(0,0,0,0.35)); }
+    .ds-iphone .ds-ap .ds-screen { position: absolute; left: 3.95%; top: 1.57%; width: 92.10%; height: 96.90%; aspect-ratio: auto; border: 0 !important; border-radius: 4%/3%; box-shadow: none; background: #000; }
+    /* iPad, front left */
+    .ds-ipad { left: 0; bottom: 2%; width: 23%; z-index: 2; }
+    .ds-ipad .ds-screen { aspect-ratio: 1000 / 1451; border: 9px solid #0b0c10; border-radius: 22px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 28px 50px rgba(0,0,0,0.5); }
+    /* iPhone, front right */
+    .ds-iphone { right: 0; bottom: 1%; width: 13%; z-index: 4; }
+    /* iPhone Duo, partly open like a book held toward you: both halves tip forward, the fold sits back */
+    .ds-duo { right: 13.5%; bottom: 1%; width: 33%; z-index: 3; }
+    .ds-fold { position: relative; display: flex; perspective: 1600px; filter: drop-shadow(0 26px 34px rgba(0,0,0,0.5)); }
+    .ds-half { width: 50%; position: relative; }
+    .ds-half .ds-screen { aspect-ratio: 800 / 1126; border: 6px solid #0b0c10; }
+    .ds-l .ds-screen { box-shadow: 0 -2px 0 0 #c9ccd3, 0 2px 0 0 #c9ccd3, -2px 0 0 0 #c9ccd3, -2px -1px 0 0 #c9ccd3, -2px 1px 0 0 #c9ccd3; }
+    .ds-r .ds-screen { box-shadow: 0 -2px 0 0 #c9ccd3, 0 2px 0 0 #c9ccd3, 2px 0 0 0 #c9ccd3, 2px -1px 0 0 #c9ccd3, 2px 1px 0 0 #c9ccd3; }
+    .ds-l { transform-origin: 100% 50%; transform: rotateY(17deg); }
+    .ds-r { transform-origin: 0 50%; transform: rotateY(-17deg); margin-left: -1px; }
+    .ds-l .ds-screen { border-right-width: 0; border-radius: 20px 0 0 20px; }
+    .ds-r .ds-screen { border-left-width: 0; border-radius: 0 20px 20px 0; }
+    .ds-half .ds-shot img { width: 200%; max-width: none; }
+    .ds-r .ds-shot img { margin-left: -100%; }
+    .ds-l .ds-screen::after, .ds-r .ds-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+    .ds-l .ds-screen::after { background: linear-gradient(90deg, transparent 97%, rgba(0,0,0,0.04) 100%); }
+    .ds-r .ds-screen::after { background: linear-gradient(90deg, rgba(0,0,0,0.05) 0, transparent 3%); }
+    /* Apple Watch */
+    .ds-watch { left: 18.5%; bottom: 1%; width: 9.5%; z-index: 5; }
+    .ds-watch .ds-screen { aspect-ratio: 416 / 496; border: 6px solid #0b0c10; border-radius: 30%/26%; box-shadow: 0 0 0 1.5px #3a3c42, 0 0 0 3px #0b0c10, 0 18px 30px rgba(0,0,0,0.55); position: relative; z-index: 1; }
+    .ds-band { position: absolute; left: 13%; right: 13%; top: -30%; bottom: -30%; border-radius: 26px; background: linear-gradient(90deg, #1d1e22 0%, #2f3136 30%, #34363b 50%, #2f3136 70%, #1d1e22 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 14px 26px rgba(0,0,0,0.35); }
+    .ds-band::after { content: ""; position: absolute; left: 50%; bottom: 12%; width: 9%; height: 4.5%; transform: translateX(-50%); border-radius: 50%; background: #16171a; box-shadow: 0 -22px 0 #16171a, 0 -44px 0 #16171a; }
+    .ds-crown { position: absolute; right: -7%; top: 26%; width: 8%; height: 18%; border-radius: 3px; background: linear-gradient(90deg, #2a2c31, #4a4c52); z-index: 0; }
+    .ds-iphone .ds-screen { aspect-ratio: 520 / 1131; border: 7px solid #0b0c10; border-radius: 30px; box-shadow: 0 0 0 1px rgba(255,255,255,0.14), 0 28px 50px rgba(0,0,0,0.55); }
+    .ds-cap { text-align: center; color: var(--muted); font-size: 0.92rem; margin-top: 1.6rem; min-height: 1.5em; }
+    @media (prefers-color-scheme: light) {
+      .ds-stage::before { background: radial-gradient(ellipse at 50% 55%, rgba(254,143,8,0.16), transparent 65%); }
+      .ds-mac .ds-screen, .ds-ipad .ds-screen, .ds-iphone .ds-screen { border-color: #1b1c21; }
+    }
+    @media (max-width: 760px) {
+      .ds-stage { aspect-ratio: 375 / 380; }
+      .ds-mac { left: 2%; width: 96%; }
+      .ds-ipad { width: 28%; left: -1%; }
+      .ds-iphone { width: 16%; right: 0; }
+      .ds-duo { width: 40%; right: 13%; }
+      .ds-watch { width: 13.5%; left: 21%; }
+      .ds-mac .ds-screen { border-width: 5px 5px 8px; border-radius: 9px 9px 3px 3px; }
+      .ds-ipad .ds-screen { border-width: 5px; border-radius: 13px; }
+      .ds-iphone .ds-screen { border-width: 4px; border-radius: 17px; }
+      .ds-half .ds-screen { border-width: 4px; }
+      .ds-l .ds-screen { border-radius: 11px 0 0 11px; border-right-width: 0; } .ds-r .ds-screen { border-radius: 0 11px 11px 0; border-left-width: 0; }
+      .ds-watch .ds-screen { border-width: 3px; }
+      .ds-tabs { margin: 1.4rem 0 1.6rem; }
+      .ds-tab { font-size: 0.8rem; padding: 0 0.85rem; min-height: 38px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .ds-dev, .ds-shot { transition: none !important; transform: none !important; } .ds-prog { display: none; } }
+  </style>
+  <!-- i18n:alternates --><!-- /i18n:alternates -->
+</head>
+<body>
+<div class="offer-bar" data-offer>
+    <strong>Launch offer:</strong><span class="ob-long"> CommandHQ Pro</span> Lifetime <strong>$69.99</strong> until Dec 15<span class="ob-long">, then $99.99</span>.<a href="/commandhq/pricing/">See pricing →</a>
+  </div>
+
+  <nav>
+    <a href="/commandhq/" class="nav-left" aria-label="CommandHQ home">
+      <img src="/commandhq/media/icon-180.png" alt="" class="nav-logo" />
+      <span class="nav-brand">Command<span>HQ</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'))" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="/commandhq/" class="active" aria-current="page">Home</a></li>
+      <li><a href="/commandhq/features/">Features</a></li>
+      <li><a href="/commandhq/videos/">Videos</a></li>
+      <li><a href="/commandhq/pricing/">Pricing</a></li>
+      <li><a href="/commandhq/support/">Support</a></li>
+      <li><a href="/commandhq/privacy/">Privacy</a></li>
+      <li><a href="/commandhq/pricing/" class="nav-cta" data-store data-live-label="Download"><span data-store-label>Coming soon</span></a></li>
+    </ul>
+  </nav>
+
+<header class="hero hero2">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">The project planner for people running several projects</p>
+        <h1>Which of your deadlines <em>will slip?</em></h1>
+        <p class="sub"><strong class="sub-lead">Your plan has dates. Your work has a pace.</strong> CommandHQ checks one against the other, and helps you fix the plan while there’s still time.</p>
+      </div>
+      <figure class="hero-visual">
+        <div class="shot-wrap">
+          <picture>
+            <source srcset="/commandhq/media/f/mac-portfolio-dark-960.webp 960w, /commandhq/media/f/mac-portfolio-dark.webp 1600w" sizes="(max-width: 1000px) min(640px, 92vw), 52vw" media="(prefers-color-scheme: dark)">
+            <img src="/commandhq/media/f/mac-portfolio-light.webp" srcset="/commandhq/media/f/mac-portfolio-light-960.webp 960w, /commandhq/media/f/mac-portfolio-light.webp 1600w" sizes="(max-width: 1000px) min(640px, 92vw), 52vw" width="1600" height="1039" alt="CommandHQ on a Mac: the Portfolio, nine projects, each with its status and forecast" fetchpriority="high">
+          </picture>
+          <span class="ring" aria-hidden="true"></span>
+        </div>
+        <div class="pcard pc-teal pc-callout" role="img" aria-label="Enlarged project card: Event Plan, At Risk. Its next milestone, Program locked, is likely about 6 days late. Likely finish January 12. Pace 1.4 tasks a week, steady. 15 percent complete, 2 active, 1 overdue. Program locked due in 19 days.">
+          <div class="pc-head"><span class="pc-dot"></span><span class="pc-title">Event Plan</span><span class="pc-pill">Active</span></div>
+          <div class="pc-bar"><i style="width:15%"></i></div>
+          <div class="pc-risk"><span class="pc-dot sm"></span>At Risk</div>
+          <div class="pc-fc">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 3v14h16" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 13l4-4 3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><span class="pc-slip">Next milestone: about 6 days late</span><span>Likely finish Jan 12</span></div>
+          </div>
+          <div class="pc-weeks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b style="height:38%;opacity:.6"></b><b style="height:100%"></b><b style="height:30%"></b></div>
+          <div class="pc-pace"><span>1.4 tasks/wk</span><span class="pc-steady">→ Steady</span></div>
+          <div class="pc-stats"><div><strong class="a">15%</strong><small>complete</small></div><div><strong class="b">2</strong><small>active</small></div><div><strong class="r">1</strong><small>overdue</small></div></div>
+          <div class="pc-ms"><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 18V3h10l-2 3.5 2 3.5H4" fill="currentColor"/></svg>Program locked</span><span>19d</span></div>
+        </div>
+        <figcaption>The real Portfolio on a Mac. Enlarged: Event Plan’s next milestone, “Program locked”, is likely about 6 days late, so you can act now. The finish date is an estimate, not a promise: each milestone also gets a likely range, which narrows as its deadline gets closer.</figcaption>
+      </figure>
+      <div class="hero-act">
+        <p class="sub2">Works on its own on iPhone, iPad or Mac, with Apple Watch alongside. No account, and your plans never touch our servers.</p>
+        <div class="hero-ctas">
+          <a href="/commandhq/pricing/" class="btn btn-primary" data-store>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.940 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-store-label>Coming soon</span>
+          </a>
+          <a href="/commandhq/videos/" class="btn btn-ghost">Watch it work</a>
+        </div>
+        <p class="platforms">iPhone · iPad · Mac · Apple Watch · Free to start</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip">
+    <ul>
+      <li><strong>Data Not Collected</strong><span>The app collects nothing: no account, no server that receives your data</span></li>
+      <li><strong>12 languages</strong><span>Native on iPhone, iPad, Mac and Apple Watch</span></li>
+      <li><strong>One purchase</strong><span>iPhone, iPad, Mac and Watch</span></li>
+      <li><strong>Accessible</strong><span>VoiceOver and Voice Control throughout</span></li>
+    </ul>
+  </div>
+
+  <section id="devices" class="devstage" aria-labelledby="ds-title">
+    <div class="wrap">
+      <div class="ds-head">
+        <div class="eyebrow">Every Apple device</div>
+        <h2 class="title" id="ds-title">On every Apple device you use.</h2>
+        <p class="sub">The whole app on iPhone, iPhone Duo, iPad and Mac, not a cut-down companion. On Apple Watch, today’s tasks, your timer and a warning when a milestone this week is likely to be late. Turn on iCloud Sync and the same projects stay in step everywhere.</p>
+      </div>
+      <div class="ds-tabs" role="tablist" aria-label="Views across devices"><button type="button" role="tab" class="ds-tab" id="dst0" aria-controls="dsp" aria-selected="true" tabindex="0"><span>Your day</span><i class="ds-prog" aria-hidden="true"></i></button><button type="button" role="tab" class="ds-tab" id="dst1" aria-controls="dsp" aria-selected="false" tabindex="-1"><span>Timeline</span><i class="ds-prog" aria-hidden="true"></i></button><button type="button" role="tab" class="ds-tab" id="dst2" aria-controls="dsp" aria-selected="false" tabindex="-1"><span>Board and ideas</span><i class="ds-prog" aria-hidden="true"></i></button></div>
+      <div class="ds-stage" id="dsp" role="tabpanel" aria-labelledby="dst0">
+        <div class="ds-dev ds-mac" data-depth="4"><div class="ds-mbp"><div class="ds-screen"><picture class="ds-shot is-on" data-scene="0"><source srcset="/commandhq/media/f/mac-dashboard-dark.webp" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/f/mac-dashboard-light.webp" width="1600" height="1039" alt="The Software Release dashboard on a Mac: progress, pace and forecast" decoding="async"></picture><picture class="ds-shot" data-scene="1" aria-hidden="true"><source data-srcset="/commandhq/media/f/mac-gantt-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/mac-gantt-light.webp" width="1600" height="1039" alt="A Gantt chart on a Mac, with dependency arrows between tasks" decoding="async"></picture><picture class="ds-shot" data-scene="2" aria-hidden="true"><source data-srcset="/commandhq/media/f/mac-kanban-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/mac-kanban-light.webp" width="1600" height="1039" alt="A Kanban board on a Mac: To Do, In Progress, Blocked and Done" decoding="async"></picture></div><img class="ds-frame" src="/commandhq/media/f/macbook-pro-14-silver.webp" width="1800" height="1086" alt="" aria-hidden="true" decoding="async"></div></div>
+        <div class="ds-dev ds-ipad" data-depth="12"><div class="ds-ap ds-ap-ipad"><div class="ds-screen"><picture class="ds-shot is-on" data-scene="0"><source srcset="/commandhq/media/f/ipad-briefing-dark.webp" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/f/ipad-briefing-light.webp" width="1000" height="1451" alt="The Daily Briefing on iPad: what is due today and what needs attention" decoding="async"></picture><picture class="ds-shot" data-scene="1" aria-hidden="true"><source data-srcset="/commandhq/media/f/ipad-gantt-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/ipad-gantt-light.webp" width="1000" height="1451" alt="A Gantt chart on iPad, week view" decoding="async"></picture><picture class="ds-shot" data-scene="2" aria-hidden="true"><source data-srcset="/commandhq/media/f/ipad-mindmap-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/ipad-mindmap-light.webp" width="1000" height="1451" alt="A mind map on an iPad canvas" decoding="async"></picture></div><img class="ds-frame" src="/commandhq/media/f/ipad-pro-11-silver.webp" width="640" height="900" alt="" aria-hidden="true" decoding="async"></div></div>
+        <div class="ds-dev ds-duo" data-depth="14"><div class="ds-fold"><div class="ds-half ds-l"><div class="ds-screen"><picture class="ds-shot is-on" data-scene="0"><source srcset="/commandhq/media/f/duo-briefing-dark.webp" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/f/duo-briefing-light.webp" width="1600" height="1126" alt="The Daily Briefing on iPhone Duo, partly open" decoding="async"></picture><picture class="ds-shot" data-scene="1" aria-hidden="true"><source data-srcset="/commandhq/media/f/duo-gantt-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/duo-gantt-light.webp" width="1600" height="1126" alt="The Software Release Gantt on iPhone Duo" decoding="async"></picture><picture class="ds-shot" data-scene="2" aria-hidden="true"><source data-srcset="/commandhq/media/f/duo-mindmap-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/duo-mindmap-light.webp" width="1600" height="1126" alt="A mind map on iPhone Duo" decoding="async"></picture></div></div><div class="ds-half ds-r" aria-hidden="true"><div class="ds-screen"><picture class="ds-shot is-on" data-scene="0"><source srcset="/commandhq/media/f/duo-briefing-dark.webp" media="(prefers-color-scheme: dark)"><img alt="" src="/commandhq/media/f/duo-briefing-light.webp" width="1600" height="1126" data-alt="The Daily Briefing on iPhone Duo, partly open" decoding="async"></picture><picture class="ds-shot" data-scene="1" aria-hidden="true"><source data-srcset="/commandhq/media/f/duo-gantt-dark.webp" media="(prefers-color-scheme: dark)"><img alt="" data-src="/commandhq/media/f/duo-gantt-light.webp" width="1600" height="1126" data-alt="The Software Release Gantt on iPhone Duo" decoding="async"></picture><picture class="ds-shot" data-scene="2" aria-hidden="true"><source data-srcset="/commandhq/media/f/duo-mindmap-dark.webp" media="(prefers-color-scheme: dark)"><img alt="" data-src="/commandhq/media/f/duo-mindmap-light.webp" width="1600" height="1126" data-alt="A mind map on iPhone Duo" decoding="async"></picture></div></div></div></div>
+        <div class="ds-dev ds-iphone" data-depth="18"><div class="ds-ap ds-ap-iphone"><div class="ds-screen"><picture class="ds-shot is-on" data-scene="0"><source srcset="/commandhq/media/f/iphone-briefing-dark.webp" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/f/iphone-briefing-light.webp" width="520" height="1131" alt="The Daily Briefing on iPhone" decoding="async"></picture><picture class="ds-shot" data-scene="1" aria-hidden="true"><source data-srcset="/commandhq/media/f/iphone-roadmap-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/iphone-roadmap-light.webp" width="520" height="1131" alt="The milestone roadmap on iPhone" decoding="async"></picture><picture class="ds-shot" data-scene="2" aria-hidden="true"><source data-srcset="/commandhq/media/f/iphone-kanban-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/iphone-kanban-light.webp" width="520" height="1131" alt="A Kanban board on iPhone" decoding="async"></picture></div><img class="ds-frame" src="/commandhq/media/f/iphone-18-pro-silver.webp" width="437" height="900" alt="" aria-hidden="true" decoding="async"></div></div>
+        <div class="ds-dev ds-watch" data-depth="22"><div class="ds-aw"><div class="ds-screen"><picture class="ds-shot is-on" data-scene="0"><source srcset="/commandhq/media/f/watch-day-dark.webp" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/f/watch-day-light.webp" width="416" height="496" alt="Apple Watch Today list: an overdue task, then the milestones due this week" decoding="async"></picture><picture class="ds-shot" data-scene="1" aria-hidden="true"><source data-srcset="/commandhq/media/f/watch-plan-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/watch-plan-light.webp" width="416" height="496" alt="Apple Watch Today: the planned 11:05 AM block marked Now, its timer running" decoding="async"></picture><picture class="ds-shot" data-scene="2" aria-hidden="true"><source data-srcset="/commandhq/media/f/watch-timer-dark.webp" media="(prefers-color-scheme: dark)"><img data-src="/commandhq/media/f/watch-timer-light.webp" width="416" height="496" alt="Apple Watch Timer: Accessibility pass running at 37:48, with a Pause button" decoding="async"></picture></div><img class="ds-frame" src="/commandhq/media/f/apple-watch-46-spacegray.webp" width="521" height="849" alt="" aria-hidden="true" decoding="async"></div></div>
+      </div>
+      <p class="ds-cap" aria-live="polite"><span data-cap="0">The Daily Briefing on iPad, iPhone and Duo, the project dashboard on Mac, and today’s list on your Watch, with any late-milestone warning.</span><span data-cap="1" hidden>The Gantt on Mac, iPad and Duo, milestones on the iPhone roadmap, and today’s planned time on your Watch.</span><span data-cap="2" hidden>Kanban on Mac and iPhone, mind maps on iPad and Duo, and a timer on your Watch.</span></p>
+    </div>
+  </section>
+
+<section id="journey" class="journey">
+    <div class="wrap">
+      <div class="eyebrow">One plan</div>
+      <h2 class="title">Everything connected.</h2>
+      <p class="sub">Follow one task, “Write the launch email”, through CommandHQ. Nothing is copied from app to app: it’s the same task everywhere, so every view stays in step.</p>
+      <div class="jbox">
+        <ol class="jsteps" role="tablist" aria-label="One task through CommandHQ">
+          <li><button type="button" role="tab" id="jt0" aria-controls="jp0" aria-selected="true" tabindex="0" class="jstep"><span class="jn">1</span><span class="jtxt"><b>An idea on a canvas</b><span>Put a sticky in Wednesday’s column and choose <strong>Make Task</strong>. It’s a real task now, due that day.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+          <li><button type="button" role="tab" id="jt1" aria-controls="jp1" aria-selected="false" tabindex="-1" class="jstep"><span class="jn">2</span><span class="jtxt"><b>Counted in the project</b><span>The project dashboard picks it up at once: <strong>16 tasks, 6 to do</strong>.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+          <li><button type="button" role="tab" id="jt2" aria-controls="jp2" aria-selected="false" tabindex="-1" class="jstep"><span class="jn">3</span><span class="jtxt"><b>On the board</b><span>The same task is the first card in <strong>To Do</strong>. Click it for its details.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+          <li><button type="button" role="tab" id="jt3" aria-controls="jp3" aria-selected="false" tabindex="-1" class="jstep"><span class="jn">4</span><span class="jtxt"><b>On the timeline</b><span>Make “Submit for review” depend on it, and the <strong>Gantt</strong> draws the arrow.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+          <li><button type="button" role="tab" id="jt4" aria-controls="jp4" aria-selected="false" tabindex="-1" class="jstep"><span class="jn">5</span><span class="jtxt"><b>Planned into your week</b><span>Drag it into the <strong>calendar</strong>: planned for 10:00 AM, beside your other work.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+          <li><button type="button" role="tab" id="jt5" aria-controls="jp5" aria-selected="false" tabindex="-1" class="jstep"><span class="jn">6</span><span class="jtxt"><b>Timed</b><span>Press <strong>▶</strong> on the block, and the timer runs.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+          <li><button type="button" role="tab" id="jt6" aria-controls="jp6" aria-selected="false" tabindex="-1" class="jstep"><span class="jn">7</span><span class="jtxt"><b>Planned vs actual</b><span>The Time view tells the truth: <strong>planned 1h, worked 1h 20m</strong>, 133% of plan.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+          <li><button type="button" role="tab" id="jt7" aria-controls="jp7" aria-selected="false" tabindex="-1" class="jstep"><span class="jn">8</span><span class="jtxt"><b>The forecast moves</b><span>Mark it done: <strong>38% → 44%</strong> complete, pace 1.9 → 2.2 tasks a week, and the projected finish moves from Dec 30 to Dec 21.</span></span><i class="jprog" aria-hidden="true"></i></button></li>
+        </ol>
+        <div class="jstage">
+          <div class="jshot" role="tabpanel" id="jp0" aria-labelledby="jt0">
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-1-canvas-dark.webp 1600w, /commandhq/media/j/journey-1-canvas-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-1-canvas-light.webp" srcset="/commandhq/media/j/journey-1-canvas-light.webp 1600w, /commandhq/media/j/journey-1-canvas-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="The Launch Week canvas: the sticky “Write the launch email” in Wednesday’s column, now marked as a task"></picture><span class="ring" style="left:53.9%;top:65.6%;width:9.2%;height:14.0%" aria-hidden="true"></span></span></button>
+          </div>
+          <div class="jshot" role="tabpanel" id="jp1" aria-labelledby="jt1" hidden>
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-2-dashboard-dark.webp 1600w, /commandhq/media/j/journey-2-dashboard-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-2-dashboard-light.webp" srcset="/commandhq/media/j/journey-2-dashboard-light.webp 1600w, /commandhq/media/j/journey-2-dashboard-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="The Software Release dashboard: Task Breakdown shows 6 to do and 16 tasks in total" loading="lazy"></picture><span class="ring" style="left:59.0%;top:38.4%;width:39.4%;height:19.6%" aria-hidden="true"></span></span></button>
+          </div>
+          <div class="jshot" role="tabpanel" id="jp2" aria-labelledby="jt2" hidden>
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-3-kanban-dark.webp 1600w, /commandhq/media/j/journey-3-kanban-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-3-kanban-light.webp" srcset="/commandhq/media/j/journey-3-kanban-light.webp 1600w, /commandhq/media/j/journey-3-kanban-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="Kanban: “Write the launch email” first in To Do, with its details open" loading="lazy"></picture><span class="ring" style="left:18.9%;top:16.4%;width:18.2%;height:6.4%" aria-hidden="true"></span></span></button>
+          </div>
+          <div class="jshot" role="tabpanel" id="jp3" aria-labelledby="jt3" hidden>
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-4-gantt-dark.webp 1600w, /commandhq/media/j/journey-4-gantt-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-4-gantt-light.webp" srcset="/commandhq/media/j/journey-4-gantt-light.webp 1600w, /commandhq/media/j/journey-4-gantt-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="Gantt, month view: an arrow from “Write the launch email” to “Submit for review”" loading="lazy"></picture><span class="ring" style="left:65.6%;top:28.9%;width:19.8%;height:11.2%" aria-hidden="true"></span></span></button>
+          </div>
+          <div class="jshot" role="tabpanel" id="jp4" aria-labelledby="jt4" hidden>
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-5-calendar-dark.webp 1600w, /commandhq/media/j/journey-5-calendar-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-5-calendar-light.webp" srcset="/commandhq/media/j/journey-5-calendar-light.webp 1600w, /commandhq/media/j/journey-5-calendar-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="Calendar week view: “Write the launch email” planned for Wednesday at 10:00 AM" loading="lazy"></picture><span class="ring" style="left:54.3%;top:61.1%;width:11.4%;height:5.4%" aria-hidden="true"></span></span></button>
+          </div>
+          <div class="jshot" role="tabpanel" id="jp5" aria-labelledby="jt5" hidden>
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-6-timer-dark.webp 1600w, /commandhq/media/j/journey-6-timer-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-6-timer-light.webp" srcset="/commandhq/media/j/journey-6-timer-light.webp 1600w, /commandhq/media/j/journey-6-timer-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="The calendar block recording time, with its stop button" loading="lazy"></picture><span class="ring" style="left:54.3%;top:52.6%;width:11.4%;height:5.4%" aria-hidden="true"></span></span></button>
+          </div>
+          <div class="jshot" role="tabpanel" id="jp6" aria-labelledby="jt6" hidden>
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-7b-time-view-dark.webp 1600w, /commandhq/media/j/journey-7b-time-view-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-7b-time-view-light.webp" srcset="/commandhq/media/j/journey-7b-time-view-light.webp 1600w, /commandhq/media/j/journey-7b-time-view-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="Time view: Planned vs Worked, planned 1 hour, worked 1 hour 20 minutes, 133% of plan" loading="lazy"></picture><span class="ring" style="left:18.6%;top:69.2%;width:79.8%;height:24.4%" aria-hidden="true"></span></span></button>
+          </div>
+          <div class="jshot" role="tabpanel" id="jp7" aria-labelledby="jt7" hidden>
+            <button type="button" class="jopen" aria-label="View this screenshot full size"><span class="jz"><picture><source srcset="/commandhq/media/j/journey-8-forecast-dark.webp 1600w, /commandhq/media/j/journey-8-forecast-dark-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" media="(prefers-color-scheme: dark)"><img src="/commandhq/media/j/journey-8-forecast-light.webp" srcset="/commandhq/media/j/journey-8-forecast-light.webp 1600w, /commandhq/media/j/journey-8-forecast-light-2400.webp 2400w" sizes="(max-width: 1000px) 150vw, 1250px" width="1600" height="1039" alt="Software Release dashboard after: 7 of 16 tasks complete, 44%, 2.2 tasks a week, projected finish Dec 21" loading="lazy"></picture><span class="ring" style="left:18.3%;top:7.6%;width:80.3%;height:28.9%" aria-hidden="true"></span></span></button>
+          </div>
+          <p class="jnote">Real screenshots from the Mac app, in order. Click or tap one to see it full size. The same journey works on iPhone and iPad.</p>
+          <dialog class="jlb" aria-label="Screenshot, full size"><button type="button" class="jlb-x" aria-label="Close">&times;</button><img alt=""></dialog>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="see-it">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">When a date drifts</div>
+        <h2 class="title">Fix the plan before it’s late.</h2>
+        <p class="sub">Replan proposes a new schedule that fits your real free time. Every change is a checkbox: keep what you like, uncheck the rest. Nothing changes until you apply it, and one click undoes it.</p>
+        <ul>
+          <li>Replan My Week around the meetings you already have</li>
+          <li>Replan milestone dates to match your real pace</li>
+          <li>Preview first, apply what you choose, undo anytime</li>
+          <li>Save a plan and compare it with what actually happened</li>
+        </ul>
+        <p class="fine">In the screenshot: a 1-hour block that passed unworked comes off the calendar, and its work returns as two 30-minute sessions in time you really have free.</p>
+      </div>
+      <div class="media-frame still pb-top" data-video="/commandhq/media/mac-plan.replan.mp4"><img src="/commandhq/media/replan-sheet.webp" alt="The Replan My Week sheet: each proposed change listed with a checkbox, nothing written until you apply" loading="lazy" width="1116" height="645" /><button type="button" class="play-btn"><span aria-hidden="true">▶</span> 30-second demo</button></div>
+    </div>
+    <div class="wrap" style="margin-top:2.5rem">
+      <div class="how">
+        <div class="how-head"><div class="eyebrow">How forecasts work</div><h3>Your real pace, tested on 30,000+ milestones from over a million tasks.</h3><p class="how-more"><a href="/commandhq/support/#forecasts">How forecasts are calculated →</a></p></div>
+        <ol class="how-steps">
+          <li><strong>Count the work.</strong> The open tasks due before each milestone.</li>
+          <li><strong>Measure your pace.</strong> How fast you actually finish tasks, and how much new work keeps arriving.</li>
+          <li><strong>Give a range, and how sure it is.</strong> A likely finish window for every milestone, narrow when the deadline is close and wider when it’s far off, with a confidence level that says when there isn’t enough history yet.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" style="background: var(--bg2);">
+    <div class="wrap trust">
+      <div>
+        <div class="eyebrow">Our promises</div>
+        <h2 class="title">Your plans stay yours.</h2>
+        <p class="fine" style="margin-top:1rem">Made by Krida LLC, an independent studio in Golden, Colorado.</p>
+      </div>
+      <ul class="promises">
+        <li><strong>Data Not Collected.</strong>The app collects nothing: no account, no in-app analytics, and no server that receives your data. Projects live in plain files on your devices and, with sync on, in your own iCloud. Using it for work? Turn iCloud Sync off in Settings to keep everything on one device, and check your employer’s rules on where work data may live. <a href="/commandhq/privacy/" class="tap">Privacy policy →</a></li>
+        <li><strong>Your data outlives the app.</strong>If CommandHQ ever stopped, you would keep every project and could read it anywhere.</li>
+        <li><strong>AI only when you ask.</strong>On-device, Ollama on your Mac, or your own key. Settings shows exactly what gets sent.</li>
+        <li><strong>Lifetime means lifetime.</strong>Features are never taken away from Lifetime owners, for as long as we offer CommandHQ. A real person answers support email.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="final" style="background: radial-gradient(ellipse at 50% 100%, rgba(254,143,8,0.14), transparent 60%);">
+    <div class="wrap">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="title">Free to start. Pro when you're ready.</h2>
+      <div class="mini-prices">
+        <a href="/commandhq/pricing/" class="mini"><span>Free</span><strong>$0</strong><em>One project with forecasts, forever</em></a>
+        <a href="/commandhq/pricing/" class="mini"><span>Pro</span><strong>$39.99<small>/year</small></strong><em>or $5.99/month · 14-day free trial</em></a>
+        <a href="/commandhq/pricing/" class="mini hot"><span>Lifetime</span><strong data-offer>$69.99</strong><strong data-after-offer hidden>$99.99</strong><em data-offer>Through Dec 15, then $99.99</em><em data-after-offer hidden>Pay once</em></a>
+      </div>
+      <p class="fine" style="margin:1.2rem auto 0;text-align:center">One purchase covers iPhone, iPad, Mac and Apple Watch. Subscriptions renew until cancelled; full terms on the pricing page. <a href="/commandhq/pricing/" class="more-link">Compare plans →</a></p>
+      <div class="next-links" style="margin-top:2rem"><a href="/commandhq/pricing/" class="btn btn-primary" data-store><span data-store-label>Coming soon</span></a><a href="/commandhq/videos/" class="btn btn-ghost">Watch the videos</a></div>
+    </div>
+  </section>
+
+  <div class="particle-footer" aria-hidden="true">
+    <canvas id="chqParticles"></canvas>
+  </div>
+
+  <footer class="ftr">
+    <div class="ftr-inner">
+      <div class="ftr-top">
+        <div class="ftr-brand">
+          <a href="/commandhq/" class="ftr-logo" aria-label="CommandHQ home"><img src="/commandhq/media/icon-180.png" alt="" width="36" height="36" loading="lazy"><span>Command<b>HQ</b></span></a>
+          <p class="ftr-tag">See which of your deadlines will slip, and fix the plan while there’s still time.</p>
+          <p class="ftr-plat">iPhone · iPad · Mac · Apple Watch</p>
+          <div class="ftr-social" aria-label="CommandHQ on social media">
+          <a href="https://www.instagram.com/commandhqapp/" rel="me noopener" target="_blank" aria-label="CommandHQ on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+          <a href="https://x.com/commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+          <a href="https://www.threads.com/@commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on Threads" title="Threads"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z"/></svg></a>
+          <a href="https://bsky.app/profile/commandhqapp.bsky.social" rel="me noopener" target="_blank" aria-label="CommandHQ on Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg></a>
+          <a href="https://www.youtube.com/@commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://www.facebook.com/commandhqapp" rel="me noopener" target="_blank" aria-label="CommandHQ on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+          </div>
+        </div>
+        <div class="ftr-cols" role="navigation" aria-label="Footer">
+          <div class="ftr-col">
+            <h2>Product</h2>
+            <ul>
+              <li><a href="/commandhq/features/">Features</a></li>
+              <li><a href="/commandhq/videos/">Video guides</a></li>
+              <li><a href="/commandhq/pricing/">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="ftr-col">
+            <h2>Support</h2>
+            <ul>
+              <li><a href="/commandhq/support/">Help &amp; FAQ</a></li>
+              <li><a href="mailto:support_commandhq@kridallc.com">Contact us</a></li>
+              <li><a href="/commandhq/press/">Press kit</a></li>
+            </ul>
+          </div>
+          <div class="ftr-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/commandhq/privacy/">Privacy</a></li>
+              <li><a href="/commandhq/terms/">Terms</a></li>
+              <li><a href="#cookie-settings" data-consent-open>Cookie settings</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ftr-bottom">
+        <p>© 2026 <a href="/">Krida LLC</a> · Golden, Colorado</p>
+        <p class="ftr-tm">Apple, Mac, iPad, iPhone, Apple Watch, iCloud, Siri and Apple Intelligence are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+      </div>
+    </div>
+  <!-- i18n:switcher --><!-- /i18n:switcher -->
+</footer>
+
+
+  <script>
+  /* Device stage: three scenes, each showing the same kind of work on Mac, iPad and iPhone.
+   * Plays through the scenes while on screen (5.5 s each); stops for good once the visitor picks one,
+   * pauses on hover or keyboard focus. No autoplay or parallax with reduced motion. */
+  (function () {
+    var root = document.getElementById('devices'); if (!root) return;
+    var tabs = [].slice.call(root.querySelectorAll('.ds-tab')), stage = root.querySelector('.ds-stage');
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var DWELL = 5500, cur = 0, timer = null, auto = !reduce, paused = false, seen = false, loaded = false;
+    function loadRest() {
+      if (loaded) return; loaded = true;
+      root.querySelectorAll('[data-src]').forEach(function (el) { el.setAttribute('src', el.getAttribute('data-src')); el.removeAttribute('data-src'); });
+      root.querySelectorAll('source[data-srcset]').forEach(function (el) { el.setAttribute('srcset', el.getAttribute('data-srcset')); el.removeAttribute('data-srcset'); });
+    }
+    function show(i, focus) {
+      cur = (i + tabs.length) % tabs.length;
+      tabs.forEach(function (t, j) { var on = j === cur; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; });
+      stage.setAttribute('aria-labelledby', tabs[cur].id);
+      root.querySelectorAll('.ds-shot').forEach(function (p) { var on = +p.dataset.scene === cur; p.classList.toggle('is-on', on); if (on) p.removeAttribute('aria-hidden'); else p.setAttribute('aria-hidden', 'true'); });
+      root.querySelectorAll('[data-cap]').forEach(function (c) { c.hidden = +c.dataset.cap !== cur; });
+      if (focus) tabs[cur].focus();
+      restart();
+    }
+    function restart() {
+      clearTimeout(timer);
+      // Re-trigger the progress bar animation.
+      tabs.forEach(function (t) { var p = t.querySelector('.ds-prog'); p.style.animation = 'none'; void p.offsetWidth; p.style.animation = ''; });
+      if (auto && seen && !paused) timer = setTimeout(next, DWELL);
+    }
+    // Auto-advance only once the next scene's pictures have arrived, so a slow
+    // connection never shows an empty screen.
+    function next() {
+      var n = (cur + 1) % tabs.length;
+      var ready = [].every.call(root.querySelectorAll('.ds-shot[data-scene="' + n + '"] img'), function (im) { return im.complete && im.naturalWidth > 0; });
+      if (ready) show(n); else timer = setTimeout(next, 400);
+    }
+    function stopAuto() { auto = false; root.classList.remove('is-auto'); clearTimeout(timer); }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { stopAuto(); loadRest(); show(i); });
+      t.addEventListener('keydown', function (e) {
+        var k = e.key, n = k === 'ArrowRight' ? cur + 1 : k === 'ArrowLeft' ? cur - 1 : k === 'Home' ? 0 : k === 'End' ? tabs.length - 1 : null;
+        if (n !== null) { e.preventDefault(); stopAuto(); loadRest(); show(n, true); }
+      });
+    });
+    function pause(on) { if (!auto) return; paused = on; root.classList.toggle('is-paused', on); if (on) clearTimeout(timer); else restart(); }
+    stage.addEventListener('mouseenter', function () { pause(true); });
+    stage.addEventListener('mouseleave', function () { pause(false); });
+    root.addEventListener('focusin', function () { pause(true); });
+    root.addEventListener('focusout', function (e) { if (!root.contains(e.relatedTarget)) pause(false); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { loadRest(); seen = true; if (auto) root.classList.add('is-auto'); restart(); }
+          else { seen = false; clearTimeout(timer); }
+        });
+      }, { threshold: 0.35 }).observe(stage);
+    } else { loadRest(); }
+    // A little depth on pointer move (mouse or trackpad only).
+    if (!reduce && window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var devs = [].slice.call(stage.querySelectorAll('.ds-dev')), raf = 0;
+      stage.addEventListener('pointermove', function (e) {
+        var r = stage.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        cancelAnimationFrame(raf); raf = requestAnimationFrame(function () {
+          devs.forEach(function (d) { var k = +d.dataset.depth; d.style.setProperty('--px', (-x * k).toFixed(1) + 'px'); d.style.setProperty('--py', (-y * k * 0.6).toFixed(1) + 'px'); });
+        });
+      });
+      stage.addEventListener('pointerleave', function () { devs.forEach(function (d) { d.style.setProperty('--px', '0px'); d.style.setProperty('--py', '0px'); }); });
+    }
+  })();
+  </script>
+</body>
+</html>

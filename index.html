@@ -1503,11 +1503,11 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num" data-target="6.8" data-decimals="1" data-suffix="K">0</div>
+            <div class="community-stat-num" data-target="6.8" data-decimals="1" data-suffix="K">6.8K</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
-            <div class="community-stat-num" data-target="60" data-decimals="0" data-suffix="">0</div>
+            <div class="community-stat-num" data-target="60" data-decimals="0" data-suffix="">60</div>
             <div class="community-stat-label">Upvotes</div>
           </div>
         </div>
@@ -1521,11 +1521,11 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num" data-target="12" data-decimals="0" data-suffix="K">0</div>
+            <div class="community-stat-num" data-target="12" data-decimals="0" data-suffix="K">12K</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
-            <div class="community-stat-num" data-target="28" data-decimals="0" data-suffix="">0</div>
+            <div class="community-stat-num" data-target="28" data-decimals="0" data-suffix="">28</div>
             <div class="community-stat-label">Upvotes</div>
           </div>
         </div>
@@ -1539,11 +1539,11 @@
         <div class="community-app">CrystalRoom — Launch Post</div>
         <div class="community-stats">
           <div>
-            <div class="community-stat-num" data-target="3.4" data-decimals="1" data-suffix="K">0</div>
+            <div class="community-stat-num" data-target="3.4" data-decimals="1" data-suffix="K">3.4K</div>
             <div class="community-stat-label">Views</div>
           </div>
           <div>
-            <div class="community-stat-num" data-target="17" data-decimals="0" data-suffix="">0</div>
+            <div class="community-stat-num" data-target="17" data-decimals="0" data-suffix="">17</div>
             <div class="community-stat-label">Upvotes</div>
           </div>
         </div>
@@ -1688,15 +1688,15 @@
         <p>Founded by a <strong>computational physicist</strong> with a decade of research spanning Penn State, Sandia National Laboratories, University of Michigan, and Colorado School of Mines — with 14 peer-reviewed publications and 1,200+ citations.</p>
         <div class="stat-row">
           <div class="stat-item">
-            <span class="stat-number" data-target="10" data-suffix="+">0</span>
+            <span class="stat-number" data-target="10" data-suffix="+">10+</span>
             <span class="stat-label">Years Research</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-target="14" data-suffix="">0</span>
+            <span class="stat-number" data-target="14" data-suffix="">14</span>
             <span class="stat-label">Publications</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-target="1200" data-suffix="+">0</span>
+            <span class="stat-number" data-target="1200" data-suffix="+">1200+</span>
             <span class="stat-label">Citations</span>
           </div>
         </div>
@@ -2387,10 +2387,10 @@
         requestAnimationFrame(step);
       }
 
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(animate);
-        return;
-      }
+      if (reduceMotion || !('IntersectionObserver' in window)) return;   // the real numbers are already in the page
+      els.forEach(function (el) {   // count up from 0 when scrolled into view
+        el.textContent = (0).toFixed(parseInt(el.getAttribute('data-decimals') || '0', 10)) + (el.getAttribute('data-suffix') || '');
+      });
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
