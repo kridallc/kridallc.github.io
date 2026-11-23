@@ -1282,6 +1282,13 @@
    "index.html"
   ]
  },
+ "143bc9957b2a": {
+  "en": "It tells you when a project doesn’t have enough history yet. Tested against 30,000+ finished milestones from over a million tasks, drawn from external sources. Built to warn you early, but like any forecast, it’s an estimate, not a guarantee.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
  "16154c36835f": {
   "en": "<span class=\"pc-dot sm\"></span>At Risk",
   "kind": "text",
@@ -1420,13 +1427,6 @@
    "privacy/index.html",
    "terms/index.html",
    "press/index.html"
-  ]
- },
- "31e1f5a10e7b": {
-  "en": "It tells you when a project doesn’t have enough history yet. Tested against 30,000+ finished milestones from public open-source projects. Built to warn you early, but like any forecast, it’s an estimate, not a guarantee.",
-  "kind": "text",
-  "pages": [
-   "index.html"
   ]
  },
  "35083e1ec1c5": {
@@ -4210,13 +4210,6 @@
    "support/index.html"
   ]
  },
- "c210490e5b3c": {
-  "en": "Forecasts are estimates based on the work you actually finish, and they update as you work. We tested them against 30,000+ finished milestones from public open-source projects. They can’t know about scope changes, holidays, or a project you stop working on, so treat them as an early warning, not a guarantee.",
-  "kind": "text",
-  "pages": [
-   "support/index.html"
-  ]
- },
  "c47ae15370cf": {
   "en": "Help",
   "kind": "text",
@@ -4324,6 +4317,13 @@
  },
  "f9cd20006576": {
   "en": "12: English, German, French, Spanish, Italian, Dutch, Polish, Portuguese (Brazil), Japanese, Korean, and Chinese (Simplified and Traditional). CommandHQ follows your device’s language, or you can choose one in Settings.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "fb349a58ee6d": {
+  "en": "Forecasts are estimates based on the work you actually finish, and they update as you work. We tested them against 30,000+ finished milestones from over a million tasks, drawn from external sources. They can’t know about scope changes, holidays, or a project you stop working on, so treat them as an early warning, not a guarantee.",
   "kind": "text",
   "pages": [
    "support/index.html"
