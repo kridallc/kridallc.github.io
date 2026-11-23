@@ -610,6 +610,13 @@
    "features/index.html"
   ]
  },
+ "87a80c69549a": {
+  "en": "Estimate from your recent pace",
+  "kind": "text",
+  "pages": [
+   "features/index.html"
+  ]
+ },
  "88218394e4aa": {
   "en": "Goals above projects",
   "kind": "text",
@@ -1345,6 +1352,13 @@
    "index.html"
   ]
  },
+ "2612f2a248f9": {
+  "en": "<b>The forecast moves</b><span>Mark it done: <strong>38% → 44%</strong> complete, pace 1.9 → 2.2 tasks a week, and the projected finish moves from Dec 30 to Dec 21.<span class=\"fq\">An estimate from your recent pace · not a guarantee.</span></span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
  "26c01e70a337": {
   "en": "Footer",
   "kind": "attr:aria-label",
@@ -1357,6 +1371,13 @@
    "privacy/index.html",
    "terms/index.html",
    "press/index.html"
+  ]
+ },
+ "28701db9ac24": {
+  "en": "CommandHQ — Which of your deadlines are likely to slip?",
+  "kind": "attr:content",
+  "pages": [
+   "index.html"
   ]
  },
  "28fb457a9f24": {
@@ -1387,8 +1408,22 @@
    "index.html"
   ]
  },
- "307c8ccc65c2": {
-  "en": "CommandHQ — Project planner that shows which deadlines will slip",
+ "2c120981c515": {
+  "en": "See which of your deadlines are likely to slip, and fix the plan while there’s still time.",
+  "kind": "text",
+  "pages": [
+   "index.html",
+   "features/index.html",
+   "pricing/index.html",
+   "support/index.html",
+   "videos/index.html",
+   "privacy/index.html",
+   "terms/index.html",
+   "press/index.html"
+  ]
+ },
+ "31e1f5a10e7b": {
+  "en": "It tells you when a project doesn’t have enough history yet. Tested against 30,000+ finished milestones from public open-source projects. Built to warn you early, but like any forecast, it’s an estimate, not a guarantee.",
   "kind": "text",
   "pages": [
    "index.html"
@@ -1507,8 +1542,22 @@
    "press/index.html"
   ]
  },
+ "4bcf4a6905ea": {
+  "en": "Based on the work you actually finish, and updated as you work.",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
  "4de38d65c58e": {
   "en": "1.4 tasks/wk",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
+ "550ae748d878": {
+  "en": "Which of your deadlines <em>are likely to slip?</em>",
   "kind": "text",
   "pages": [
    "index.html"
@@ -1598,19 +1647,19 @@
    "index.html"
   ]
  },
+ "5a60bb2db69d": {
+  "en": "The real Portfolio on a Mac. Enlarged: Event Plan’s next milestone, “Program locked”, is likely about 6 days late, so you can act now.<span class=\"fq\">Forecast from your recent pace · an estimate, not a guarantee.</span>",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
  "5ac4c629a2b2": {
   "en": "Free to start. Pro when you're ready.",
   "kind": "text",
   "pages": [
    "index.html",
    "pricing/index.html"
-  ]
- },
- "5c3dc8fb7a9e": {
-  "en": "The real Portfolio on a Mac. Enlarged: Event Plan’s next milestone, “Program locked”, is likely about 6 days late, so you can act now. The finish date is an estimate, not a promise: each milestone also gets a likely range, which narrows as its deadline gets closer.",
-  "kind": "text",
-  "pages": [
-   "index.html"
   ]
  },
  "5cf54bab0d89": {
@@ -1669,13 +1718,6 @@
    "press/index.html"
   ]
  },
- "70f103b3149a": {
-  "en": "Your real pace, tested on 30,000+ milestones from over a million tasks.",
-  "kind": "text",
-  "pages": [
-   "index.html"
-  ]
- },
  "70f8bb9a8a53": {
   "en": "Home",
   "kind": "text",
@@ -1693,20 +1735,6 @@
  "7122876ade43": {
   "en": "Time view: Planned vs Worked, planned 1 hour, worked 1 hour 20 minutes, 133% of plan",
   "kind": "attr:alt",
-  "pages": [
-   "index.html"
-  ]
- },
- "717968b2c776": {
-  "en": "<strong>Count the work.</strong> The open tasks due before each milestone.",
-  "kind": "text",
-  "pages": [
-   "index.html"
-  ]
- },
- "719417ff5f47": {
-  "en": "Which of your deadlines <em>will slip?</em>",
-  "kind": "text",
   "pages": [
    "index.html"
   ]
@@ -1809,6 +1837,13 @@
    "press/index.html"
   ]
  },
+ "84272279bd41": {
+  "en": "CommandHQ — Project planner that shows which deadlines are likely to slip",
+  "kind": "text",
+  "pages": [
+   "index.html"
+  ]
+ },
  "8431395b5208": {
   "en": "CommandHQ on X",
   "kind": "attr:aria-label",
@@ -1837,13 +1872,6 @@
    "press/index.html"
   ]
  },
- "887df5511972": {
-  "en": "<b>The forecast moves</b><span>Mark it done: <strong>38% → 44%</strong> complete, pace 1.9 → 2.2 tasks a week, and the projected finish moves from Dec 30 to Dec 21.</span>",
-  "kind": "text",
-  "pages": [
-   "index.html"
-  ]
- },
  "8a3a91d4bc1c": {
   "en": "The whole app on iPhone, iPhone Duo, iPad and Mac, not a cut-down companion. On Apple Watch, today’s tasks, your timer and a warning when a milestone this week is likely to be late. Turn on iCloud Sync and the same projects stay in step everywhere.",
   "kind": "text",
@@ -1867,13 +1895,6 @@
  },
  "8b2466d0080a": {
   "en": "<span>Pro</span><strong>$39.99<small>/year</small></strong><em>or $5.99/month · 14-day free trial</em>",
-  "kind": "text",
-  "pages": [
-   "index.html"
-  ]
- },
- "8e79fbbad693": {
-  "en": "How forecasts are calculated →",
   "kind": "text",
   "pages": [
    "index.html"
@@ -1919,20 +1940,6 @@
   "kind": "text",
   "pages": [
    "index.html"
-  ]
- },
- "9e54d6be8fec": {
-  "en": "See which of your deadlines will slip, and fix the plan while there’s still time.",
-  "kind": "text",
-  "pages": [
-   "index.html",
-   "features/index.html",
-   "pricing/index.html",
-   "support/index.html",
-   "videos/index.html",
-   "privacy/index.html",
-   "terms/index.html",
-   "press/index.html"
   ]
  },
  "9fa0a32ca4ae": {
@@ -2008,13 +2015,6 @@
  "ad1c5cee6c1e": {
   "en": "<span>Free</span><strong>$0</strong><em>One project with forecasts, forever</em>",
   "kind": "text",
-  "pages": [
-   "index.html"
-  ]
- },
- "b031473b7ef5": {
-  "en": "CommandHQ — Which of your deadlines will slip?",
-  "kind": "attr:content",
   "pages": [
    "index.html"
   ]
@@ -2195,8 +2195,8 @@
    "index.html"
   ]
  },
- "d44e29ef4d8f": {
-  "en": "<strong>Measure your pace.</strong> How fast you actually finish tasks, and how much new work keeps arriving.",
+ "d49994fa25fe": {
+  "en": "How accurate are forecasts? →",
   "kind": "text",
   "pages": [
    "index.html"
@@ -2214,13 +2214,6 @@
    "privacy/index.html",
    "terms/index.html",
    "press/index.html"
-  ]
- },
- "d7c8c4255813": {
-  "en": "<strong>Give a range, and how sure it is.</strong> A likely finish window for every milestone, narrow when the deadline is close and wider when it’s far off, with a confidence level that says when there isn’t enough history yet.",
-  "kind": "text",
-  "pages": [
-   "index.html"
   ]
  },
  "daf16c03e6c3": {
@@ -3754,6 +3747,13 @@
    "support/index.html"
   ]
  },
+ "10e09f1f7252": {
+  "en": "Forecasts are based on the work you actually finish, and they update as you work. They’re calculated on your device, and nothing leaves it. A forecast is an estimate, not a guarantee.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
  "1233efb584c1": {
   "en": "Why can’t I see my meetings?",
   "kind": "text",
@@ -3978,13 +3978,6 @@
    "support/index.html"
   ]
  },
- "671f1eadf614": {
-  "en": "We tested the forecasting on more than 30,000 real-world milestones from a dataset of over a million tasks, drawn from external sources. Every result was checked on projects the forecast had never seen, across more than a hundred repeated trials with different sample sizes, and across solo, small-team and large-team projects, from short deadlines to long-running milestones.",
-  "kind": "text",
-  "pages": [
-   "support/index.html"
-  ]
- },
  "69dae401504b": {
   "en": "▶&nbsp; Browse the video guides",
   "kind": "text",
@@ -4065,6 +4058,13 @@
  },
  "8891a46b3c47": {
   "en": "Choose “Explore with the guided tour” when you first open CommandHQ, or later choose Restore Sample Project (in the menu bar on the Mac, in Settings on iPhone and iPad, or from ⌘K). The sample project has realistic data in every view. Many features in the in-app guide have a short “Watch” video, in English.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
+ "8c7da1991468": {
+  "en": "How accurate are forecasts?",
   "kind": "text",
   "pages": [
    "support/index.html"
@@ -4210,6 +4210,13 @@
    "support/index.html"
   ]
  },
+ "c210490e5b3c": {
+  "en": "Forecasts are estimates based on the work you actually finish, and they update as you work. We tested them against 30,000+ finished milestones from public open-source projects. They can’t know about scope changes, holidays, or a project you stop working on, so treat them as an early warning, not a guarantee.",
+  "kind": "text",
+  "pages": [
+   "support/index.html"
+  ]
+ },
  "c47ae15370cf": {
   "en": "Help",
   "kind": "text",
@@ -4282,13 +4289,6 @@
  },
  "e4fdeb82be18": {
   "en": "What if CommandHQ ever stops?",
-  "kind": "text",
-  "pages": [
-   "support/index.html"
-  ]
- },
- "e73588eef136": {
-  "en": "CommandHQ looks at how fast you actually finish tasks, how much new work keeps arriving, and what’s due before each milestone. From that, every milestone gets a likely finish date and a range: narrow when the deadline is close, wider when it’s far off. Confidence starts low for a new project and grows as you work. All of it is calculated on your device, and nothing leaves it.",
   "kind": "text",
   "pages": [
    "support/index.html"

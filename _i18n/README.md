@@ -51,4 +51,4 @@ Put `data-no-i18n` on any element that must never be translated (a code sample, 
 - **FAQ structured data:** the JSON-LD for search results stays in English on translated pages. Regenerate it from the translated FAQ when Support is translated.
 - **Legal pages:** Terms and Privacy should carry a "convenience translation; the English version governs" note.
 - **Screenshots:** translated pages use the English screenshots until localized ones exist. Xcode's lineup tests already run in every language.
-- **Wording that must be rewritten, not translated:** the headline "Which of your deadlines will slip?" needs a native copywriter for each market.
+- **Wording that must be rewritten, not translated:** the headline "Which of your deadlines are likely to slip?" needs a native copywriter for each market.
