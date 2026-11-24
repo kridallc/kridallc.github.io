@@ -5,8 +5,8 @@
  * The launch offer banner and prices hide themselves after offerEnds.
  */
 window.CHQ_STORE = {
-  live: false,
-  url: 'https://apps.apple.com/app/idXXXXXXXXXX',
+  live: true,   // switched on locally 24 Nov 2026 (App Review approved); push only after 7.0 is released
+  url: 'https://apps.apple.com/app/id6783602363',  // real link (approved 24 Nov 2026); works once 7.0 is released
   offerEnds: '2026-12-16T08:00:00Z',  // end of Dec 15, US Pacific
   // App Store Connect › Apps › CommandHQ › App Analytics › Campaigns: the "pt" provider token.
   // With it set, every store button carries a campaign (ct) naming its page and section,
